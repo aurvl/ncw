@@ -1,0 +1,20 @@
+# Python and notebook runtime
+.venv/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Generated artefacts (raw sources are versioned, see data_source/metadata/)
+data_source/interim/*
+!data_source/interim/README.md
+output/*
+!output/README.md
+
+# Local AI project memory
+.ai-memory/
+
+# Large generated intermediates
+data_source/summary/rasters/
+data_source/summary/draws/
+output/draws/
+check_checksums.csv
