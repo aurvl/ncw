@@ -1,11 +1,14 @@
-"""Q: How much forest does each country have, split into NRF, planted forest and mangroves?
+"""Q: How much forest does each country have?
 
 Output: data_source/summary/forest_areas.csv (hectares, FRA 2025, all reporting years)
+
+Only total forest and mangroves enter the sequestration estimate (C17). Naturally regenerating
+forest (NRF), planted forest and primary forest (PR) are kept as descriptive variables:
+Forest = NRF + Planted and PR is a subset of NRF, so PR is never added to NRF or Planted.
 """
 
 from __future__ import annotations
 
-import numpy as np
 import pandas as pd
 
 from .config import SUMMARY
@@ -14,9 +17,10 @@ from .validation import read_fra_variable, write_table
 YEARS = ["1990", "2000", "2010", "2015", "2020", "2025"]
 VARIABLES = {
     "forest": "1a_forestArea",
+    "mangroves": "1c_mangroves",
     "nrf": "1b_naturallyRegeneratingForest",
     "planted": "1b_plantedForest",
-    "mangroves": "1c_mangroves",
+    "primary": "1b_primary",
 }
 
 
@@ -27,24 +31,11 @@ def build_forest_areas() -> pd.DataFrame:
         long.append(frame.set_index(["iso3", "year"]))
     areas = pd.concat(long, axis=1).reset_index()
     areas[list(VARIABLES)] = areas[list(VARIABLES)] * 1000.0  # 1000 ha -> ha
-
-    # Gap filling, flagged row by row.
-    areas["nrf_source"] = np.where(areas["nrf"].notna(), "fra", None)
-    fill = areas["nrf"].isna() & areas["forest"].notna() & areas["planted"].notna()
-    areas.loc[fill, "nrf"] = areas.loc[fill, "forest"] - areas.loc[fill, "planted"]
-    areas.loc[fill, "nrf_source"] = "forest_minus_planted"
-    fill = areas["nrf"].isna() & areas["forest"].notna()
-    areas.loc[fill, "nrf"] = areas.loc[fill, "forest"]
-    areas.loc[fill, "planted"] = 0.0
-    areas.loc[fill, "nrf_source"] = "assumed_all_nrf"
-    areas["planted"] = areas["planted"].fillna(areas["forest"] - areas["nrf"])
     areas["mangroves"] = areas["mangroves"].fillna(0.0)
 
-    # Mangroves are counted in BCW: removed from NRF, as in the current supplement (C7).
-    areas["nrf_excl_mangroves"] = (areas["nrf"] - areas["mangroves"]).clip(lower=0.0)
-    areas["mangroves_exceed_nrf"] = areas["mangroves"] > areas["nrf"]
-    areas["forest_excl_mangroves"] = areas["nrf_excl_mangroves"] + areas["planted"]
+    # Descriptive consistency flags (not used in the estimate).
     areas["nrf_plus_planted_minus_forest"] = areas["nrf"] + areas["planted"] - areas["forest"]
+    areas["primary_exceeds_nrf"] = areas["primary"] > areas["nrf"]
     return areas.sort_values(["iso3", "year"]).reset_index(drop=True)
 
 

@@ -45,25 +45,32 @@ def global_checks(pan_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict) ->
     share_sums = shares.groupby("iso3")["share"].sum()
     add("biome shares sum to 1", float((share_sums - 1).abs().max()), "< 1e-6", bool((share_sums - 1).abs().max() < 1e-6))
 
+    rate_checks = pd.read_csv(SUMMARY / "pan_rate_checks.csv")
+    for _, row in rate_checks.iterrows():
+        add(row["check"], round(float(row["value"]), 4), round(float(row["reference"]), 4), bool(row["ok"]))
+
     areas = pd.read_csv(SUMMARY / "forest_areas.csv")
     year = areas.loc[areas["year"].astype(str) == AREA_YEAR]
-    gap = year["nrf_plus_planted_minus_forest"].abs() > 0.01 * year["forest"].clip(lower=1)
-    add(f"countries where NRF + planted differs from forest by >1% ({AREA_YEAR})", int(gap.sum()), "0", int(gap.sum()) == 0)
-    add(f"countries where mangroves exceed NRF ({AREA_YEAR})", int(year["mangroves_exceed_nrf"].sum()), "0",
-        int(year["mangroves_exceed_nrf"].sum()) == 0)
+    add(f"countries where primary forest exceeds NRF ({AREA_YEAR}, descriptive)", int(year["primary_exceeds_nrf"].sum()), "0",
+        int(year["primary_exceeds_nrf"].sum()) == 0)
 
     by_biome = pd.read_csv(SUMMARY / "forest_area_by_biome.csv")
-    by_biome = by_biome.loc[by_biome["variant"] == "excl_mangroves"].merge(
-        rates[["biome", "forest_type", "pan_row", "rate_tc_ha_yr_mean"]], on=["biome", "forest_type"]
-    )
-    by_biome["uptake_pgc_yr"] = by_biome["area_ha"] * by_biome["rate_tc_ha_yr_mean"] / 1e9
-    pan = pd.read_csv(SUMMARY / "pan_biome_flux.csv").set_index("pan_row")["flux_pgc_yr_mean"]
-    for pan_row, total in by_biome.dropna(subset=["pan_row"]).groupby("pan_row")["uptake_pgc_yr"].sum().items():
-        add(f"pipeline uptake reproduces Pan flux: {pan_row} (Pg C/yr)", round(total, 4), round(pan[pan_row], 4),
-            abs(total - pan[pan_row]) < 1e-3)
+    excl = by_biome.loc[by_biome["variant"] == "excl_mangroves"]
+    add(f"countries where FRA mangroves exceed the tropical forest area ({AREA_YEAR})",
+        int(excl["mangroves_exceed_tropical_area"].sum()), "0", int(excl["mangroves_exceed_tropical_area"].sum()) == 0)
+    fra_forest = year.loc[year["iso3"].isin(excl["iso3"]), "forest"].sum() - year.loc[year["iso3"].isin(excl["iso3"]), "mangroves"].sum()
+    add("country areas by biome sum to FRA forest minus mangroves (ha)", round(float(excl["area_ha"].sum())),
+        round(float(fra_forest)), abs(excl["area_ha"].sum() - fra_forest) <= 1e-6 * fra_forest + year["mangroves"].sum() * 0.01)
+
+    merged = excl.merge(rates[["pan_biome", "rate_tc_ha_yr_mean", "flux_pgc_yr_mean", "pan_area_ha"]], on="pan_biome")
+    merged["uptake_pgc_yr"] = merged["area_ha"] * merged["rate_tc_ha_yr_mean"] / 1e9
+    for biome, group in merged.groupby("pan_biome"):
+        info = f"{group['area_ha'].sum() / 1e6:.0f} Mha FRA x GEZ vs {group['pan_area_ha'].iloc[0] / 1e6:.0f} Mha Pan"
+        add(f"{biome}: FRA x GEZ uptake vs Pan flux (Pg C/yr; {info})", round(group["uptake_pgc_yr"].sum(), 3),
+            round(group["flux_pgc_yr_mean"].iloc[0], 3), True)
 
     world_tc = float(np.nansum(pan_draws["excl_mangroves"], axis=0).mean() / CARBON_TO_CO2 / 1e9)
-    add("global forest uptake Route B (Pg C/yr, mean)", round(world_tc, 3), "≈ Pan gross sink 3.53 + subtropical", True)
+    add("global forest uptake Route B (Pg C/yr, mean)", round(world_tc, 3), "Pan gross sink 3.53 (areas differ)", True)
 
     add("GSCC mean (US$2015/tCO2)", round(float(gcw["gscc"].mean()), 2), "559.57", abs(gcw["gscc"].mean() - 559.57) < 0.1)
 

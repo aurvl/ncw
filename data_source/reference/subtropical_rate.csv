@@ -1,2 +1,0 @@
-biome,rate_tc_ha_yr_mean,rate_tc_ha_yr_sd,derivation,sources,source_document,status
-subtropical,0.95,0.13,"Mean of 0.90 (Yan et al. 2023) and 1.00 (Joshi et al. 2021); sd interpolated between tropical (0.195) and temperate (0.070) and widened","Yan et al. 2023; Joshi et al. 2021; Cook-Patton et al. 2020; Griscom et al. 2017","Supplementary materials (BNC2), Methods, forest sequestration rates","taken from coauthors' supplement; original references not yet verified (MYCHOICES C3)"

@@ -1,5 +1,3 @@
-# Raw data
+# Raw sources
 
-Place unmodified downloads here. Do not edit or overwrite a raw source after it is registered.
-
-Each raw file must have an entry in `../metadata/source_registry.csv` recording its source URL, version, access date, licence, intended variables and checksum.
+Files are stored exactly as downloaded and must never be edited. Each folder is described, with its licence and citation, in `docs/DATA_SOURCES.md` and registered in `data_source/metadata/source_registry.csv`. After adding or replacing a file, run `python scripts/checksum_raw_sources.py`.

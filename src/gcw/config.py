@@ -27,7 +27,7 @@ BOUNDARIES_SHP = RAW / "boundaries" / "EEZ_land_union_v4_202410.shp"
 FOREST_MASK_TIF = RAW / "forest_mask" / "JRC_GFC2020_V4_overview_x256.tif"
 BCW_COUNTRY_CSV = RAW / "bcw" / "output" / "country_level_bcw.csv"
 BCW_DRAWS_NPZ = RAW / "bcw" / "output" / "draws.npz"
-SUBTROPICAL_RATE_CSV = REFERENCE / "subtropical_rate.csv"
+PAN_BIOME_AREAS_CSV = REFERENCE / "pan_biome_areas.csv"
 TERRITORY_CROSSWALK_CSV = REFERENCE / "territory_crosswalk.csv"
 
 # --- Accounting units (C12) --------------------------------------------------
@@ -43,25 +43,18 @@ CARBON_TO_CO2 = 44.0 / 12.0
 # B and the GSCC draws are taken from BCW so that GCW and BCW share the same worlds.
 SEED = 20260916
 
-# --- Route B: Pan area x rate (C1, C3, C4, C9) ------------------------------
+# --- Route B: harmonised biomes x Pan rates (C1, C4, C17) ----------------------
 PAN_PERIOD = "2010–2019"  # decade of Pan et al. (2024) Table 1 (C4)
-AREA_YEAR = "2025"  # FRA 2025 reporting year used for areas, as in the current supplement
-BIOMES = ["tropical", "subtropical", "temperate", "boreal"]
-FOREST_TYPES = ["nrf", "planted"]
-# Pan Table 1 row feeding each (biome, forest type); subtropical comes from SUBTROPICAL_RATE_CSV (C3).
-# Tropical NRF -> intact and planted -> regrowth reproduces the current supplement (C9, open).
-PAN_ROW_FOR = {
-    ("tropical", "nrf"): "Tropical intact forest",
-    ("tropical", "planted"): "Tropical regrowth forest",
-    ("temperate", "nrf"): "Temperate forest",
-    ("temperate", "planted"): "Temperate forest",
-    ("boreal", "nrf"): "Boreal forest",
-    ("boreal", "planted"): "Boreal forest",
-}
-# Pan rates apply to a whole biome except in the tropics, where NRF and planted areas are separated.
-BIOMES_WITH_TYPE_SPLIT = {"tropical"}
+AREA_YEAR = "2025"  # FRA 2025 reporting year used for country forest areas
+# Pan biome -> Pan Table 1 row giving its flux (the tropical row aggregates intact and regrowth, C17).
+PAN_BIOME_ROWS = {"tropical": "All tropical forests", "temperate": "Temperate forest", "boreal": "Boreal forest"}
+# Pan biome -> GEZ biomes it contains: Pan includes subtropical forests in its tropical set (C17).
+PAN_BIOME_MEMBERS = {"tropical": ["tropical", "subtropical"], "temperate": ["temperate"], "boreal": ["boreal"]}
+# Pan areas used as rate denominators: mean of the 2010 and 2020 areas of the flux decade (C17).
+PAN_AREA_YEARS = ["area_2010_mha", "area_2020_mha"]
 
 # --- Biome shares (C2) -------------------------------------------------------
+BIOMES = ["tropical", "subtropical", "temperate", "boreal"]
 # First digit of the FAO GEZ 2010 code -> biome. Polar forest pixels are assigned to boreal.
 GEZ_DOMAIN_TO_BIOME = {1: "tropical", 2: "subtropical", 3: "temperate", 4: "boreal", 5: "boreal"}
 RASTER_STRIPE_ROWS = 400  # rows processed at once; keeps memory low
