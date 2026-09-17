@@ -73,8 +73,8 @@ def burn_vector(path: str, value_of, fields: list[str], out_path, template, dtyp
     info = pyogrio.read_info(path)
     with rasterio.open(out_path, "r+") as out:
         for index in range(info["features"]):
-            _, _, geometry, values = pyogrio.raw.read(path, columns=fields, skip_features=index, max_features=1)
-            value = value_of(dict(zip(fields, (v[0] for v in values))))
+            meta, _, geometry, values = pyogrio.raw.read(path, columns=fields, skip_features=index, max_features=1)
+            value = value_of(dict(zip(meta["fields"], (v[0] for v in values))))  # fields come back in file order
             if not value or geometry[0] is None:
                 continue
             for exterior, holes in _wkb_polygons(geometry[0]):
@@ -99,8 +99,8 @@ def burn_vector(path: str, value_of, fields: list[str], out_path, template, dtyp
 
 def compute_gez_area_by_country() -> pd.DataFrame:
     fields = ["POL_TYPE", "ISO_TER1", "ISO_SOV1"]
-    _, _, _, values = pyogrio.raw.read(BOUNDARIES_SHP, columns=fields, read_geometry=False)
-    records = [dict(zip(fields, row)) for row in zip(*values)]
+    meta, _, _, values = pyogrio.raw.read(BOUNDARIES_SHP, columns=fields, read_geometry=False)
+    records = [dict(zip(meta["fields"], row)) for row in zip(*values)]
     codes = sorted({code for record in records if (code := _country_code(record))})
     index_of = {code: i + 1 for i, code in enumerate(codes)}
 
@@ -140,6 +140,8 @@ def compute_gez_area_by_country() -> pd.DataFrame:
             key = i * 100 + gez_code
             if land_km2[key] > 0:
                 rows.append({"iso3": code, "gez_code": gez_code, "forest_km2": forest_km2[key], "land_km2": land_km2[key]})
+    if not rows:
+        raise RuntimeError("No country x GEZ overlap found: check the boundary and GEZ rasters.")
     table = pd.DataFrame(rows)
     table["biome"] = table["gez_code"].floordiv(10).map(GEZ_DOMAIN_TO_BIOME)  # water (90) -> NaN
     return table
