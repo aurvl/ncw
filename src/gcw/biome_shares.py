@@ -17,7 +17,7 @@ import pandas as pd
 import pyogrio.raw
 import rasterio
 from rasterio.features import rasterize
-from rasterio.windows import Window, from_bounds
+from rasterio.windows import Window
 from shapely.geometry import Polygon
 
 from .config import (
@@ -80,10 +80,14 @@ def burn_vector(path: str, value_of, fields: list[str], out_path, template, dtyp
             for exterior, holes in _wkb_polygons(geometry[0]):
                 west, south = exterior.min(axis=0)
                 east, north = exterior.max(axis=0)
-                window = from_bounds(west, south, east, north, out.transform).round_offsets("floor").round_lengths("ceil")
-                window = window.intersection(Window(0, 0, out.width, out.height))
-                if window.width < 1 or window.height < 1:
+                # Integer pixel window covering the part, computed explicitly (Window rounding APIs differ across rasterio versions).
+                col0 = max(int(np.floor((west - out.transform.c) / out.transform.a)), 0)
+                row0 = max(int(np.floor((north - out.transform.f) / out.transform.e)), 0)
+                col1 = min(int(np.ceil((east - out.transform.c) / out.transform.a)), out.width)
+                row1 = min(int(np.ceil((south - out.transform.f) / out.transform.e)), out.height)
+                if col1 - col0 < 1 or row1 - row0 < 1:
                     continue
+                window = Window(col0, row0, col1 - col0, row1 - row0)
                 burned = rasterize([(Polygon(exterior, holes), 1)], (int(window.height), int(window.width)),
                                    transform=out.window_transform(window), fill=0, dtype="uint8")
                 if not burned.any():
