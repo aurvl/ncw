@@ -36,6 +36,11 @@ UNIT_NAME_OVERRIDES = {"CHN": "China (incl. Taiwan, Hong Kong SAR and Macao SAR)
 # Boundary polygons whose land belongs to another FRA unit when computing biome shares.
 RASTER_CODE_ALIASES = {"TWN": "CHN", "HKG": "CHN", "MAC": "CHN"}
 
+# --- BCW mangrove gap-fill (C18) -----------------------------------------------
+# Row of `bce_rates_draws` in the BCW draws file (order: saltmarshes, seagrasses, mangroves), in gC/m2/yr = tC/km2/yr.
+BCW_MANGROVE_RATE_ROW = 2
+GAPFILL_AREA_YEAR = "2025"
+
 # --- Physical constants ----------------------------------------------------
 CARBON_TO_CO2 = 44.0 / 12.0
 

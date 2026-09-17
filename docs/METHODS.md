@@ -87,7 +87,9 @@ $$
 GCW_i^{(k)} = U_i^{(k)}\, G_k, \qquad NCW_i^{(k)} = GCW_i^{(k)} + BCW_i^{(k)}
 $$
 
-BCW draw rows are re-aligned to the published BCW table (matching mean and Monte Carlo standard error). An alternative NCW keeps mangroves in the forest area and subtracts the value of BCW mangrove uptake (C7).
+BCW draw rows are re-aligned to the published BCW table (matching mean and Monte Carlo standard error).
+
+**Mangrove gap-fill (C18).** Units with FRA mangroves but no mangroves in BCW (Indonesia, Cuba, Senegal and four very small units) receive a BCW mangrove component estimated with the BCW framework and the same draws: $BCW^{	ext{mang}}_{i,(k)} = M_i^{	ext{km}^2} 	imes r_{(k)} 	imes rac{44}{12} 	imes G_k$, where $r_{(k)}$ are the BCW mangrove rate draws (lognormal, tC/km²/yr) and $M_i$ the FRA 2025 mangrove area. Without it, these mangroves would be removed from GCW and counted nowhere. An alternative NCW keeps mangroves in the forest area and subtracts the value of BCW mangrove uptake (C7).
 
 ## 10. Aggregation and reporting
 

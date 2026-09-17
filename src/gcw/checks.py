@@ -78,9 +78,12 @@ def global_checks(pan_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict) ->
     add("BCW draw rows not aligned", int((alignment == "unmatched").sum()), "0", int((alignment == "unmatched").sum()) == 0)
 
     bcw_units_world = np.nansum(ncw["bcw_usd2015_yr"], axis=0)
-    bcw_rows_world = np.nansum(ncw["bcw_published_rows_usd2015_yr"], axis=0)
+    bcw_rows_world = np.nansum(ncw["bcw_published_rows_usd2015_yr"], axis=0) + np.nansum(ncw["bcw_mangrove_gapfill_usd2015_yr"], axis=0)
     gap = float(np.max(np.abs(bcw_units_world - bcw_rows_world) / np.abs(bcw_rows_world)))
-    add("world BCW unchanged by regrouping territories (draw by draw)", gap, "< 1e-5", gap < 1e-5)
+    add("world BCW = published BCW rows + mangrove gap-fill (draw by draw, C12, C18)", gap, "< 1e-5", gap < 1e-5)
+    gapfill = pd.read_csv(SUMMARY / "bcw_mangrove_gapfill.csv")
+    add("units with FRA mangroves but no BCW mangroves, gap-filled (C18)",
+        f"{len(gapfill)} units, {gapfill['fra_mangroves_km2'].sum():,.0f} km2", "documented", True)
 
     mapping = pd.read_csv(SUMMARY / "bcw_territory_mapping.csv")
     add("BCW rows mapped to exactly one unit", int(mapping["bcw_code"].duplicated().sum()), "0",

@@ -36,16 +36,17 @@ def global_by_ecosystem(pan: dict, faostat: pd.DataFrame, gcw: dict, ncw: dict) 
         **coastal,
         "Open ocean biological carbon pump": np.full(gscc.shape, bcp_tco2),
     }
+    flows["Mangroves"] = flows["Mangroves"] + np.nansum(ncw["bcw_mangrove_gapfill_tco2_yr"], axis=0)
     notes = {
         "Open ocean biological carbon pump": "BCW point estimate, no physical uncertainty",
-        "Mangroves": "BCW coastal draws (before BCW territory corrections)",
+        "Mangroves": "BCW coastal draws + FRA-area gap-fill for units without BCW mangroves (C18)",
     }
     rows = []
     for label, tco2 in flows.items():
         rows.append(_row(label, tco2, "tCO2/yr", notes.get(label, "")))
         rows.append(_row(label, tco2 * gscc, "US$2015/yr", notes.get(label, "")))
     rows.append(_row("GCW (Route B)", np.nansum(ncw["gcw_usd2015_yr"], axis=0), "US$2015/yr"))
-    rows.append(_row("BCW (published draws)", np.nansum(ncw["bcw_usd2015_yr"], axis=0), "US$2015/yr"))
+    rows.append(_row("BCW (published + mangrove gap-fill, C18)", np.nansum(ncw["bcw_usd2015_yr"], axis=0), "US$2015/yr"))
     rows.append(_row("NCW = GCW + BCW", np.nansum(ncw["ncw_usd2015_yr"], axis=0), "US$2015/yr"))
     faostat_tco2 = faostat["net_uptake_tco2_yr"].sum()
     rows.append(_row("Forests net flux (Route A, FAOSTAT)", np.full(gscc.shape, faostat_tco2), "tCO2/yr", "complementary analysis"))
