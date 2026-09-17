@@ -21,7 +21,8 @@ from rasterio.windows import Window
 from shapely.geometry import Polygon
 
 from .config import (
-    BIOMES, BOUNDARIES_SHP, FOREST_MASK_TIF, GEZ_DOMAIN_TO_BIOME, GEZ_SHP, RASTER_STRIPE_ROWS, SUMMARY,
+    BIOMES, BOUNDARIES_SHP, FOREST_MASK_TIF, GEZ_DOMAIN_TO_BIOME, GEZ_SHP, RASTER_CODE_ALIASES, RASTER_STRIPE_ROWS,
+    SUMMARY,
 )
 from .validation import read_fra_variable, write_table
 
@@ -151,7 +152,8 @@ def _country_code(properties: dict) -> str | None:
     """Sovereign-level ISO3 of a land polygon; disputed and joint areas are skipped."""
     if properties["POL_TYPE"] not in COUNTRY_POLYGON_TYPES:
         return None
-    return properties["ISO_TER1"] or properties["ISO_SOV1"]
+    code = properties["ISO_TER1"] or properties["ISO_SOV1"]
+    return RASTER_CODE_ALIASES.get(code, code)
 
 
 def shares_from_gez(gez_area: pd.DataFrame) -> pd.DataFrame:

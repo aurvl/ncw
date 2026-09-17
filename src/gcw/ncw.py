@@ -1,6 +1,7 @@
 """Q: What is the Natural Carbon Wealth of each territory (forest + ocean)?
 
 NCW_i = GCW_i (mangroves excluded from forest areas) + BCW_i, summed draw by draw (C7, C8).
+Units are the GCW (FRA) units: BCW rows are first summed draw by draw into their unit (C12).
 Alternative kept for C7: GCW including mangroves + BCW - value of BCW mangrove uptake.
 
 Outputs: output/country_level_ncw.csv, output/draws/ncw_draws.npz,
@@ -12,7 +13,8 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .config import BCW_COUNTRY_CSV, BCW_DRAWS_NPZ, CARBON_TO_CO2, OUTPUT, SUMMARY
+from .config import BCW_DRAWS_NPZ, CARBON_TO_CO2, OUTPUT, SUMMARY
+from .territories import bcw_mapping, read_bcw_table
 from .validation import summarise_draws, write_table
 
 
@@ -45,17 +47,33 @@ def align_bcw_draws(bcw: pd.DataFrame) -> tuple[np.ndarray, pd.DataFrame]:
         used.add(candidates[0])
         aligned[position] = draws[candidates[0]]
         status.append("matched" if len(candidates) == 1 else "matched_first_of_identical")
-    report = pd.DataFrame({"iso3": bcw["ISO"], "bcw_name": bcw["country_name"], "alignment": status})
+    report = pd.DataFrame({"bcw_code": bcw["bcw_code"], "bcw_name": bcw["country_name"], "alignment": status})
     return aligned, report
 
 
+def aggregate_bcw_to_units(bcw: pd.DataFrame, draws: np.ndarray) -> tuple[list[str], np.ndarray, np.ndarray]:
+    """Sum BCW draws and mangrove uptake of the rows mapped to each unit (NaN when a unit has no value)."""
+    mapping = bcw_mapping(bcw).set_index("bcw_code")["unit_code"]
+    unit_of_row = bcw["bcw_code"].map(mapping).to_numpy()
+    units = sorted(set(unit_of_row))
+    unit_draws = np.full((len(units), draws.shape[1]), np.nan, dtype=np.float32)
+    mangroves = np.zeros(len(units), dtype=np.float64)
+    for position, unit in enumerate(units):
+        rows = unit_of_row == unit
+        block = draws[rows]
+        if not np.isnan(block).all():
+            unit_draws[position] = np.nansum(block, axis=0)
+        mangroves[position] = bcw.loc[rows, "uptake_mang_mean"].fillna(0.0).sum()
+    return units, unit_draws, mangroves
+
+
 def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame, dict, pd.DataFrame]:
-    bcw = pd.read_csv(BCW_COUNTRY_CSV)
-    bcw = bcw.loc[bcw["ISO"].notna()].reset_index(drop=True)
-    bcw_draws, alignment = align_bcw_draws(bcw)
+    bcw = read_bcw_table()
+    bcw_row_draws, alignment = align_bcw_draws(bcw)
+    bcw_units, bcw_unit_draws, mangrove_tc = aggregate_bcw_to_units(bcw, bcw_row_draws)
     gscc = gcw_draws["gscc"][None, :]
 
-    iso = sorted(set(bcw["ISO"]) | set(gcw_draws["iso3"]))
+    iso = sorted(set(bcw_units) | set(gcw_draws["iso3"]))
     position = {code: i for i, code in enumerate(iso)}
     n_draws = gscc.shape[1]
 
@@ -66,9 +84,8 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
 
     gcw = place(gcw_draws["iso3"], gcw_draws["gcw_usd2015_yr"])
     gcw_incl = place(gcw_draws["iso3"], gcw_draws["gcw_incl_mangroves_usd2015_yr"])
-    bcw_full = place(bcw["ISO"], bcw_draws)
-    mangrove_tco2 = bcw["uptake_mang_mean"].fillna(0.0).to_numpy(dtype=np.float32) * CARBON_TO_CO2
-    mangrove_value = place(bcw["ISO"], mangrove_tco2[:, None] * gscc)
+    bcw_full = place(bcw_units, bcw_unit_draws)
+    mangrove_value = place(bcw_units, (mangrove_tc * CARBON_TO_CO2).astype(np.float32)[:, None] * gscc)
 
     both_missing = np.isnan(gcw) & np.isnan(bcw_full)
     ncw = np.where(both_missing, np.nan, np.nan_to_num(gcw) + np.nan_to_num(bcw_full))
@@ -88,7 +105,7 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
     )
     table["has_gcw"] = ~np.isnan(gcw).all(axis=1)
     table["has_bcw"] = ~np.isnan(bcw_full).all(axis=1)
-    info = territories[["iso3", "name", "continent", "fra_region", "groups", "population", "gdp"]]
+    info = territories[["iso3", "name", "bcw_codes", "continent", "fra_region", "groups", "population", "gdp"]]
     table = info.merge(table, on="iso3", how="right")
     table["name"] = table["name"].fillna(table["iso3"])
     table["ncw_per_capita_usd2015"] = table["ncw_usd2015_yr_mean"] / table["population"]
@@ -96,7 +113,10 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
     table["forest_share_of_ncw"] = table["gcw_usd2015_yr_mean"] / table["ncw_usd2015_yr_mean"]
     table = table.sort_values("ncw_usd2015_yr_mean", ascending=False).reset_index(drop=True)
 
-    draws = {"iso3": np.array(iso), "ncw_usd2015_yr": ncw, "gcw_usd2015_yr": gcw, "bcw_usd2015_yr": bcw_full}
+    draws = {
+        "iso3": np.array(iso), "ncw_usd2015_yr": ncw, "gcw_usd2015_yr": gcw, "bcw_usd2015_yr": bcw_full,
+        "bcw_published_rows_usd2015_yr": bcw_row_draws, "bcw_codes": bcw["bcw_code"].to_numpy(),
+    }
     return table, draws, alignment
 
 

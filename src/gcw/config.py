@@ -28,6 +28,13 @@ FOREST_MASK_TIF = RAW / "forest_mask" / "JRC_GFC2020_V4_overview_x256.tif"
 BCW_COUNTRY_CSV = RAW / "bcw" / "output" / "country_level_bcw.csv"
 BCW_DRAWS_NPZ = RAW / "bcw" / "output" / "draws.npz"
 SUBTROPICAL_RATE_CSV = REFERENCE / "subtropical_rate.csv"
+TERRITORY_CROSSWALK_CSV = REFERENCE / "territory_crosswalk.csv"
+
+# --- Accounting units (C12) --------------------------------------------------
+# FAO/FRA "China" (M49 159) includes Taiwan, Hong Kong SAR and Macao SAR.
+UNIT_NAME_OVERRIDES = {"CHN": "China (incl. Taiwan, Hong Kong SAR and Macao SAR)"}
+# Boundary polygons whose land belongs to another FRA unit when computing biome shares.
+RASTER_CODE_ALIASES = {"TWN": "CHN", "HKG": "CHN", "MAC": "CHN"}
 
 # --- Physical constants ----------------------------------------------------
 CARBON_TO_CO2 = 44.0 / 12.0

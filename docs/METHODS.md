@@ -28,6 +28,10 @@ $$
 
 FAOSTAT *Emissions from forests*, Item `Forestland`, Element `Net emissions/removals (CO2) (Forest land)`, source `FAO TIER 1`, sign flipped so removals are positive, mean 2015–2024 (C4). This is removals minus losses and includes mangroves. Only the GSCC is uncertain.
 
+## Accounting units (C12)
+
+Units are FRA 2025 countries. BCW rows are mapped onto them with `data_source/reference/territory_crosswalk.csv`: split countries and sub-territories are regrouped (BCW summed draw by draw; population and GDP taken from the country or main part, never summed), Taiwan is regrouped under China as in FAO statistics, and BCW-only territories are kept as separate units.
+
 ## NCW
 
 $$

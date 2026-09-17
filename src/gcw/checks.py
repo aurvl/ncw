@@ -11,7 +11,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .config import AREA_YEAR, CARBON_TO_CO2, SUMMARY, VALIDATION
+from .config import AREA_YEAR, BCW_COUNTRY_CSV, CARBON_TO_CO2, SUMMARY, VALIDATION
 from .validation import write_table
 
 
@@ -20,8 +20,10 @@ def coverage(territories: pd.DataFrame, gcw_table: pd.DataFrame, ncw_table: pd.D
     table = territories[["iso3", "name", "in_fra", "in_bcw"]].merge(shares, on="iso3", how="outer")
     table = table.merge(gcw_table[["iso3", "uptake_tco2_yr_mean", "faostat_net_uptake_tco2_yr"]], on="iso3", how="outer")
     table = table.merge(ncw_table[["iso3", "has_gcw", "has_bcw"]], on="iso3", how="outer")
-    alignment = pd.read_csv(SUMMARY / "bcw_draw_alignment.csv")[["iso3", "alignment"]]
-    return table.merge(alignment, on="iso3", how="left").sort_values("iso3")
+    mapping = pd.read_csv(SUMMARY / "bcw_territory_mapping.csv")[["bcw_code", "unit_code"]]
+    alignment = pd.read_csv(SUMMARY / "bcw_draw_alignment.csv").merge(mapping, on="bcw_code")
+    status = alignment.groupby("unit_code")["alignment"].agg(lambda s: ";".join(sorted(set(s)))).rename("bcw_alignment")
+    return table.merge(status, left_on="iso3", right_index=True, how="left").sort_values("iso3")
 
 
 def share_comparison() -> pd.DataFrame:
@@ -67,6 +69,19 @@ def global_checks(pan_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict) ->
 
     alignment = pd.read_csv(SUMMARY / "bcw_draw_alignment.csv")["alignment"]
     add("BCW draw rows not aligned", int((alignment == "unmatched").sum()), "0", int((alignment == "unmatched").sum()) == 0)
+
+    bcw_units_world = np.nansum(ncw["bcw_usd2015_yr"], axis=0)
+    bcw_rows_world = np.nansum(ncw["bcw_published_rows_usd2015_yr"], axis=0)
+    gap = float(np.max(np.abs(bcw_units_world - bcw_rows_world) / np.abs(bcw_rows_world)))
+    add("world BCW unchanged by regrouping territories (draw by draw)", gap, "< 1e-5", gap < 1e-5)
+
+    mapping = pd.read_csv(SUMMARY / "bcw_territory_mapping.csv")
+    add("BCW rows mapped to exactly one unit", int(mapping["bcw_code"].duplicated().sum()), "0",
+        not mapping["bcw_code"].duplicated().any())
+    territories = pd.read_csv(SUMMARY / "territories.csv")
+    published = pd.read_csv(BCW_COUNTRY_CSV)["Population"].sum()
+    add("world population: units vs published BCW rows (duplicated parts removed, C12)",
+        f"{territories['population'].sum():.4e} vs {published:.4e}", "units <= published", territories["population"].sum() <= published)
 
     ncw_world = np.nansum(ncw["ncw_usd2015_yr"], axis=0)
     parts = np.nansum(ncw["gcw_usd2015_yr"], axis=0) + np.nansum(ncw["bcw_usd2015_yr"], axis=0)
