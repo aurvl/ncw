@@ -5,8 +5,6 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Generated artefacts (raw sources are versioned, see data_source/metadata/)
-data_source/interim/*
-!data_source/interim/README.md
 output/*
 !output/README.md
 
