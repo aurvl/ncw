@@ -1,0 +1,295 @@
+iso3,bcw_name,alignment
+AE,"Abu musa, Greater and Lesser Tunb",no_bcw_value
+AFG,Afghanistan,no_bcw_value
+US-AK,Alaska,matched
+ALB,Albania,matched
+DZA,Algeria,matched
+ES-ALH,Alhucemas Islands,no_bcw_value
+ASM,American Samoa,matched
+ATF-1,Amsterdam and Saint Paul Islands,no_bcw_value
+IN-AN,Andaman and Nicobar,matched
+AND,Andorra,no_bcw_value
+AGO,Angola,matched
+AIA,Anguilla,matched
+ATA,Antarctica,no_bcw_value
+ATG,Antigua and Barbuda,matched
+ARG,Argentina,matched
+ARM,Armenia,no_bcw_value
+ABW,Aruba,matched
+SHN-1,Ascension,no_bcw_value
+AUS,Australia,matched
+AUT,Austria,no_bcw_value
+AZE,Azerbaijan,no_bcw_value
+PT-20,Azores,no_bcw_value
+BHS,Bahamas,matched
+BHR,Bahrain,matched
+CO-BN,Bajo Nuevo Bank,no_bcw_value
+BGD,Bangladesh,matched
+BRB,Barbados,matched
+ATF-2,Bassas da India,no_bcw_value
+BLR,Belarus,no_bcw_value
+BEL,Belgium,matched
+BLZ-1,Belize,matched
+BEN,Benin,matched
+BMU,Bermuda,matched
+BTN,Bhutan,no_bcw_value
+BOL,Bolivia,no_bcw_value
+BES-1,Bonaire,matched
+BIH,Bosnia and Herzegovina,matched
+BWA,Botswana,no_bcw_value
+BVT,Bouvet,no_bcw_value
+BRA,Brazil,matched
+VGB,British Virgin Islands,matched
+BRN,Brunei,matched
+BGR,Bulgaria,matched
+BFA,Burkina Faso,no_bcw_value
+BDI,Burundi,no_bcw_value
+KHM,Cambodia,matched
+CMR,Cameroon,matched
+CAN,Canada,matched
+ES-CN,Canary Islands,matched
+CPV,Cape Verde,matched
+CYM,Cayman Islands,matched
+CAF,Central African Republic,no_bcw_value
+ES-CE,Ceuta,no_bcw_value
+TCD,Chad,no_bcw_value
+ES-CHAF,Chafarinas Islands,no_bcw_value
+IO,Chagos Archipelago,matched
+CHL-1,Chile,matched
+CHN,China,matched
+CXR,Christmas Island,matched
+CP,Clipperton Island,no_bcw_value
+CCK,Cocos Islands,matched
+MAF,Collectivity of Saint Martin,matched
+COL,Colombia,matched
+CO-QS,Colombian Exclusive Economic Zone (Quitasueño Bank),no_bcw_value
+COM,Comores,matched
+COK,Cook Islands,matched
+CRI,Costa Rica,matched
+HRV,Croatia,matched
+ATF-3,Crozet Islands,no_bcw_value
+CUB,Cuba,matched
+CUW,Curaçao,matched
+CYP,Cyprus,matched
+CZE,Czech Republic,no_bcw_value
+COD,Democratic Republic of the Congo,matched
+DNK,Denmark,matched
+DJI,Djibouti,matched
+DMA,Dominica,matched
+DOM,Dominican Republic,matched
+DJ,Doumeira Islands,no_bcw_value
+TLS,East Timor,matched
+CL-EI,Easter Island,no_bcw_value
+ECU,Ecuador,matched
+EGY,Egypt,matched
+SLV,El Salvador,matched
+GNQ,Equatorial Guinea,matched
+ERI,Eritrea,matched
+EST,Estonia,matched
+ETH,Ethiopia,no_bcw_value
+ATF-4,Europa Island,matched
+FRO,Faeroe,no_bcw_value
+FLK,Falkland Islands,no_bcw_value
+SOM,Federal Republic of Somalia,matched
+FJI,Fiji,matched
+FIN,Finland,matched
+FRA,France,matched
+GUF,French Guiana,matched
+PYF,French Polynesia,matched
+GAB,Gabon,matched
+EC-W,Galapagos,matched
+GMB,Gambia,matched
+GEO,Georgia,no_bcw_value
+DEU,Germany,matched_first_of_identical
+GHA,Ghana,matched
+GIB,Gibraltar,no_bcw_value
+FR-GLO,Glorioso Islands,no_bcw_value
+LUX,Grand Duchy of Luxembourg,no_bcw_value
+GRC,Greece,matched
+GRL,Greenland,no_bcw_value
+GRD,Grenada,matched
+GLP,Guadeloupe,matched
+GUM,Guam,matched
+GTM,Guatemala,matched
+GGY,Guernsey,no_bcw_value
+GIN,Guinea,matched
+GNB,Guinea-Bissau,matched
+GUY,Guyana,matched
+HTI,Haiti,matched
+SD,Hala'ib Triangle,matched
+US-HI,Hawaii,matched
+HMD,Heard and McDonald Islands,no_bcw_value
+HND,Honduras,matched
+UMI-1,Howland and Baker islands,no_bcw_value
+HUN,Hungary,no_bcw_value
+ISL,Iceland,matched
+IND,India,matched
+IDN,Indonesia,matched
+IRN,Iran,matched
+IRQ,Iraq,matched
+IRL,Ireland,matched
+CHL-2,Islas San Félix and San Ambrosio,no_bcw_value
+IMN,Isle of Man,no_bcw_value
+ISR,Israel,matched
+ITA,Italy,matched
+CIV,Ivory Coast,matched
+JAM,Jamaica,matched
+SJM-1,Jan Mayen,no_bcw_value
+JPN,Japan,matched
+UMI-2,Jarvis Island,no_bcw_value
+JEY,Jersey,no_bcw_value
+UMI-3,Johnston Atoll,no_bcw_value
+JOR,Jordan,matched
+ATF-5,Juan de Nova Island,no_bcw_value
+KAZ,Kazakhstan,no_bcw_value
+KEN,Kenya,matched
+ATF-6,Kerguélen,no_bcw_value
+KIR,Kiribati,matched
+RU-SA,Kuril Islands,no_bcw_value
+KWT,Kuwait,matched
+KGZ,Kyrgyzstan,no_bcw_value
+LAO,Laos,no_bcw_value
+LVA,Latvia,matched
+LBN,Lebanon,matched
+LSO,Lesotho,no_bcw_value
+LBR,Liberia,matched
+LBY,Libya,matched
+LIE,Liechtenstein,no_bcw_value
+LTU,Lithuania,no_bcw_value
+MKD,Macedonia,no_bcw_value
+AU-TAS,Macquarie Island,no_bcw_value
+MDG,Madagascar,matched
+PT-30,Madeira,no_bcw_value
+MWI,Malawi,no_bcw_value
+MYS,Malaysia,matched
+MDV,Maldives,matched
+MLI,Mali,no_bcw_value
+MLT,Malta,matched
+MHL,Marshall Islands,matched
+MTQ,Martinique,matched
+VU,Matthew and Hunter Islands,no_bcw_value
+MRT,Mauritania,matched
+MYT,Mayotte,matched
+ES-ML,Melilla,no_bcw_value
+MEX,Mexico,matched
+FSM,Micronesia,matched
+MDA,Moldova,no_bcw_value
+MCO,Monaco,matched
+MNG,Mongolia,no_bcw_value
+MNE,Montenegro,matched
+MSR,Montserrat,matched
+MAR,Morocco,matched
+MOZ,Mozambique,matched
+MMR,Myanmar,matched
+NAM,Namibia,matched
+NRU,Nauru,matched
+UM-76,Navassa Island,no_bcw_value
+NPL,Nepal,no_bcw_value
+NLD,Netherlands,matched
+NCL,New Caledonia,matched
+NZL,New Zealand,matched
+NIC,Nicaragua,matched
+NER,Niger,no_bcw_value
+NGA,Nigeria,matched
+NIU,Niue,matched
+NFK,Norfolk Island,no_bcw_value
+PRK,North Korea,matched
+MNP,Northern Mariana Islands,matched
+NOR,Norway,matched
+TL-OE,Oecusse,matched
+OMN,Oman,matched
+PAK,Pakistan,matched
+PLW,Palau,matched
+PSE,Palestine,no_bcw_value
+UMI-4,Palmyra Atoll,no_bcw_value
+PAN,Panama,matched
+PNG,Papua New Guinea,matched
+PRY,Paraguay,no_bcw_value
+ES-PER,Perejil Island,no_bcw_value
+PER,Peru,matched
+ES-PVG,Peñón de Vélez de la Gomera,no_bcw_value
+PHL,Philippines,matched
+PCN,Pitcairn,no_bcw_value
+POL,Poland,matched
+PRT,Portugal,matched
+ZA-PE,Prince Edward Islands,no_bcw_value
+PRI,Puerto Rico,matched
+QAT,Qatar,matched
+MUS,Republic of Mauritius,matched
+COG,Republic of the Congo,matched
+ROU,Romania,matched
+RUS,Russia,matched
+RWA,Rwanda,no_bcw_value
+REU,Réunion,no_bcw_value
+BES-2,Saba,matched
+SHN-2,Saint Helena,no_bcw_value
+KNA,Saint Kitts and Nevis,matched
+LCA,Saint Lucia,matched
+VCT,Saint Vincent and the Grenadines,matched
+BLM,Saint-Barthélemy,matched
+SPM,Saint-Pierre and Miquelon,no_bcw_value
+WSM,Samoa,matched
+SMR,San Marino,no_bcw_value
+STP,Sao Tome and Principe,matched
+BLZ-2,Sapodilla Cayes,matched
+SAU,Saudi Arabia,matched
+SEN,Senegal,matched
+JP,Senkaku Islands,no_bcw_value
+SRB,Serbia,no_bcw_value
+CO-SR,Serrana Bank,no_bcw_value
+CO-SL,Serranilla Bank,no_bcw_value
+SYC,Seychelles,matched
+SLE,Sierra Leone,matched
+SGP,Singapore,matched
+BES-3,Sint-Eustatius,matched
+SXM,Sint-Maarten,matched
+SVK,Slovakia,no_bcw_value
+SVN,Slovenia,matched
+SLB,Solomon Islands,matched
+ZAF,South Africa,matched
+SGS,South Georgia and the South Sandwich Islands,no_bcw_value
+KOR,South Korea,matched
+SSD,South Sudan,no_bcw_value
+ESP,Spain,matched
+LKA,Sri Lanka,matched
+SDN,Sudan,matched
+SUR,Suriname,matched
+SJM-2,Svalbard,no_bcw_value
+SWZ,Swaziland,no_bcw_value
+SWE,Sweden,matched
+CHE,Switzerland,no_bcw_value
+SYR,Syria,matched
+TWN,Taiwan,matched
+TJK,Tajikistan,no_bcw_value
+TZA,Tanzania,matched
+THA,Thailand,matched
+TGO,Togo,matched
+TKL,Tokelau,no_bcw_value
+TON,Tonga,matched
+TTO,Trinidad and Tobago,matched
+BR-ES,Trinidade,no_bcw_value
+SHN-3,Tristan Da Cunha,no_bcw_value
+FR-TRO,Tromelin Island,no_bcw_value
+TUN,Tunisia,matched
+TUR,Turkey,matched
+TKM,Turkmenistan,no_bcw_value
+TCA,Turks and Caicos Islands,matched
+TUV,Tuvalu,matched
+UGA,Uganda,no_bcw_value
+UKR,Ukraine,matched
+ARE,United Arab Emirates,matched
+GBR,United Kingdom,matched
+USA,United States,matched
+VIR,United States Virgin Islands,matched
+URY,Uruguay,matched
+UZB,Uzbekistan,no_bcw_value
+VUT,Vanuatu,matched
+VAT,Vatican City,no_bcw_value
+VEN,Venezuela,matched
+VNM,Vietnam,matched
+UMI-5,Wake Island,no_bcw_value
+WLF,Wallis and Futuna,matched
+ESH,Western Sahara,no_bcw_value
+YEM,Yemen,matched_first_of_identical
+ZMB,Zambia,no_bcw_value
+ZWE,Zimbabwe,no_bcw_value

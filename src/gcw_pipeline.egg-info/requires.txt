@@ -1,0 +1,10 @@
+numpy>=1.26
+pandas>=2.2
+lxml>=5.0
+pyogrio>=0.10
+rasterio>=1.4
+shapely>=2.0
+
+[dev]
+pytest>=8.0
+jupyterlab>=4.0

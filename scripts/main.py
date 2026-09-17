@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build_summaries import build_summaries  # noqa: E402
-from gcw import checks, gcw, ncw, tables  # noqa: E402
+from gcw import checks, gcw, ncw, tables     # noqa: E402
 
 
 def main() -> None:
