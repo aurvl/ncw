@@ -54,10 +54,10 @@ CCK,tropical,1.0,gez_land
 CHE,temperate,1.0,gez_forest_mask
 CHL,subtropical,0.30178464944378014,gez_forest_mask
 CHL,temperate,0.69821535055622,gez_forest_mask
-CHN,boreal,0.0673267054346968,gez_forest_mask
-CHN,subtropical,0.6720398887944145,gez_forest_mask
-CHN,temperate,0.23182059795632293,gez_forest_mask
-CHN,tropical,0.02881280781456579,gez_forest_mask
+CHN,boreal,0.066653817999237,gez_forest_mask
+CHN,subtropical,0.6753176407167373,gez_forest_mask
+CHN,temperate,0.22950369908776197,gez_forest_mask
+CHN,tropical,0.02852484219626379,gez_forest_mask
 CIV,tropical,1.0,gez_forest_mask
 CMR,tropical,1.0,gez_forest_mask
 COD,tropical,1.0,gez_forest_mask
@@ -274,7 +274,6 @@ TUN,subtropical,1.0,gez_forest_mask
 TUR,subtropical,0.9187684088021887,gez_forest_mask
 TUR,temperate,0.08123159119781122,gez_forest_mask
 TUV,tropical,1.0,fra_reported
-TWN,subtropical,1.0,gez_forest_mask
 TZA,tropical,1.0,gez_forest_mask
 UGA,tropical,1.0,gez_forest_mask
 UKR,temperate,1.0,gez_forest_mask

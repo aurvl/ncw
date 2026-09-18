@@ -1,9 +1,4 @@
-biome,forest_type,global_area_ha,rate_key,pan_row,denominator_area_ha,rate_tc_ha_yr_mean,rate_tc_ha_yr_sd,source
-tropical,nrf,1848433606.3779192,Tropical intact forest,Tropical intact forest,1848433606.3779192,0.47607877121667125,0.129839664877274,"Pan et al. (2024) Table 1, 2010–2019 / FRA 2025 global area"
-tropical,planted,61367408.81385182,Tropical regrowth forest,Tropical regrowth forest,61367408.81385182,26.72428299807601,5.3774471886372455,"Pan et al. (2024) Table 1, 2010–2019 / FRA 2025 global area"
-subtropical,nrf,370544659.8375648,subtropical,,,0.95,0.13,"reference/subtropical_rate.csv (coauthors' interpolation, C3)"
-subtropical,planted,92300838.36914767,subtropical,,,0.95,0.13,"reference/subtropical_rate.csv (coauthors' interpolation, C3)"
-temperate,nrf,516571862.83426034,Temperate forest,Temperate forest,616602394.070892,1.1028176447881568,0.08108953270501153,"Pan et al. (2024) Table 1, 2010–2019 / FRA 2025 global area"
-temperate,planted,100030531.2366316,Temperate forest,Temperate forest,616602394.070892,1.1028176447881568,0.08108953270501153,"Pan et al. (2024) Table 1, 2010–2019 / FRA 2025 global area"
-boreal,nrf,1075129950.9502556,Boreal forest,Boreal forest,1135343712.5306246,0.28185297233622403,0.035231621542028004,"Pan et al. (2024) Table 1, 2010–2019 / FRA 2025 global area"
-boreal,planted,60213761.5803689,Boreal forest,Boreal forest,1135343712.5306246,0.28185297233622403,0.035231621542028004,"Pan et al. (2024) Table 1, 2010–2019 / FRA 2025 global area"
+pan_biome,pan_row,flux_pgc_yr_mean,flux_pgc_yr_sd,pan_area_ha,rate_tc_ha_yr_mean,rate_tc_ha_yr_sd,source
+tropical,All tropical forests,2.52,0.41,1909950000.0,1.319406267179769,0.21466530537448625,Pan et al. (2024) Table 1 (2010–2019) / mean Pan area 2010-2020 (Extended Data Table 1)
+temperate,Temperate forest,0.68,0.05,785250000.0,0.865966252785737,0.06367398917542184,Pan et al. (2024) Table 1 (2010–2019) / mean Pan area 2010-2020 (Extended Data Table 1)
+boreal,Boreal forest,0.32,0.04,1147750000.0,0.27880636027009364,0.034850795033761706,Pan et al. (2024) Table 1 (2010–2019) / mean Pan area 2010-2020 (Extended Data Table 1)

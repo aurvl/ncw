@@ -1,4 +1,4 @@
-iso3,bcw_name,alignment
+bcw_code,bcw_name,alignment
 AE,"Abu musa, Greater and Lesser Tunb",no_bcw_value
 AFG,Afghanistan,no_bcw_value
 US-AK,Alaska,matched
@@ -139,6 +139,7 @@ JPN,Japan,matched
 UMI-2,Jarvis Island,no_bcw_value
 JEY,Jersey,no_bcw_value
 UMI-3,Johnston Atoll,no_bcw_value
+BCW-JR,Joint Regimes,matched
 JOR,Jordan,matched
 ATF-5,Juan de Nova Island,no_bcw_value
 KAZ,Kazakhstan,no_bcw_value
@@ -198,6 +199,7 @@ MNP,Northern Mariana Islands,matched
 NOR,Norway,matched
 TL-OE,Oecusse,matched
 OMN,Oman,matched
+BCW-OC,Overlapping Claims,no_bcw_value
 PAK,Pakistan,matched
 PLW,Palau,matched
 PSE,Palestine,no_bcw_value
