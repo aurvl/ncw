@@ -73,4 +73,10 @@ Columns `*_mean`, `*_sd`, `*_p05`, `*_p50`, `*_p95` summarise the draws; `*_sd` 
 
 ## Licences
 
+This repository follows the licensing of the companion blue carbon wealth repository
+([`aurvl/bcw-paper-2025`](https://github.com/aurvl/bcw-paper-2025)):
+
+- code: MIT, see [`LICENSE`](LICENSE);
+- data and documentation produced here: CC BY 4.0, see [`LICENSE-CC-BY-4.0`](LICENSE-CC-BY-4.0).
+
 Each raw source keeps its own licence (FAO, Marine Regions and BCW: CC BY 4.0; JRC: free use with citation; Pan et al. values cited from *Nature*). See [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) for the required citations.
