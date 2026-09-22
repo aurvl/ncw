@@ -18,11 +18,16 @@ import pandas as pd
 CARBON_TO_CO2 = 44.0 / 12.0
 GROUP_ORDER = ["Developed economies", "Developing economies", "LDCs", "SIDS"]
 GROUP_COLORS = {
-    "Developed economies": "#4C72B0",
-    "Developing economies": "#55A868",
-    "LDCs": "#C44E52",
-    "SIDS": "#8172B2",
+    "Developed economies": "#4C78A8",
+    "Developing economies": "#59A14F",
+    "LDCs": "#E15759",
+    "SIDS": "#8E79B5",
 }
+GREEN = "#59A14F"
+BLUE = "#4C78A8"
+LIGHT_BLUE = "#76A5C8"
+RED = "#E15759"
+GREY = "#7A7A7A"
 PROFILE_THRESHOLD = 66.7
 ILLUSTRATIVE_PRICES = (50.0, 150.0, 400.0)
 ILLUSTRATIVE_ALLOCATION_PRICE = 150.0
@@ -306,37 +311,55 @@ def make_figures(
     allocation_by_group: pd.DataFrame,
 ) -> None:
     """Render the four selected draft manuscript figures."""
-    plt.rcParams.update({"font.size": 9, "axes.grid": True, "grid.alpha": 0.22})
+    plt.rcParams.update(
+        {
+            "font.family": "Arial",
+            "font.size": 9,
+            "axes.titlesize": 10,
+            "axes.labelsize": 9,
+            "xtick.labelsize": 8,
+            "ytick.labelsize": 8,
+            "legend.fontsize": 7,
+            "figure.dpi": 180,
+            "savefig.dpi": 300,
+            "axes.spines.top": False,
+            "axes.spines.right": False,
+            "axes.axisbelow": True,
+        }
+    )
 
-    figure, axes = plt.subplots(1, 2, figsize=(10, 4.2), layout="constrained")
+    figure, axes = plt.subplots(1, 2, figsize=(7.2, 3.15), layout="constrained")
     scatter_data = r1.dropna(subset=["gdp"]).query("gdp > 0 and gcw_usd2015_yr_mean > 0")
     for group, data in scatter_data.groupby("groups"):
-        axes[0].scatter(data["gdp"], data["gcw_usd2015_yr_mean"], s=16, alpha=0.78, label=group, color=GROUP_COLORS.get(group, "#808080"))
+        axes[0].scatter(data["gdp"], data["gcw_usd2015_yr_mean"], s=12, alpha=0.58, label=group, color=GROUP_COLORS.get(group, GREY), edgecolor="none")
     axes[0].set_xscale("log")
     axes[0].set_yscale("log")
-    axes[0].set_xlabel("GDP (2015 US$)")
-    axes[0].set_ylabel("GCW (2015 US$ per year)")
-    axes[0].set_title("Ecological endowment and economic size")
-    axes[0].legend(fontsize=7, frameon=False)
+    axes[0].set_xlabel("GDP (2015 US dollars)")
+    axes[0].set_ylabel("GCW (2015 US dollars per year)")
+    axes[0].set_title("a  Ecological endowment and economic size", loc="left", fontweight="bold")
+    axes[0].grid(alpha=0.22)
+    axes[0].legend(frameon=False, fontsize=6.2, loc="lower right", handletextpad=0.3)
     x_gcw, y_gcw = lorenz_points(r1["gcw_usd2015_yr_mean"])
     x_bcw, y_bcw = lorenz_points(base["bcw_usd2015_yr_mean"].dropna())
-    axes[1].plot(x_gcw, y_gcw, label=f"GCW (Gini {gini(r1['gcw_usd2015_yr_mean']):.2f})", color="#2E7D32")
-    axes[1].plot(x_bcw, y_bcw, label=f"BCW (Gini {gini(base['bcw_usd2015_yr_mean'].dropna()):.2f})", color="#1565C0")
-    axes[1].plot([0, 1], [0, 1], "k--", lw=0.8, label="Equality")
+    axes[1].plot(x_gcw, y_gcw, label=f"GCW (Gini {gini(r1['gcw_usd2015_yr_mean']):.2f})", color=GREEN, lw=1.8)
+    axes[1].plot(x_bcw, y_bcw, label=f"BCW (Gini {gini(base['bcw_usd2015_yr_mean'].dropna()):.2f})", color=BLUE, lw=1.8)
+    axes[1].plot([0, 1], [0, 1], color=GREY, ls="--", lw=0.8, label="Equality")
     axes[1].set_xlabel("Cumulative share of countries")
     axes[1].set_ylabel("Cumulative share of wealth")
-    axes[1].set_title("Concentration of carbon wealth")
-    axes[1].legend(fontsize=7, frameon=False)
+    axes[1].set_title("b  Concentration of carbon wealth", loc="left", fontweight="bold")
+    axes[1].grid(alpha=0.22)
+    axes[1].legend(frameon=False, fontsize=6.8, loc="upper left")
     figure.savefig(figures_dir / "Figure1_forest_service_and_concentration.png", dpi=300, bbox_inches="tight")
     plt.close(figure)
 
-    figure, axes = plt.subplots(2, 1, figsize=(9.8, 7.2), height_ratios=[1, 1.6], layout="constrained")
+    figure, axes = plt.subplots(2, 1, figsize=(7.2, 5.15), height_ratios=[1, 1.55], layout="constrained")
     group_components = composition.groupby("groups")[["gcw_usd2015_yr_mean", "bcw_usd2015_yr_mean"]].sum().reindex(GROUP_ORDER) / 1e12
-    axes[0].barh(group_components.index, group_components["gcw_usd2015_yr_mean"], color="#7FBF7B", label="Green carbon")
-    axes[0].barh(group_components.index, group_components["bcw_usd2015_yr_mean"], left=group_components["gcw_usd2015_yr_mean"], color="#6BAED6", label="Blue carbon")
-    axes[0].set_xlabel("Trillion 2015 US$ per year")
-    axes[0].set_title("Composition of natural carbon wealth by country group")
-    axes[0].legend(frameon=False, ncol=2, fontsize=8)
+    axes[0].barh(group_components.index, group_components["gcw_usd2015_yr_mean"], color=GREEN, alpha=0.82, label="Green carbon")
+    axes[0].barh(group_components.index, group_components["bcw_usd2015_yr_mean"], left=group_components["gcw_usd2015_yr_mean"], color=LIGHT_BLUE, label="Blue carbon")
+    axes[0].set_xlabel("Trillion 2015 US dollars per year")
+    axes[0].set_title("a  Natural carbon wealth by country group", loc="left", fontweight="bold")
+    axes[0].grid(axis="x", alpha=0.22)
+    axes[0].legend(frameon=False, ncol=2, fontsize=7, loc="lower right")
 
     emissions = base.set_index("iso3")["co2_emissions_tco2_2023"].reindex(units).to_numpy()
     panel = base[["iso3", "co2_emissions_tco2_2023"]].merge(
@@ -357,45 +380,51 @@ def make_figures(
     world_emissions = np.nansum(emissions)
     world_sequestration = panel["total_tco2"].sum()
     positions = np.arange(len(selected))
-    axes[1].bar(positions, 100 * selected["co2_emissions_tco2_2023"] / world_emissions, color="#D6607D", label="CO2 emissions")
-    axes[1].bar(positions, -100 * selected["green_tco2"] / world_sequestration, color="#7FBF7B", label="Green sequestration")
-    axes[1].bar(positions, -100 * selected["blue_tco2"] / world_sequestration, bottom=-100 * selected["green_tco2"] / world_sequestration, color="#6BAED6", hatch="///", label="Blue sequestration")
+    axes[1].bar(positions, 100 * selected["co2_emissions_tco2_2023"] / world_emissions, color=RED, alpha=0.88, label="Carbon dioxide emissions")
+    axes[1].bar(positions, -100 * selected["green_tco2"] / world_sequestration, color=GREEN, alpha=0.82, label="Green sequestration")
+    axes[1].bar(positions, -100 * selected["blue_tco2"] / world_sequestration, bottom=-100 * selected["green_tco2"] / world_sequestration, color=LIGHT_BLUE, label="Blue sequestration")
     axes[1].axhline(0, color="#4D4D4D", lw=0.8)
     axes[1].axvline(9.5, color="#8C8C8C", lw=0.8, ls=":")
     axes[1].set_xticks(positions, selected["iso3"])
     axes[1].set_ylabel("Share of global annual flux (%)")
-    axes[1].set_title("Major emitters and major sinks are largely distinct")
-    axes[1].legend(frameon=False, ncol=3, fontsize=8, loc="lower center")
+    axes[1].set_title("b  Major emitters and major sinks", loc="left", fontweight="bold")
+    axes[1].grid(axis="y", alpha=0.22)
+    axes[1].legend(frameon=False, ncol=3, fontsize=6.7, loc="lower center")
     figure.savefig(figures_dir / "Figure2_blue_carbon_and_net_balance.png", dpi=300, bbox_inches="tight")
     plt.close(figure)
 
     typology = r3.dropna(subset=["gcw_usd2015_yr_mean", "erosion_pct_of_gcw"]).query("gcw_usd2015_yr_mean > 0 and erosion_pct_of_gcw > 0").copy()
     median_gcw = typology["gcw_usd2015_yr_mean"].median()
     median_erosion = typology["erosion_pct_of_gcw"].median()
-    figure, axis = plt.subplots(figsize=(6.2, 4.8), layout="constrained")
+    figure, axis = plt.subplots(figsize=(7.2, 4.25), layout="constrained")
     for group, data in typology.groupby("groups"):
-        axis.scatter(data["gcw_usd2015_yr_mean"] / 1e9, data["erosion_pct_of_gcw"], s=22, alpha=0.8, color=GROUP_COLORS.get(group, "#808080"), label=group)
+        axis.scatter(data["gcw_usd2015_yr_mean"] / 1e9, data["erosion_pct_of_gcw"], s=18, alpha=0.62, color=GROUP_COLORS.get(group, GREY), label=group, edgecolor="none")
     for _, row in typology.nlargest(8, "loss_usd_mean").iterrows():
         axis.annotate(row["iso3"], (row["gcw_usd2015_yr_mean"] / 1e9, row["erosion_pct_of_gcw"]), fontsize=7, xytext=(3, 3), textcoords="offset points")
-    axis.axvline(median_gcw / 1e9, color="#4D4D4D", ls="--", lw=0.8)
-    axis.axhline(median_erosion, color="#4D4D4D", ls="--", lw=0.8)
+    axis.axvline(median_gcw / 1e9, color=GREY, ls="--", lw=0.8)
+    axis.axhline(median_erosion, color=GREY, ls="--", lw=0.8)
     axis.set_xscale("log")
     axis.set_yscale("log")
-    axis.set_xlabel("GCW (billion 2015 US$ per year)")
+    axis.set_xlabel("GCW (billion 2015 US dollars per year)")
     axis.set_ylabel("Annual capacity loss (% of national GCW)")
-    axis.set_title("Service magnitude and erosion intensity")
-    axis.legend(fontsize=7, frameon=False)
+    axis.set_title("Service magnitude and erosion intensity", loc="left", fontweight="bold")
+    axis.grid(alpha=0.22)
+    axis.legend(fontsize=6.8, frameon=False, loc="upper left")
     figure.savefig(figures_dir / "Figure3_erosion_of_forest_service.png", dpi=300, bbox_inches="tight")
     plt.close(figure)
 
-    figure, axis = plt.subplots(figsize=(6.4, 4.2), layout="constrained")
+    figure, axis = plt.subplots(figsize=(7.2, 3.55), layout="constrained")
     positions = np.arange(len(allocation_by_group))
-    axis.bar(positions - 0.2, allocation_by_group["domestic_cost"] / 1e9, 0.4, label="Domestic compensation")
-    axis.bar(positions + 0.2, allocation_by_group["shared_cost"] / 1e9, 0.4, label="GDP-proportional shared effort")
-    axis.set_xticks(positions, allocation_by_group.index, rotation=18, ha="right")
-    axis.set_ylabel("Billion 2015 US$ per year")
-    axis.set_title("Who loses the sink and who pays for compensation")
-    axis.legend(fontsize=8, frameon=False)
+    domestic = allocation_by_group["domestic_cost"].to_numpy() / 1e9
+    shared = allocation_by_group["shared_cost"].to_numpy() / 1e9
+    axis.barh(positions + 0.18, domestic, 0.36, color=RED, alpha=0.88, label="Domestic compensation")
+    axis.barh(positions - 0.18, shared, 0.36, color=BLUE, alpha=0.88, label="GDP-proportional shared effort")
+    axis.set_yticks(positions, allocation_by_group.index)
+    axis.invert_yaxis()
+    axis.set_xlabel("Billion 2015 US dollars per year")
+    axis.set_title("Who loses the sink and who pays for compensation", loc="left", fontweight="bold")
+    axis.grid(axis="x", alpha=0.22)
+    axis.legend(fontsize=7, frameon=False, loc="lower right")
     figure.savefig(figures_dir / "Figure4_compensation_burden.png", dpi=300, bbox_inches="tight")
     plt.close(figure)
 
