@@ -2,9 +2,9 @@
 
 Rebuilds, from untouched raw sources, the annual **Green Carbon Wealth** (GCW) of each country — forest CO2 uptake valued at the global social cost of carbon — and adds **Blue Carbon Wealth** (BCW) to obtain **Natural Carbon Wealth** (NCW).
 
-- **Route B (main).** FRA 2025 forest area, split into three biomes harmonised with Pan et al. (2024) — tropical (incl. subtropical), temperate, boreal — using FAO GEZ 2010 × country polygons × JRC forest cover 2020, multiplied by one Pan rate per biome.
+- **Main estimate.** FRA 2025 forest area, split into tropical, subtropical, temperate and boreal domains using FAO GEZ 2010 × country polygons × JRC forest cover 2020, multiplied by area-weighted Gibbs/GFW gross-removal rates for above- and below-ground living biomass (2001-2023).
 - **Route A (complementary).** FAOSTAT net forest CO2 flux, 2015–2024 (removals minus losses).
-- **Uncertainty.** 20 000 Monte Carlo draws sharing the GSCC draws of BCW; every total is summed draw by draw.
+- **Uncertainty and sensitivity.** 20 000 Monte Carlo draws share the GSCC draws of BCW; GFW rate spatial dispersion is reported separately as deterministic mean ± one spatial SD sensitivity.
 
 Method: [`docs/METHODS.md`](docs/METHODS.md). Sources, licences and citations: [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md).
 
@@ -16,9 +16,9 @@ src/gcw/                     one module = one question = one table
   territories.py        ->   summary/territories.csv, bcw_territory_mapping.csv
   forest_areas.py       ->   summary/forest_areas.csv
   biome_shares.py       ->   summary/gez_area_by_country.csv, biome_shares.csv, biome_shares_fra.csv
-  pan_rates.py          ->   summary/pan_biome_flux.csv, biome_rates.csv, pan_rate_checks.csv
+  gfw_rates.py          ->   summary/gfw_gibbs_biome_rates.csv, gfw_gibbs_tile_rates.csv
   gscc.py               ->   summary/gscc_summary.csv
-  forest_uptake_pan.py  ->   summary/forest_area_by_biome.csv, forest_uptake_pan.csv (+ draws)
+  forest_uptake_gfw.py  ->   summary/forest_area_by_biome.csv, forest_uptake_gfw.csv, forest_uptake_spatial_sensitivity.csv (+ draws)
   faostat_flux.py       ->   summary/faostat_forest_flux_annual.csv, forest_uptake_faostat.csv
   gcw.py                ->   output/country_level_gcw.csv (+ draws)
   ncw.py                ->   output/country_level_ncw.csv (+ draws), summary/bcw_draw_alignment.csv
@@ -28,6 +28,7 @@ src/gcw/                     one module = one question = one table
 scripts/
   main.py                    full pipeline
   build_summaries.py         utility tables only
+  build_gfw_rates.py         Gibbs/GFW rate table only (requires ~37 GB of source tiles)
   checksum_raw_sources.py    SHA-256 inventory of data_source/raw/
 data_source/
   raw/                       untouched sources
@@ -49,7 +50,9 @@ python -m pytest -q
 python scripts/main.py --rasters
 ```
 
-`--rasters` recomputes the GEZ × country × forest-mask table (a few minutes). Omit it when `data_source/summary/gez_area_by_country.csv` is up to date.
+Before the full pipeline, stage the 272 Gibbs/GFW 2001-2023 gross-removals GeoTIFF tiles in `data_source/raw/gfw_gibbs_2025/gross_removals/`. The compressed source set is about 37 GB. `--rasters` recomputes the GEZ × country × JRC forest-mask table. Omit it when `data_source/summary/gez_area_by_country.csv` is up to date.
+
+Use `python scripts/build_gfw_rates.py` only when you want to build the biome-rate tables by themselves; the full pipeline builds them automatically.
 
 ## Run elsewhere (Python ≥ 3.11)
 
@@ -79,4 +82,4 @@ This repository follows the licensing of the companion blue carbon wealth reposi
 - code: MIT, see [`LICENSE`](LICENSE);
 - data and documentation produced here: CC BY 4.0, see [`LICENSE-CC-BY-4.0`](LICENSE-CC-BY-4.0).
 
-Each raw source keeps its own licence (FAO, Marine Regions and BCW: CC BY 4.0; JRC: free use with citation; Pan et al. values cited from *Nature*). See [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) for the required citations.
+Each raw source keeps its own licence (Gibbs/GFW tiles: CC0; FAO, Marine Regions and BCW: CC BY 4.0; JRC: free use with citation). Pan et al. remains a published comparator. See [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) for the required citations.

@@ -16,7 +16,8 @@
 |---|---|---|---|---|---|
 | **FAO FRA 2025** | bulk WO, accès 2026-09-16 | Surfaces forestières, mangroves, années 1990→2025 | Années de référence déclarées par les pays ; **194 unités sur 236 en donnée officielle (`A`), 42 en donnée imputée par la FAO (`I`)** ; ce ne sont pas des projections | FRA 2025 est le dernier cycle ; le suivant est FRA 2030 | Garder. Robustesse déjà prévue avec les surfaces 2020, plus proches de la décennie de Pan |
 | **FRA 2025, `1d_deforestation`** | idem | Surfaces déboisées par intervalle | **Renseigné pour 139 unités sur 236 seulement**, soit 79 % du GCW mondial | idem | ⚠ Annoncer la couverture ; ne jamais lire une absence comme un zéro (Pérou, Bolivie, Myanmar, États-Unis sont absents) |
-| **Pan et al. (2024)** | version of record, Table 1 et Extended Data 1 et 3 | Taux de séquestration par biome, moyennes 2010–2019 | Publié, final | 2010–2019 est la dernière décennie publiée | Garder. Une mise à jour supposerait une nouvelle publication |
+| **Gibbs et al. (2025) / GFW** | Dataset publié avec l'article, version 2001–2023 | Retraits bruts cumulés de CO2 par hectare dans la biomasse aérienne et souterraine vivante ; base des quatre taux GEZ | Modélisé, publié ; les tuiles ne sont pas encore présentes localement | Version 2025 présentée dans l'article | Source retenue par le chercheur ; moyenne 2001–2023 appliquée à FRA 2025, avec le décalage temporel explicite |
+| **Pan et al. (2024)** | version of record, Table 1 et Extended Data 1 et 3 | Comparaison avec la méthode précédente seulement | Publié, final | 2010–2019 est la dernière décennie couverte par ces tableaux | Retiré du calcul principal après le choix Gibbs/GFW |
 | **FAOSTAT, *Emissions from forests*** | bulk 2026-07-06 | Route A, flux net de la forêt restante | **Toutes les valeurs, toutes années confondues, portent le drapeau `E` = estimation FAO Tier 1** ; aucune n'est une déclaration nationale dans ce domaine. Les valeurs 2025 dérivent du cycle FRA 2025 | années 1990→2025 | Garder la fenêtre 2015–2024 (C4) ; ne pas présenter la Route A comme « déclaré par les pays » |
 | **FAO GEZ 2010** | 2ᵉ édition | Parts de biome | Carte statique | Pas d'édition plus récente | Garder |
 | **JRC GFC2020 V4** | aperçu ×256 (~2,3 km) | Masque forêt pour les parts de biome | Carte 2020 | V4 est la dernière version | Garder. Hansen GFC est annuel mais sa définition de forêt diffère |
@@ -35,7 +36,7 @@
 
 Passer les émissions à 2024 obligerait à porter aussi la population à 2024, or la révision WPP 2024 ne fournit pour 2024 qu'une **projection**. On échangerait donc une estimation cohérente contre un mélange d'observations et de projections, tout en s'écartant des chiffres publiés de BCW, qui servent de référence d'harmonisation (C12).
 
-Le décalage qui compte n'est de toute façon pas là : le flux forestier porte sur **2010–2019** et les surfaces sur **2025**. Changer l'année des émissions ne le corrige pas.
+Le décalage qui compte n'est de toute façon pas là : le flux forestier Gibbs/GFW porte sur **2001–2023** et les surfaces sur **2025**. Changer l'année des émissions ne le corrige pas.
 
 ### Si le choix d'actualiser est fait malgré tout
 

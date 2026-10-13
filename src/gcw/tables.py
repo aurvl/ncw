@@ -23,7 +23,7 @@ def _row(label: str, draws_1d: np.ndarray, unit: str, note: str = "") -> dict:
     return {"item": label, "unit": unit, **stats, "note": note}
 
 
-def global_by_ecosystem(pan: dict, faostat: pd.DataFrame, gcw: dict, ncw: dict) -> pd.DataFrame:
+def global_by_ecosystem(forest: dict, faostat: pd.DataFrame, gcw: dict, ncw: dict) -> pd.DataFrame:
     gscc = gcw["gscc"].astype(np.float64)
     with np.load(BCW_DRAWS_NPZ, allow_pickle=True) as archive:
         coastal = {
@@ -32,7 +32,7 @@ def global_by_ecosystem(pan: dict, faostat: pd.DataFrame, gcw: dict, ncw: dict) 
         }
     bcp_tco2 = pd.read_csv(BCW_COUNTRY_CSV)["BCP Seq (tC)"].sum() * CARBON_TO_CO2
     flows = {
-        "Forests excl. mangroves (Route B, Pan)": np.nansum(pan["excl_mangroves"], axis=0),
+        "Forests excl. mangroves (Gibbs/GFW gross living biomass)": np.nansum(forest["excl_mangroves"], axis=0),
         **coastal,
         "Open ocean biological carbon pump": np.full(gscc.shape, bcp_tco2),
     }
@@ -45,7 +45,7 @@ def global_by_ecosystem(pan: dict, faostat: pd.DataFrame, gcw: dict, ncw: dict) 
     for label, tco2 in flows.items():
         rows.append(_row(label, tco2, "tCO2/yr", notes.get(label, "")))
         rows.append(_row(label, tco2 * gscc, "US$2015/yr", notes.get(label, "")))
-    rows.append(_row("GCW (Route B)", np.nansum(ncw["gcw_usd2015_yr"], axis=0), "US$2015/yr"))
+    rows.append(_row("GCW (Gibbs/GFW main estimate)", np.nansum(ncw["gcw_usd2015_yr"], axis=0), "US$2015/yr"))
     rows.append(_row("BCW (published + mangrove gap-fill, C18)", np.nansum(ncw["bcw_usd2015_yr"], axis=0), "US$2015/yr"))
     rows.append(_row("NCW = GCW + BCW", np.nansum(ncw["ncw_usd2015_yr"], axis=0), "US$2015/yr"))
     faostat_tco2 = faostat["net_uptake_tco2_yr"].sum()
@@ -87,8 +87,8 @@ def route_a_extremes(gcw_table: pd.DataFrame, n: int = 10) -> pd.DataFrame:
     return pd.concat([sinks, sources], ignore_index=True).rename(columns={"uptake_tco2_yr_mean": "route_b_uptake_tco2_yr_mean"})
 
 
-def run(pan: dict, faostat: pd.DataFrame, gcw_table: pd.DataFrame, gcw: dict, ncw_table: pd.DataFrame, ncw: dict) -> None:
-    write_table(global_by_ecosystem(pan, faostat, gcw, ncw), TABLES / "table1_global_by_ecosystem.csv")
+def run(forest: dict, faostat: pd.DataFrame, gcw_table: pd.DataFrame, gcw: dict, ncw_table: pd.DataFrame, ncw: dict) -> None:
+    write_table(global_by_ecosystem(forest, faostat, gcw, ncw), TABLES / "table1_global_by_ecosystem.csv")
     write_table(by_group(ncw_table, ncw, "continent"), TABLES / "table2_by_continent.csv")
     write_table(by_group(ncw_table, ncw, "groups"), TABLES / "table3_by_group.csv")
     write_table(top_territories(ncw_table), TABLES / "table4_top_territories.csv")

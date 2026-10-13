@@ -29,16 +29,16 @@ def main() -> None:
     inputs = build_summaries(recompute_rasters=args.rasters)
 
     print("== GCW ==")
-    gcw_table, gcw_draws = gcw.run(inputs["territories"], inputs["pan_draws"], inputs["faostat"], inputs["gscc"])
+    gcw_table, gcw_draws = gcw.run(inputs["territories"], inputs["forest_draws"], inputs["faostat"], inputs["gscc"])
 
     print("== NCW ==")
     ncw_table, ncw_draws = ncw.run(inputs["territories"], gcw_draws)
 
     print("== Paper tables ==")
-    tables.run(inputs["pan_draws"], inputs["faostat"], gcw_table, gcw_draws, ncw_table, ncw_draws)
+    tables.run(inputs["forest_draws"], inputs["faostat"], gcw_table, gcw_draws, ncw_table, ncw_draws)
 
     print("== Validation ==")
-    checks.run(inputs["territories"], gcw_table, ncw_table, inputs["pan_draws"], inputs["rates"], gcw_draws, ncw_draws)
+    checks.run(inputs["territories"], gcw_table, ncw_table, inputs["forest_draws"], inputs["rates"], gcw_draws, ncw_draws)
 
     print(f"Done in {time.time() - start:.0f} s")
 

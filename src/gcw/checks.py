@@ -35,7 +35,7 @@ def share_comparison() -> pd.DataFrame:
     return table.sort_values(["abs_difference"], ascending=False)
 
 
-def global_checks(pan_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict) -> pd.DataFrame:
+def global_checks(forest_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict) -> pd.DataFrame:
     checks = []
 
     def add(name, value, expected, ok):
@@ -45,9 +45,11 @@ def global_checks(pan_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict) ->
     share_sums = shares.groupby("iso3")["share"].sum()
     add("biome shares sum to 1", float((share_sums - 1).abs().max()), "< 1e-6", bool((share_sums - 1).abs().max() < 1e-6))
 
-    rate_checks = pd.read_csv(SUMMARY / "pan_rate_checks.csv")
-    for _, row in rate_checks.iterrows():
-        add(row["check"], round(float(row["value"]), 4), round(float(row["reference"]), 4), bool(row["ok"]))
+    expected_biomes = {"tropical", "subtropical", "temperate", "boreal"}
+    add("Gibbs/GFW rates cover four biomes exactly", len(rates) == 4 and set(rates["biome"]) == expected_biomes,
+        sorted(expected_biomes), len(rates) == 4 and set(rates["biome"]) == expected_biomes)
+    valid_rates = rates["rate_tc_ha_yr_mean"].ge(0).all() and rates["rate_tc_ha_yr_spatial_sd"].ge(0).all()
+    add("Gibbs/GFW mean rates and spatial SD are non-negative", bool(valid_rates), "True", bool(valid_rates))
 
     areas = pd.read_csv(SUMMARY / "forest_areas.csv")
     year = areas.loc[areas["year"].astype(str) == AREA_YEAR]
@@ -62,15 +64,12 @@ def global_checks(pan_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict) ->
     add("country areas by biome sum to FRA forest minus mangroves (ha)", round(float(excl["area_ha"].sum())),
         round(float(fra_forest)), abs(excl["area_ha"].sum() - fra_forest) <= 1e-6 * fra_forest + year["mangroves"].sum() * 0.01)
 
-    merged = excl.merge(rates[["pan_biome", "rate_tc_ha_yr_mean", "flux_pgc_yr_mean", "pan_area_ha"]], on="pan_biome")
-    merged["uptake_pgc_yr"] = merged["area_ha"] * merged["rate_tc_ha_yr_mean"] / 1e9
-    for biome, group in merged.groupby("pan_biome"):
-        info = f"{group['area_ha'].sum() / 1e6:.0f} Mha FRA x GEZ vs {group['pan_area_ha'].iloc[0] / 1e6:.0f} Mha Pan"
-        add(f"{biome}: FRA x GEZ uptake vs Pan flux (Pg C/yr; {info})", round(group["uptake_pgc_yr"].sum(), 3),
-            round(group["flux_pgc_yr_mean"].iloc[0], 3), True)
-
-    world_tc = float(np.nansum(pan_draws["excl_mangroves"], axis=0).mean() / CARBON_TO_CO2 / 1e9)
-    add("global forest uptake Route B (Pg C/yr, mean)", round(world_tc, 3), "Pan gross sink 3.53 (areas differ)", True)
+    merged = excl.merge(rates[["biome", "rate_tc_ha_yr_mean"]], on="biome")
+    merged["uptake_tc_yr"] = merged["area_ha"] * merged["rate_tc_ha_yr_mean"]
+    recalculated = float(merged["uptake_tc_yr"].sum() * CARBON_TO_CO2)
+    reported = float(np.nansum(forest_draws["excl_mangroves"], axis=0).mean())
+    difference = abs(recalculated - reported) / max(abs(recalculated), 1.0)
+    add("country-level forest flow reproduces area x biome-rate sum", difference, "< 1e-6", difference < 1e-6)
 
     add("GSCC mean (US$2015/tCO2)", round(float(gcw["gscc"].mean()), 2), "559.57", abs(gcw["gscc"].mean() - 559.57) < 0.1)
 
@@ -100,10 +99,10 @@ def global_checks(pan_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict) ->
     return pd.DataFrame(checks)
 
 
-def run(territories, gcw_table, ncw_table, pan_draws, rates, gcw, ncw) -> pd.DataFrame:
+def run(territories, gcw_table, ncw_table, forest_draws, rates, gcw, ncw) -> pd.DataFrame:
     write_table(coverage(territories, gcw_table, ncw_table), VALIDATION / "coverage.csv")
     write_table(share_comparison(), VALIDATION / "biome_share_comparison.csv")
-    table = global_checks(pan_draws, rates, gcw, ncw)
+    table = global_checks(forest_draws, rates, gcw, ncw)
     write_table(table, VALIDATION / "global_checks.csv")
     for _, row in table.iterrows():
         print(f"  [{row['status']:>6}] {row['check']}: {row['value']} (expected {row['expected']})")

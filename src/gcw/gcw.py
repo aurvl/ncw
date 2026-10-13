@@ -1,7 +1,7 @@
 """Q: What is the annual Green Carbon Wealth of each country?
 
 GCW_i (US$2015/yr) = forest CO2 uptake_i (tCO2/yr) x GSCC (US$2015/tCO2), computed draw by draw.
-- Route B (main, C1): Pan area x rate uptake, mangroves excluded (C7).
+- Main estimate: FRA biome area x Gibbs/GFW gross living-biomass rate, mangroves excluded.
 - Route A (complementary, C1): FAOSTAT net flux; only the GSCC is uncertain.
 
 Outputs: output/country_level_gcw.csv, output/draws/gcw_draws.npz
@@ -16,11 +16,13 @@ from .config import OUTPUT
 from .validation import summarise_draws, write_table
 
 
-def build_gcw(territories: pd.DataFrame, pan: dict, faostat: pd.DataFrame, gscc: np.ndarray) -> tuple[pd.DataFrame, dict]:
-    countries = list(pan["iso3"])
+def build_gcw(territories: pd.DataFrame, forest: dict, faostat: pd.DataFrame, gscc: np.ndarray) -> tuple[pd.DataFrame, dict]:
+    countries = list(forest["iso3"])
     gscc32 = gscc.astype(np.float32)[None, :]
-    gcw_main = pan["excl_mangroves"] * gscc32
-    gcw_incl = pan["incl_mangroves"] * gscc32
+    gcw_main = forest["excl_mangroves"] * gscc32
+    gcw_incl = forest["incl_mangroves"] * gscc32
+    gcw_spatial_low = forest["spatial_sd_low"] * gscc32
+    gcw_spatial_high = forest["spatial_sd_high"] * gscc32
 
     faostat_uptake = faostat.set_index("iso3")["net_uptake_tco2_yr"]
     faostat_countries = sorted(faostat_uptake.index)
@@ -29,8 +31,10 @@ def build_gcw(territories: pd.DataFrame, pan: dict, faostat: pd.DataFrame, gscc:
     route_b = pd.concat(
         [
             pd.DataFrame({"iso3": countries}),
-            summarise_draws(pan["excl_mangroves"], "uptake_tco2_yr"),
+            summarise_draws(forest["excl_mangroves"], "uptake_tco2_yr"),
             summarise_draws(gcw_main, "gcw_usd2015_yr"),
+            summarise_draws(gcw_spatial_low, "gcw_spatial_sd_low_usd2015_yr")["gcw_spatial_sd_low_usd2015_yr_mean"].to_frame(),
+            summarise_draws(gcw_spatial_high, "gcw_spatial_sd_high_usd2015_yr")["gcw_spatial_sd_high_usd2015_yr_mean"].to_frame(),
             summarise_draws(gcw_incl, "gcw_incl_mangroves_usd2015_yr")[["gcw_incl_mangroves_usd2015_yr_mean"]],
         ],
         axis=1,
@@ -55,6 +59,8 @@ def build_gcw(territories: pd.DataFrame, pan: dict, faostat: pd.DataFrame, gscc:
     draws = {
         "iso3": np.array(countries),
         "gcw_usd2015_yr": gcw_main,
+        "gcw_spatial_sd_low_usd2015_yr": gcw_spatial_low,
+        "gcw_spatial_sd_high_usd2015_yr": gcw_spatial_high,
         "gcw_incl_mangroves_usd2015_yr": gcw_incl,
         "faostat_iso3": np.array(faostat_countries),
         "faostat_gcw_usd2015_yr": gcw_faostat,
@@ -63,8 +69,8 @@ def build_gcw(territories: pd.DataFrame, pan: dict, faostat: pd.DataFrame, gscc:
     return table, draws
 
 
-def run(territories: pd.DataFrame, pan: dict, faostat: pd.DataFrame, gscc: np.ndarray) -> tuple[pd.DataFrame, dict]:
-    table, draws = build_gcw(territories, pan, faostat, gscc)
+def run(territories: pd.DataFrame, forest: dict, faostat: pd.DataFrame, gscc: np.ndarray) -> tuple[pd.DataFrame, dict]:
+    table, draws = build_gcw(territories, forest, faostat, gscc)
     write_table(table, OUTPUT / "country_level_gcw.csv")
     path = OUTPUT / "draws" / "gcw_draws.npz"
     path.parent.mkdir(parents=True, exist_ok=True)

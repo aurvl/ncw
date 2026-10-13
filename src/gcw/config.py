@@ -22,6 +22,8 @@ FRA_VARIABLE = "FRA_Years_variables/{name}_2026-09-16.csv"
 FAOSTAT_FOREST_ZIP = RAW / "faostat" / "Emissions_Land_Use_Forests_E_All_Data_(Normalized).zip"
 FAOSTAT_FOREST_CSV = "Emissions_Land_Use_Forests_E_All_Data_(Normalized).csv"
 PAN_TABLE1_HTML = RAW / "pan" / "nature_extended_data_tables" / "Table1_main.html"
+GFW_GIBBS_REMOVALS_DIR = RAW / "gfw_gibbs_2025" / "gross_removals"
+GFW_GIBBS_REMOVALS_PATTERN = "*_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif"
 GEZ_SHP = "/vsizip/" + (RAW / "gez" / "gez2010.zip").as_posix() + "/gez_2010_wgs84.shp"
 BOUNDARIES_SHP = RAW / "boundaries" / "EEZ_land_union_v4_202410.shp"
 FOREST_MASK_TIF = RAW / "forest_mask" / "JRC_GFC2020_V4_overview_x256.tif"
@@ -48,15 +50,17 @@ CARBON_TO_CO2 = 44.0 / 12.0
 # B and the GSCC draws are taken from BCW so that GCW and BCW share the same worlds.
 SEED = 20260916
 
-# --- Route B: harmonised biomes x Pan rates (C1, C4, C17) ----------------------
+# --- Legacy Pan comparison inputs (not used in the main pipeline) ---------------
 PAN_PERIOD = "2010–2019"  # decade of Pan et al. (2024) Table 1 (C4)
 AREA_YEAR = "2025"  # FRA 2025 reporting year used for country forest areas
-# Pan biome -> Pan Table 1 row giving its flux (the tropical row aggregates intact and regrowth, C17).
+# Pan biome -> Pan Table 1 row giving its flux (legacy comparison only).
 PAN_BIOME_ROWS = {"tropical": "All tropical forests", "temperate": "Temperate forest", "boreal": "Boreal forest"}
-# Pan biome -> GEZ biomes it contains: Pan includes subtropical forests in its tropical set (C17).
+# Pan biome -> GEZ biomes it contains in the previous three-rate calculation.
 PAN_BIOME_MEMBERS = {"tropical": ["tropical", "subtropical"], "temperate": ["temperate"], "boreal": ["boreal"]}
-# Pan areas used as rate denominators: mean of the 2010 and 2020 areas of the flux decade (C17).
+# Pan areas used as denominators in the previous calculation.
 PAN_AREA_YEARS = ["area_2010_mha", "area_2020_mha"]
+GFW_GIBBS_PERIOD_YEARS = 23  # Published gross-removals layer covers 2001-2023.
+GFW_GIBBS_STRIPE_ROWS = 256  # Stream 30 m tiles in memory-bounded row windows.
 
 # --- Biome shares (C2) -------------------------------------------------------
 BIOMES = ["tropical", "subtropical", "temperate", "boreal"]

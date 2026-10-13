@@ -101,7 +101,7 @@ def load_data(root: Path) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.
     gcw = pd.read_csv(output_dir / "country_level_gcw.csv")
     ncw = pd.read_csv(output_dir / "country_level_ncw.csv")
     territories = pd.read_csv(data_dir / "summary" / "territories.csv")
-    rates = pd.read_csv(data_dir / "summary" / "biome_rates.csv").set_index("pan_biome")
+    rates = pd.read_csv(data_dir / "summary" / "gfw_gibbs_biome_rates.csv").set_index("biome")
     area_biome = pd.read_csv(data_dir / "summary" / "forest_area_by_biome.csv")
     gcw_archive = np.load(output_dir / "draws" / "gcw_draws.npz", allow_pickle=True)
     ncw_archive = np.load(output_dir / "draws" / "ncw_draws.npz", allow_pickle=True)
@@ -145,7 +145,7 @@ def calculate_losses(
 
     shares = (
         area_biome.query("variant == 'excl_mangroves'")
-        .pivot_table(index="iso3", columns="pan_biome", values="area_ha", aggfunc="sum")
+        .pivot_table(index="iso3", columns="biome", values="area_ha", aggfunc="sum")
         .fillna(0.0)
     )
     shares = shares.div(shares.sum(axis=1).replace(0, np.nan), axis=0).fillna(0.0)
@@ -153,23 +153,16 @@ def calculate_losses(
     reported = deforestation_ha.notna().to_numpy()
     area_by_biome = shares.mul(deforestation_ha.fillna(0.0), axis=0).to_numpy()
 
-    rng = np.random.default_rng(20260920)
-    rate_draws = np.vstack(
-        [
-            np.clip(
-                rng.normal(
-                    rates.loc[biome, "rate_tc_ha_yr_mean"],
-                    rates.loc[biome, "rate_tc_ha_yr_sd"],
-                    gscc.size,
-                ),
-                0,
-                None,
-            )
-            for biome in shares.columns
-        ]
-    )
-    loss_tco2 = (area_by_biome @ rate_draws) * CARBON_TO_CO2
+    q_mean = np.array([rates.loc[biome, "rate_tc_ha_yr_mean"] for biome in shares.columns])
+    q_sd = np.array([rates.loc[biome, "rate_tc_ha_yr_spatial_sd"] for biome in shares.columns])
+    loss_tco2_point = (area_by_biome @ q_mean) * CARBON_TO_CO2
+    loss_tco2_low = (area_by_biome @ np.maximum(q_mean - q_sd, 0.0)) * CARBON_TO_CO2
+    loss_tco2_high = (area_by_biome @ (q_mean + q_sd)) * CARBON_TO_CO2
+    # Rate spatial dispersion is a deterministic sensitivity, not a random draw.
+    loss_tco2 = np.broadcast_to(loss_tco2_point[:, None], (len(shares), gscc.size)).copy()
     loss_usd = loss_tco2 * gscc
+    loss_spatial_low_usd = loss_tco2_low * float(np.mean(gscc))
+    loss_spatial_high_usd = loss_tco2_high * float(np.mean(gscc))
     loss = pd.DataFrame(
         {
             "iso3": shares.index,
@@ -177,10 +170,18 @@ def calculate_losses(
             "loss_usd_mean": loss_usd.mean(axis=1),
             "loss_usd_p05": np.percentile(loss_usd, 5, axis=1),
             "loss_usd_p95": np.percentile(loss_usd, 95, axis=1),
+            "loss_spatial_sd_low_tco2_yr": loss_tco2_low,
+            "loss_spatial_sd_high_tco2_yr": loss_tco2_high,
+            "loss_spatial_sd_low_usd2015_yr": loss_spatial_low_usd,
+            "loss_spatial_sd_high_usd2015_yr": loss_spatial_high_usd,
             "reported_deforestation": reported,
         }
     )
-    loss.loc[~loss["reported_deforestation"], ["loss_tco2_mean", "loss_usd_mean", "loss_usd_p05", "loss_usd_p95"]] = np.nan
+    loss.loc[~loss["reported_deforestation"], [
+        "loss_tco2_mean", "loss_usd_mean", "loss_usd_p05", "loss_usd_p95",
+        "loss_spatial_sd_low_tco2_yr", "loss_spatial_sd_high_tco2_yr",
+        "loss_spatial_sd_low_usd2015_yr", "loss_spatial_sd_high_usd2015_yr",
+    ]] = np.nan
     return loss, loss_tco2, loss_usd, deforestation
 
 

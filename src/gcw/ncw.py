@@ -107,6 +107,8 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
         return full
 
     gcw = place(gcw_draws["iso3"], gcw_draws["gcw_usd2015_yr"])
+    gcw_spatial_low = place(gcw_draws["iso3"], gcw_draws["gcw_spatial_sd_low_usd2015_yr"])
+    gcw_spatial_high = place(gcw_draws["iso3"], gcw_draws["gcw_spatial_sd_high_usd2015_yr"])
     gcw_incl = place(gcw_draws["iso3"], gcw_draws["gcw_incl_mangroves_usd2015_yr"])
     bcw_published = place(bcw_units, bcw_unit_draws)
     gapfill_value = place(gapfill["iso3"], (gapfill_tc * CARBON_TO_CO2 * gscc).astype(np.float32))
@@ -119,6 +121,8 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
 
     both_missing = np.isnan(gcw) & np.isnan(bcw_full)
     ncw = np.where(both_missing, np.nan, np.nan_to_num(gcw) + np.nan_to_num(bcw_full))
+    ncw_spatial_low = np.where(both_missing, np.nan, np.nan_to_num(gcw_spatial_low) + np.nan_to_num(bcw_full))
+    ncw_spatial_high = np.where(both_missing, np.nan, np.nan_to_num(gcw_spatial_high) + np.nan_to_num(bcw_full))
     ncw_alt = np.where(
         both_missing, np.nan, np.nan_to_num(gcw_incl) + np.nan_to_num(bcw_full) - np.nan_to_num(mangrove_value)
     )
@@ -127,6 +131,8 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
         [
             pd.DataFrame({"iso3": iso}),
             summarise_draws(ncw, "ncw_usd2015_yr"),
+            summarise_draws(ncw_spatial_low, "ncw_spatial_sd_low_usd2015_yr")["ncw_spatial_sd_low_usd2015_yr_mean"].to_frame(),
+            summarise_draws(ncw_spatial_high, "ncw_spatial_sd_high_usd2015_yr")["ncw_spatial_sd_high_usd2015_yr_mean"].to_frame(),
             summarise_draws(gcw, "gcw_usd2015_yr")[["gcw_usd2015_yr_mean", "gcw_usd2015_yr_p05", "gcw_usd2015_yr_p95"]],
             summarise_draws(bcw_full, "bcw_usd2015_yr")[["bcw_usd2015_yr_mean", "bcw_usd2015_yr_p05", "bcw_usd2015_yr_p95"]],
             summarise_draws(bcw_published, "bcw_published_usd2015_yr")[["bcw_published_usd2015_yr_mean"]],
@@ -147,7 +153,8 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
     table = table.sort_values("ncw_usd2015_yr_mean", ascending=False).reset_index(drop=True)
 
     draws = {
-        "iso3": np.array(iso), "ncw_usd2015_yr": ncw, "gcw_usd2015_yr": gcw, "bcw_usd2015_yr": bcw_full,
+        "iso3": np.array(iso), "ncw_usd2015_yr": ncw, "ncw_spatial_sd_low_usd2015_yr": ncw_spatial_low,
+        "ncw_spatial_sd_high_usd2015_yr": ncw_spatial_high, "gcw_usd2015_yr": gcw, "bcw_usd2015_yr": bcw_full,
         "bcw_published_rows_usd2015_yr": bcw_row_draws, "bcw_codes": bcw["bcw_code"].to_numpy(),
         "bcw_mangrove_gapfill_usd2015_yr": gapfill_value, "bcw_mangrove_gapfill_tco2_yr": gapfill_tco2,
     }
