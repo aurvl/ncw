@@ -1,0 +1,270 @@
+iso3,name,in_fra,in_bcw,biome_share_source,uptake_tco2_yr_mean,faostat_net_uptake_tco2_yr,has_gcw,has_bcw,bcw_alignment
+ABW,Aruba,True,True,fra_reported,1678.8028564453125,-103.97999999999999,True,True,matched
+AE,"Abu musa, Greater and Lesser Tunb",False,True,,,,False,False,no_bcw_value
+AFG,Afghanistan,True,True,gez_forest_mask,6078693.5,0.0,True,False,no_bcw_value
+AGO,Angola,True,True,gez_forest_mask,216744848.0,3999.1699999999996,True,True,matched
+AIA,Anguilla,True,True,fra_reported,18843.705078125,0.0,True,True,matched
+ALB,Albania,True,True,gez_forest_mask,4810361.5,143733.32000000004,True,True,matched
+AND,Andorra,True,True,gez_forest_mask,95538.1328125,89184.38,True,False,no_bcw_value
+ARE,United Arab Emirates,True,True,fra_reported,1112052.625,62333.35,True,True,matched
+ARG,Argentina,True,True,gez_forest_mask,170024192.0,10979446.6,True,True,matched
+ARM,Armenia,True,True,gez_forest_mask,1710172.0,851031.22,True,False,no_bcw_value
+ASM,American Samoa,True,True,gez_forest_mask,54304.1328125,2094.46,True,True,matched
+ATA,Antarctica,False,True,,,,False,False,no_bcw_value
+ATF,,,,gez_land,,,,,
+ATF-1,Amsterdam and Saint Paul Islands,False,True,,,,False,False,no_bcw_value
+ATF-2,Bassas da India,False,True,,,,False,False,no_bcw_value
+ATF-3,Crozet Islands,False,True,,,,False,False,no_bcw_value
+ATF-4,Europa Island,False,True,,,,False,True,matched
+ATF-5,Juan de Nova Island,False,True,,,,False,False,no_bcw_value
+ATF-6,Kerguélen,False,True,,,,False,False,no_bcw_value
+ATF_GI,,,,,,,False,False,
+ATG,Antigua and Barbuda,True,True,gez_forest_mask,26689.5390625,-1867.5,True,True,matched
+AUS,Australia,True,True,gez_forest_mask,564705472.0,24659114.32,True,True,matched;no_bcw_value
+AUT,Austria,True,True,gez_forest_mask,20470486.0,6522366.38,True,False,no_bcw_value
+AZE,Azerbaijan,True,True,gez_forest_mask,6272216.0,4306535.74,True,False,no_bcw_value
+BCW-JR,Joint Regimes,False,True,,,,False,True,matched
+BCW-OC,Overlapping Claims,False,True,,,,False,False,no_bcw_value
+BDI,Burundi,True,True,gez_forest_mask,958082.5,494266.67000000004,True,False,no_bcw_value
+BEL,Belgium,True,True,gez_forest_mask,3515929.0,-280918.6500000001,True,True,matched
+BEN,Benin,True,True,gez_forest_mask,10734985.0,-5503458.3100000005,True,True,matched
+BES,"Bonaire, Sint Eustatius and Saba",True,True,gez_forest_mask,14424.0,-893.35,True,True,matched
+BFA,Burkina Faso,True,True,gez_forest_mask,11090274.0,-1246705.97,True,False,no_bcw_value
+BGD,Bangladesh,True,True,gez_forest_mask,6418577.0,7908053.140000001,True,True,matched
+BGR,Bulgaria,True,True,gez_forest_mask,20735546.0,20680410.43,True,True,matched
+BHR,Bahrain,True,True,fra_reported,21963.79296875,27133.329999999998,True,True,matched
+BHS,Bahamas,True,True,gez_forest_mask,1260472.5,0.0,True,True,matched
+BIH,Bosnia and Herzegovina,True,True,gez_forest_mask,11294022.0,2023874.7100000002,True,True,matched
+BLM,Saint Barthélemy,True,True,fra_reported,582.4417724609375,,True,True,matched
+BLR,Belarus,True,True,gez_forest_mask,47063280.0,83684017.5,True,False,no_bcw_value
+BLZ,Belize,True,True,gez_forest_mask,4505530.0,-96684.81,True,True,matched
+BMU,Bermuda,True,True,fra_reported,3920.31103515625,-165.5,True,True,matched
+BOL,Bolivia (Plurinational State of),True,True,gez_forest_mask,186279520.0,1448878.91,True,False,no_bcw_value
+BRA,Brazil,True,True,gez_forest_mask,1684261120.0,361682485.11,True,True,matched;no_bcw_value
+BRB,Barbados,True,True,fra_reported,21584.607421875,-1336.85,True,True,matched
+BRN,Brunei Darussalam,True,True,gez_forest_mask,1301928.75,49191.61,True,True,matched
+BTN,Bhutan,True,True,gez_forest_mask,10408836.0,168497.25999999998,True,False,no_bcw_value
+BVT,Bouvet,False,True,gez_land,,,False,False,no_bcw_value
+BWA,Botswana,True,True,gez_forest_mask,53893680.0,80666.65000000001,True,False,no_bcw_value
+CAF,Central African Republic,True,True,gez_forest_mask,154500800.0,109777.59000000001,True,False,no_bcw_value
+CAN,Canada,True,True,gez_forest_mask,1124723456.0,-42147678.44,True,True,matched
+CCK,Cocos Islands,False,True,gez_land,,,False,True,matched
+CHE,Switzerland,True,True,gez_forest_mask,6643728.0,101243.54,True,False,no_bcw_value
+CHL,Chile,True,True,gez_forest_mask,94041112.0,2183920.13,True,True,matched;no_bcw_value
+CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",True,True,gez_forest_mask,1100900992.0,830314859.49,True,True,matched
+CIV,Côte d'Ivoire,True,True,gez_forest_mask,12930653.0,13794775.829999998,True,True,matched
+CMR,Cameroon,True,True,gez_forest_mask,65587124.0,3749526.6399999997,True,True,matched
+COD,Democratic Republic of the Congo,True,True,gez_forest_mask,476879520.0,1545948.3800000001,True,True,matched
+COG,Congo,True,True,gez_forest_mask,74873920.0,3036714.3400000003,True,True,matched
+COK,Cook Islands,True,True,gez_forest_mask,53413.33984375,0.0,True,True,matched
+COL,Colombia,True,True,gez_forest_mask,203706816.0,3760211.04,True,True,matched;no_bcw_value
+COM,Comoros,True,True,gez_forest_mask,114329.8984375,13994.310000000001,True,True,matched
+CP,Clipperton Island,False,True,,,,False,False,no_bcw_value
+CPV,Cabo Verde,True,True,gez_forest_mask,174938.109375,14666.65,True,True,matched
+CRI,Costa Rica,True,True,gez_forest_mask,10242890.0,2904848.8099999996,True,True,matched
+CUB,Cuba,True,True,gez_forest_mask,12410738.0,1129155.1800000002,True,True,matched
+CUW,Curaçao,True,True,gez_forest_mask,239.82896423339844,0.0,True,True,matched
+CXR,Christmas Island,False,True,gez_forest_mask,,,False,True,matched
+CYM,Cayman Islands,True,True,gez_forest_mask,43580.3515625,-2699.15,True,True,matched
+CYP,Cyprus,True,True,gez_forest_mask,862971.0,279202.32,True,True,matched
+CZE,Czechia,True,True,gez_forest_mask,15564850.0,4760996.58,True,False,no_bcw_value
+DEU,Germany,True,True,gez_forest_mask,60203704.0,5189800.01,True,True,matched_first_of_identical
+DJ,Doumeira Islands,False,True,,,,False,False,no_bcw_value
+DJI,Djibouti,True,True,fra_reported,20316.939453125,3666.65,True,True,matched
+DMA,Dominica,True,True,gez_forest_mask,196488.453125,-1636.3799999999999,True,True,matched
+DNK,Denmark,True,True,gez_forest_mask,3369318.25,2074022.7600000002,True,True,matched
+DOM,Dominican Republic,True,True,gez_forest_mask,7734347.5,1799155.3399999999,True,True,matched
+DZA,Algeria,True,True,gez_forest_mask,8500843.0,65569.14,True,True,matched
+ECU,Ecuador,True,True,gez_forest_mask,42176736.0,342860.76,True,True,matched
+EGY,Egypt,True,True,fra_reported,19473.408203125,0.0,True,True,matched
+ERI,Eritrea,True,True,gez_forest_mask,4940545.5,-3614.5800000000004,True,True,matched
+ESH,Western Sahara,True,True,fra_reported,1813175.5,-243.34000000000233,True,False,no_bcw_value
+ESP,Spain,True,True,gez_forest_mask,97462728.0,7249074.290000001,True,True,matched;no_bcw_value
+EST,Estonia,True,True,gez_forest_mask,12931133.0,-2040227.7,True,True,matched
+ETH,Ethiopia,True,True,gez_forest_mask,91638992.0,8773649.709999999,True,False,no_bcw_value
+FIN,Finland,True,True,gez_forest_mask,52605540.0,20670872.0,True,True,matched
+FJI,Fiji,True,True,gez_forest_mask,3894137.25,1993933.3199999998,True,True,matched
+FLK,Falkland Islands (Malvinas),True,True,fra_reported,0.0,0.0,True,False,no_bcw_value
+FR-GLO,Glorioso Islands,False,True,,,,False,False,no_bcw_value
+FR-TRO,Tromelin Island,False,True,,,,False,False,no_bcw_value
+FRA,France,True,True,gez_forest_mask,92608944.0,35419266.67,True,True,matched
+FRO,Faroe Islands,True,True,fra_reported,181.46568298339844,0.0,True,False,no_bcw_value
+FSM,Micronesia (Federated States of),True,True,gez_forest_mask,221225.09375,13933.36,True,True,matched
+GAB,Gabon,True,True,gez_forest_mask,80703512.0,2529.8900000000003,True,True,matched
+GBR,United Kingdom of Great Britain and Northern Ireland,True,True,gez_forest_mask,15542052.0,3637333.3,True,True,matched
+GEO,Georgia,True,True,gez_forest_mask,16018612.0,3639533.34,True,False,no_bcw_value
+GGY,Guernsey,True,True,fra_reported,2464.4853515625,,True,False,no_bcw_value
+GHA,Ghana,True,True,gez_forest_mask,24175994.0,12168933.319999998,True,True,matched
+GIB,Gibraltar,True,True,fra_reported,0.0,0.0,True,False,no_bcw_value
+GIN,Guinea,True,True,gez_forest_mask,16641767.0,399104.62,True,True,matched
+GLP,Guadeloupe,True,True,gez_forest_mask,259015.296875,198000.0,True,True,matched
+GMB,Gambia,True,True,gez_forest_mask,717671.0625,-609.4599999999999,True,True,matched
+GNB,Guinea-Bissau,True,True,gez_forest_mask,7193464.5,-1889.64,True,True,matched
+GNQ,Equatorial Guinea,True,True,gez_forest_mask,8245388.5,-1734.77,True,True,matched
+GRC,Greece,True,True,gez_forest_mask,24037302.0,5385600.02,True,True,matched
+GRD,Grenada,True,True,gez_forest_mask,60642.46875,0.0,True,True,matched
+GRL,Greenland,True,True,gez_land,499.0306396484375,0.0,True,False,no_bcw_value
+GTM,Guatemala,True,True,gez_forest_mask,12113590.0,6332191.25,True,True,matched
+GUF,French Guiana,True,True,gez_forest_mask,27347184.0,7580.1799999999985,True,True,matched
+GUM,Guam,True,True,gez_forest_mask,96856.640625,-30066.670000000002,True,True,matched
+GUY,Guyana,True,True,gez_forest_mask,62962608.0,555.0599999999998,True,True,matched
+HMD,Heard and McDonald Islands,False,True,gez_land,,,False,False,no_bcw_value
+HND,Honduras,True,True,gez_forest_mask,20081668.0,-1977625.9900000044,True,True,matched
+HRV,Croatia,True,True,gez_forest_mask,10122169.0,4201780.17,True,True,matched
+HTI,Haiti,True,True,gez_forest_mask,1274862.25,131855.12,True,True,matched
+HUN,Hungary,True,True,gez_forest_mask,10945303.0,4966668.8,True,False,no_bcw_value
+IDN,Indonesia,True,True,gez_forest_mask,328803136.0,139271956.01,True,True,matched
+IMN,Isle of Man,True,True,gez_forest_mask,19243.958984375,4382.35,True,False,no_bcw_value
+IND,India,True,True,gez_forest_mask,261033616.0,133836999.97999999,True,True,matched
+IO,Chagos Archipelago,False,True,,,,False,True,matched
+IRL,Ireland,True,True,gez_forest_mask,4367120.5,2813800.0300000003,True,True,matched
+IRN,Iran (Islamic Republic of),True,True,gez_forest_mask,54095928.0,-1855090.95,True,True,matched
+IRQ,Iraq,True,True,gez_forest_mask,3480783.75,-4447570.589999999,True,True,matched
+ISL,Iceland,True,True,gez_forest_mask,139456.375,157666.65,True,True,matched
+ISR,Israel,True,True,gez_forest_mask,753905.9375,300368.27,True,True,matched
+ITA,Italy,True,True,gez_forest_mask,48033872.0,-7631974.9399999995,True,True,matched
+JAM,Jamaica,True,True,gez_forest_mask,2350632.25,585933.33,True,True,matched
+JEY,Jersey,True,True,fra_reported,3565.63818359375,2203.71,True,False,no_bcw_value
+JOR,Jordan,True,True,gez_forest_mask,355341.0,200.8,True,True,matched
+JP,Senkaku Islands,False,True,,,,False,False,no_bcw_value
+JPN,Japan,True,True,gez_forest_mask,127858496.0,55804360.79000001,True,True,matched
+KAZ,Kazakhstan,True,True,gez_forest_mask,16605765.0,381260.77,True,False,no_bcw_value
+KEN,Kenya,True,True,gez_forest_mask,13199296.0,11423151.77,True,True,matched
+KGZ,Kyrgyzstan,True,True,gez_forest_mask,6583217.0,2249721.62,True,False,no_bcw_value
+KHM,Cambodia,True,True,gez_forest_mask,21698252.0,2789947.99,True,True,matched
+KIR,Kiribati,True,True,fra_reported,0.0,0.0,True,True,matched
+KNA,Saint Kitts and Nevis,True,True,gez_forest_mask,37687.41015625,0.0,True,True,matched
+KOR,Republic of Korea,True,True,gez_forest_mask,32758266.0,49452741.589999996,True,True,matched
+KWT,Kuwait,True,True,fra_reported,31664.05078125,2200.0,True,True,matched
+LAO,Lao People's Democratic Republic,True,True,gez_forest_mask,44663144.0,-641343.4699999997,True,False,no_bcw_value
+LBN,Lebanon,True,True,gez_forest_mask,710279.9375,-95333.35,True,True,matched
+LBR,Liberia,True,True,gez_forest_mask,21675468.0,-890.1399999999998,True,True,matched
+LBY,Libya,True,True,gez_forest_mask,1031996.75,581.2300000000002,True,True,matched
+LCA,Saint Lucia,True,True,gez_forest_mask,112514.046875,297733.32,True,True,matched
+LIE,Liechtenstein,True,True,gez_forest_mask,31356.642578125,5866.68,True,False,no_bcw_value
+LKA,Sri Lanka,True,True,gez_forest_mask,7265755.5,816229.5700000001,True,True,matched
+LSO,Lesotho,True,True,gez_forest_mask,173498.890625,0.0,True,False,no_bcw_value
+LTU,Lithuania,True,True,gez_forest_mask,11621569.0,6819084.75,True,False,no_bcw_value
+LUX,Luxembourg,True,True,gez_forest_mask,465106.03125,163533.35,True,False,no_bcw_value
+LVA,Latvia,True,True,gez_forest_mask,18179302.0,6882718.55,True,True,matched
+MAF,Saint Martin (French Part),True,True,gez_forest_mask,4248.39892578125,0.0,True,True,matched
+MAR,Morocco,True,True,gez_forest_mask,28619780.0,459852.93000000046,True,True,matched
+MCO,Monaco,True,True,fra_reported,0.0,0.0,True,True,matched
+MDA,Republic of Moldova,True,True,gez_forest_mask,1941699.75,422748.92000000004,True,False,no_bcw_value
+MDG,Madagascar,True,True,gez_forest_mask,33994316.0,-13991682.64,True,True,matched
+MDV,Maldives,True,True,fra_reported,12745.197265625,0.0,True,True,matched
+MEX,Mexico,True,True,gez_forest_mask,269578912.0,3694416.1,True,True,matched
+MHL,Marshall Islands,True,True,fra_reported,33267.703125,12735.8,True,True,matched
+MKD,North Macedonia,True,True,gez_forest_mask,5288122.5,1105478.35,True,False,no_bcw_value
+MLI,Mali,True,True,gez_forest_mask,35903252.0,-921899.1700000002,True,False,no_bcw_value
+MLT,Malta,True,True,fra_reported,2362.23876953125,2028.1699999999996,True,True,matched
+MMR,Myanmar,True,True,gez_forest_mask,93046584.0,5679328.59,True,True,matched
+MNE,Montenegro,True,True,gez_forest_mask,4270125.0,0.0,True,True,matched
+MNG,Mongolia,True,True,gez_forest_mask,51178904.0,85975.95,True,False,no_bcw_value
+MNP,Northern Mariana Islands,True,True,gez_forest_mask,83460.484375,1466.67,True,True,matched
+MOZ,Mozambique,True,True,gez_forest_mask,110468304.0,298996.82,True,True,matched
+MRT,Mauritania,True,True,fra_reported,3491670.0,1030815.8200000001,True,True,matched
+MSR,Montserrat,True,True,gez_forest_mask,8291.23046875,-513.51,True,True,matched
+MTQ,Martinique,True,True,gez_forest_mask,180454.171875,96800.00000000001,True,True,matched
+MUS,Mauritius,True,True,gez_forest_mask,131186.453125,572.3900000000001,True,True,matched
+MWI,Malawi,True,True,gez_forest_mask,6960864.5,-951.0099999999999,True,False,no_bcw_value
+MYS,Malaysia,True,True,gez_forest_mask,64701540.0,38978560.54000001,True,True,matched
+MYT,Mayotte,True,True,fra_reported,32890.83203125,11740.33,True,True,matched
+NAM,Namibia,True,True,gez_forest_mask,27556212.0,-3098.4100000000003,True,True,matched
+NCL,New Caledonia,True,True,gez_forest_mask,3058196.25,366858.01,True,True,matched
+NER,Niger,True,True,fra_reported,3614907.75,677418.4400000001,True,False,no_bcw_value
+NFK,Norfolk Island,True,True,fra_reported,2462.759521484375,0.0,True,False,no_bcw_value
+NGA,Nigeria,True,True,gez_forest_mask,58689440.0,8416956.239999998,True,True,matched
+NIC,Nicaragua,True,True,gez_forest_mask,16379291.0,1330939.066666667,True,True,matched
+NIU,Niue,True,True,gez_forest_mask,64651.0390625,0.0,True,True,matched
+NLD,Netherlands (Kingdom of the),True,True,gez_forest_mask,1936613.5,3182090.28,True,True,matched
+NOR,Norway,True,True,gez_forest_mask,30343644.0,6864835.45,True,True,matched
+NPL,Nepal,True,True,gez_forest_mask,26099250.0,3821320.2300000004,True,False,no_bcw_value
+NRU,Naoero,True,True,fra_reported,0.0,0.0,True,True,matched
+NZL,New Zealand,True,True,gez_forest_mask,52927204.0,13313050.2,True,True,matched
+OMN,Oman,True,True,gez_forest_mask,5481.80517578125,0.0,True,True,matched
+PAK,Pakistan,True,True,gez_forest_mask,15840558.0,3458097.7399999998,True,True,matched
+PAN,Panama,True,True,gez_forest_mask,15810245.0,402252.55,True,True,matched
+PCN,Pitcairn,True,True,gez_forest_mask,12642.4130859375,0.0,True,False,no_bcw_value
+PER,Peru,True,True,gez_forest_mask,230097952.0,2705270.7399999998,True,True,matched
+PHL,Philippines,True,True,gez_forest_mask,25485734.0,23194600.03,True,True,matched
+PLW,Palau,True,True,gez_forest_mask,143451.984375,40333.35,True,True,matched
+PNG,Papua New Guinea,True,True,gez_forest_mask,115607808.0,344612.77,True,True,matched
+POL,Poland,True,True,gez_forest_mask,49787844.0,22516266.639999997,True,True,matched
+PRI,Puerto Rico,True,True,gez_forest_mask,1722725.75,1453409.6900000002,True,True,matched
+PRK,Democratic People's Republic of Korea,True,True,gez_forest_mask,40522064.0,2343416.1399999997,True,True,matched
+PRT,Portugal,True,True,gez_forest_mask,17098170.0,-1680800.0200000003,True,True,matched;no_bcw_value
+PRY,Paraguay,True,True,gez_forest_mask,48984692.0,654696.4000000004,True,False,no_bcw_value
+PSE,Palestine,True,True,gez_forest_mask,55789.04296875,6538.53,True,False,no_bcw_value
+PYF,French Polynesia,True,True,gez_forest_mask,512069.125,0.0,True,True,matched
+QAT,Qatar,True,True,fra_reported,7036.45556640625,0.0,True,True,matched
+REU,Réunion,True,True,gez_forest_mask,264325.78125,38866.64,True,False,no_bcw_value
+ROU,Romania,True,True,gez_forest_mask,36480308.0,41976335.59,True,True,matched
+RU-SA,Kuril Islands,False,True,,,,False,False,no_bcw_value
+RUS,Russian Federation,True,True,gez_forest_mask,2167621120.0,979328533.3299999,True,True,matched
+RWA,Rwanda,True,True,gez_forest_mask,2174323.75,11077733.35,True,False,no_bcw_value
+SAU,Saudi Arabia,True,True,gez_forest_mask,9509390.0,73333.32,True,True,matched
+SD,Hala'ib Triangle,False,True,,,,False,True,matched
+SDN,Sudan,True,True,gez_forest_mask,75307664.0,12221316.59,True,True,matched
+SEN,Senegal,True,True,gez_forest_mask,29633678.0,332237.52999999997,True,True,matched
+SGP,Singapore,True,True,gez_forest_mask,47588.921875,59135.68999999999,True,True,matched
+SGS,South Georgia and the South Sandwich Islands,False,True,,,,False,False,no_bcw_value
+SHN,"Ascension, Saint Helena and Tristan da Cunha",True,True,gez_forest_mask,9207.998046875,0.0,True,True,no_bcw_value
+SJM,Svalbard and Jan Mayen Islands,True,True,gez_land,0.0,0.0,True,False,no_bcw_value
+SLB,Solomon Islands,True,True,gez_forest_mask,8613046.0,9028.869999999999,True,True,matched
+SLE,Sierra Leone,True,True,gez_forest_mask,8346973.5,112390.03,True,True,matched
+SLV,El Salvador,True,True,gez_forest_mask,2346349.5,180400.0,True,True,matched
+SMR,San Marino,True,True,fra_reported,5026.03955078125,-2199.9900000000002,True,False,no_bcw_value
+SOM,Somalia,True,True,gez_forest_mask,16547343.0,-72941703.15,True,True,matched
+SPM,Saint Pierre and Miquelon,True,True,fra_reported,2495.1533203125,-1910.33,True,False,no_bcw_value
+SRB,Serbia,True,True,gez_forest_mask,18222100.0,24388466.65,True,False,no_bcw_value
+SSD,South Sudan,True,True,gez_forest_mask,24531078.0,203296.94,True,False,no_bcw_value
+STP,Sao Tome and Principe,True,True,gez_forest_mask,189396.359375,6569.88,True,True,matched
+SUR,Suriname,True,True,gez_forest_mask,50275688.0,-1205.5500000000002,True,True,matched
+SVK,Slovakia,True,True,gez_forest_mask,10175125.0,2849494.45,True,False,no_bcw_value
+SVN,Slovenia,True,True,gez_forest_mask,6505155.0,-459968.73999999993,True,True,matched
+SWE,Sweden,True,True,gez_forest_mask,85902000.0,17465535.84,True,True,matched
+SWZ,Eswatini,True,True,gez_forest_mask,1619776.75,-27876.1,True,False,no_bcw_value
+SXM,Sint Maarten (Dutch part),True,True,fra_reported,1027.8385009765625,-63.65999999999999,True,True,matched
+SYC,Seychelles,True,True,gez_forest_mask,90860.921875,12292.089999999997,True,True,matched
+SYR,Syrian Arab Republic,True,True,gez_forest_mask,2652794.0,1603800.0299999998,True,True,matched
+TCA,Turks and Caicos Islands,True,True,gez_forest_mask,36042.8671875,0.0,True,True,matched
+TCD,Chad,True,True,gez_forest_mask,12372845.0,-47384.81999999999,True,False,no_bcw_value
+TGO,Togo,True,True,gez_forest_mask,4195157.0,505651.92000000004,True,True,matched
+THA,Thailand,True,True,gez_forest_mask,67314784.0,12450653.96,True,True,matched
+TJK,Tajikistan,True,True,gez_forest_mask,2225902.0,-7882.129999999996,True,False,no_bcw_value
+TKL,Tokelau,True,True,fra_reported,0.0,0.0,True,False,no_bcw_value
+TKM,Turkmenistan,True,True,fra_reported,12161797.0,0.0,True,False,no_bcw_value
+TLS,Timor-Leste,True,True,gez_forest_mask,3604972.0,1005.3699999999997,True,True,matched
+TON,Tonga,True,True,gez_forest_mask,23845.8515625,0.0,True,True,matched
+TTO,Trinidad and Tobago,True,True,gez_forest_mask,774476.25,-23247.54,True,True,matched
+TUN,Tunisia,True,True,gez_forest_mask,3455352.0,-325439.07,True,True,matched
+TUR,Türkiye,True,True,gez_forest_mask,115025672.0,3615333.3299999996,True,True,matched
+TUV,Tuvalu,True,True,fra_reported,3528.912109375,0.0,True,True,matched
+TZA,United Republic of Tanzania,True,True,gez_forest_mask,148693968.0,-784.3000000000001,True,True,matched
+UGA,Uganda,True,True,gez_forest_mask,8111941.0,-10146937.239999998,True,False,no_bcw_value
+UKR,Ukraine,True,True,gez_forest_mask,52907780.0,24815357.410000004,True,True,matched
+UM-76,Navassa Island,False,True,,,,False,False,no_bcw_value
+UMI,,,,gez_land,,,,,
+UMI-1,Howland and Baker islands,False,True,,,,False,False,no_bcw_value
+UMI-2,Jarvis Island,False,True,,,,False,False,no_bcw_value
+UMI-3,Johnston Atoll,False,True,,,,False,False,no_bcw_value
+UMI-4,Palmyra Atoll,False,True,,,,False,False,no_bcw_value
+UMI-5,Wake Island,False,True,,,,False,False,no_bcw_value
+URY,Uruguay,True,True,gez_forest_mask,10366257.0,1607466.67,True,True,matched
+USA,United States of America,True,True,gez_forest_mask,1459205248.0,624364565.51,True,True,matched
+UZB,Uzbekistan,True,True,gez_forest_mask,20419518.0,1255466.65,True,False,no_bcw_value
+VAT,Holy See,True,True,fra_reported,0.0,0.0,True,False,no_bcw_value
+VCT,Saint Vincent and the Grenadines,True,True,gez_forest_mask,97713.171875,-3542.0799999999995,True,True,matched
+VEN,Venezuela (Bolivarian Republic of),True,True,gez_forest_mask,161330352.0,2434517.96,True,True,matched
+VGB,British Virgin Islands,True,True,fra_reported,34158.49609375,-640.01,True,True,matched
+VIR,United States Virgin Islands,True,True,gez_forest_mask,70783.8046875,107800.0,True,True,matched
+VNM,Viet Nam,True,True,gez_forest_mask,52155452.0,97510366.85,True,True,matched
+VU,Matthew and Hunter Islands,False,True,,,,False,False,no_bcw_value
+VUT,Vanuatu,True,True,gez_forest_mask,3109005.75,67.13000000000001,True,True,matched
+WLF,Wallis and Futuna Islands,True,True,gez_forest_mask,37070.70703125,31207.230000000003,True,True,matched
+WSM,Samoa,True,True,gez_forest_mask,546159.0625,277.64999999999964,True,True,matched
+YEM,Yemen,True,True,gez_forest_mask,1880944.375,0.0,True,True,matched_first_of_identical
+ZAF,South Africa,True,True,gez_forest_mask,95799336.0,8084999.989999999,True,True,matched;no_bcw_value
+ZMB,Zambia,True,True,gez_forest_mask,153745072.0,6141.460000000001,True,False,no_bcw_value
+ZWE,Zimbabwe,True,True,gez_forest_mask,47164116.0,893.0599999999998,True,False,no_bcw_value

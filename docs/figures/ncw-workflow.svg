@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1010" viewBox="0 0 1440 1010" role="img" aria-labelledby="title desc">
+  <title id="title">Natural Carbon Wealth research workflow</title>
+  <desc id="desc">Source data are harmonised into forest and marine physical accounts, valued and combined into national accounts, then used for research analyses and paper outputs.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L10,6 L1,11 Z" fill="#527064"/></marker>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#16352B" flood-opacity="0.10"/></filter>
+    <style>
+      text { font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Arial, sans-serif; fill: #18332B; }
+      .title { font-size: 34px; font-weight: 750; letter-spacing: -0.5px; }
+      .subtitle { font-size: 16px; fill: #526B61; }
+      .stage { font-size: 13px; font-weight: 700; letter-spacing: 1.4px; fill: #65796F; }
+      .card-title { font-size: 20px; font-weight: 700; }
+      .body { font-size: 15px; fill: #425B51; }
+      .small { font-size: 13px; fill: #526B61; }
+      .tag { font-size: 12px; font-weight: 700; letter-spacing: .7px; }
+      .forest { fill: #2F6F4F; }
+      .marine { fill: #177E89; }
+      .gold { fill: #A97828; }
+      .white { fill: #FFFFFF; }
+      .pale { fill: #D9E8DD; }
+    </style>
+  </defs>
+  <rect width="1440" height="1010" rx="28" fill="#F4F7F1"/>
+  <text x="72" y="68" class="title">From source data to national carbon wealth</text>
+  <text x="72" y="98" class="subtitle">A reproducible workflow for forest and marine accounts, valuation, and country-level analysis</text>
+
+  <text x="72" y="145" class="stage">01  SOURCE DATA</text>
+  <g filter="url(#shadow)">
+    <rect x="72" y="166" width="400" height="158" rx="18" fill="#FFFFFF" stroke="#D8E3D9"/>
+    <rect x="72" y="166" width="8" height="158" rx="4" fill="#2F6F4F"/>
+    <rect x="520" y="166" width="400" height="158" rx="18" fill="#FFFFFF" stroke="#D8E3D9"/>
+    <rect x="520" y="166" width="8" height="158" rx="4" fill="#177E89"/>
+    <rect x="968" y="166" width="400" height="158" rx="18" fill="#FFFFFF" stroke="#D8E3D9"/>
+    <rect x="968" y="166" width="8" height="158" rx="4" fill="#A97828"/>
+  </g>
+  <text x="102" y="202" class="tag forest">FOREST SOURCES</text>
+  <text x="102" y="235" class="card-title">Area and annual biomass rates</text>
+  <text x="102" y="266" class="body">FRA, FAO GEZ, JRC forest mask</text>
+  <text x="102" y="291" class="body">Gibbs/GFW pixels and Pan comparison</text>
+  <text x="550" y="202" class="tag marine">MARINE SOURCES</text>
+  <text x="550" y="235" class="card-title">Coastal and ocean components</text>
+  <text x="550" y="266" class="body">Published BCW inputs and ecosystem areas</text>
+  <text x="550" y="291" class="body">GMW 2025 mangrove spatial update</text>
+  <text x="998" y="202" class="tag gold">COUNTRY CONTEXT</text>
+  <text x="998" y="235" class="card-title">Economic and policy data</text>
+  <text x="998" y="266" class="body">Population, GDP, and emissions</text>
+  <text x="998" y="291" class="body">Deforestation and action-cost sources</text>
+
+  <path d="M272 324 V402 M720 324 V402 M1168 324 V402" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="72" y="389" class="stage">02  HARMONISE INPUTS</text>
+  <g filter="url(#shadow)"><rect x="72" y="408" width="1296" height="108" rx="18" fill="#E7EFE7" stroke="#C8D8CB"/></g>
+  <text x="108" y="450" class="card-title">Align source definitions, country units, and time periods</text>
+  <text x="108" y="482" class="body">Country crosswalks  •  forest area by biome  •  marine boundaries  •  matched socioeconomic and emissions series</text>
+
+  <path d="M720 516 V548 M720 548 H382 V574 M720 548 H1058 V574" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="72" y="563" class="stage">03  ESTIMATE ANNUAL PHYSICAL FLOWS</text>
+  <g filter="url(#shadow)">
+    <rect x="72" y="584" width="620" height="158" rx="18" fill="#FFFFFF" stroke="#D8E3D9"/>
+    <rect x="748" y="584" width="620" height="158" rx="18" fill="#FFFFFF" stroke="#D8E3D9"/>
+  </g>
+  <text x="108" y="624" class="tag forest">FOREST ACCOUNT</text>
+  <text x="108" y="659" class="card-title">Living-biomass additions</text>
+  <text x="108" y="690" class="body">Allocated forest area × annual rate for each of four biomes</text>
+  <text x="108" y="716" class="small">Gibbs/GFW above- and below-ground living biomass</text>
+  <text x="784" y="624" class="tag marine">MARINE ACCOUNT</text>
+  <text x="784" y="659" class="card-title">Coastal and ocean carbon measures</text>
+  <text x="784" y="690" class="body">Source-specific physical measures are kept identifiable</text>
+  <text x="784" y="716" class="small">Area harmonisation and BCW components are documented separately</text>
+
+  <path d="M382 742 V775 H720 M1058 742 V775 H720 V790" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="72" y="775" class="stage">04  VALUE AND AGGREGATE</text>
+  <g filter="url(#shadow)"><rect x="250" y="802" width="940" height="96" rx="18" fill="#173F35"/></g>
+  <text x="292" y="843" class="card-title white">Apply GSCC draws and build country-level wealth accounts</text>
+  <text x="292" y="874" class="body pale">Green Carbon Wealth (GCW) + Blue Carbon Wealth (BCW) = Natural Carbon Wealth (NCW)</text>
+
+  <path d="M720 898 V925 M720 925 H390 V942 M720 925 H1050 V942" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="72" y="944" width="620" height="50" rx="14" fill="#E8E2D3"/>
+  <rect x="748" y="944" width="620" height="50" rx="14" fill="#DDE9E4"/>
+  <text x="102" y="975" class="body" font-weight="700">Analyses: deforestation, finance, and spatial models</text>
+  <text x="778" y="975" class="body" font-weight="700">Release: country tables, paper figures, and supplement</text>
+</svg>

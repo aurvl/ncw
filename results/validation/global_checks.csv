@@ -1,0 +1,18 @@
+check,value,expected,status
+biome shares sum to 1,2.220446049250313e-16,< 1e-6,ok
+Gibbs/GFW rates cover four biomes exactly,True,"['boreal', 'subtropical', 'temperate', 'tropical']",ok
+Gibbs/GFW mean rates and spatial SD are non-negative,True,True,ok
+"countries where primary forest exceeds NRF (2025, descriptive)",0,0,ok
+FRA mangrove category exceeds GEZ tropical allocation (2025; overlap unverified),3,audit only; do not subtract unverified category area,documented
+report-documented Forest mangrove overlap exceeds tropical allocation,0,0,ok
+country areas by biome sum to FRA forest minus documented Forest mangrove overlap (ha),4139948310,4139948310,ok
+FRA mangrove area removed only where report crosswalk documents Forest classification (ha),495400,495400,ok
+FRA mangrove category area without verified Forest/OWL split (ha; retained in forest total),15371250,reported for transparent scope,documented
+country-level forest flow reproduces area x biome-rate sum,3.3736715855694266e-07,< 1e-6,ok
+GSCC mean (US$2015/tCO2),559.57,559.57,ok
+BCW draw rows not aligned,0,0,ok
+world BCW = published rows + GMW mangrove area adjustment (draw by draw),1.1090951375081204e-06,< 1e-5,ok
+"units with FRA mangroves but no BCW mangroves, gap-filled (C18)","7 units, 40,176 km2",documented,ok
+BCW rows mapped to exactly one unit,0,0,ok
+"world population: units vs published BCW rows (duplicated parts removed, C12)",8.0821e+09 vs 8.1019e+09,units <= published,ok
+world NCW equals world GCW + BCW draw by draw,1.1834653150799568e-06,< 1e-5,ok

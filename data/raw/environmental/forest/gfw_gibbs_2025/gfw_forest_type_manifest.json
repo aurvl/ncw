@@ -1,0 +1,2178 @@
+[
+  {
+    "filename": "00N_000E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_000E_removal_forest_type.tif",
+    "size": 3457388,
+    "etag": "b30c54023900151ab466a53280a17028",
+    "sha256": "a8b52b57cdf87cab1f0ee47b67af9148ec807cf54dbe3e3cdb3c48c77ff551af",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_010E_removal_forest_type.tif",
+    "size": 40596369,
+    "etag": "ca526d76c6b5aaadc5aeac0a2bd88f15-5",
+    "sha256": "6237813089ed8c08cd91a651ddc1d65a5452e8bbd7ca3103751289764593750f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_020E_removal_forest_type.tif",
+    "size": 43347428,
+    "etag": "66127b8bf9d9f39a82c078efb2be2d99-6",
+    "sha256": "0e3962220c5c6514a77dff219df1016e91ec283af1f999852ca52147c1605ea2",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_030E_removal_forest_type.tif",
+    "size": 67593165,
+    "etag": "92af1e2df68e0ec11d260404ba06d75f-9",
+    "sha256": "de4ffe0a53330f6604d587092076da93a0a30af480a042a8880461eb83e5a5b4",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_040E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_040E_removal_forest_type.tif",
+    "size": 6542684,
+    "etag": "252f3dda4ddf5b49a3762c7c3481103d",
+    "sha256": "69f3fd24bc208bda8342f66ba93dda9bb564f244c13d7e3600384a5586097b9f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_040W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_040W_removal_forest_type.tif",
+    "size": 43198753,
+    "etag": "dbf422f192b7221418bbc75762c7da28-6",
+    "sha256": "944935bd153557cb03cb8c925cd3e3b2de7472384b8cf67fae2792d7904c3127",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_050W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_050W_removal_forest_type.tif",
+    "size": 126236621,
+    "etag": "18099a9d8d1cefdbbe5bc12dfa3f1f06-16",
+    "sha256": "6bcc7a51c760e47c51b1027ef8a00b0baba635d44d0c8e7aa108b5ef61b463c1",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_060W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_060W_removal_forest_type.tif",
+    "size": 36939364,
+    "etag": "4f0d9dc0cd7a14dc46354cdd8a9a716b-5",
+    "sha256": "cf357ae78eff8912bebbbde1cdb28b66d1ab51432bd2e061792c620c16785fda",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_070E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_070E_removal_forest_type.tif",
+    "size": 2765959,
+    "etag": "d30d39e0c0cc4c1013b33e581b256b63",
+    "sha256": "ab7a2fe229db8d3621a2f817b26042deafe8050228278fedbf328f0b8bae6fd3",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_070W_removal_forest_type.tif",
+    "size": 20690824,
+    "etag": "7e5503f1eb7f8928efc61313765d08bb-3",
+    "sha256": "e6bb59690d8fa7d6cae3a8ef68e6431a7afbe500eea2b94ad3fd46bd4d1c90b0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_080W_removal_forest_type.tif",
+    "size": 37195131,
+    "etag": "d237d4bdd4b725f71345719dfaf6bcd7-5",
+    "sha256": "e9958760d8e0489eedee44c0e042e78c8a5ef386d67e24aab1a20a2a446d2c3e",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_090E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_090E_removal_forest_type.tif",
+    "size": 3168243,
+    "etag": "5e0d6dad52d0f2a96caa933034b1058d",
+    "sha256": "3dba3e29910591511e6996965b5d46c01c4f61f7d2a1d0beaad0ef3abcb10bd0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_090W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_090W_removal_forest_type.tif",
+    "size": 7231664,
+    "etag": "618d2419c4b353210e12eb2c9dad2a0f",
+    "sha256": "98056fac116939ab4bd78e740a9f1bd43781bf36a173ac55e908183041a1bbb7",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_100E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_100E_removal_forest_type.tif",
+    "size": 40042691,
+    "etag": "7a7c90f7e376a0ea97ec1e84ed63b134-5",
+    "sha256": "f552aaf34e244b0c03f7f92122a73397b1f1076d0ca3a79a215b256c37bb1b1d",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_100W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_100W_removal_forest_type.tif",
+    "size": 3341152,
+    "etag": "7d23267569f788a1502dcb5ebf15ef26",
+    "sha256": "4ee7495fd1f0bf990ada3eeba412e82c91f7d3c738d046c9669ba9a09bd2d646",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_110E_removal_forest_type.tif",
+    "size": 44182608,
+    "etag": "fd51f8de1522c0d4f5fa32d7cb9098eb-6",
+    "sha256": "9f00c4b14f3aa8cc9c190d582639f2f752ee88bd6578c1a4785a3ccd71a699cb",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_120E_removal_forest_type.tif",
+    "size": 20281802,
+    "etag": "6cbaf1e684124b579bceaf9dff7126ea-3",
+    "sha256": "e5a163b8361cc5bd4a359676ff45a257fab49407187650d00ef85a41d32b5a6d",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_130E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_130E_removal_forest_type.tif",
+    "size": 14908853,
+    "etag": "bef48520abacedcf6b1e7639c88b4253-2",
+    "sha256": "fc7bb61421b5cfe52882b137cc9db5c002e6f37b68d7e91920693965573ab1e8",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_140E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_140E_removal_forest_type.tif",
+    "size": 21821226,
+    "etag": "f3e109643e4488f41fa7748b32d36f7a-3",
+    "sha256": "119a5e47639d3cc59e0aaf7943e7e8f077e58204a0f31b7c160a49ac8ff1c4aa",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_150E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_150E_removal_forest_type.tif",
+    "size": 5088386,
+    "etag": "15cecc32ed1fc57a3229a2ca919a8692",
+    "sha256": "e718a7131dc87dda2b59785528172346bf6982c045ee894c68c3acb37f4232dd",
+    "status": "downloaded"
+  },
+  {
+    "filename": "00N_160E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/00N_160E_removal_forest_type.tif",
+    "size": 3157955,
+    "etag": "8ae5af661884cf77abcf83e02d1ce900",
+    "sha256": "65c6c887f74a4dba940ecf56fc1b12a508ff672f482b9244cf20e7cd23fa6941",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_000E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_000E_removal_forest_type.tif",
+    "size": 39824335,
+    "etag": "a35ec832a2c993b29d6a08ec4b891b3e-5",
+    "sha256": "47725ad71966fd08ce6776204f1440a2faad8df270d9f1e07183472cea89efad",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_010E_removal_forest_type.tif",
+    "size": 41655935,
+    "etag": "56a58508ee9afc5918b1ab8f7bf28474-5",
+    "sha256": "93b5341f87ac125be6418e989f7d8d458d04bd010eb600849ef8c388673ac430",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_010W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_010W_removal_forest_type.tif",
+    "size": 50266821,
+    "etag": "4dd11e6f89026a59cc6cd1e1072b3ac5-6",
+    "sha256": "0f483b9fee147862dd6d496f240cfb479fd25948cb0a195d82b8018213d15c9f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_020E_removal_forest_type.tif",
+    "size": 33216729,
+    "etag": "c735fcf1261a0c368bbb6d3ded69cbd5-4",
+    "sha256": "d7bdb4d14467e08e9f307fabcbedfc149bf4486ffce7f357a2ded8480d136bb2",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_020W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_020W_removal_forest_type.tif",
+    "size": 11945880,
+    "etag": "0c9412892625e430252d9c4bfe2d8c33-2",
+    "sha256": "86e4e9d86841f31089f3b1e12cb0259671624a3c6cac132c9e4a7e886246e415",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_030E_removal_forest_type.tif",
+    "size": 67774233,
+    "etag": "462ee384bb22c91aeb621bc8d1fe72af-9",
+    "sha256": "b6c6e7b237e74ce257a978e47351399683665a10605709f6b6bb9eb365c3284f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_040E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_040E_removal_forest_type.tif",
+    "size": 23311521,
+    "etag": "a626693ab41200437dd3d4262d7f0b01-3",
+    "sha256": "3edf6da53cce2e1626f5a0b29302e1cf4ba84876da4320dc7a24b3d266cb7419",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_050W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_050W_removal_forest_type.tif",
+    "size": 3088880,
+    "etag": "d01e8ee5ac92a29aea8c8b794cb112df",
+    "sha256": "9e4209cc543d6ed28b251e32d7b68a62c5e93056b3671b92fe77d5cb98f25d59",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_060W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_060W_removal_forest_type.tif",
+    "size": 16093479,
+    "etag": "504dab4b84720ef16908629da993661b-2",
+    "sha256": "261244f1eabbcc9c42409b16c17eb9c88580be71d9c16fc05a1afa0b3263c246",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_070E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_070E_removal_forest_type.tif",
+    "size": 7230868,
+    "etag": "3a305e9dc021ecd98f0f55bc33479eb7",
+    "sha256": "60d111a13a9a46352733ba7b0530aac9d90f13e47402f6f01cb4cdb904df692f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_070W_removal_forest_type.tif",
+    "size": 52177690,
+    "etag": "abe807312aa0819748236e7efa7c5142-7",
+    "sha256": "cfad748f2560d2f71e5b7e5efb5fbbb13c78a4dd493c997c1a5de4e0d76f3a9b",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_080E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_080E_removal_forest_type.tif",
+    "size": 10324633,
+    "etag": "4434bfac379622dd3b0cf4cfe033fc18-2",
+    "sha256": "b6cd528dbea17024faf42e22569dc48be62891009a4c580301ffa816c59e518b",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_080W_removal_forest_type.tif",
+    "size": 79979391,
+    "etag": "a72226fd9a5b9dacfc5f4dde59d72f20-10",
+    "sha256": "6ac01e5b19d75c0f2272a8397c48987a763e3052f4f35d6b6d704ab2ccc1db39",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_090E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_090E_removal_forest_type.tif",
+    "size": 23889141,
+    "etag": "0b74a18d6f34d5f8e63639014b8bd351-3",
+    "sha256": "c28ab9e977e42d3e7e5a16f219cb31e44e84ab5585d4e80cbd716eec74bde493",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_090W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_090W_removal_forest_type.tif",
+    "size": 10387935,
+    "etag": "5a961ffee6e516038c04a823652461a0-2",
+    "sha256": "ad977eb62df1187fd753d04b7057ac88cfec01b5b0cbe6f2c5f6191fbd5528a2",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_100E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_100E_removal_forest_type.tif",
+    "size": 28936938,
+    "etag": "a509c506d692e2d34ba9245458ffa1f9-4",
+    "sha256": "b251c68a9774604ef41fde09fe4415728364704b9bdd7352b94d29a2588cbc3b",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_100W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_100W_removal_forest_type.tif",
+    "size": 2811114,
+    "etag": "9177756fdf428d988f1022b739860ee0",
+    "sha256": "dd9c7c878a8a56805066764f39adbf9cd936a5813f78b0733db4fc02a9449fca",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_110E_removal_forest_type.tif",
+    "size": 25573674,
+    "etag": "9082c8660d6eb28c3550127348208a8a-4",
+    "sha256": "ab1806b48237fb9ce2e19c6d12adacfbd080a5436cb5898fb17cc61c7b2dbafb",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_120E_removal_forest_type.tif",
+    "size": 22957042,
+    "etag": "f2d0b1fdce2cc0df68d084449829be5d-3",
+    "sha256": "604d51b4b1f0c0e152edd43a8d6961d7e2dde713abde1e612d8bf03b8f10afe4",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_130E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_130E_removal_forest_type.tif",
+    "size": 2879117,
+    "etag": "2a8cfac87ce0efa65f373ad03afb52b0",
+    "sha256": "f1c4f53ed1e9ea707c3e69a538f5153ac2315a85f4ab2b3227096740dc4de5da",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_150E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_150E_removal_forest_type.tif",
+    "size": 2796540,
+    "etag": "54b83b040a754b77e564dc2532e55eb5",
+    "sha256": "54ed7f961958ace54f8ac697667ce2cd5147e3c17c3a309fe5c9314f2778aaf9",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10N_160E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10N_160E_removal_forest_type.tif",
+    "size": 2768510,
+    "etag": "4285e8c07bd65dcedcb622ddfe05aaf4",
+    "sha256": "b91844884e8f464c7f10c7645aa40140396e9219580be391d8808f3926525067",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_010E_removal_forest_type.tif",
+    "size": 54035788,
+    "etag": "9bb2f07171d6d31ef70e95618cadff40-7",
+    "sha256": "b080a813ca2da88801675b15d74dafd80856a039ecdd382af24aec6605b67c47",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_020E_removal_forest_type.tif",
+    "size": 75173764,
+    "etag": "3e60e8370f30c347510a7b9bb97b4643-9",
+    "sha256": "23b23a5afd32ac721c27565c9384c922c7206bb37f6eb94a24feba1550f819bb",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_030E_removal_forest_type.tif",
+    "size": 51970198,
+    "etag": "19bbb4a25bb43839647b6c0f10ab9b95-7",
+    "sha256": "f1d37d2f8b51f93ae960181cf1afdce7b1174477d0d5d34a41c5d5a1024ef9b9",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_040E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_040E_removal_forest_type.tif",
+    "size": 32298616,
+    "etag": "453c847121b78bf68f9be05cfdefdcc6-4",
+    "sha256": "ee234a97ba408dda476fd8f51e81be9346f0a02261f745f50a9f44ef49fbdab9",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_040W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_040W_removal_forest_type.tif",
+    "size": 26706841,
+    "etag": "b01d7b0f20653910dc60e7c75330b85e-4",
+    "sha256": "55c1c60cbeff2392045000a86b55ca1844a8fe2e2cacb928ab98d6950f0c7e83",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_050E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_050E_removal_forest_type.tif",
+    "size": 3165229,
+    "etag": "693219c7b09ae502a9ff30e9dc9c7599",
+    "sha256": "de595750d698e71840b07273c7523533aa6cc723c67d9be6d5939447d4879e50",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_050W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_050W_removal_forest_type.tif",
+    "size": 155467891,
+    "etag": "cc7b0cf1bb390e76c2cb0273de9002f6-19",
+    "sha256": "ab914fce98bc353e5d4e832b3f3275c9b0fa28ae63eb8150d706d172e11ef069",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_060W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_060W_removal_forest_type.tif",
+    "size": 102646485,
+    "etag": "b9dece5342669ffcb383051a739161e9-13",
+    "sha256": "fae26a40bb82ea135ea6e5b03593bdbf04c580eadd01328fb94243d4b73dea67",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_070W_removal_forest_type.tif",
+    "size": 59829987,
+    "etag": "26ea362127a5a80f5a95030aacefb4c2-8",
+    "sha256": "39f1dc33ee627654b0c4d80820ad6be761fcf8f6cd1f4cb9f64e8a39ade5c836",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_080W_removal_forest_type.tif",
+    "size": 13298831,
+    "etag": "ff8602ad8bdd640a41f7c758f3c0b323-2",
+    "sha256": "a7fc917daf8603609d4150303a23be12217f7575589248f8378ad6a946682100",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_110E_removal_forest_type.tif",
+    "size": 2770132,
+    "etag": "2fb9de26577c8c2150c6c3a55c32d1d8",
+    "sha256": "1ca439bd3017580d9732d78197ff471623f5f5b4aefd4d3296961648a1adec7a",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_120E_removal_forest_type.tif",
+    "size": 13382101,
+    "etag": "cbb235b3afac330c24dc4b8087c88f3f-2",
+    "sha256": "2bcacb7c729f866d96c07f8d1c35a5da26a75dfb978561347cabf717c72adfd0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_130E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_130E_removal_forest_type.tif",
+    "size": 34656006,
+    "etag": "b18cbdb2c576a5671f5455d5e0909159-5",
+    "sha256": "8963232ad02266e183c76af506c09f475070f45cd1aa2e819414a1d641fa56c7",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_140E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_140E_removal_forest_type.tif",
+    "size": 29785834,
+    "etag": "52ae60f82867f9a5e2b02fb598d1d73c-4",
+    "sha256": "9a752a44fa6fe4c1c42a01da82f0afc9ea8fc36b00e6cd0087e625168b2988a0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_150E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_150E_removal_forest_type.tif",
+    "size": 3091030,
+    "etag": "b7472f2969171768a9423d76367a2029",
+    "sha256": "6dd5c34358328fff4ef163e07dcd84c30face07259fcd4bd622dc57bc097e1ec",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_160E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_160E_removal_forest_type.tif",
+    "size": 3414232,
+    "etag": "3fdfe17aa8900704fea9a35fb50f77b7",
+    "sha256": "54315d7656d55a335926ccc2c83f2f0ca882c0b1015492256d3c0bedc60e6745",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_170E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_170E_removal_forest_type.tif",
+    "size": 4294871,
+    "etag": "dd6b8d22276230fdb99cfb8aaa82b2d6",
+    "sha256": "26735b6b0b7c0a5a5024c08f35f231ef2efafb8da05fec94fca60325c1730651",
+    "status": "downloaded"
+  },
+  {
+    "filename": "10S_180W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/10S_180W_removal_forest_type.tif",
+    "size": 2837231,
+    "etag": "bcaa2416596f1f70e50860c3015a825d",
+    "sha256": "c4b931814f8938a062466c184827b9c56653f8a56e67c861dd3b0a7de5782938",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_000E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_000E_removal_forest_type.tif",
+    "size": 33054347,
+    "etag": "8685e8d7ba7f47ecd7b8ca7dab247c2a-4",
+    "sha256": "33b5158cf7b16c9e84a004b2ba0bbfc7f306c8a5f3bd831c1b5e117eeebbec0d",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_010E_removal_forest_type.tif",
+    "size": 32431612,
+    "etag": "4dee7aee717b2a7540915f92d7aa2c28-4",
+    "sha256": "c788d7f6ee248e1680db0435c73ae86e739f0ca38e8f49cc6057e3863a526452",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_010W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_010W_removal_forest_type.tif",
+    "size": 41263120,
+    "etag": "a0e76d4b9fdffca0b2266a04a41de29b-5",
+    "sha256": "c26dcd6f3a7ad7abd6c1e53b67be10c6d708b8743e7679e725eec0c368e37da0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_020E_removal_forest_type.tif",
+    "size": 23473986,
+    "etag": "fc5cce5ebd476cb81b0397d730b24b34-3",
+    "sha256": "4a4f00c1b66c588e2c9fbc27e3c8b46ec228ecd83deb900693acdfdf6c164c12",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_020W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_020W_removal_forest_type.tif",
+    "size": 26459390,
+    "etag": "f4ec1543fbc8442f4cf8a6af64cec405-4",
+    "sha256": "420066072b037e1b82e57225ce8aacec534191178535db686801a51332cbad85",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_030E_removal_forest_type.tif",
+    "size": 39439502,
+    "etag": "d487f1c35c66727086d0a31137fb83b4-5",
+    "sha256": "fdebcf442b134c05939bd4a8cc4358ad20a575ea796c2d24938ab102e52b8fcc",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_040E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_040E_removal_forest_type.tif",
+    "size": 5787797,
+    "etag": "5d72fc62ec029a6dd32c07dcb739d63d",
+    "sha256": "6769470327c4e4d664dc797ac7c75769d123e677f702d5301adf4985c78a50eb",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_050E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_050E_removal_forest_type.tif",
+    "size": 2949118,
+    "etag": "001201440a1738d70841ff1a0bf6afe9",
+    "sha256": "8b7d6b09f4216431a5fa6ecf443449e7422b3fe1ad142b2c7cae06048a218218",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_060W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_060W_removal_forest_type.tif",
+    "size": 2811467,
+    "etag": "42e4f690765072c738142ee78b453b1e",
+    "sha256": "8edede83466d58206e1d85be7bd13e98345e33a7a2ca83ef30948602f29bcd02",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_070E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_070E_removal_forest_type.tif",
+    "size": 42940291,
+    "etag": "b7b732b63f82f5c69da3ea2e55ff6fd6-6",
+    "sha256": "97e3826436c207b2b7272cffe9dce15f41da169927caab9a2101c453467883d0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_070W_removal_forest_type.tif",
+    "size": 13960576,
+    "etag": "dcea9b32e195515373350eb34bd9cc36-2",
+    "sha256": "4440f5d832a143d335dcd83f41977f38ca3f73a66d56503f29ebcf9c2c0fb616",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_080E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_080E_removal_forest_type.tif",
+    "size": 21961682,
+    "etag": "500d44b8722dced2b3891e42f32e8f95-3",
+    "sha256": "31c213b9ee0eac68b5ca4fc75959654066a3182250bc9b3c2cd4b943c269a5fa",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_080W_removal_forest_type.tif",
+    "size": 21902976,
+    "etag": "189862524c9ab006e0ccea4ca763c0c4-3",
+    "sha256": "c3fa87cec2a666f901d17f4c064c16123f3c1402a7170e0c537bf8ae2dd21c98",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_090E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_090E_removal_forest_type.tif",
+    "size": 38487943,
+    "etag": "2181988b43c253cb9c808ba25610c0e8-5",
+    "sha256": "b825cf026320ce99d4365c06c4391e356273d215698a6fc738d1ea92305c06a9",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_090W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_090W_removal_forest_type.tif",
+    "size": 46400785,
+    "etag": "d7b16a57c7fe6236ed00c076b6d213e8-6",
+    "sha256": "226172f0d8b7ccfa0ebe53988e596820c0ed7272751e555421393c413e858e49",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_100E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_100E_removal_forest_type.tif",
+    "size": 92499561,
+    "etag": "441305dfee6b6952eb77525aba70ab5a-12",
+    "sha256": "5c24f2dbe7360c60405cb1cc89615a69fe708a63c5bb2bebd21f4236e1c824d9",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_100W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_100W_removal_forest_type.tif",
+    "size": 56575356,
+    "etag": "03954e8624836e11a245db38a1e4fd5b-7",
+    "sha256": "6ac5a3663e7957cbb0297fc5b297f101567e051ca0e46cea158a5e689c170071",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_110E_removal_forest_type.tif",
+    "size": 6263871,
+    "etag": "d8a9931d3552fed4ad801efecdacda40",
+    "sha256": "caadf410424549b25c535e1430d54506d4176fb5618d82798fde20ff51f28c14",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_110W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_110W_removal_forest_type.tif",
+    "size": 17465821,
+    "etag": "aeaddee0feddeba4efd418353b1ea959-3",
+    "sha256": "30c31f9677e752d919cc26414be89331de4d68e7fc8fd10f43657424ccf64704",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_120E_removal_forest_type.tif",
+    "size": 26467324,
+    "etag": "40a69cb5db98d7742d6ec0a56c7b2613-4",
+    "sha256": "7e1b364710105d27189ad43e6bd4655c67a9178ef896640dd2a0361f45ed8945",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_120W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_120W_removal_forest_type.tif",
+    "size": 2779185,
+    "etag": "61999afb41638274573488b6c1efc462",
+    "sha256": "d7b85854f2b9884834a3ef502127949e330df81264dac93bf0f0a4b3448e8532",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20N_160W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20N_160W_removal_forest_type.tif",
+    "size": 3437667,
+    "etag": "18ad8cf8ab4c7cde2d789383396c291a",
+    "sha256": "620fd866687c393fc876251bac53db57a59916f6e2293c09c836fda473038c35",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_010E_removal_forest_type.tif",
+    "size": 5224690,
+    "etag": "e610c25b94cf27ec2ff758b575c29f77",
+    "sha256": "29f7f7eed9bef1bf152354094ebaf8e0e200fedfea052a5f540c051ea63da18b",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_020E_removal_forest_type.tif",
+    "size": 56812775,
+    "etag": "02becd1efd79495d57aca16cfbcca8cb-7",
+    "sha256": "7eb5235dfc8f6443650326645f5a84577b8bca1b7df5510e9393d25a18b4ec6c",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_030E_removal_forest_type.tif",
+    "size": 46356173,
+    "etag": "63a969f82664c8a5357e067a6d7b041a-6",
+    "sha256": "2ea5b062d301995f0e33b9964bad112c819141055ffb3036a5d279744859f268",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_040E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_040E_removal_forest_type.tif",
+    "size": 28036174,
+    "etag": "840b43fe5362938366259385d5489b9a-4",
+    "sha256": "1482d3ce482bfbb19a799971fb5df976149b897df77c23de719ce29f0f77291e",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_050E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_050E_removal_forest_type.tif",
+    "size": 2974902,
+    "etag": "a370ec6c15669ee3ee84310f57239372",
+    "sha256": "e939579840a0e533f0d668159b64ac27c07d7aaf8b19faff921a91d30d4db51d",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_050W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_050W_removal_forest_type.tif",
+    "size": 66591063,
+    "etag": "1df444945f51d0e51b3d6eb1c8f243cd-8",
+    "sha256": "dd30f97f8ea6f8303ac3e0d205ddba2d5db7142129271ba11346789592af77af",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_060W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_060W_removal_forest_type.tif",
+    "size": 135659720,
+    "etag": "dcbc2de1491e2451e0b21345abea0ab2-17",
+    "sha256": "c5651a661f4141f95a9c3481b84a9eaedb15c163a07015ab5d922689d0015173",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_070W_removal_forest_type.tif",
+    "size": 63518079,
+    "etag": "8a0eabd659216e3e6726e35cd8556220-8",
+    "sha256": "f6268d6be638b1b075d5d3503c0b39a26409a67c1a3450cc432af3e80e9ff120",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_080W_removal_forest_type.tif",
+    "size": 2807523,
+    "etag": "b4b52413f94c36960b1f3305d506909a",
+    "sha256": "1c081dba6c943fec082f8d20fa8157b206390d01f7701c71a51adf1b6ed6b4a7",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_110E_removal_forest_type.tif",
+    "size": 4677301,
+    "etag": "945f8858ae4f1a568be3c65bd01e3baa",
+    "sha256": "810424f927e4a3c2430309815da510084211c57448f700a13d5cce10be088bfc",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_120E_removal_forest_type.tif",
+    "size": 2881428,
+    "etag": "98ea307b316aac6946ec1d621ab70735",
+    "sha256": "b6a99077f1d9cb56de11b5342b04f4fcca713028310b03f4c6dcdaed390aefd4",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_130E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_130E_removal_forest_type.tif",
+    "size": 3113367,
+    "etag": "a194db53e5842ccb75927e250cc9d05a",
+    "sha256": "609a5a026319159c925c89d5415c6764dffed148009b991fcf47eed1f7cfa8bc",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_140E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_140E_removal_forest_type.tif",
+    "size": 24380505,
+    "etag": "8cbad41b4a9b2817ec67eebfc46a94e2-3",
+    "sha256": "1719c875885026d5f45cc84352f4d92bea51ad80943c08a5e700ac82a0a16f62",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_150E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_150E_removal_forest_type.tif",
+    "size": 22132572,
+    "etag": "eef4087e292a13688cf1d5659bb6dd08-3",
+    "sha256": "2562b8894fc9549df95d3a27a3165f7f600c3f4146e192d8a35f06925cb591f8",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_160E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_160E_removal_forest_type.tif",
+    "size": 4631775,
+    "etag": "c5c90d96e5f4dd4025a42e9e9d012cdf",
+    "sha256": "825ce0b90ca755e4dea5671295c388463fa41deffb7b08faef0505fd498e3d6b",
+    "status": "downloaded"
+  },
+  {
+    "filename": "20S_180W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/20S_180W_removal_forest_type.tif",
+    "size": 2766613,
+    "etag": "849957b1fc80ebbf854b783d98ced56c",
+    "sha256": "e70f5f9135585e2d71beb54c5cf093d2054ebc1741cb91b9494d746b6018a3a9",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_000E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_000E_removal_forest_type.tif",
+    "size": 2765516,
+    "etag": "f833a230c0bd726597005d933f89523f",
+    "sha256": "ca792b8425f26b9dcb1b04dc07b56e1c664f71d8262013885e3d9821dfa939d5",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_010E_removal_forest_type.tif",
+    "size": 2767341,
+    "etag": "8e1d05d9026bfc5d4b212907f4e09b41",
+    "sha256": "b21dcafae6d27a7ee6c31d143669bcbf9bbdafaa8bdad9853065f11723228728",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_010W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_010W_removal_forest_type.tif",
+    "size": 2794654,
+    "etag": "b468f9878762588e48e02f6f1aec0d0e",
+    "sha256": "0b5677c302a10e22b5d7693085340366d008c02f27d702ea8870a1344c9c089e",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_020E_removal_forest_type.tif",
+    "size": 2784931,
+    "etag": "93ef480c1973026f9c703152f2e32a72",
+    "sha256": "b888f7ffac636d6e6074e9483902ce0ad4ec489ea5d8f7e1bbd9ec478a14309e",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_020W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_020W_removal_forest_type.tif",
+    "size": 3405547,
+    "etag": "91ffbeb670d85cb7a0254e2f962785e1",
+    "sha256": "8ac46d11d474cf34e636befd71b4758274e7f011d5af51a3010be8828aec9f77",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_030E_removal_forest_type.tif",
+    "size": 4936033,
+    "etag": "c39a7b21255a20434cb506166453be70",
+    "sha256": "530da9b66d191e19e56ef6d18614915890426a2b668b45485fb6430d5e1c5e7c",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_040E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_040E_removal_forest_type.tif",
+    "size": 2861264,
+    "etag": "b0719c416fdfd4e14a46911170dc2f02",
+    "sha256": "542f3f47f95f3f3e70b98479b63eed8f524e07893e0e4e7a16bf8cb11d7c5bac",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_050E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_050E_removal_forest_type.tif",
+    "size": 3284047,
+    "etag": "82639d683641dcd6d987c1c91ed0d782",
+    "sha256": "623f139ecbeb8164141e4b1dd8f8e500aeef34c910d9c099c5b6f8488478ce45",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_060E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_060E_removal_forest_type.tif",
+    "size": 3396787,
+    "etag": "d555302b0197ada71df8ecf7cf082c75",
+    "sha256": "6591228cda203ca35ad04813899e4b793255cc0cb9c74f063fab720c32594e38",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_070E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_070E_removal_forest_type.tif",
+    "size": 27714166,
+    "etag": "dce3fb8ea21516f16ee616b80a90c00a-4",
+    "sha256": "ff542a47e497ffad3046455257da1dfb8d580e3654ae23cc6b3a51e88bca1b38",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_080E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_080E_removal_forest_type.tif",
+    "size": 75193165,
+    "etag": "65d6d4204755f2b2c62708f9606b076b-9",
+    "sha256": "d00e2fb4219163614c76db7bdc9c9c37b38a13b057e51d7772e4cc3ff11da5c0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_080W_removal_forest_type.tif",
+    "size": 13112741,
+    "etag": "77bc2008fea4cd2557d1f618c888e414-2",
+    "sha256": "ea0f45fa4274c99523b5093951bda69ea776c282e1a4049c08e782b0a698943f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_090E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_090E_removal_forest_type.tif",
+    "size": 102167777,
+    "etag": "cf448ae6bc9ad7bb4f24fb277c01952d-13",
+    "sha256": "fc1c1e66d2a5c8818e98ccfa2705573de282fce37fce6b29607704d6fafccee8",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_090W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_090W_removal_forest_type.tif",
+    "size": 29597704,
+    "etag": "2eeb922ad1709cb7e6b9f2272c4254bb-4",
+    "sha256": "d1d22f22412632bf602c12dd354e0bb5dedf97eb340d790524dba4387e8781ec",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_100E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_100E_removal_forest_type.tif",
+    "size": 156621400,
+    "etag": "960744adbabc0429c278820c63f55be6-19",
+    "sha256": "92ac5748515b0c1ddb32603b9ec7106cc5b8f820b734da54cd89e2929c0a7204",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_100W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_100W_removal_forest_type.tif",
+    "size": 37008204,
+    "etag": "62ceda05507baf086f7218fc4408228e-5",
+    "sha256": "46d3a5cb0f1d4f78f258d051cee73d2b01ac7de2e2b53d062c168f51a2b198ad",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_110E_removal_forest_type.tif",
+    "size": 100689772,
+    "etag": "4449e520778c50cf594758397047055a-13",
+    "sha256": "bc9cdb26476743f37eb5d99f67927bffe06bbf1734c4ae6f8c9d2d71f823e12f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_110W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_110W_removal_forest_type.tif",
+    "size": 59170785,
+    "etag": "b099a720bf3b13d9406805421e152da3-8",
+    "sha256": "19c23405c7deb4a887ddad3b40b1d95e937771af073a0ef7dc42c5d96a1fb3b7",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_120E_removal_forest_type.tif",
+    "size": 11950916,
+    "etag": "fd9c45fd856e9bb28ef772c6265b57f6-2",
+    "sha256": "d788ce3886721ee2f06e75e0ba18cad294cb2ed76d7ed20cfe6fba6877c12f20",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_120W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_120W_removal_forest_type.tif",
+    "size": 4117804,
+    "etag": "0003a52b33276886603d252c2fc6ddfe",
+    "sha256": "7ce9319c8028d059125276a9610e24b00777bd9a270f4ab5077162a76db5d38d",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_160W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_160W_removal_forest_type.tif",
+    "size": 3538486,
+    "etag": "589a942905dcae0795c95fed73dd37c9",
+    "sha256": "bb60ba96c40fdf2fe71230a6ba0767240a07b99d62afaeb704087cfda366e63f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30N_170W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30N_170W_removal_forest_type.tif",
+    "size": 2799462,
+    "etag": "44e243f4111d21a6e6011a7189748290",
+    "sha256": "d88d62c5bfa8b9ba674078602a0005f439d35b13e8d0eac3a5df86b21005c7cc",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_010E_removal_forest_type.tif",
+    "size": 8117824,
+    "etag": "033e2e89d9e7fbf6020a322e978cca5f",
+    "sha256": "952e689bfdbcd447506d6bf84f6b492c2633c1e0db848e887282f3a80643f7b4",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_020E_removal_forest_type.tif",
+    "size": 22461883,
+    "etag": "6679c9d697f8e4dc376dbbba9fef8df8-3",
+    "sha256": "d37216d6e0b37b325b3c67adb8538ba961d05e0aa1b792e6fd5505bdbdf5ffb5",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_030E_removal_forest_type.tif",
+    "size": 3153832,
+    "etag": "561981febf97608bd4eeb88ddc377a5e",
+    "sha256": "d4a73574bb7972408668a55649f434105fde0ed4d02eaac714e5a9d95f3b94a1",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_060W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_060W_removal_forest_type.tif",
+    "size": 37871628,
+    "etag": "7522ca8aa89dd6e47dc1509d3dded2f5-5",
+    "sha256": "9c5d86ab5f38e28d9ab48ae9be50a6e46fd3e403586f08648a605435e3211b38",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_070W_removal_forest_type.tif",
+    "size": 20450024,
+    "etag": "883d7b90e7b8c8275831914e24c23407-3",
+    "sha256": "e8d8e928dd86ab68336b6b13b8b066bcc7fa69860988379c8f715a635d642b89",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_080W_removal_forest_type.tif",
+    "size": 31836366,
+    "etag": "3f73d6c520bff248aef28364f44d64f4-4",
+    "sha256": "87fc43faece94507b890ea0f5513836351b5f77f43b08e8bcc523c4032604a19",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_110E_removal_forest_type.tif",
+    "size": 17716864,
+    "etag": "e4133b98c698d2ed95ed524dd3a8b367-3",
+    "sha256": "7c0a2f35261e8a65a988a460cb1c572ab80590d11da7a82b819572e546a0d33d",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_120E_removal_forest_type.tif",
+    "size": 16015736,
+    "etag": "59dd2ae2a6b189460e6acec170b041c5-2",
+    "sha256": "1ec3f234416eef8499bec1679baa15e8f9b25f123dc3810daee6e3fa1de41edc",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_130E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_130E_removal_forest_type.tif",
+    "size": 7741935,
+    "etag": "571a5293274f134194486bb6b44137bb",
+    "sha256": "96e867f980d03ae29475228033e006c0c3e32247fbd4b8cafabbf89c711480a8",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_140E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_140E_removal_forest_type.tif",
+    "size": 32668288,
+    "etag": "61bbe074e57bef7df5be0ec40613c781-4",
+    "sha256": "cd634a02e26116dec3abf3ef5bb68393c531cb625ab94494d6cbb0bfb748da27",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_150E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_150E_removal_forest_type.tif",
+    "size": 12237918,
+    "etag": "d3d0e110ec4731982ba708f271e7efff-2",
+    "sha256": "435170ce53cd0d79c1bf1d6e2be9f259cb43071ec5af19c2e9f1e17b648b61a3",
+    "status": "downloaded"
+  },
+  {
+    "filename": "30S_170E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/30S_170E_removal_forest_type.tif",
+    "size": 14675170,
+    "etag": "60f5a9bb00a15cd1713ea9f794c18a55-2",
+    "sha256": "566187fb127ae3091dad01a02ac250f285f42b7607cd04a67504181bd1288f6c",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_000E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_000E_removal_forest_type.tif",
+    "size": 13656661,
+    "etag": "259ab8192552b1d7f09be1aaf547de8c-2",
+    "sha256": "64421dc957a8e45dfec1bbd8649db88ec66b972ea6ab34319ae6a21c07695428",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_010E_removal_forest_type.tif",
+    "size": 8211778,
+    "etag": "8181b3003b08a2037d2e30f6a6df8bc6",
+    "sha256": "2bf1df559b6f033e2480c653a90ac0eb01402ec41246296745269fc669eddb4e",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_010W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_010W_removal_forest_type.tif",
+    "size": 35485107,
+    "etag": "d3fc084f69a79ea0f24f8c15f0bf8388-5",
+    "sha256": "ae929d6de50e060470ee0a2b8d51a47019551c49656ccfda42b901bd6c407231",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_020E_removal_forest_type.tif",
+    "size": 30449414,
+    "etag": "21f0e4099dbd37dac29387af6e20ed79-4",
+    "sha256": "6a01eb572847ecccb3418a05df298b70b5a5f31f207f584e190c7d66e389750c",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_020W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_020W_removal_forest_type.tif",
+    "size": 2876467,
+    "etag": "dcf496273b741ecc42da194e0f37e4c8",
+    "sha256": "f93196f4d4e7d41a5c92c3f9f70f1e55493c5b2ad6403e52d7aacdc7303a879f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_030E_removal_forest_type.tif",
+    "size": 24730597,
+    "etag": "0d845df8c82c5782c0cb4571f3e86783-3",
+    "sha256": "21419a3078f1bbed3564b7baa2aa8fd665a035ca2aef941092b82166cbb8076a",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_040E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_040E_removal_forest_type.tif",
+    "size": 12150175,
+    "etag": "dcd6e5816d3ad1c2bdd663781020e0d2-2",
+    "sha256": "ab3b36a699c7bddc5ff2047056f3e570ee1ea84539c5a4c4cf201e42c992c09a",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_050E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_050E_removal_forest_type.tif",
+    "size": 6624493,
+    "etag": "88d9d4fea7851720c96464154a6ba428",
+    "sha256": "e926968a7c8751b931228f519d251c1cbd1ae27e055093fc4424aa5d62b06103",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_060E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_060E_removal_forest_type.tif",
+    "size": 8322957,
+    "etag": "0a7fe90d8f845cb302634f1cf68015a7",
+    "sha256": "1e5506fb79809364c451b35024a5530e0d925890541d4dccc823a330c7ade08e",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_070E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_070E_removal_forest_type.tif",
+    "size": 34447344,
+    "etag": "03d29e7cb177fa7bd8cabc429770b5ce-5",
+    "sha256": "9497ea48211dd351da8f2cfd628bdc3ae9ff91f6e1db40f8a21f3f5066309596",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_070W_removal_forest_type.tif",
+    "size": 2774142,
+    "etag": "e11be8094faee15037fa5b2a2c16f1f6",
+    "sha256": "53dcc5d9e4b910c4e7a5d3b59629dde3e7981f6c6fc160af032529b1af07e97a",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_080E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_080E_removal_forest_type.tif",
+    "size": 3112297,
+    "etag": "7632ae68ed739d52d9ab4bd95be6c071",
+    "sha256": "7694ada0ea576ae78e89ad8082ff281ab3560a0d759d02e8403e648ba1b6a145",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_080W_removal_forest_type.tif",
+    "size": 33782724,
+    "etag": "09789dbd599d7036df7009154c4e0e33-5",
+    "sha256": "9182fbc5b8dd1bd7c6727d80a4caca8f209060c532c00aebbed0b66e6c1bb304",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_090E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_090E_removal_forest_type.tif",
+    "size": 12532654,
+    "etag": "ce50ca61ede4559fffbe653b4ede12c4-2",
+    "sha256": "ab9a064e3dfd83a009d3af8ba61305aa54136fdd6e24b5ef6ae5addc46e14b99",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_090W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_090W_removal_forest_type.tif",
+    "size": 108896865,
+    "etag": "4fbf5f2c2d76d3a79580a5af8e91f688-13",
+    "sha256": "fcb0772824d888434af022cdbbe19a46b3b11ced9a0a172174c8c71acb32777f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_100E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_100E_removal_forest_type.tif",
+    "size": 70584974,
+    "etag": "8e98e1113a6ed364faf8fd1d870e9c67-9",
+    "sha256": "d2b1a62118fd1bfc695a9b661f0ecabaad7eeaf982a7ae21787f7f93f2f467c4",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_100W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_100W_removal_forest_type.tif",
+    "size": 93530466,
+    "etag": "1049fd6c4eee0eec05db8cbcf8085337-12",
+    "sha256": "69f193a7fa900e7cce20a8d6d53b3436d2c2ae8fce87b4336b086cd5c0df4cc0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_110E_removal_forest_type.tif",
+    "size": 81631366,
+    "etag": "0ad7febc3b82d36f8b26a6a2e7c8c16a-10",
+    "sha256": "7a6c2717ece9acaed88091d18ed0fbbc368033880ca73f5486be4d2109f44507",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_110W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_110W_removal_forest_type.tif",
+    "size": 32932615,
+    "etag": "231f7b7967d6f4472c268cb9a0287e52-4",
+    "sha256": "3a1bfc92e1b0dc5f26ec715fe5ebf9b42d7fedaa11a9ffb29c0f039a6faeee55",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_120E_removal_forest_type.tif",
+    "size": 33568411,
+    "etag": "4d6e8e854ba5d0a2810db7b42f5f125a-5",
+    "sha256": "cfe6753fbedb6fa69b19401ecc4cce70ee2bad82d93021e7e23e258592787c3b",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_120W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_120W_removal_forest_type.tif",
+    "size": 33692864,
+    "etag": "d885bfe4da1a250f4739cc9f88d915c1-5",
+    "sha256": "d50f236e9f6f080274b139c6fe6198e2fc8edb74356478fba19ad1f9aab2b55f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_130E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_130E_removal_forest_type.tif",
+    "size": 25471356,
+    "etag": "49122cfe349bb90ca1a11e8920f4ad82-4",
+    "sha256": "3c67393d50e3c1a5102d7bd8c743852df755bf0feffda2127faa76efd7566e20",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_130W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_130W_removal_forest_type.tif",
+    "size": 17271656,
+    "etag": "9f86db48492a003a6a052d02c8d7e694-3",
+    "sha256": "e3e2ac64c2aade8757a769df1eb09e20388f3e0c91354d10556ae1a5af55db71",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40N_140E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40N_140E_removal_forest_type.tif",
+    "size": 9413345,
+    "etag": "173a83386783c929d31495600d67af5e-2",
+    "sha256": "7e2c4cfb9d96930ec2795076892345f488ad40d456a653d43818f97f28df36d5",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40S_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40S_070W_removal_forest_type.tif",
+    "size": 3329279,
+    "etag": "cdfa93f33d95b9d3c876d513b31b7b63",
+    "sha256": "3a40cc881ed019b3a6a1a60eaa69b397a21954cd12313e44701ecaae8effd199",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40S_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40S_080W_removal_forest_type.tif",
+    "size": 27403209,
+    "etag": "1ac92d22e1b0625c578853ed26dc82b9-4",
+    "sha256": "a27e9922d6654db4c0acb561567db7e62fc11a537b4486207072ded00c1eeeb1",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40S_140E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40S_140E_removal_forest_type.tif",
+    "size": 9021396,
+    "etag": "86d30d9392cee253cb231451e78cd3e7-2",
+    "sha256": "1070d231c0a610cacdad3cf7b642e6a521ad2ea16a884582f4007ecd2e5b6e05",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40S_160E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40S_160E_removal_forest_type.tif",
+    "size": 8801997,
+    "etag": "8ca343197b5a7dd35b67ce6cf5fc86fd-2",
+    "sha256": "1571ee1bc492ba958ad2db477ce82679a4b5c3a807ab77344086018c26655f23",
+    "status": "downloaded"
+  },
+  {
+    "filename": "40S_170E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/40S_170E_removal_forest_type.tif",
+    "size": 13655750,
+    "etag": "2cead965d0a6f40ec5594102bdc21038-2",
+    "sha256": "0cb053adb8e38433001aa660260437c8135fdf669417ad1d3041b1d6a5ee5c24",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_000E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_000E_removal_forest_type.tif",
+    "size": 70809774,
+    "etag": "80c8d7fff2ac066582902f82536b75c8-9",
+    "sha256": "a557e0155ab39d6685bef94aa4bd63d6de5c3d8bac2750d9708bf93e82e3b325",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_010E_removal_forest_type.tif",
+    "size": 71223792,
+    "etag": "0ecb8c70b07aee234804a57ed7816165-9",
+    "sha256": "a21037354cc17fe5ee0ba79c38ec4c7b59ed61add3d16c8d6e9f31abaea1a7f2",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_010W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_010W_removal_forest_type.tif",
+    "size": 46039382,
+    "etag": "32a150648bf6b00c70f036505c58a0bf-6",
+    "sha256": "de2a11fb0743a1f3389a64eeb64770257491096d85dc369c9615dc04b8c2d7c9",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_020E_removal_forest_type.tif",
+    "size": 72265041,
+    "etag": "7474bce2af2fc945e4bb1e0e6d576fc0-9",
+    "sha256": "7c9b6f92af0e6604de4667ae04f7ef90f4676dd4d364981d6fb19d9024e6eec4",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_030E_removal_forest_type.tif",
+    "size": 49779605,
+    "etag": "2b004cf9e21aab9d5b7782150c0726c2-6",
+    "sha256": "60de9db33e5bbb2dd649cd69200af73433344d28fb7b7fc3e1ee37e47dea1895",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_040E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_040E_removal_forest_type.tif",
+    "size": 46302781,
+    "etag": "c51825ee6edb4ae623ace7d5e2aad77e-6",
+    "sha256": "16132e4dc8145dd9338219b413cb011c5a315d18be6c092fbc31e9213c03f7c8",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_050E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_050E_removal_forest_type.tif",
+    "size": 4787881,
+    "etag": "17a22320613ef26091225483c5a73361",
+    "sha256": "2ac88fc1d1a42c71f532cc3f43c7761a4561138dbf19ac5f78da81e3366bea65",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_060E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_060E_removal_forest_type.tif",
+    "size": 6803707,
+    "etag": "e29fe8c9509dacf37a3c4b7a69ba6e9a",
+    "sha256": "c2046cbfa98a06fab4401d8759d3cf7b8c1f231f308327dcbac59be7d93fcad3",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_060W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_060W_removal_forest_type.tif",
+    "size": 20221008,
+    "etag": "61ae95d625329a4bbb19bc885648fea8-3",
+    "sha256": "63befac7b1cb033186d124a42cbcafec6d5a39ba511e9fa4d23a7ab92334e206",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_070E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_070E_removal_forest_type.tif",
+    "size": 20584999,
+    "etag": "2af5daebafa303159ed4b163d6127e07-3",
+    "sha256": "b0daa5520b98ac6b87785a966d809aee2fda1e98196e4579e9d42536d9da98b7",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_070W_removal_forest_type.tif",
+    "size": 34143480,
+    "etag": "5ac521c4ad66e40226735bf4bcd147a3-5",
+    "sha256": "c17851bba4aba9e1d79642e552f86eb2b239d5776d7472c26e2bcdabbcd0e57b",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_080E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_080E_removal_forest_type.tif",
+    "size": 25355512,
+    "etag": "830e29bfdcefe0ca06dc1c12bc56b7ab-4",
+    "sha256": "b4377385ac3ee9ffe93ef7fcf52d5e2f22a3f38ff24991bc9f5acb97ef55db1f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_080W_removal_forest_type.tif",
+    "size": 83249336,
+    "etag": "2b077115f035f13d6f83109cc184cf77-10",
+    "sha256": "14fadb9465a5dfb4a1717650fb8c226d3b1d777013bca57d62f928216beda354",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_090E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_090E_removal_forest_type.tif",
+    "size": 7879154,
+    "etag": "5ea6f0f45cd7e381dee4d533bc9d0a8c",
+    "sha256": "54766cb406945e37f3b65d14572ce7d2d19b0ba9668e0b938c3784a9fe0b7501",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_090W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_090W_removal_forest_type.tif",
+    "size": 64587874,
+    "etag": "4e71a13a69c92cd54bb917acbee2e825-8",
+    "sha256": "35f4f139d8fc56e835864e4010542c0744a117b5e8c16b0053ecd2a433a9ddee",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_100E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_100E_removal_forest_type.tif",
+    "size": 18924458,
+    "etag": "0205061471f32961a07dd721612e234e-3",
+    "sha256": "c676d20a9d4b16935f5e71af5a32504e12601dfb7cf27e2a8d751b2200032e55",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_100W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_100W_removal_forest_type.tif",
+    "size": 65051085,
+    "etag": "2104c0ed88192670e9751b70083e8f21-8",
+    "sha256": "a49a8fb2440d8ac679c9d238d9a926a7dbc56526d6fe70535f6d958885f9ed3f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_110E_removal_forest_type.tif",
+    "size": 24435064,
+    "etag": "f87fa444583ecf52464a2042628c8b1c-3",
+    "sha256": "a1a4820b659e922dfa3ba1a0ee9d6eaee5bdc23d17e8ec684d96350c3e0f1890",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_110W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_110W_removal_forest_type.tif",
+    "size": 28774410,
+    "etag": "c0c5dd8b48490d847afe00d400eede58-4",
+    "sha256": "5bb2708445955e06b34a2c0bd2300e0983c04622936d1fff1044a8eeab1877e9",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_120E_removal_forest_type.tif",
+    "size": 65554635,
+    "etag": "05517fb96941367dd3f7f5ddbf6145e0-8",
+    "sha256": "89d674432b7f5e1611dce0f0f7c5c0df72436b95393cb56e1ee8ff46ec6ca709",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_120W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_120W_removal_forest_type.tif",
+    "size": 57384214,
+    "etag": "7f8d29840dae51398890b1ee1b9b072a-7",
+    "sha256": "f1e85dccdfd695f9b8c27a695699a14c2eab16a68efa2fc3f4484acf1f8b56e5",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_130E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_130E_removal_forest_type.tif",
+    "size": 39082646,
+    "etag": "85a60ed02b3eca847194d655a05ed4d0-5",
+    "sha256": "a8524ce10d6f1051d613bdea9dd8e113d1f16d6b312433036e8fd268502562ec",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_130W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_130W_removal_forest_type.tif",
+    "size": 37275951,
+    "etag": "ab7fb5c2bca90941ad32e0a7ec0b5712-5",
+    "sha256": "f015e514a3f176fdd6dc34e0a3accb04360ffda29fff74ca9b7ceca2407ec509",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_140E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_140E_removal_forest_type.tif",
+    "size": 18241723,
+    "etag": "30303d35e040339dab9511a734b92f2f-3",
+    "sha256": "83efd15fb03e9b06b6b5cd92eaf585e8ef33d04db99d30c24a1f20b8ad6d65e1",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50N_150E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50N_150E_removal_forest_type.tif",
+    "size": 3091543,
+    "etag": "0f2c58221ff9227c9630783c16c15638",
+    "sha256": "e3222507abe728fa03df2e5a95f427ef838554e249b4002d8b2414d2414acda8",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50S_060W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50S_060W_removal_forest_type.tif",
+    "size": 2821544,
+    "etag": "b08f429aba2fecd7b236b765b0969344",
+    "sha256": "906bc1d6608c786817be6dc7254c6aff5ba1b8b8097fcb309ed1e8970d56f249",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50S_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50S_070W_removal_forest_type.tif",
+    "size": 7715547,
+    "etag": "6c948ee301760d6833babbdb05ab75c1",
+    "sha256": "0230d0f6211213868cf9b323776c0fd31f00f5a8d3b4da478465fb04fae1dca7",
+    "status": "downloaded"
+  },
+  {
+    "filename": "50S_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/50S_080W_removal_forest_type.tif",
+    "size": 16001037,
+    "etag": "ebd459587b6ff196d7786c0cb8e23ebd-2",
+    "sha256": "93f42f9b746927856ea1a576621615d2afa68f456c6917ffa658f6054434e474",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_000E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_000E_removal_forest_type.tif",
+    "size": 38586455,
+    "etag": "26c528bdae66066013d9a1d6f428a671-5",
+    "sha256": "a855dbbcf5f5a7f96e17e5e8d691e09df580f9a5f4c5d9eceddda122e1b7a53c",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_010E_removal_forest_type.tif",
+    "size": 56814907,
+    "etag": "fef2b3187244b9f6da33f779d8eb2f30-7",
+    "sha256": "1c4351840b64132fb3ea73e15bb14198704e58124483468ba5f2ae3e5546497d",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_010W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_010W_removal_forest_type.tif",
+    "size": 45497975,
+    "etag": "6237fe2f6f2b6e408ba893f2b2f96e82-6",
+    "sha256": "e6779771de6d652350bc4951d47c8da1fa0303d92a8f35768c230992a1c6699c",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_020E_removal_forest_type.tif",
+    "size": 64200611,
+    "etag": "d4b0b40970732588ffee90adbc01472d-8",
+    "sha256": "97915325426940b27328b0d16b9296e30ec1e1136b9a78056f8a20e787be9bf6",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_020W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_020W_removal_forest_type.tif",
+    "size": 2942605,
+    "etag": "426b142c9c839198d16f0685c578f51d",
+    "sha256": "3ecfe192cc805783428d6dc6c4f6afb460dc934beab6a5ffb8c6ab59da3cf2e7",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_030E_removal_forest_type.tif",
+    "size": 100029878,
+    "etag": "24d163292bdce46f6d4e80a57632722f-12",
+    "sha256": "9330e0ec5ca1003d311fbb45fc2bcd259e48a94f7bd1a0b3609f5ef476203803",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_040E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_040E_removal_forest_type.tif",
+    "size": 82534159,
+    "etag": "c43450b8ae3bf06745a575de829b09d4-10",
+    "sha256": "36d5e820d5d475b2413d22a75d99061dff76851d4917646f8c245736ea8531a7",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_050E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_050E_removal_forest_type.tif",
+    "size": 63710266,
+    "etag": "6ddee5f0b9dee4da2e6363e2d2365159-8",
+    "sha256": "4f2215e519e5561a69b6f679dd6b24f43162d058ff861f40f94cfa8f48e547e0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_060E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_060E_removal_forest_type.tif",
+    "size": 62132266,
+    "etag": "ba1a5d2d4ed0b59a509a80ce35113788-8",
+    "sha256": "6c5276ad9f8248935d472c8068ba6caa9ad98f76c29bf498c672981b5a3739aa",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_060W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_060W_removal_forest_type.tif",
+    "size": 18800773,
+    "etag": "d6ecbb034c258b3f6e64f3af8438d0b4-3",
+    "sha256": "221eb3b535b85dafa145b23d1bd72da88f37672ed18bd83682786c6c1067afc7",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_070E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_070E_removal_forest_type.tif",
+    "size": 62810304,
+    "etag": "a04e7a4db330858102065004c5bb755e-8",
+    "sha256": "509c83f7311ec06a75c02ad9cb0efd884f69aada38a4db57e975047b9cbec54d",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_070W_removal_forest_type.tif",
+    "size": 82443335,
+    "etag": "f287b353205ec37ce08256f69dc13680-10",
+    "sha256": "28e9d10a42908196166aefc9fb3218cdc350a1b8de906d8bd4e46bc749a16fa0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_080E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_080E_removal_forest_type.tif",
+    "size": 76212880,
+    "etag": "d5f02ec08cfb60c62da666e352b9c5d7-10",
+    "sha256": "7ba1032a90828fddf61354532b44ed64348d1a25db220a54491128b5f96b0f0b",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_080W_removal_forest_type.tif",
+    "size": 96759116,
+    "etag": "64734f1bb23b583d1fce6e7a1835df7b-12",
+    "sha256": "80648319ff804efb82a82fc56c29cefd39156ed99df2ed73de19a8cc1d300456",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_090E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_090E_removal_forest_type.tif",
+    "size": 57071917,
+    "etag": "57d272b730727f541bffd0ed132913d4-7",
+    "sha256": "3c35f37379327d9c4e19855c4ee0ec5597dd393c0f549a2f89285241e4c44d56",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_090W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_090W_removal_forest_type.tif",
+    "size": 49262282,
+    "etag": "65fc63a5ad2444d73a02a3320c5d6c5c-6",
+    "sha256": "e6d3701059bc02617bf830006160b348b4ded02af45601eaac45ab305afb5301",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_100E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_100E_removal_forest_type.tif",
+    "size": 55355168,
+    "etag": "9c3602f388b54f78b25e4c9947e6b63a-7",
+    "sha256": "58c2646b6b1a061dc0e3ed66326f67273cc2eb3c532d1612ae09332880f0b8cb",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_100W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_100W_removal_forest_type.tif",
+    "size": 69999900,
+    "etag": "7fafa28db4b8490b0d997d6cffab1400-9",
+    "sha256": "ea09ae93f71f40262cc604ba37bb32f163b78eee5c9b6b09eb61523603e1e2a8",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_110E_removal_forest_type.tif",
+    "size": 87184312,
+    "etag": "72c71b7b6dc58ab0aaf27a148ae188cf-11",
+    "sha256": "922e778719d37e1d1df347a17b3c38a83376cb51d2e059a23b4bc997de3f2d85",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_110W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_110W_removal_forest_type.tif",
+    "size": 74642353,
+    "etag": "178d0d1c6bf9c44fca238c58ae35b781-9",
+    "sha256": "a0f81c8e652897536a59a8cf09ba4e60aacbaf980747a11356500bf810a16846",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_120E_removal_forest_type.tif",
+    "size": 78583993,
+    "etag": "64764f42df8ad4840d803ce695e20e8c-10",
+    "sha256": "46a5d9b415d52d57ed1b112a49b87c4624b2e66d31399e50a38ebe8be7e34784",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_120W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_120W_removal_forest_type.tif",
+    "size": 74954297,
+    "etag": "9bc0258c1f1d81ee729fadaaf0193e48-9",
+    "sha256": "4200499d3503bfcf247c981a3f30571d6fa5d877657956cd8d790d341b7a48d9",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_130E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_130E_removal_forest_type.tif",
+    "size": 69522104,
+    "etag": "dbe7b6c5d014cf95fe7d622673fd5a8c-9",
+    "sha256": "227f3765e97dab835d6c52fe03a0f0e62c7879bced9dd0f2778ff515c67253c8",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_130W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_130W_removal_forest_type.tif",
+    "size": 74407093,
+    "etag": "4ecf25cca779a590c9fd3cee47c99ee5-9",
+    "sha256": "38831412b38ef4e07edb1184627fb649ece9f6f5aae7b0b6978275cec66fd66a",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_140E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_140E_removal_forest_type.tif",
+    "size": 19918270,
+    "etag": "f84e01d3debbdd9d6a135fb080fef6c6-3",
+    "sha256": "42c64f71629979f645a8b424f130beda9a63b337f97e486a0c81cf17f348754e",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_140W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_140W_removal_forest_type.tif",
+    "size": 25353380,
+    "etag": "1d13c7b7865d5aa2db86cbb807119cd0-4",
+    "sha256": "6af08dbb62f03b1da7bd3b34f780c9fca88158a43cbaf45a919d60463e625ccd",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_150E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_150E_removal_forest_type.tif",
+    "size": 27559588,
+    "etag": "1c8f090dfe7491244e63a2c5ab315ebe-4",
+    "sha256": "545e566a4f30cdcb5e0b07d0847c6b91ce5544b91c9f31dd80feaa10dcb8cd8a",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_150W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_150W_removal_forest_type.tif",
+    "size": 3204903,
+    "etag": "7a913362e36a8590afb5a46026b374b2",
+    "sha256": "a04ba744ed72495e0be2790605cefe772ec67a520ee1c562025fb6db8506f677",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_160E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_160E_removal_forest_type.tif",
+    "size": 16121182,
+    "etag": "2b47b7eeed9e472c043053efa8321e30-2",
+    "sha256": "a5358985be5715c8bf499192cdd3938638c960367a4101b3d1955d10de8260fb",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_160W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_160W_removal_forest_type.tif",
+    "size": 18897039,
+    "etag": "64bcaa160d0e52023707645ba23b3aa0-3",
+    "sha256": "bff40d2e74c9711af775335f87d0590f001a71b9fc82ce88d82290720b9102d8",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_170E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_170E_removal_forest_type.tif",
+    "size": 2766997,
+    "etag": "3aa0f806302f70d5cab8dc9681813b18",
+    "sha256": "a1f22fddc7444cec0911f61533339fd736ddb18435e901c7e0a89d463134d037",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_170W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_170W_removal_forest_type.tif",
+    "size": 7890284,
+    "etag": "e9ee4691c77dba2abcca9e06765c3655",
+    "sha256": "be7134e38970d02dd4267ac72366c67ff571a7725a917dad69c3329c76f8cf7c",
+    "status": "downloaded"
+  },
+  {
+    "filename": "60N_180W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/60N_180W_removal_forest_type.tif",
+    "size": 3196311,
+    "etag": "526a00ea6f78c21226479cbae3a4cde3",
+    "sha256": "f9c735e5137e52cf0eb4c643ef84c1c059b102fb543cf406a3d62b780d467909",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_000E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_000E_removal_forest_type.tif",
+    "size": 15321484,
+    "etag": "d5217f70351cf591ab84fa92e77099b2-2",
+    "sha256": "5d3a1a908acc953ccbdf31105af757fe08643cc977b8a60f18c96d7446a2ddda",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_010E_removal_forest_type.tif",
+    "size": 56308335,
+    "etag": "f6442a1e32b18f18a7b911f522c83358-7",
+    "sha256": "dde144c46fb538022a43686128bbe692ae6e2691a179eb3d690b9919388fe416",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_020E_removal_forest_type.tif",
+    "size": 74216296,
+    "etag": "3ff1526f6b9e46265ba380c8524d0131-9",
+    "sha256": "b1ff04493b3759c0cd02c14bfa8f7dbf16a37b6dd60f1e95621d92f37f0ca307",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_030E_removal_forest_type.tif",
+    "size": 65796361,
+    "etag": "0cd51c29571d850a38ff6e7982c2aba3-8",
+    "sha256": "2d10e9d88c11eb45000ba02b2335562fd70b29d2aff1befdcc7342cfdd9a5c15",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_040E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_040E_removal_forest_type.tif",
+    "size": 44239699,
+    "etag": "2462e50f73461ded70b87560acf15e1f-6",
+    "sha256": "f5b92dc51c77eda0567274441b112eda36266c2e2b037a8275dd7dbd2fb9157e",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_050E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_050E_removal_forest_type.tif",
+    "size": 50682339,
+    "etag": "644bbb201d6828cd93d134523c92d98f-7",
+    "sha256": "517f9dda53191a7c8139398ddf8fed4f0d472294798a29126e2c19259ef668d9",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_060E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_060E_removal_forest_type.tif",
+    "size": 71962711,
+    "etag": "e14c57c5bcf0d2c5a46c98dbb44572de-9",
+    "sha256": "ac94b715b3e85a57c4f833a8299b16656fa5d72afc47ae4186eb58d393a6b8d5",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_070E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_070E_removal_forest_type.tif",
+    "size": 88956931,
+    "etag": "3c2988035869467d26a91ce02fd03987-11",
+    "sha256": "fab44d934043e9a33539b5c87664eb14213cf08261d37cc88db3a22b58e7fc59",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_070W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_070W_removal_forest_type.tif",
+    "size": 2785315,
+    "etag": "c1fd572a5ebedde23cf3294edf910d83",
+    "sha256": "5edecf478c130d997b19b67addf07ac46257aa2625e9b8f3d542c9fef1215320",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_080E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_080E_removal_forest_type.tif",
+    "size": 77269256,
+    "etag": "07c75bc2fb516bb9882144bca647fb6e-10",
+    "sha256": "3f5e6971788cd73c6b45e6acd109407a05aa2376dc4cce14e55e5ca25edb91c8",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_080W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_080W_removal_forest_type.tif",
+    "size": 5528494,
+    "etag": "39ea67ebd7d8b4ad12d5a44f59f0d120",
+    "sha256": "c27b4f4ee8943b1f0a73b4884bb68b6ea8246f4ba96397a1392959aab4ddc395",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_090E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_090E_removal_forest_type.tif",
+    "size": 63859271,
+    "etag": "a8b4d7ba23e4063d3c9a53e641d51f1a-8",
+    "sha256": "ee625733c2f4bccfcfc539df15cded2ccfbf0ae76c99a76b25ab91ecd2b7fbd5",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_090W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_090W_removal_forest_type.tif",
+    "size": 3078028,
+    "etag": "7f8833707a2f45d409eaf564a27573a8",
+    "sha256": "4e3cfdcfd74adc17c94831dd27f411ffd1c5e25d30c37b25b3e19af7863bac5f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_100E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_100E_removal_forest_type.tif",
+    "size": 93037798,
+    "etag": "dd334d283f07224191932c226ca2b48e-12",
+    "sha256": "1fd57ab5840e090903b8c6c8d8a292c25c483bff3398ff112fd2d38173028245",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_100W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_100W_removal_forest_type.tif",
+    "size": 19340239,
+    "etag": "86a2eeaa9b7c35d40239223e9951fc83-3",
+    "sha256": "3bfffe872dcef8c1b8db662c5f1b3587a836e147989820151cd0a96b696afb5e",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_110E_removal_forest_type.tif",
+    "size": 95031950,
+    "etag": "8694e3bcd27f3ba002a2406a0aaabaf1-12",
+    "sha256": "5d9520ac4dbe450b6d501bb2658c400b6c2a10f4ecc67ae70e48d2e4036e3581",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_110W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_110W_removal_forest_type.tif",
+    "size": 35572952,
+    "etag": "f577087c67f18622189733f938386e99-5",
+    "sha256": "ef0ba3a58da2ad41b507669f2aee11088aa01befe3c48e7da6153111469dff4f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_120E_removal_forest_type.tif",
+    "size": 97475727,
+    "etag": "7a7027439b0e2ecd23ba7366ad758981-12",
+    "sha256": "20ecd7fe6203c7ae1ecff1a36fb4145e56a83f4c69628ac42283e9d6cbeb4364",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_120W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_120W_removal_forest_type.tif",
+    "size": 59654115,
+    "etag": "ffeb1ffb1b581b6fa21c7b10917cd3c3-8",
+    "sha256": "967f503625e405350e87939317e904d53728d0455e1e95a6d8afaa9676635316",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_130E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_130E_removal_forest_type.tif",
+    "size": 91006017,
+    "etag": "fd73da6e43bdcabc38de7d368799ea2c-11",
+    "sha256": "21ac8cff120b0817d688c5429c816bc41e098623c75f5c3ce81a495924e7dc8f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_130W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_130W_removal_forest_type.tif",
+    "size": 59542123,
+    "etag": "4e58de346e7046adb1552fe66686b9fd-8",
+    "sha256": "5ea398971c3b097298b6c1c234a873fdf1a1a8a3b7e6a005cfd07c3d84114005",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_140E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_140E_removal_forest_type.tif",
+    "size": 97948286,
+    "etag": "0c84721777b090f6c4d5f17b0ca4d830-12",
+    "sha256": "0aa2a882e32966bfcd5a49b8361cf234385bd79dc6f5f7c534469906552e2e0a",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_140W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_140W_removal_forest_type.tif",
+    "size": 70059382,
+    "etag": "d3b74397be1b1917c6f114865c26b44a-9",
+    "sha256": "a97bb4b19ab728d16d9a403ef3d66c6762caaaac156356de9076b473d685c98f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_150E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_150E_removal_forest_type.tif",
+    "size": 92585120,
+    "etag": "5ee7eb4891ac4b6b1c5feb95b1617e48-12",
+    "sha256": "128956183c99fcce7de0323a5fdf3b3ab67a8b09f48a520b1781a3006210c9ae",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_150W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_150W_removal_forest_type.tif",
+    "size": 55081997,
+    "etag": "8594378d2612c8ab144ebcf46f81ca88-7",
+    "sha256": "aba171a3e1234336d7b02e20347341554cdccab5cbae675e6f0fb9487a7d6737",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_160E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_160E_removal_forest_type.tif",
+    "size": 69430454,
+    "etag": "9e84e0f173e4ee764143e9e391300a6e-9",
+    "sha256": "7bc4853a649981ed5176b7263b26d4103dbe1643f9a4c3e5f85de2ebd38a5bfd",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_160W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_160W_removal_forest_type.tif",
+    "size": 63805823,
+    "etag": "b852634535e2dd7f3811a02df46ac5c5-8",
+    "sha256": "1ddd7939888e011799c7950feb08550e1c375ae807ddae00ad43b2bde0765e60",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_170E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_170E_removal_forest_type.tif",
+    "size": 33341780,
+    "etag": "87a8bbe9e58acb4fa7a9b09451a4949c-4",
+    "sha256": "05b01b44f2af2341b1cff78900a842a8b3a553de1351bb91c2841f06eeb7f1b0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_170W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_170W_removal_forest_type.tif",
+    "size": 23760422,
+    "etag": "31c4843290d8e1b6f7db11ae51bd7e03-3",
+    "sha256": "9b66aa4e1000d776897579736793e204d11e759647833cc1136b8d4063934761",
+    "status": "downloaded"
+  },
+  {
+    "filename": "70N_180W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/70N_180W_removal_forest_type.tif",
+    "size": 4358985,
+    "etag": "ed0651264cc1aeffd781a7bae4655ea5",
+    "sha256": "6f26203b4d47ee903b9d2d71b6eee8964146fbbc1bb90ed1aaeeb3ac9accf43f",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_010E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_010E_removal_forest_type.tif",
+    "size": 2931181,
+    "etag": "05a0668b737778dc7c1039a60cac200b",
+    "sha256": "6622002487aad49d232cf87481637f9ead1403c910b1dc069576c8316e495759",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_020E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_020E_removal_forest_type.tif",
+    "size": 5503546,
+    "etag": "ac3718d12d2e5c1eca66e596d5fc2d47",
+    "sha256": "471de1bdf186a0781da0ffe837f9d085ae5850cf437b932f6419adad822ee15c",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_030E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_030E_removal_forest_type.tif",
+    "size": 2864227,
+    "etag": "fb5e58a44d038e8f6dbc19ec997aac51",
+    "sha256": "b797fa8a1f3067849c1db690bd8f173081fdbe37eb6bed3f447db7b73443c7d0",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_070E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_070E_removal_forest_type.tif",
+    "size": 2961317,
+    "etag": "d09050987f0a74e87682e9b8bdd6a7ef",
+    "sha256": "11f44bacb7aa0f6e7fa2ec11a7bcf38d206b17c59e043e5c3e7f9e62ac475648",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_080E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_080E_removal_forest_type.tif",
+    "size": 5975738,
+    "etag": "5f87a42690cf22653b6bd086c3c77b93",
+    "sha256": "914f66a2fedb7cfc36ac6725379ca29bb9b608a6db16f86c54af4ec8c4e36d51",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_090E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_090E_removal_forest_type.tif",
+    "size": 14211278,
+    "etag": "b59802cae157a00ae8e93639b4fd424e-2",
+    "sha256": "73364b2cff5a8b0de9758709d4142d8385c1ed62846435798c57881c8d6a1923",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_100E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_100E_removal_forest_type.tif",
+    "size": 11796882,
+    "etag": "7cc0b1c856922dbd4a7daa4e1774572e-2",
+    "sha256": "83c4d44e1a2b72d314399dfcb3b02c31247623fba6cd7ae06e70579d1464f2f5",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_110E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_110E_removal_forest_type.tif",
+    "size": 15547549,
+    "etag": "b23e80c653eea0e425e6888c6b72aa1b-2",
+    "sha256": "d418b5a1cb64f00dae1c0ad1044b8ea95c190a75354739a19029f5c93307360b",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_120E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_120E_removal_forest_type.tif",
+    "size": 12150834,
+    "etag": "04566084190d3985adefe87986239d46-2",
+    "sha256": "a8069988967780269df4e07a9eab5869190f749668026eeb7008cb18c9aab0b7",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_130E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_130E_removal_forest_type.tif",
+    "size": 8798512,
+    "etag": "ce2b66c7676e36a834b6c086f31bbad4-2",
+    "sha256": "52f35e2f1359b1c553a1d77063941111284578154a92da73656576060847ab28",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_130W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_130W_removal_forest_type.tif",
+    "size": 2763609,
+    "etag": "003d08637968fc4f7b3d32d077b22291",
+    "sha256": "e933c0237306c7159f5b98e9e931646237c9874156aa9d373175cdd05e98c58a",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_140E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_140E_removal_forest_type.tif",
+    "size": 7053703,
+    "etag": "07f65135692e793d13746799c836938d",
+    "sha256": "e7b4cba2ebcda3a83c448d52ce41d52769a1f0f1627b5b7e11fcd4f75bb50102",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_140W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_140W_removal_forest_type.tif",
+    "size": 2761929,
+    "etag": "470f0d998913631853dd2aecbe2d79ed",
+    "sha256": "6fdf16e2fe6c20b0f43ca15f10bbad2ff76379a87f557adb568061137c5a30ba",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_150E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_150E_removal_forest_type.tif",
+    "size": 3974401,
+    "etag": "d4b6175fb3954a9c5c361b8f6b5f9f7b",
+    "sha256": "5f32eb704cd214755a4e6028c3f5a35568b010ee7242ed58eb5c0b751bf11e63",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_150W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_150W_removal_forest_type.tif",
+    "size": 2772786,
+    "etag": "7d5e0bb8995a6571921ebec2a59755b1",
+    "sha256": "51401438d63545b23e27b7803c1a29937c1cf0647bccbc486960e1daae5751f6",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_160E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_160E_removal_forest_type.tif",
+    "size": 2761455,
+    "etag": "d9ff4f3d3c1601dd930e0f2cce6820c1",
+    "sha256": "53d45cda88a4eaaa871eca370dc9ee6cdc49c1ec7fb802b6aefa2ffa7ee20ada",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_160W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_160W_removal_forest_type.tif",
+    "size": 2913823,
+    "etag": "ea99390ede9d53ac2e49df469a2d38b4",
+    "sha256": "e622ab2c42a250ca201b70642867b49db17353d896929c742acb586249ef4e0e",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_170E_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_170E_removal_forest_type.tif",
+    "size": 2775137,
+    "etag": "2b910e1797303b99ee0f1e6064380117",
+    "sha256": "d7c3be49b7838f827b62425affeb327fa898d8c8d188f3c98cdeb5a375ff27ee",
+    "status": "downloaded"
+  },
+  {
+    "filename": "80N_170W_removal_forest_type.tif",
+    "url": "https://gfw2-data.s3.amazonaws.com/climate/carbon_model/removal_forest_type/standard/20240308/80N_170W_removal_forest_type.tif",
+    "size": 2769090,
+    "etag": "a1a1c370dca88b2e618a7dbd62f827e3",
+    "sha256": "d2b8d91f2db5b4c43f20f35d01aef6780a70c81a69cdf8154237e9d4d9612ade",
+    "status": "downloaded"
+  }
+]

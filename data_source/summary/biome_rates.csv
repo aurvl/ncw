@@ -1,4 +1,0 @@
-pan_biome,pan_row,flux_pgc_yr_mean,flux_pgc_yr_sd,pan_area_ha,rate_tc_ha_yr_mean,rate_tc_ha_yr_sd,source
-tropical,All tropical forests,2.52,0.41,1909950000.0,1.319406267179769,0.21466530537448625,Pan et al. (2024) Table 1 (2010–2019) / mean Pan area 2010-2020 (Extended Data Table 1)
-temperate,Temperate forest,0.68,0.05,785250000.0,0.865966252785737,0.06367398917542184,Pan et al. (2024) Table 1 (2010–2019) / mean Pan area 2010-2020 (Extended Data Table 1)
-boreal,Boreal forest,0.32,0.04,1147750000.0,0.27880636027009364,0.034850795033761706,Pan et al. (2024) Table 1 (2010–2019) / mean Pan area 2010-2020 (Extended Data Table 1)

@@ -1,29 +1,54 @@
 # Data sources, licences and citations
 
-Raw files in `data_source/raw/` are stored exactly as downloaded (git attribute `-text`). `data_source/metadata/source_registry.csv` records URL, version, access date and licence; `data_source/metadata/raw_checksums.csv` records SHA-256 checksums (`python scripts/checksum_raw_sources.py`).
+Raw files in `data/raw/` are stored exactly as downloaded (git attribute `-text`). `data/metadata/source_registry.csv` records URL, version, access date and licence; `data/metadata/raw_checksums.csv` records SHA-256 checksums (`python code/scripts/checksum_raw_sources.py`).
 
 | Folder | Source | Used for | Licence | Cite |
 |---|---|---|---|---|
 | `fra/` | FAO, Global Forest Resources Assessment 2025, bulk download (world) | Forest, mangrove, NRF, planted and primary areas; climatic-domain shares; M49 codes | CC BY 4.0 | FAO (2025). *Global Forest Resources Assessment 2025*. Rome. |
-| `faostat/` | FAOSTAT, *Emissions from forests* (Global, National – Annual), bulk file dated 2026-07-06 | Route A net forest flux | CC BY 4.0 | FAO (2026). FAOSTAT: Emissions from forests. |
+| `faostat/` | FAOSTAT, *Emissions from forests* (Global, National - Annual), bulk file dated 2026-07-06 | Route A net forest flux | CC BY 4.0 | FAO (2026). FAOSTAT: Emissions from forests. |
 | `gez/` | FAO, Global Ecological Zones, second edition (2010) | Biome of each forest pixel | CC BY 4.0 | FAO (2012). *Global ecological zones for FAO forest reporting: 2010 update*. |
 | `boundaries/` | Flanders Marine Institute, Union of world country boundaries and EEZ v4 (2024-10), as used by BCW | Country polygons | CC BY 4.0 (see `LICENSE_EEZ_LAND_v4.txt`; not for legal use) | Flanders Marine Institute (2024). Union of the ESRI Country shapefile and the Exclusive Economic Zones (version 4). marineregions.org |
+| `gmw/` | Global Mangrove Watch v4.1.12, annual extent map through 2025, country-coded polygons and corrected country-statistics workbook | Mangrove extent for the BCW mangrove-area update; vector areas intersected with the same territorial boundaries, then scaled to GMW's accuracy-corrected country areas | Public research data; cite GMW and display source credit on reproduced map images | Bunting et al. (2026). *Global Mangrove Watch: Timeseries of Mangrove Extent (Version 4.1.12)*. Zenodo. https://doi.org/10.5281/zenodo.21346457 |
 | `boundaries/ne_50m_admin_0_countries.zip` | Natural Earth 1:50m Admin 0 countries | Land polygons for figure maps (notebook 03) | Public domain | Made with Natural Earth. naturalearthdata.com |
 | `forest_mask/` | European Commission JRC, Global Forest Cover 2020 V4, internal overview ×256 (~2.3 km) of the single COG | Forest mask for biome shares | Free of charge, without restriction of use (Copernicus); citation required | Bourgoin, C. et al. (2025). Global map of forest cover 2020. European Commission, Joint Research Centre. http://data.europa.eu/89h/8c561543-31df-4e1b-9994-e529afecaf54 |
-| `pan/` | Pan et al. (2024), Table 1 (HTML) and Extended Data Tables 1 and 3 (images) | Biome fluxes, biome areas, published rates per area | © Springer Nature; numerical values cited as facts | Pan, Y. et al. (2024). The enduring world forest carbon sink. *Nature* 631, 563–569. https://doi.org/10.1038/s41586-024-07602-x |
-| `bcw/` | BCW release, commit 29ede5b (`output/country_level_bcw.csv`, `output/draws.npz`) | BCW values and draws, GSCC draws, population, GDP, groups | CC BY 4.0 (`LICENSE-CC-BY-4.0`) | See `bcw/CITATION.cff` |
+| `gfw_gibbs_2025/gross_removals/` | Gibbs et al. (2025), published 2001-2023 gross-removals GeoTIFF tiles | Gross additions to above- and below-ground living forest biomass, aggregated into four FAO GEZ biomes | CC0 1.0 | Gibbs, D. A. et al. (2025). Revised and updated geospatial monitoring of 21st century forest carbon fluxes. *Earth System Science Data*, 17, 1217-1242. https://doi.org/10.5194/essd-17-1217-2025; data: https://doi.org/10.7910/DVN/V2ISRH; [WRI model documentation](https://github.com/wri/carbon-budget) |
+| `pan/` | Pan et al. (2024), Table 1 (HTML) and Extended Data Tables 1 and 3 (images) | Biome fluxes, biome areas, published rates per area | © Springer Nature; numerical values cited as facts | Pan, Y. et al. (2024). The enduring world forest carbon sink. *Nature* 631, 563-569. https://doi.org/10.1038/s41586-024-07602-x |
+| `bcw/` | BCW release, commit 29ede5b (`results/country_level_bcw.csv`, `results/draws.npz`) | BCW values and draws, GSCC draws, population, GDP, groups | CC BY 4.0 (`LICENSE-CC-BY-4.0`) | See `bcw/CITATION.cff` |
+| `socioeconomics_2024/` | Global Carbon Budget 2025 national fossil carbon table; World Bank WDI 2024 population and GDP API extracts | 2024 cross-sectional emissions and socioeconomic variables; 2023 vintage comparison | GCB terms require attribution; WDI CC BY 4.0 | Friedlingstein et al. (2025), *Global Carbon Budget 2025*; World Bank WDI indicators `SP.POP.TOTL` and `NY.GDP.MKTP.KD` |
+
+## 2024 socioeconomic extension
+
+The GCB workbook's `Territorial Emissions` sheet reports fossil carbon emissions in MtC/year. We convert with the workbook's own stated factor, 3.664 MtCO2 per MtC. The series covers fossil fuel combustion/oxidation and cement production; it excludes land-use change emissions. GCB source names are mapped to ISO3 by `code/scripts/build_socioeconomic_2024.py`; the exported country-name crosswalk exposes every mapping, including unmapped regional aggregates. Only direct country/territory rows are assigned to study units. We do not copy a sovereign total onto a split territory.
+
+Population and GDP come from the World Bank Indicators API, indicators `SP.POP.TOTL` and `NY.GDP.MKTP.KD`, for 2024. Population is a midyear estimate whose source mix includes WPP, national statistical offices and Eurostat; GDP is constant 2015 US dollars. Each API response records the World Bank `lastupdated` field. The matched table has 236 study units, with 210 direct emissions matches, 213 population values, 196 GDP values and 193 complete for all three. Missing values remain missing. The debt indicator is checked as available for 2024 in IDS but is not downloaded or used in these models.
+
+The current spatial extension is generated by `code/scripts/run_spatial_emissions_extension.py`. It compares the original 2024-control models with matched models adding emissions as X, analyses emissions as Y, and reports a separate population-control sensitivity. Detailed source and model outputs are under `results/validation/`; no manuscript or figures are updated by this extension.
+
+## Derived Gibbs/GFW rates
+
+The selected source is the 272-tile 2001-2023 gross-removals release (about 37 GB compressed). The 30 m layer represents cumulative gross removals into above- and below-ground living biomass. Values are converted from Mg CO₂/ha over 23 years to mean annual tC/ha/yr and area-weighted within the four FAO GEZ biomes. Although WRI documents 30 m gross-removal values as positive, a subset of pixels in the published tiles is negative; the aggregation code retains and audits those values without clipping or sign changes. The newer 2001-2025 model release is not substituted for the 2001-2023 publication dataset.
+
+Gibbs et al. report global gross removals of 14.5 ± 7.7 Gt CO₂/yr for 2001-2023, with ±1 standard deviation from model error propagation. The uncertainty analysis reports global and climate-domain totals. It does not supply per-hectare uncertainty for the four FAO GEZ biomes used here; the published values are therefore retained at their published scale and are not assigned to biome rates or country estimates. The authors state that smaller-scale propagation would require uncertainty information for each model input at that scale (Gibbs et al., 2025, Sections 2.2 and 4.3; Table 4).
+
+The 272 source tiles were downloaded to a temporary Vast.ai instance and MD5-verified against the Dataverse manifest. They were all processed there, and the instance was destroyed after the derived files were copied locally. The 272 large GeoTIFFs are intentionally not retained in this repository. The local audit artifacts are `data/raw/environmental/forest/gfw_gibbs_2025/gfw_dataverse_manifest.json`, `data/derived/gfw_gibbs_biome_rates.csv` (four biome rates), `data/derived/gfw_gibbs_tile_rates.csv` (385 tile-by-biome rows), and `data/logs/gfw_gibbs_aggregation.log`.
+
+## GMW 2025 mangrove areas
+
+The GMW v4.1.12 annual series is the latest complete global extent product currently used here; it covers 1985-2025. The 2025 country-coded vector is intersected with the same EEZ/land boundaries as the BCW account. The raw polygon hectares are not used directly: GMW's README states that its country area statistics apply the global accuracy correction factor 0.9775. We apply each source-code workbook area divided by its raw polygon area to its polygon intersection and residual transfers. This preserves the spatial split while reconciling source-code totals to the published corrected areas. The current allocation assigns 127 accounting units; a small remainder outside admissible territories is retained as unassigned. This operation updates the mangrove component only; salt marshes, seagrasses, their rates and the marine attribution rules are unchanged. Files: `data/derived/gmw_2025_mangrove_area_by_unit.csv`, `results/validation/gmw_2025_corrected_spatial_area_by_unit.csv`, and `results/validation/gmw_2025_corrected_area_audit_by_source.csv`.
 
 ## Transcribed values
 
-`data_source/reference/pan_biome_areas.csv` holds eight numbers transcribed from the images of Pan et al. (2024) Extended Data Table 1 (biome areas 2010 and 2020) and five rates from Extended Data Table 3 (stock change per area 2010–2019). The pipeline checks that the areas and Table 1 fluxes reproduce the published rates.
+`data/reference/pan_biome_areas.csv` holds values transcribed from Pan et al. (2024) Extended Data Tables 1 and 3. They support comparison with the previous calculation; they are no longer inputs to the main rate pipeline.
 
 ## Controlled references
 
 | File | Content |
 |---|---|
 | `reference/pan_biome_areas.csv` | Pan biome areas and published rates (transcribed) |
-| `reference/territory_crosswalk.csv` | BCW territory → accounting unit, with decision, author and date (C12) |
+| `reference/territory_crosswalk.csv` | Mapping of BCW territories to FRA accounting units, with the classification used for each territory |
+
+The Gibbs/GFW raster processing writes `summary/gfw_gibbs_biome_rates.csv` and per-tile audit rows to `summary/gfw_gibbs_tile_rates.csv`. The global biome table reports the count and share of negative source pixels by biome.
 
 ## Not available
 
-The Pan et al. (2024) replication spreadsheets (US Forest Service archive RDS-2023-0051) could not be downloaded (access blocked); the pipeline relies on the published tables (C5).
+The Pan et al. (2024) replication spreadsheets (US Forest Service archive RDS-2023-0051) could not be downloaded (access blocked); their tables are retained as a methodological comparison with the previous calculation, not as inputs to the central Gibbs/GFW pipeline. The derived four-biome Gibbs rate table is available locally; reproducing it from rasters requires restaging the 272 source tiles.
