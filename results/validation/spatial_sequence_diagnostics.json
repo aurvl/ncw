@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-19",
+  "boundary_source": "Natural Earth 50m admin-0 country polygons",
+  "units_with_geometry": 235,
+  "units_without_geometry": [
+    "GIB"
+  ],
+  "permutations": 9999,
+  "seed": 20261019,
+  "weights": {
+    "queen_contiguity": "row-standardised Queen contiguity; isolates retained as zero rows",
+    "symmetric_knn5": "row-standardised symmetrised kNN-5 of representative points in EPSG:6933"
+  },
+  "outcomes": [
+    "lost_capacity_mtco2_yr",
+    "erosion_pct_of_gcw",
+    "gcw_gdp_pct"
+  ],
+  "predictors": [
+    "ln_gdp_per_capita",
+    "ln_forest_area_mha",
+    "warm_biome_share"
+  ],
+  "y_transform": "log1p; the same complete-case sample is used across OLS and spatial models per outcome",
+  "model_sequence": {
+    "step1": "global Moran I on transformed y and OLS residuals; 9,999 permutations; Holm adjustment across the six cases for each measure",
+    "step2": "LM-lag, robust LM-lag, LM-error, robust LM-error, joint SARMA and joint SDM tests on OLS residuals; Holm adjustment by test across six cases",
+    "step3": "Gaussian ML LR comparisons: SDM vs SAR (theta=0), SDEM vs SEM (theta=0), GNS vs SDM (lambda=0); Holm adjustment by comparison across six cases",
+    "step4": "AIC/BIC ranks are reported mechanically for human selection; the script does not declare a scientific winner or interpret coefficients causally"
+  },
+  "likelihood": "Concentrated Gaussian likelihood, with log|I-rho W| and log|I-lambda W| Jacobians; beta and WX coefficients profiled by least squares.",
+  "caveats": [
+    "Exploratory cross-sectional associations, not causal effects.",
+    "Classic LM and Gaussian ML comparisons assume homoskedastic innovations; HC3 OLS standard errors do not change the LM test assumptions.",
+    "Reported deforestation outcomes are complete cases among reporting units; non-reporting is not coded as zero.",
+    "Queen isolates are retained; kNN connects islands to their nearest territories, which can be distant or separated by water.",
+    "Model selection is left to the researcher; AIC/BIC ranks and nested test outcomes are evidence, not a final scientific decision."
+  ],
+  "territory_crosswalk": {
+    "FRA": "Natural Earth ADM0_A3 key; overseas polygons split by location.",
+    "NOR": "Svalbard and Jan Mayen split from Norway by location.",
+    "BES": "Bonaire, Sint Eustatius and Saba split from the Netherlands multipolygon.",
+    "TKL": "Tokelau split from New Zealand multipolygon.",
+    "GIB": "No polygon in Natural Earth 50m; excluded."
+  }
+}
