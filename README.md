@@ -30,6 +30,9 @@ This repository rebuilds country-level forest and marine carbon accounts and com
 
 See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md), and [`docs/DATA_AUDIT.md`](docs/DATA_AUDIT.md) for definitions, sources, and checks.
 
+> [!NOTE]
+> GCW, BCW, and NCW share a monetary valuation framework, but their physical inputs use source-specific definitions. Read the boundary for each account in the Methods before comparing carbon quantities; a common currency does not make the underlying fluxes physically identical.
+
 ## Repository map
 
 ```text
@@ -110,6 +113,9 @@ python code/scripts/main.py --reuse-gfw-rates
 To recompute the Gibbs/GFW rates from the published tiles, run `python code/scripts/build_gfw_rates.py --forest-type-dir data/raw/environmental/forest/gfw_gibbs_2025/forest_type`, then run `python code/scripts/main.py --reuse-gfw-rates`. This uses the non-mangrove rate table just produced, without processing the tiles a second time. Add `--rasters` to the second command to recompute the GEZ x country x JRC forest-mask allocation as well. Without `--rasters`, the pipeline uses the cached allocation in `data/derived/`.
 
 ### Large source files
+
+> [!IMPORTANT]
+> Recomputing the Gibbs/GFW biome rates requires both raster tile sets, about 46 GB compressed in total. These files are not stored in Git. The quick account rebuild can instead reuse the committed rate table and does not require these downloads.
 
 The 272 Gibbs/GFW gross-removal GeoTIFF tiles and 272 matching forest-type tiles are large downloads and are not stored in Git. The rate-building workflow downloads and verifies them with `code/scripts/download_gfw_dataverse.py` and `code/scripts/download_gfw_forest_types.py`. The compressed gross-removal set is about 37 GB; the forest-type set is about 9 GB. Place them under:
 
