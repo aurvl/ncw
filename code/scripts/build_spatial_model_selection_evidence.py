@@ -162,7 +162,7 @@ def write_note(table: pd.DataFrame) -> None:
     note = [
         "# Aide de lecture pour la sélection des modèles spatiaux 2024",
         "",
-        "Fichier de comparaison : `results/validation/spatial_emissions_2024_model_selection_evidence.csv`.",
+        "Fichier de comparaison : `../repo/results/validation/spatial_emissions_2024_model_selection_evidence.csv`.",
         "Sorties sources : étapes 1 (Moran), 2 (LM), 3 (LR emboîtés) et ajustements OLS/SAR/SEM/SDM/SDEM/GNS.",
         "",
         "## Ce qui est comparé",
@@ -180,12 +180,14 @@ def write_note(table: pd.DataFrame) -> None:
         "3. Les tests LR comparent SDM à SAR, SDEM à SEM et GNS à SDM. Ils n’ordonnent pas directement SDM et SDEM l’un par rapport à l’autre.",
         "4. Les modèles sont classés par AIC et BIC à effectif identique. Le classement fournit un élément de décision; les critères peuvent diverger et ne constituent pas un choix final.",
         "",
-        "Pour les trois modèles émissions-Y étendus, le résultat forestier est introduit en log1p, comme dans les transformations de résultats de l’analyse principale, et les mêmes contrôles de base sont conservés. Les trois références appariées permettent de comparer les modèles sur exactement les mêmes unités. Aucun modèle final n’est sélectionné : les diagnostics, classements AIC/BIC et résultats des tests sont des éléments de décision pour l’auteur.",
+        "Pour les trois modèles émissions-Y étendus, le résultat forestier est introduit en log1p, comme dans les transformations de résultats de l’analyse principale, et les mêmes contrôles de base sont conservés. Les trois références appariées permettent de comparer les modèles sur exactement les mêmes unités. Aucun modèle final n’est sélectionné automatiquement : les diagnostics, classements AIC/BIC et résultats des tests sont présentés comme éléments de comparaison.",
         "",
         "L’analyse est transversale et descriptive. Les coefficients et leurs p-values n’établissent pas un effet causal. Queen comporte des unités isolées; kNN relie les unités éloignées selon la distance des centroïdes représentatifs.",
         "",
     ]
-    (ROOT / "docs" / "SPATIAL_MODEL_SELECTION_EVIDENCE.md").write_text(
+    note_path = ROOT.parent / "NEXT" / "SPATIAL_MODEL_SELECTION_EVIDENCE.md"
+    note_path.parent.mkdir(parents=True, exist_ok=True)
+    note_path.write_text(
         "\n".join(note), encoding="utf-8"
     )
 

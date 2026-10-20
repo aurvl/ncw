@@ -3,7 +3,7 @@
 Outputs (data/derived/):
 - gez_area_by_country.csv : forest and land km2 per country x GEZ zone
                             (GEZ 2010 x EEZ_land_union v4 x JRC GFC2020 forest mask)
-- biome_shares_fra.csv    : shares reported by countries in FRA 2025 (control, C2)
+- biome_shares_fra.csv    : shares reported by countries in FRA 2025 (control)
 - biome_shares.csv        : shares used by the pipeline, with their source
 
 Polygons are burnt part by part and rasters read in stripes so that memory use stays low.
@@ -179,7 +179,7 @@ def shares_from_fra() -> pd.DataFrame:
 
 
 def select_shares(gez: pd.DataFrame, fra: pd.DataFrame) -> pd.DataFrame:
-    """GEZ x forest mask first (C2); FRA shares for countries the rasters do not resolve."""
+    """Use GEZ and the forest mask first; use FRA shares where rasters do not resolve a country."""
     selected = gez.loc[gez["source"] == "gez_forest_mask", ["iso3", "biome", "share", "source"]]
     missing = fra.loc[~fra["iso3"].isin(selected["iso3"])]
     remaining = gez.loc[~gez["iso3"].isin(selected["iso3"]) & ~gez["iso3"].isin(missing["iso3"]), ["iso3", "biome", "share", "source"]]

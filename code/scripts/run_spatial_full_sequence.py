@@ -685,7 +685,7 @@ def run() -> dict:
             "Classic LM and Gaussian ML comparisons assume homoskedastic innovations; HC3 OLS standard errors do not change the LM test assumptions.",
             "Reported deforestation outcomes are complete cases among reporting units; non-reporting is not coded as zero.",
             "Queen isolates are retained; kNN connects islands to their nearest territories, which can be distant or separated by water.",
-            "Model selection is left to the researcher; AIC/BIC ranks and nested test outcomes are evidence, not a final scientific decision.",
+            "No final model is selected automatically; AIC/BIC ranks and nested test outcomes are reported as model-comparison evidence.",
         ],
         "territory_crosswalk": {
             "FRA": "Natural Earth ADM0_A3 key; overseas polygons split by location.",

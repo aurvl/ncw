@@ -196,7 +196,7 @@ def main() -> None:
     sections.append(json_block("Diagnostics du protocole spatial 2024", VALIDATION / "spatial_emissions_2024_diagnostics.json"))
     sections.append(json_block("Résumé du bilan comptable 2024", VALIDATION / "emissions_2024_accounting_balance_summary.json"))
     sections.append(json_block("Audit de la table pays/territoires consolidée", VALIDATION / "country_level_results_master_audit.json"))
-    dictionary_path = ROOT / "docs" / "COUNTRY_LEVEL_RESULTS_MASTER_DATA_DICTIONARY.md"
+    dictionary_path = NEXT / "COUNTRY_LEVEL_RESULTS_MASTER_DATA_DICTIONARY.md"
     sections.append("### Dictionnaire des données de la table pays/territoires consolidée\n\n" + dictionary_path.read_text(encoding="utf-8"))
 
     csv_specs = [

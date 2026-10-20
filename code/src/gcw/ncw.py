@@ -1,9 +1,9 @@
 """Q: What is the Natural Carbon Wealth of each territory (forest + ocean)?
 
-NCW_i = GCW_i (documented FRA forest-mangrove overlap removed) + BCW_i, summed draw by draw (C7, C8).
-Units are the GCW (FRA) units: BCW rows are first summed draw by draw into their unit (C12).
-Alternative kept for C7: GCW including mangroves + BCW - value of BCW mangrove uptake.
-Gap-fill (C18): units with FRA mangroves but no BCW mangroves receive a BCW mangrove component
+NCW_i = GCW_i (documented FRA forest-mangrove overlap removed) + BCW_i, summed draw by draw.
+Units are the GCW (FRA) units: BCW rows are first summed draw by draw into their unit.
+Alternative: GCW including mangroves + BCW - value of BCW mangrove uptake.
+Gap-fill: units with FRA mangroves but no BCW mangroves receive a BCW mangrove component
 estimated with the BCW framework: FRA mangrove area (km2) x BCW mangrove rate draws (tC/km2/yr).
 
 Outputs: results/country_level_ncw.csv, results/draws/ncw_draws.npz,
@@ -82,7 +82,7 @@ def aggregate_bcw_to_units(bcw: pd.DataFrame, draws: np.ndarray) -> tuple[list[s
 
 
 def mangrove_gapfill(bcw_mangroves: pd.DataFrame, n_draws: int) -> tuple[pd.DataFrame, np.ndarray]:
-    """Units with FRA mangroves but no BCW mangroves: FRA area x BCW mangrove rate draws (C18)."""
+    """Units with FRA mangroves but no BCW mangroves: FRA area x BCW mangrove rate draws."""
     areas = pd.read_csv(SUMMARY / "forest_areas.csv")
     fra = areas.loc[areas["year"].astype(str) == GAPFILL_AREA_YEAR, ["iso3", "mangroves"]]
     fra = fra.assign(fra_mangroves_km2=fra["mangroves"] / 100.0).drop(columns="mangroves")

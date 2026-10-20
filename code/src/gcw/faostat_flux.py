@@ -4,7 +4,7 @@ Outputs (data/derived/):
 - faostat_forest_flux_annual.csv : annual net flux per country (tCO2/yr, removals positive)
 - forest_uptake_faostat.csv      : mean over FAOSTAT_PERIOD, with interannual spread
 
-This is a net flux (removals minus losses); negative values mean the forest is a net source (C1).
+This is a net flux (removals minus losses); negative values mean the forest is a net source.
 """
 
 from __future__ import annotations

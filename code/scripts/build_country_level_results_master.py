@@ -386,7 +386,9 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
 
 def write_data_dictionary(audit: dict[str, object]) -> None:
     """Write concise provenance and unit guidance for the wide table."""
-    path = ROOT / "docs" / "COUNTRY_LEVEL_RESULTS_MASTER_DATA_DICTIONARY.md"
+    path = ROOT.parent / "NEXT" / "COUNTRY_LEVEL_RESULTS_MASTER_DATA_DICTIONARY.md"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.parent.mkdir(parents=True, exist_ok=True)
     body = [
         "# Table pays et territoires pour la rédaction des Results",
         "",
@@ -423,8 +425,15 @@ def write_data_dictionary(audit: dict[str, object]) -> None:
         "- `population_bcw_reference`, `gdp_2015usd_bcw_reference`, `ncw_per_capita_usd2015_bcw_reference` et `ncw_share_of_gdp_bcw_reference` viennent de la table de référence BCW; les variables WDI 2024 portent le suffixe `_2024`.",
         "- Les champs sans valeur restent vides dans le CSV, sauf les indicateurs booléens d’appartenance au périmètre. Un zéro observé reste distinct d’une valeur manquante.",
         "",
-        "La table est un fichier de travail analytique large, pas une table prête à publier. Les limites de définition et de couverture sont détaillées dans `docs/METHODS.md`, `docs/DATA_AUDIT.md` et le plan Results.",
+        "La table est un fichier analytique large, pas une table prête à publier. Les limites de définition et de couverture sont détaillées dans `docs/METHODS.md` et `docs/DATA_AUDIT.md`.",
         "",
+    ]
+    body = [
+        line.replace("`code/", "`../repo/code/")
+        .replace("`data/", "`../repo/data/")
+        .replace("`docs/", "`../repo/docs/")
+        .replace("`results/", "`../repo/results/")
+        for line in body
     ]
     path.write_text("\n".join(body), encoding="utf-8")
 

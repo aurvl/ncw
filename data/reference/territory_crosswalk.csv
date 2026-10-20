@@ -1,69 +1,69 @@
-bcw_code,bcw_name,bcw_sovereign,case,unit_code,is_main_part,add_socioeconomics,decision,decided_by,decision_date,note
-BES-1,Bonaire,Netherlands,"A. Pays découpé dans BCW, agrégé dans FRA",BES,True,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-BES-2,Saba,Netherlands,"A. Pays découpé dans BCW, agrégé dans FRA",BES,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-BES-3,Sint-Eustatius,Netherlands,"A. Pays découpé dans BCW, agrégé dans FRA",BES,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-BLZ-1,Belize,Belize,"A. Pays découpé dans BCW, agrégé dans FRA",BLZ,True,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-BLZ-2,Sapodilla Cayes,Belize,"A. Pays découpé dans BCW, agrégé dans FRA",BLZ,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-CHL-1,Chile,Chile,"A. Pays découpé dans BCW, agrégé dans FRA",CHL,True,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-CHL-2,Islas San Félix and San Ambrosio,Chile,"A. Pays découpé dans BCW, agrégé dans FRA",CHL,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-SHN-1,Ascension,United Kingdom,"A. Pays découpé dans BCW, agrégé dans FRA",SHN,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-SHN-2,Saint Helena,United Kingdom,"A. Pays découpé dans BCW, agrégé dans FRA",SHN,True,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-SHN-3,Tristan Da Cunha,United Kingdom,"A. Pays découpé dans BCW, agrégé dans FRA",SHN,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-SJM-1,Jan Mayen,Norway,"A. Pays découpé dans BCW, agrégé dans FRA",SJM,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-SJM-2,Svalbard,Norway,"A. Pays découpé dans BCW, agrégé dans FRA",SJM,True,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,
-US-AK,Alaska,United States,B. Sous-territoire BCW inclus dans le pays FRA,USA,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-US-HI,Hawaii,United States,B. Sous-territoire BCW inclus dans le pays FRA,USA,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-PT-20,Azores,Portugal,B. Sous-territoire BCW inclus dans le pays FRA,PRT,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-PT-30,Madeira,Portugal,B. Sous-territoire BCW inclus dans le pays FRA,PRT,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-ES-CN,Canary Islands,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-ES-CE,Ceuta,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-ES-ML,Melilla,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-ES-ALH,Alhucemas Islands,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-ES-CHAF,Chafarinas Islands,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-ES-PER,Perejil Island,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-ES-PVG,Peñón de Vélez de la Gomera,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-EC-W,Galapagos,Ecuador,B. Sous-territoire BCW inclus dans le pays FRA,ECU,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-IN-AN,Andaman and Nicobar,India,B. Sous-territoire BCW inclus dans le pays FRA,IND,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-CL-EI,Easter Island,Chile,B. Sous-territoire BCW inclus dans le pays FRA,CHL,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-BR-ES,Trinidade,Brazil,B. Sous-territoire BCW inclus dans le pays FRA,BRA,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-AU-TAS,Macquarie Island,Australia,B. Sous-territoire BCW inclus dans le pays FRA,AUS,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-ZA-PE,Prince Edward Islands,South Africa,B. Sous-territoire BCW inclus dans le pays FRA,ZAF,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-TL-OE,Oecusse,East Timor,B. Sous-territoire BCW inclus dans le pays FRA,TLS,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-CO-BN,Bajo Nuevo Bank,Colombia,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-CO-QS,Colombian Exclusive Economic Zone (Quitasueño Bank),Colombia,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-CO-SL,Serranilla Bank,Colombia,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-CO-SR,Serrana Bank,Colombia,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,A. De Vince VEHI,2026-09-17,forêt du sous-territoire comptée dans le pays FRA
-ATF-1,Amsterdam and Saint Paul Islands,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-1,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-ATF-2,Bassas da India,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-2,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-ATF-3,Crozet Islands,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-3,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-ATF-4,Europa Island,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-4,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-ATF-5,Juan de Nova Island,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-5,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-ATF-6,Kerguélen,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-6,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-CP,Clipperton Island,France,C. Dépendance absente de FRA (sans donnée forêt),CP,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-FR-TRO,Tromelin Island,France,C. Dépendance absente de FRA (sans donnée forêt),FR-TRO,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-UMI-1,Howland and Baker islands,United States,C. Dépendance absente de FRA (sans donnée forêt),UMI-1,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-UMI-2,Jarvis Island,United States,C. Dépendance absente de FRA (sans donnée forêt),UMI-2,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-UMI-3,Johnston Atoll,United States,C. Dépendance absente de FRA (sans donnée forêt),UMI-3,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-UMI-4,Palmyra Atoll,United States,C. Dépendance absente de FRA (sans donnée forêt),UMI-4,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-UMI-5,Wake Island,United States,C. Dépendance absente de FRA (sans donnée forêt),UMI-5,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-CXR,Christmas Island,Australia,C. Dépendance absente de FRA (sans donnée forêt),CXR,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-CCK,Cocos Islands,Australia,C. Dépendance absente de FRA (sans donnée forêt),CCK,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-HMD,Heard and McDonald Islands,Australia,C. Dépendance absente de FRA (sans donnée forêt),HMD,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-BVT,Bouvet,Norway,C. Dépendance absente de FRA (sans donnée forêt),BVT,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-SGS,South Georgia and the South Sandwich Islands,United Kingdom,C. Dépendance absente de FRA (sans donnée forêt),SGS,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,vérifier si FRA inclut ces territoires dans le pays souverain
-ATA,Antarctica,,C. Dépendance absente de FRA (sans donnée forêt),ATA,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,hors souveraineté
-AE,"Abu musa, Greater and Lesser Tunb",United Arab Emirates,D. Zone contestée ou revendications multiples,AE,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,"Abu Musa, Tunbs : Émirats / Iran"
-DJ,Doumeira Islands,Eritrea,D. Zone contestée ou revendications multiples,DJ,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Doumeira : Érythrée / Djibouti
-FR-GLO,Glorioso Islands,Madagascar,D. Zone contestée ou revendications multiples,FR-GLO,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Glorieuses : France / Madagascar
-IO,Chagos Archipelago,Republic of Mauritius,D. Zone contestée ou revendications multiples,IO,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Chagos : Royaume-Uni / Maurice
-JP,Senkaku Islands,Taiwan,D. Zone contestée ou revendications multiples,JP,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Senkaku : Japon / Chine / Taïwan
-RU-SA,Kuril Islands,Japan,D. Zone contestée ou revendications multiples,RU-SA,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Kouriles : Russie / Japon
-SD,Hala'ib Triangle,Sudan,D. Zone contestée ou revendications multiples,SD,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Hala'ib : Égypte / Soudan
-UM-76,Navassa Island,Haiti,D. Zone contestée ou revendications multiples,UM-76,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Navassa : États-Unis / Haïti
-VU,Matthew and Hunter Islands,France,D. Zone contestée ou revendications multiples,VU,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Matthew et Hunter : France / Vanuatu
-ESH,Western Sahara,Western Sahara,D. Zone contestée ou revendications multiples,ESH,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Sahara occidental : lignes FRA et BCW présentes ; hors raster
-FLK,Falkland Islands,United Kingdom,D. Zone contestée ou revendications multiples,FLK,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Malouines : hors raster (revendication)
-MYT,Mayotte,France,D. Zone contestée ou revendications multiples,MYT,False,False,keep separate (BCW only),A. De Vince VEHI,2026-09-17,Mayotte : hors raster (revendication Comores)
-TWN,Taiwan,Taiwan,E. Taïwan,CHN,False,True,regroup under CHN (FAO China incl. Taiwan),A. De Vince VEHI,2026-09-17,"FAO/FRA « China » (M49 159) inclut Taïwan, Hong Kong et Macao ; BCW sépare Taïwan"
-BCW-JR,Joint Regimes,,F. Lignes BCW sans code,BCW-JR,False,False,keep as world-total row,A. De Vince VEHI,2026-09-17,exclues de territories et de NCW car ISO vide
-BCW-OC,Overlapping Claims,,F. Lignes BCW sans code,BCW-OC,False,False,keep as world-total row,A. De Vince VEHI,2026-09-17,exclues de territories et de NCW car ISO vide
+bcw_code,bcw_name,bcw_sovereign,case,unit_code,is_main_part,add_socioeconomics,decision,note
+BES-1,Bonaire,Netherlands,"A. Pays découpé dans BCW, agrégé dans FRA",BES,True,False,regroup under FRA country,
+BES-2,Saba,Netherlands,"A. Pays découpé dans BCW, agrégé dans FRA",BES,False,False,regroup under FRA country,
+BES-3,Sint-Eustatius,Netherlands,"A. Pays découpé dans BCW, agrégé dans FRA",BES,False,False,regroup under FRA country,
+BLZ-1,Belize,Belize,"A. Pays découpé dans BCW, agrégé dans FRA",BLZ,True,False,regroup under FRA country,
+BLZ-2,Sapodilla Cayes,Belize,"A. Pays découpé dans BCW, agrégé dans FRA",BLZ,False,False,regroup under FRA country,
+CHL-1,Chile,Chile,"A. Pays découpé dans BCW, agrégé dans FRA",CHL,True,False,regroup under FRA country,
+CHL-2,Islas San Félix and San Ambrosio,Chile,"A. Pays découpé dans BCW, agrégé dans FRA",CHL,False,False,regroup under FRA country,
+SHN-1,Ascension,United Kingdom,"A. Pays découpé dans BCW, agrégé dans FRA",SHN,False,False,regroup under FRA country,
+SHN-2,Saint Helena,United Kingdom,"A. Pays découpé dans BCW, agrégé dans FRA",SHN,True,False,regroup under FRA country,
+SHN-3,Tristan Da Cunha,United Kingdom,"A. Pays découpé dans BCW, agrégé dans FRA",SHN,False,False,regroup under FRA country,
+SJM-1,Jan Mayen,Norway,"A. Pays découpé dans BCW, agrégé dans FRA",SJM,False,False,regroup under FRA country,
+SJM-2,Svalbard,Norway,"A. Pays découpé dans BCW, agrégé dans FRA",SJM,True,False,regroup under FRA country,
+US-AK,Alaska,United States,B. Sous-territoire BCW inclus dans le pays FRA,USA,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+US-HI,Hawaii,United States,B. Sous-territoire BCW inclus dans le pays FRA,USA,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+PT-20,Azores,Portugal,B. Sous-territoire BCW inclus dans le pays FRA,PRT,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+PT-30,Madeira,Portugal,B. Sous-territoire BCW inclus dans le pays FRA,PRT,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+ES-CN,Canary Islands,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+ES-CE,Ceuta,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+ES-ML,Melilla,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+ES-ALH,Alhucemas Islands,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+ES-CHAF,Chafarinas Islands,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+ES-PER,Perejil Island,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+ES-PVG,Peñón de Vélez de la Gomera,Spain,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+EC-W,Galapagos,Ecuador,B. Sous-territoire BCW inclus dans le pays FRA,ECU,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+IN-AN,Andaman and Nicobar,India,B. Sous-territoire BCW inclus dans le pays FRA,IND,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+CL-EI,Easter Island,Chile,B. Sous-territoire BCW inclus dans le pays FRA,CHL,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+BR-ES,Trinidade,Brazil,B. Sous-territoire BCW inclus dans le pays FRA,BRA,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+AU-TAS,Macquarie Island,Australia,B. Sous-territoire BCW inclus dans le pays FRA,AUS,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+ZA-PE,Prince Edward Islands,South Africa,B. Sous-territoire BCW inclus dans le pays FRA,ZAF,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+TL-OE,Oecusse,East Timor,B. Sous-territoire BCW inclus dans le pays FRA,TLS,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+CO-BN,Bajo Nuevo Bank,Colombia,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+CO-QS,Colombian Exclusive Economic Zone (Quitasueño Bank),Colombia,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+CO-SL,Serranilla Bank,Colombia,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+CO-SR,Serrana Bank,Colombia,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,forêt du sous-territoire comptée dans le pays FRA
+ATF-1,Amsterdam and Saint Paul Islands,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-1,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+ATF-2,Bassas da India,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-2,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+ATF-3,Crozet Islands,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-3,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+ATF-4,Europa Island,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-4,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+ATF-5,Juan de Nova Island,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-5,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+ATF-6,Kerguélen,France,C. Dépendance absente de FRA (sans donnée forêt),ATF-6,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+CP,Clipperton Island,France,C. Dépendance absente de FRA (sans donnée forêt),CP,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+FR-TRO,Tromelin Island,France,C. Dépendance absente de FRA (sans donnée forêt),FR-TRO,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+UMI-1,Howland and Baker islands,United States,C. Dépendance absente de FRA (sans donnée forêt),UMI-1,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+UMI-2,Jarvis Island,United States,C. Dépendance absente de FRA (sans donnée forêt),UMI-2,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+UMI-3,Johnston Atoll,United States,C. Dépendance absente de FRA (sans donnée forêt),UMI-3,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+UMI-4,Palmyra Atoll,United States,C. Dépendance absente de FRA (sans donnée forêt),UMI-4,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+UMI-5,Wake Island,United States,C. Dépendance absente de FRA (sans donnée forêt),UMI-5,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+CXR,Christmas Island,Australia,C. Dépendance absente de FRA (sans donnée forêt),CXR,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+CCK,Cocos Islands,Australia,C. Dépendance absente de FRA (sans donnée forêt),CCK,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+HMD,Heard and McDonald Islands,Australia,C. Dépendance absente de FRA (sans donnée forêt),HMD,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+BVT,Bouvet,Norway,C. Dépendance absente de FRA (sans donnée forêt),BVT,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+SGS,South Georgia and the South Sandwich Islands,United Kingdom,C. Dépendance absente de FRA (sans donnée forêt),SGS,False,False,keep separate (BCW only),vérifier si FRA inclut ces territoires dans le pays souverain
+ATA,Antarctica,,C. Dépendance absente de FRA (sans donnée forêt),ATA,False,False,keep separate (BCW only),hors souveraineté
+AE,"Abu musa, Greater and Lesser Tunb",United Arab Emirates,D. Zone contestée ou revendications multiples,AE,False,False,keep separate (BCW only),"Abu Musa, Tunbs : Émirats / Iran"
+DJ,Doumeira Islands,Eritrea,D. Zone contestée ou revendications multiples,DJ,False,False,keep separate (BCW only),Doumeira : Érythrée / Djibouti
+FR-GLO,Glorioso Islands,Madagascar,D. Zone contestée ou revendications multiples,FR-GLO,False,False,keep separate (BCW only),Glorieuses : France / Madagascar
+IO,Chagos Archipelago,Republic of Mauritius,D. Zone contestée ou revendications multiples,IO,False,False,keep separate (BCW only),Chagos : Royaume-Uni / Maurice
+JP,Senkaku Islands,Taiwan,D. Zone contestée ou revendications multiples,JP,False,False,keep separate (BCW only),Senkaku : Japon / Chine / Taïwan
+RU-SA,Kuril Islands,Japan,D. Zone contestée ou revendications multiples,RU-SA,False,False,keep separate (BCW only),Kouriles : Russie / Japon
+SD,Hala'ib Triangle,Sudan,D. Zone contestée ou revendications multiples,SD,False,False,keep separate (BCW only),Hala'ib : Égypte / Soudan
+UM-76,Navassa Island,Haiti,D. Zone contestée ou revendications multiples,UM-76,False,False,keep separate (BCW only),Navassa : États-Unis / Haïti
+VU,Matthew and Hunter Islands,France,D. Zone contestée ou revendications multiples,VU,False,False,keep separate (BCW only),Matthew et Hunter : France / Vanuatu
+ESH,Western Sahara,Western Sahara,D. Zone contestée ou revendications multiples,ESH,False,False,keep separate (BCW only),Sahara occidental : lignes FRA et BCW présentes ; hors raster
+FLK,Falkland Islands,United Kingdom,D. Zone contestée ou revendications multiples,FLK,False,False,keep separate (BCW only),Malouines : hors raster (revendication)
+MYT,Mayotte,France,D. Zone contestée ou revendications multiples,MYT,False,False,keep separate (BCW only),Mayotte : hors raster (revendication Comores)
+TWN,Taiwan,Taiwan,E. Taïwan,CHN,False,True,regroup under CHN (FAO China incl. Taiwan),"FAO/FRA « China » (M49 159) inclut Taïwan, Hong Kong et Macao ; BCW sépare Taïwan"
+BCW-JR,Joint Regimes,,F. Lignes BCW sans code,BCW-JR,False,False,keep as world-total row,exclues de territories et de NCW car ISO vide
+BCW-OC,Overlapping Claims,,F. Lignes BCW sans code,BCW-OC,False,False,keep as world-total row,exclues de territories et de NCW car ISO vide

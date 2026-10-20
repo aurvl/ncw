@@ -1,6 +1,6 @@
 """Q: Which carbon uptake rate (tC/ha/yr, mean and sd) applies to each harmonised biome?
 
-Rates are built entirely on Pan et al. (2024) (C17):
+Rates are built entirely on Pan et al. (2024):
     q_b = Phi_b / A_b^Pan
 - Phi_b: Table 1 flux for PAN_PERIOD (Pg C/yr); the tropical flux is the "All tropical forests" row,
   i.e. intact + regrowth, so no FAO forest type is matched to Pan categories;
@@ -71,7 +71,7 @@ def build_rates(flux: pd.DataFrame, areas: pd.DataFrame) -> pd.DataFrame:
 
 
 def rate_checks(flux: pd.DataFrame, areas: pd.DataFrame, rates: pd.DataFrame) -> pd.DataFrame:
-    """Checks performed before rates are applied to FRA x GEZ country areas (C17)."""
+    """Checks performed before rates are applied to FRA x GEZ country areas."""
     records = []
     for _, rate in rates.iterrows():
         reproduced = rate["rate_tc_ha_yr_mean"] * rate["pan_area_ha"] / PG_TO_T

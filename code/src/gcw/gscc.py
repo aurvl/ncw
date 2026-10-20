@@ -1,6 +1,6 @@
 """Q: Which social cost of carbon values the flows, and with which uncertainty?
 
-The GSCC draws are read from the BCW release so that GCW and BCW share identical draws (C8).
+The GSCC draws are read from the BCW release so that GCW and BCW share identical draws.
 Output: data/derived/gscc_summary.csv
 """
 

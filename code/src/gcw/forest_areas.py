@@ -2,7 +2,7 @@
 
 Output: data/derived/forest_areas.csv (hectares, FRA 2025, all reporting years)
 
-Only total forest and mangroves enter the sequestration estimate (C17). Naturally regenerating
+Only total forest and mangroves enter the sequestration estimate. Naturally regenerating
 forest (NRF), planted forest and primary forest (PR) are kept as descriptive variables:
 Forest = NRF + Planted and PR is a subset of NRF, so PR is never added to NRF or Planted.
 """

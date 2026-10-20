@@ -55,7 +55,7 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 │   ├── tables/                    paper and supplementary tables
 │   ├── figures/paper_v2/          current paper figure set
 │   └── validation/                checks, inventories, and analysis diagnostics
-├── docs/                          methods, data provenance, and results guides
+├── docs/                          methods and data provenance
 ├── .github/                       automated tests and repository workflows
 ├── CITATION.cff                   repository citation metadata
 ├── LICENSE                        MIT licence for code
@@ -70,10 +70,9 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 | Recalculate Gibbs/GFW biome rates | [`code/scripts/build_gfw_rates.py`](code/scripts/build_gfw_rates.py) | `data/derived/gfw_gibbs_biome_rates_non_mangrove.csv` |
 | Inspect the forest calculation | `code/src/gcw/forest_areas.py`, `biome_shares.py`, `gfw_rates.py`, `forest_uptake_gfw.py` | `data/derived/` |
 | Rebuild account tables and checks | `code/src/gcw/gcw.py`, `ncw.py`, `tables.py`, `checks.py` | `results/` |
-| Reproduce the spatial sequence | [`code/scripts/run_spatial_full_sequence.py`](code/scripts/run_spatial_full_sequence.py) | `docs/SPATIAL_MODEL_SELECTION_EVIDENCE.md` |
+| Reproduce the spatial sequence | [`code/scripts/run_spatial_full_sequence.py`](code/scripts/run_spatial_full_sequence.py) | `results/validation/spatial_emissions_2024_model_selection_evidence.csv` |
 | Run the 2024 emissions extension | [`code/scripts/run_spatial_emissions_extension.py`](code/scripts/run_spatial_emissions_extension.py) | `results/validation/` |
-| Compare climate-finance approaches | [`code/scripts/compare_finance_and_action_costs.py`](code/scripts/compare_finance_and_action_costs.py) | `docs/FINANCE_APPROACH_COMPARISON.md` |
-| Find the full results inventory | `../NEXT/RESULTS_INVENTORY.txt` (local working file, outside Git) | Detailed measures, comparisons, and diagnostics |
+| Compare climate-finance approaches | [`code/scripts/compare_finance_and_action_costs.py`](code/scripts/compare_finance_and_action_costs.py) | `results/validation/` |
 
 The reusable calculation modules in `code/src/gcw/` are the source of truth. Scripts call those modules. Notebooks are used for analysis and figures, not as hidden replacements for the pipeline.
 
@@ -132,9 +131,8 @@ To verify files that are present locally, run `python code/scripts/checksum_raw_
 | `results/tables/manuscript/` | Main-text and supplementary tables |
 | `results/figures/paper_v2/` | Current paper figures |
 | `results/validation/country_level_results_master.csv` | Consolidated country-level analysis table |
-| `../NEXT/RESULTS_INVENTORY.txt` | Full inventory of generated findings and diagnostics; stored outside the repository |
 
-The validation folder also contains intermediate audits and local rendering checks. Those files are not all manuscript outputs. The current paragraph-by-paragraph Results plan is [`docs/RESULTS_REWRITE_PLAN.md`](docs/RESULTS_REWRITE_PLAN.md). To regenerate the full inventory, run `python code/scripts/build_results_inventory.py` followed by `python code/scripts/extend_results_inventory_2024.py`; the temporary intermediate is removed after the final inventory is written to the local `NEXT` folder, outside the repository.
+The validation folder also contains intermediate audits and local rendering checks. Those files are not all manuscript outputs.
 
 ## Data, licensing, and citation
 

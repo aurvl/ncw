@@ -14,6 +14,6 @@ results/
   draws/              Monte Carlo matrices, generated locally and ignored by Git
 ```
 
-Run the main pipeline from the repository root with `python code/scripts/main.py`. Large analysis outputs in `validation/` include intermediate audits and diagnostics; they are not all manuscript results. The complete working inventory is kept outside the repository at `../../NEXT/RESULTS_INVENTORY.txt`.
+Run the main pipeline from the repository root with `python code/scripts/main.py`. Large analysis outputs in `validation/` include intermediate audits and diagnostics; they are not all manuscript results.
 
-CSV is the canonical format for country accounts and tables. Units and column definitions are described in [`../docs/METHODS.md`](../docs/METHODS.md) and the country-level table dictionary in [`../docs/COUNTRY_LEVEL_RESULTS_MASTER_DATA_DICTIONARY.md`](../docs/COUNTRY_LEVEL_RESULTS_MASTER_DATA_DICTIONARY.md).
+CSV is the canonical format for country accounts and tables. Units and calculation scope are described in [`../docs/METHODS.md`](../docs/METHODS.md) and [`../docs/DATA_SOURCES.md`](../docs/DATA_SOURCES.md).

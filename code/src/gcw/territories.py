@@ -1,10 +1,10 @@
 """Q: Which accounting units are used, and how do FRA, FAOSTAT and BCW territories map onto them?
 
-GCW (FRA 2025 countries) defines the units (C12). BCW territories are mapped onto them with the
+GCW (FRA 2025 countries) defines the units. BCW territories are mapped onto them with the
 validated crosswalk data/reference/territory_crosswalk.csv; unmapped BCW codes keep their
 own unit. Both sides are kept (outer merge).
 
-Rules for regrouped BCW parts (C12):
+Rules for regrouped BCW parts:
 - BCW values and draws are summed;
 - population and GDP are NOT summed (BCW copies the country figures onto each part): they come
   from the parent row, or from the main part when the country has no BCW row; only parts flagged
