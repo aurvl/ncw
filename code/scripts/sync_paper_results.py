@@ -1,4 +1,9 @@
-"""Synchronise the tracked main-paper results with the 2026-10-15 outputs.
+"""Historical Word sync for the superseded 2026-10-15 Results draft.
+
+This script contains obsolete result text and images. Do not use it to update
+the current PAPER.docx; current figure/table outputs are built by
+``build_manuscript_artifacts.py`` and manuscript synchronization is a later,
+separate task after spatial-model selection.
 
 The script edits the existing DOCX package directly so that comments, section
 properties, relationships, and the existing review history outside the touched
@@ -22,7 +27,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[4]
 PAPER = ROOT / "BNC2 paper" / "NEXT" / "PAPER.docx"
-FIGURES = ROOT / "BNC2 paper" / "repo" / "results" / "figures" / "manuscript"
+FIGURES = ROOT / "BNC2 paper" / "repo" / "results" / "archive" / "legacy_manuscript_2026-10-19" / "figures"
 AUTHOR = "Loua Aurel De Vince Vehi"
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 R_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"

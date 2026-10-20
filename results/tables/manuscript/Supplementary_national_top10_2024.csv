@@ -1,0 +1,121 @@
+metric,rank_descending,iso3,name,continent,group,value,unit
+GCW,1,RUS,Russian Federation,Europe,Developed economies,1212942018000.0,US$2015/yr
+GCW,2,BRA,Brazil,Americas,Developing economies,942466864400.0,US$2015/yr
+GCW,3,USA,United States of America,Americas,Developed economies,816531699400.0,US$2015/yr
+GCW,4,CAN,Canada,Americas,Developed economies,629364756800.0,US$2015/yr
+GCW,5,CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",Asia,Developing economies,616034351100.0,US$2015/yr
+GCW,6,AUS,Australia,Oceania,Developed economies,315993873700.0,US$2015/yr
+GCW,7,COD,Democratic Republic of the Congo,Africa,LDCs,266848852300.0,US$2015/yr
+GCW,8,IDN,Indonesia,Asia,Developing economies,183989321300.0,US$2015/yr
+GCW,9,MEX,Mexico,Americas,Developing economies,150849051200.0,US$2015/yr
+GCW,10,IND,India,Asia,Developing economies,146067335200.0,US$2015/yr
+BCW,1,USA,United States of America,Americas,Developed economies,171178497600.0,US$2015/yr
+BCW,2,AUS,Australia,Oceania,Developed economies,140447714400.0,US$2015/yr
+BCW,3,CHL,Chile,Americas,Developing economies,129476992800.0,US$2015/yr
+BCW,4,RUS,Russian Federation,Europe,Developed economies,98057081970.0,US$2015/yr
+BCW,5,PER,Peru,Americas,Developing economies,93017463770.0,US$2015/yr
+BCW,6,FRA,France,Europe,Developed economies,92521807980.0,US$2015/yr
+BCW,7,IDN,Indonesia,Asia,Developing economies,83177929320.0,US$2015/yr
+BCW,8,NZL,New Zealand,Oceania,Developed economies,73524993400.0,US$2015/yr
+BCW,9,ECU,Ecuador,Americas,Developing economies,72289564120.0,US$2015/yr
+BCW,10,IND,India,Asia,Developing economies,71970882240.0,US$2015/yr
+NCW,1,RUS,Russian Federation,Europe,Developed economies,1310999100000.0,US$2015/yr
+NCW,2,USA,United States of America,Americas,Developed economies,987710197300.0,US$2015/yr
+NCW,3,BRA,Brazil,Americas,Developing economies,972658682600.0,US$2015/yr
+NCW,4,CAN,Canada,Americas,Developed economies,664555032600.0,US$2015/yr
+NCW,5,CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",Asia,Developing economies,637935689800.0,US$2015/yr
+NCW,6,AUS,Australia,Oceania,Developed economies,456441588100.0,US$2015/yr
+NCW,7,IDN,Indonesia,Asia,Developing economies,267167250700.0,US$2015/yr
+NCW,8,COD,Democratic Republic of the Congo,Africa,LDCs,266920403200.0,US$2015/yr
+NCW,9,MEX,Mexico,Americas,Developing economies,222330615500.0,US$2015/yr
+NCW,10,PER,Peru,Americas,Developing economies,221774040100.0,US$2015/yr
+GCW / GDP 2024,1,CAF,Central African Republic,Africa,LDCs,4159.183379495811,%
+GCW / GDP 2024,2,SUR,Suriname,Americas,SIDS,611.950818017072,%
+GCW / GDP 2024,3,COD,Democratic Republic of the Congo,Africa,LDCs,440.69441256942537,%
+GCW / GDP 2024,4,COG,Congo,Africa,Developing economies,395.7447580253479,%
+GCW / GDP 2024,5,SLB,Solomon Islands,Oceania,SIDS,325.69759429764855,%
+GCW / GDP 2024,6,LBR,Liberia,Africa,LDCs,324.9050385401756,%
+GCW / GDP 2024,7,ZMB,Zambia,Africa,LDCs,300.44946011562877,%
+GCW / GDP 2024,8,MOZ,Mozambique,Africa,LDCs,294.6569076578266,%
+GCW / GDP 2024,9,BOL,Bolivia (Plurinational State of),Americas,Developing economies,275.714134878006,%
+GCW / GDP 2024,10,GAB,Gabon,Africa,Developing economies,268.72191902060325,%
+GDP 2024,1,USA,United States of America,Americas,Developed economies,22731468330000.0,US$2015/yr
+GDP 2024,2,CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",Asia,Developing economies,18484494640000.0,US$2015/yr
+GDP 2024,3,JPN,Japan,Asia,Developed economies,4708167684000.0,US$2015/yr
+GDP 2024,4,DEU,Germany,Europe,Developed economies,3677048776000.0,US$2015/yr
+GDP 2024,5,IND,India,Asia,Developing economies,3434122553000.0,US$2015/yr
+GDP 2024,6,GBR,United Kingdom of Great Britain and Northern Ireland,Europe,Developed economies,3318626965000.0,US$2015/yr
+GDP 2024,7,FRA,France,Europe,Developed economies,2720362348000.0,US$2015/yr
+GDP 2024,8,ITA,Italy,Europe,Developed economies,2034347191000.0,US$2015/yr
+GDP 2024,9,BRA,Brazil,Americas,Developing economies,2028136328000.0,US$2015/yr
+GDP 2024,10,KOR,Republic of Korea,Asia,Developed economies,1917295523000.0,US$2015/yr
+Population 2024,1,IND,India,Asia,Developing economies,1450935791.0,people
+Population 2024,2,CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",Asia,Developing economies,1408975000.0,people
+Population 2024,3,USA,United States of America,Americas,Developed economies,340003797.0,people
+Population 2024,4,IDN,Indonesia,Asia,Developing economies,283487931.0,people
+Population 2024,5,PAK,Pakistan,Asia,Developing economies,251269164.0,people
+Population 2024,6,NGA,Nigeria,Africa,Developing economies,232679478.0,people
+Population 2024,7,BRA,Brazil,Americas,Developing economies,211998573.0,people
+Population 2024,8,BGD,Bangladesh,Asia,LDCs,173562364.0,people
+Population 2024,9,RUS,Russian Federation,Europe,Developed economies,143669648.0,people
+Population 2024,10,ETH,Ethiopia,Africa,LDCs,132059767.0,people
+GCB emissions 2024,1,CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",Asia,Developing economies,12289036750.0,tCO2/yr
+GCB emissions 2024,2,USA,United States of America,Americas,Developed economies,4904119652.0,tCO2/yr
+GCB emissions 2024,3,IND,India,Asia,Developing economies,3193478015.0,tCO2/yr
+GCB emissions 2024,4,RUS,Russian Federation,Europe,Developed economies,1780524384.0,tCO2/yr
+GCB emissions 2024,5,JPN,Japan,Asia,Developed economies,961867294.9,tCO2/yr
+GCB emissions 2024,6,IDN,Indonesia,Asia,Developing economies,812220231.8,tCO2/yr
+GCB emissions 2024,7,IRN,Iran (Islamic Republic of),Asia,Developing economies,792631152.0,tCO2/yr
+GCB emissions 2024,8,SAU,Saudi Arabia,Asia,Developing economies,692133489.4,tCO2/yr
+GCB emissions 2024,9,KOR,Republic of Korea,Asia,Developed economies,583679194.8,tCO2/yr
+GCB emissions 2024,10,DEU,Germany,Europe,Developed economies,572319175.4,tCO2/yr
+GCW accounting balance 2024,1,BRA,Brazil,Americas,Developing economies,1201249559.0,tCO2/yr
+GCW accounting balance 2024,2,CAN,Canada,Americas,Developed economies,591383367.0,tCO2/yr
+GCW accounting balance 2024,3,COD,Democratic Republic of the Congo,Africa,LDCs,470975070.0,tCO2/yr
+GCW accounting balance 2024,4,RUS,Russian Federation,Europe,Developed economies,387096736.1,tCO2/yr
+GCW accounting balance 2024,5,AGO,Angola,Africa,LDCs,194411264.9,tCO2/yr
+GCW accounting balance 2024,6,AUS,Australia,Oceania,Developed economies,177973088.7,tCO2/yr
+GCW accounting balance 2024,7,PER,Peru,Americas,Developing economies,159851298.1,tCO2/yr
+GCW accounting balance 2024,8,BOL,Bolivia (Plurinational State of),Americas,Developing economies,157570857.5,tCO2/yr
+GCW accounting balance 2024,9,CAF,Central African Republic,Africa,LDCs,154106118.8,tCO2/yr
+GCW accounting balance 2024,10,ZMB,Zambia,Africa,LDCs,141701772.9,tCO2/yr
+NCW accounting balance 2024,1,BRA,Brazil,Americas,Developing economies,1255240719.0,tCO2/yr
+NCW accounting balance 2024,2,CAN,Canada,Americas,Developed economies,654270810.9,tCO2/yr
+NCW accounting balance 2024,3,RUS,Russian Federation,Europe,Developed economies,562331719.7,tCO2/yr
+NCW accounting balance 2024,4,COD,Democratic Republic of the Congo,Africa,LDCs,471103576.7,tCO2/yr
+NCW accounting balance 2024,5,AUS,Australia,Oceania,Developed economies,428963882.1,tCO2/yr
+NCW accounting balance 2024,6,PER,Peru,Americas,Developing economies,326080866.1,tCO2/yr
+NCW accounting balance 2024,7,CHL,Chile,Americas,Developing economies,246700960.5,tCO2/yr
+NCW accounting balance 2024,8,AGO,Angola,Africa,LDCs,239080929.1,tCO2/yr
+NCW accounting balance 2024,9,PNG,Papua New Guinea,Oceania,SIDS,162697176.5,tCO2/yr
+NCW accounting balance 2024,10,BOL,Bolivia (Plurinational State of),Americas,Developing economies,157570857.5,tCO2/yr
+Lost annual forest addition capacity,1,BRA,Brazil,Americas,Developing economies,7872534.531,tCO2/yr
+Lost annual forest addition capacity,2,IND,India,Asia,Developing economies,2386800.108,tCO2/yr
+Lost annual forest addition capacity,3,COD,Democratic Republic of the Congo,Africa,LDCs,2210383.718,tCO2/yr
+Lost annual forest addition capacity,4,AUS,Australia,Oceania,Developed economies,1880172.775,tCO2/yr
+Lost annual forest addition capacity,5,IDN,Indonesia,Asia,Developing economies,1853758.037,tCO2/yr
+Lost annual forest addition capacity,6,AGO,Angola,Africa,LDCs,1748832.862,tCO2/yr
+Lost annual forest addition capacity,7,CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",Asia,Developing economies,1608656.131,tCO2/yr
+Lost annual forest addition capacity,8,TZA,United Republic of Tanzania,Africa,LDCs,1493791.881,tCO2/yr
+Lost annual forest addition capacity,9,PRY,Paraguay,Americas,Developing economies,1053859.894,tCO2/yr
+Lost annual forest addition capacity,10,SDN,Sudan,Africa,LDCs,919127.4037,tCO2/yr
+Relative forest-capacity erosion,1,AZE,Azerbaijan,Asia,Developing economies,7.060461766,% of GCW
+Relative forest-capacity erosion,2,BFA,Burkina Faso,Africa,LDCs,3.982582514,% of GCW
+Relative forest-capacity erosion,3,TCD,Chad,Africa,LDCs,3.550363906,% of GCW
+Relative forest-capacity erosion,4,BEN,Benin,Africa,LDCs,3.502889819,% of GCW
+Relative forest-capacity erosion,5,CIV,Côte d'Ivoire,Africa,Developing economies,3.38899299,% of GCW
+Relative forest-capacity erosion,6,SOM,Somalia,Africa,LDCs,3.178218246,% of GCW
+Relative forest-capacity erosion,7,GMB,Gambia,Africa,LDCs,2.764118986,% of GCW
+Relative forest-capacity erosion,8,GTM,Guatemala,Americas,Developing economies,2.616067779,% of GCW
+Relative forest-capacity erosion,9,PRY,Paraguay,Americas,Developing economies,2.151406596,% of GCW
+Relative forest-capacity erosion,10,UGA,Uganda,Africa,LDCs,2.068066886,% of GCW
+Ibrahim 2% GCW allocation,1,RUS,Russian Federation,Europe,Developed economies,24258840350.0,US$2015/yr
+Ibrahim 2% GCW allocation,2,BRA,Brazil,Americas,Developing economies,18849337290.0,US$2015/yr
+Ibrahim 2% GCW allocation,3,USA,United States of America,Americas,Developed economies,16330633990.0,US$2015/yr
+Ibrahim 2% GCW allocation,4,CAN,Canada,Americas,Developed economies,12587295140.0,US$2015/yr
+Ibrahim 2% GCW allocation,5,CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",Asia,Developing economies,12320687020.0,US$2015/yr
+Ibrahim 2% GCW allocation,6,AUS,Australia,Oceania,Developed economies,6319877474.0,US$2015/yr
+Ibrahim 2% GCW allocation,7,COD,Democratic Republic of the Congo,Africa,LDCs,5336977046.0,US$2015/yr
+Ibrahim 2% GCW allocation,8,IDN,Indonesia,Asia,Developing economies,3679786427.0,US$2015/yr
+Ibrahim 2% GCW allocation,9,MEX,Mexico,Americas,Developing economies,3016981024.0,US$2015/yr
+Ibrahim 2% GCW allocation,10,IND,India,Asia,Developing economies,2921346703.0,US$2015/yr
