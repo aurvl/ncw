@@ -1,0 +1,6 @@
+status,units,reported_loss_capacity_tco2_yr,target_discounted_30yr_tco2,share_of_all_reported_loss_pct,category
+no_country_curve_in_published_table,45,13608179.237998938,209191068.9011824,39.07579381634882,No country curve in published table
+target_exceeds_published_supply_at_100,14,4171813.706743625,64131001.9001949,11.979334589430582,Target exceeds published supply at $100/tCO2
+target_within_positive_price_curve,12,1497636.6359146552,23022345.841663588,4.300453379787846,Target within positive-price range
+target_within_supply_at_nonpositive_price,18,10389943.155478718,159718892.32969305,29.83465086742729,Above -$20 and at or below $0/tCO2
+target_within_supply_at_or_below_minus20,16,5157514.380342428,79283637.23225792,14.809767347005492,At or below -$20/tCO2

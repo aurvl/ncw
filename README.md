@@ -56,7 +56,7 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 │   ├── country_level_gcw.csv      country and territory forest account
 │   ├── country_level_ncw.csv      combined country-level account
 │   ├── tables/                    paper and supplementary tables
-│   ├── figures/paper_v2/          current paper figure set
+│   ├── figures/manuscript/        current paper figures (Figure 4 gated on model selection)
 │   └── validation/                checks, inventories, and analysis diagnostics
 ├── docs/                          methods and data provenance
 ├── .github/                       automated tests and repository workflows
@@ -134,11 +134,22 @@ To verify files that are present locally, run `python code/scripts/checksum_raw_
 | --- | --- |
 | `results/country_level_gcw.csv` | Forest account by accounting unit |
 | `results/country_level_ncw.csv` | Combined forest and marine account by unit |
-| `results/tables/manuscript/` | Main-text and supplementary tables |
-| `results/figures/paper_v2/` | Current paper figures |
-| `results/validation/country_level_results_master.csv` | Consolidated country-level analysis table |
+| `results/tables/manuscript/` | Current Tables 1-4 and supplementary tables, including the full 2024 country accounts and mangrove audit |
+| `results/figures/manuscript/` | Current Figures 1-3; Figure 4 awaits author model selection |
+| `results/tables/manuscript/Supplementary_country_level_accounts_2024.csv` | Canonical 267-unit, current-version country table for Results drafting |
+| `results/validation/country_level_results_master.csv` | Full calculation master used by the artifact builder; legacy comparison fields are filtered from paper-facing outputs |
 
 The validation folder also contains intermediate audits and local rendering checks. Those files are not all manuscript outputs.
+
+Superseded manuscript figure and table exports are retained under `results/archive/legacy_manuscript_2026-10-19/` for audit only. They are not used by the current notebooks or canonical tables.
+
+Build the current paper tables and figures from canonical outputs with:
+
+```bash
+python code/scripts/build_manuscript_artifacts.py
+```
+
+Use `--tables-only` or `--figures-only` to run the corresponding notebook workflow. The spatial coefficient figure is not generated until the researcher selects the final models; all candidate specifications remain in the supplementary spatial outputs.
 
 ## Data, licensing, and citation
 
