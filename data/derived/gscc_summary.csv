@@ -1,0 +1,2 @@
+source,n_draws,gscc_usd2015_per_tco2_mean,gscc_usd2015_per_tco2_sd,gscc_usd2015_per_tco2_p05,gscc_usd2015_per_tco2_p50,gscc_usd2015_per_tco2_p95
+"BCW release draws.npz (gscc_draws), structure-adjusted GSCC",20000,559.5728911872864,268.59443655024063,218.54115295410156,506.7218322753906,1015.9417724609375
