@@ -1,0 +1,1906 @@
+[
+  {
+    "id": 10590399,
+    "filename": "00N_000E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 17677200,
+    "md5": "1ec9cca68ad36585ad7418ec720d02ca",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590399"
+  },
+  {
+    "id": 10590400,
+    "filename": "00N_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 516408853,
+    "md5": "ca417ab6ed4b43b4c19f0dfc7cbe033d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590400"
+  },
+  {
+    "id": 10590385,
+    "filename": "00N_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 599574526,
+    "md5": "c1bc626353480133830daca5c9c609a7",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590385"
+  },
+  {
+    "id": 10590418,
+    "filename": "00N_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 296569883,
+    "md5": "a6e5015328ee21d12e10861487aabccd",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590418"
+  },
+  {
+    "id": 10590403,
+    "filename": "00N_040E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 14106565,
+    "md5": "90418194a9482b8f5b552fce7412346f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590403"
+  },
+  {
+    "id": 10590387,
+    "filename": "00N_040W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 111796995,
+    "md5": "329b6679ac6cbe83ac4b3e7ee0c869fb",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590387"
+  },
+  {
+    "id": 10590384,
+    "filename": "00N_050W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 619149835,
+    "md5": "41cbb9a3856471b9ce583f43acae824f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590384"
+  },
+  {
+    "id": 10590465,
+    "filename": "00N_060W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 502808011,
+    "md5": "23ca83e156d43de2270f8f2c1c5aeb53",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590465"
+  },
+  {
+    "id": 10590410,
+    "filename": "00N_070E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7449049,
+    "md5": "1079c9cb312f6b35a76fa1b3865b8803",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590410"
+  },
+  {
+    "id": 10590455,
+    "filename": "00N_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 348851831,
+    "md5": "c38f042615a88b197ba519d632d1b950",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590455"
+  },
+  {
+    "id": 10590451,
+    "filename": "00N_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 388739071,
+    "md5": "c8f044ced7973a8159cf4b770482e149",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590451"
+  },
+  {
+    "id": 10590408,
+    "filename": "00N_090E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 11622700,
+    "md5": "13cc9fa07ad2e412352c603a43f3ee52",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590408"
+  },
+  {
+    "id": 10590386,
+    "filename": "00N_090W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 23607691,
+    "md5": "f9a2049165652b92345c5c16c0da74db",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590386"
+  },
+  {
+    "id": 10590435,
+    "filename": "00N_100E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 255563245,
+    "md5": "9b0724ba356b00ac72cbdce95e70af54",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590435"
+  },
+  {
+    "id": 10590460,
+    "filename": "00N_100W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7611634,
+    "md5": "0a853d5b1e0977c68e2836c5576418ae",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590460"
+  },
+  {
+    "id": 10590481,
+    "filename": "00N_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 291485764,
+    "md5": "00754711f7ab1ac2765e6fe65e356c6d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590481"
+  },
+  {
+    "id": 10590478,
+    "filename": "00N_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 127019094,
+    "md5": "133884c2e98db58cde669e350026516a",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590478"
+  },
+  {
+    "id": 10590417,
+    "filename": "00N_130E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 146554096,
+    "md5": "4d3bfed96a40a9ab754db5b513c5bf52",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590417"
+  },
+  {
+    "id": 10590461,
+    "filename": "00N_140E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 226486181,
+    "md5": "a821d203390d808eebc596236d5e436d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590461"
+  },
+  {
+    "id": 10590388,
+    "filename": "00N_150E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 53188855,
+    "md5": "c9f8af07313fd5e0a74619dae46be974",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590388"
+  },
+  {
+    "id": 10590474,
+    "filename": "00N_160E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 14014096,
+    "md5": "c827e5af8c1841f8af06f705ac327e7d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590474"
+  },
+  {
+    "id": 10590392,
+    "filename": "10N_000E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 181005331,
+    "md5": "d10cf1d98fe579c6f16bb473bd861dfd",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590392"
+  },
+  {
+    "id": 10590404,
+    "filename": "10N_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 453170038,
+    "md5": "15adbdbfb0ca2f1169a912f903e6add5",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590404"
+  },
+  {
+    "id": 10590466,
+    "filename": "10N_010W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 412680002,
+    "md5": "5621f94f08ae2ff6969fe599dfe2627e",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590466"
+  },
+  {
+    "id": 10590383,
+    "filename": "10N_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 503474249,
+    "md5": "598d12f3d08cdc4407f700f35d25b8bf",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590383"
+  },
+  {
+    "id": 10590445,
+    "filename": "10N_020W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 121996415,
+    "md5": "56000383e9d649ce33d66d342f23f111",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590445"
+  },
+  {
+    "id": 10590463,
+    "filename": "10N_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 250908824,
+    "md5": "f5775150795e7371850a8c7fe5e31157",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590463"
+  },
+  {
+    "id": 10590413,
+    "filename": "10N_040E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 13368800,
+    "md5": "7bf2fdfb3983ee1884b0ab1eee9b0bdf",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590413"
+  },
+  {
+    "id": 10590423,
+    "filename": "10N_050W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 9064270,
+    "md5": "67f0bf9f43efc942bdb6edaf1e8cefce",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590423"
+  },
+  {
+    "id": 10590429,
+    "filename": "10N_060W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 193332201,
+    "md5": "628abde7566a506f84f44ef4357b1af6",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590429"
+  },
+  {
+    "id": 10590402,
+    "filename": "10N_070E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 23552653,
+    "md5": "eb088a75c5a8d31e5bdae0de165a33d1",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590402"
+  },
+  {
+    "id": 10590473,
+    "filename": "10N_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 375099503,
+    "md5": "067d0aeed56d71161d861d16bf5b0444",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590473"
+  },
+  {
+    "id": 10590480,
+    "filename": "10N_080E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 40845554,
+    "md5": "fa9b90ae45a90e14c356366c60453e27",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590480"
+  },
+  {
+    "id": 10590437,
+    "filename": "10N_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 474402946,
+    "md5": "eb4d470c7e38fb1f40cac2ba8a26a4d2",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590437"
+  },
+  {
+    "id": 10590448,
+    "filename": "10N_090E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 138664402,
+    "md5": "e755294bae089594f5524cf75451017b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590448"
+  },
+  {
+    "id": 10590439,
+    "filename": "10N_090W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 51452886,
+    "md5": "5aae975e4bd5f2d5a71c93f2771b0a69",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590439"
+  },
+  {
+    "id": 10590411,
+    "filename": "10N_100E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 179001497,
+    "md5": "999d2f10ad001e9be069feaec24a2312",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590411"
+  },
+  {
+    "id": 10590409,
+    "filename": "10N_100W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7519626,
+    "md5": "f02e4646e7de5e8a528158f2ad0b1e5b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590409"
+  },
+  {
+    "id": 10590426,
+    "filename": "10N_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 264752658,
+    "md5": "72b08413233c08187f3c70d90c7c8a23",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590426"
+  },
+  {
+    "id": 10590394,
+    "filename": "10N_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 113922131,
+    "md5": "48de139bc00b0ec72dabafb0131ec517",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590394"
+  },
+  {
+    "id": 10590425,
+    "filename": "10N_130E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7990705,
+    "md5": "a0c47e0f92aabf0603bd204cf2969427",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590425"
+  },
+  {
+    "id": 10590447,
+    "filename": "10N_150E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7492349,
+    "md5": "a26aa2a736493dfe3eb3f0932ddce20c",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590447"
+  },
+  {
+    "id": 10590444,
+    "filename": "10N_160E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7452213,
+    "md5": "efe0297fa69fc68de5557905f88ff251",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590444"
+  },
+  {
+    "id": 10590462,
+    "filename": "10S_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 184838461,
+    "md5": "603e4e8087384dba529ae357d2761c3b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590462"
+  },
+  {
+    "id": 10590427,
+    "filename": "10S_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 293802302,
+    "md5": "ccf5a010b236ff2053c25b36860b8735",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590427"
+  },
+  {
+    "id": 10590431,
+    "filename": "10S_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 415239605,
+    "md5": "b80e88a4035a467264e3acc88b99e955",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590431"
+  },
+  {
+    "id": 10590398,
+    "filename": "10S_040E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 203329565,
+    "md5": "658ec3789d0ca41bbb93af5572bf83db",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590398"
+  },
+  {
+    "id": 10590459,
+    "filename": "10S_040W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 102700834,
+    "md5": "992e927731686c1fe99c9d248cd5da45",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590459"
+  },
+  {
+    "id": 10590407,
+    "filename": "10S_050E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 16489704,
+    "md5": "e83c361aff5956926a135196208be49c",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590407"
+  },
+  {
+    "id": 10590420,
+    "filename": "10S_050W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 494951439,
+    "md5": "3de52afe06e170f74be824d9087e1e3f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590420"
+  },
+  {
+    "id": 10590477,
+    "filename": "10S_060W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 541295896,
+    "md5": "13b4f81cd6fa1794e9954be7fc9a228b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590477"
+  },
+  {
+    "id": 10590416,
+    "filename": "10S_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 467075123,
+    "md5": "82afd82ccfc0378c8d20a6f54fc6f1fd",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590416"
+  },
+  {
+    "id": 10590440,
+    "filename": "10S_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 96903509,
+    "md5": "60228fa4499fbd2ebbc7048869404979",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590440"
+  },
+  {
+    "id": 10590401,
+    "filename": "10S_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7457289,
+    "md5": "498db5bab26e126745765859d576423e",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590401"
+  },
+  {
+    "id": 10590436,
+    "filename": "10S_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 15801640,
+    "md5": "08f80789efe84b04cc9765e486d6d53c",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590436"
+  },
+  {
+    "id": 10590456,
+    "filename": "10S_130E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 27949990,
+    "md5": "a127743282f9843db814a33a81b4d2c1",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590456"
+  },
+  {
+    "id": 10590389,
+    "filename": "10S_140E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 47967043,
+    "md5": "87f0b8dcfeeb86847f84794232a3a2f7",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590389"
+  },
+  {
+    "id": 10590464,
+    "filename": "10S_150E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 10913149,
+    "md5": "92c75893f50c85f195c40ee487e200af",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590464"
+  },
+  {
+    "id": 10590433,
+    "filename": "10S_160E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 17588413,
+    "md5": "d78e7e92b8216bbb2ac3fd0fddba5f90",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590433"
+  },
+  {
+    "id": 10590469,
+    "filename": "10S_170E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 16956597,
+    "md5": "a9e5c81c6073cb5629ba31e4dee23ba8",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590469"
+  },
+  {
+    "id": 10590453,
+    "filename": "10S_180W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7577343,
+    "md5": "0e0da2985a2f3e8d431c1400acd60ad4",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590453"
+  },
+  {
+    "id": 10590422,
+    "filename": "20N_000E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 14592013,
+    "md5": "1f5f1ddf69888be2e0edc24e4c50d55a",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590422"
+  },
+  {
+    "id": 10590457,
+    "filename": "20N_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 11017978,
+    "md5": "2f005c2e1cf5465d1fc4dd1636ee350a",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590457"
+  },
+  {
+    "id": 10590393,
+    "filename": "20N_010W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 31514548,
+    "md5": "3eede12ee0dc6a00277f987a070fc46f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590393"
+  },
+  {
+    "id": 10590415,
+    "filename": "20N_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 13939109,
+    "md5": "76d3aec0dc49e0a9211402c5e1e4ec05",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590415"
+  },
+  {
+    "id": 10590438,
+    "filename": "20N_020W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 90165898,
+    "md5": "a902849c445ed3a8bfacebf3d5830abf",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590438"
+  },
+  {
+    "id": 10590442,
+    "filename": "20N_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 37918613,
+    "md5": "0e99f49aa00d23acf2007c72a7bffde1",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590442"
+  },
+  {
+    "id": 10590454,
+    "filename": "20N_040E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 8733220,
+    "md5": "5e05ae949cc7b6242e65d464be1ed367",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590454"
+  },
+  {
+    "id": 10590458,
+    "filename": "20N_050E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7477282,
+    "md5": "76e1af6280cfbbd61740036b94c7c83d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590458"
+  },
+  {
+    "id": 10590430,
+    "filename": "20N_060W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7572656,
+    "md5": "ef4df56e97e07844d3e6edbd20cec011",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590430"
+  },
+  {
+    "id": 10590446,
+    "filename": "20N_070E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 90336325,
+    "md5": "7f2caac71ea3af08f3156e84d633abc6",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590446"
+  },
+  {
+    "id": 10590421,
+    "filename": "20N_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 62764024,
+    "md5": "71c47c57bf0eaa67a833ae9bf4e55e63",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590421"
+  },
+  {
+    "id": 10590391,
+    "filename": "20N_080E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 59334723,
+    "md5": "c7d578111ff7135d942fed8cfe752b3a",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590391"
+  },
+  {
+    "id": 10590424,
+    "filename": "20N_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 86675537,
+    "md5": "352ab0839471c58a7b76a1f177b79725",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590424"
+  },
+  {
+    "id": 10590441,
+    "filename": "20N_090E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 199247055,
+    "md5": "b806f4eb811397784bd25e2ab0ee0176",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590441"
+  },
+  {
+    "id": 10590468,
+    "filename": "20N_090W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 302329449,
+    "md5": "1cde43b9ae45ef83c289278eff6acb6d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590468"
+  },
+  {
+    "id": 10590449,
+    "filename": "20N_100E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 460352516,
+    "md5": "3ee285e9b165e33aa0b994103b40e53f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590449"
+  },
+  {
+    "id": 10590390,
+    "filename": "20N_100W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 266489476,
+    "md5": "0fa4590dd51803db897daaeade3eb11a",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590390"
+  },
+  {
+    "id": 10590475,
+    "filename": "20N_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 22606450,
+    "md5": "9a018cac8a007151a4445f847870a7b1",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590475"
+  },
+  {
+    "id": 10590397,
+    "filename": "20N_110W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 64315918,
+    "md5": "48b25fd523869a4fa563323d1f9d4527",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590397"
+  },
+  {
+    "id": 10590406,
+    "filename": "20N_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 101290180,
+    "md5": "9d218f5ca55b94a2b6a404be371786a7",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590406"
+  },
+  {
+    "id": 10590479,
+    "filename": "20N_120W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7493071,
+    "md5": "9d61485699bb0ed49d0b0ececbda0c8a",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590479"
+  },
+  {
+    "id": 10590396,
+    "filename": "20N_160W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 9004939,
+    "md5": "69c535c5be3a2654e13211d7ec80fc75",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590396"
+  },
+  {
+    "id": 10590432,
+    "filename": "20S_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7525629,
+    "md5": "7dfa309560a6cb03a9124da7828aef3d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590432"
+  },
+  {
+    "id": 10590471,
+    "filename": "20S_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 20431379,
+    "md5": "d3882ef15d2c5c1dc84808046da73ca0",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590471"
+  },
+  {
+    "id": 10590419,
+    "filename": "20S_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 134199814,
+    "md5": "30be20fa55119eda87f147dab1f43acd",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590419"
+  },
+  {
+    "id": 10590405,
+    "filename": "20S_040E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 91677711,
+    "md5": "824206d2250b7a1f43d6caa92a473b19",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590405"
+  },
+  {
+    "id": 10590428,
+    "filename": "20S_050E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 9179986,
+    "md5": "2f713fff1009ee8d700468eeb16ea6e8",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590428"
+  },
+  {
+    "id": 10590452,
+    "filename": "20S_050W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 243967785,
+    "md5": "8ea3d88f079b177d75f8a68c04c98572",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590452"
+  },
+  {
+    "id": 10590450,
+    "filename": "20S_060W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 506820223,
+    "md5": "8143d954f7d35a0c0ea8e33fa53b5c1c",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590450"
+  },
+  {
+    "id": 10590434,
+    "filename": "20S_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 282919003,
+    "md5": "ce5c2f8500c0d09a86ef9201b6d139e0",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590434"
+  },
+  {
+    "id": 10590414,
+    "filename": "20S_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7486955,
+    "md5": "d54814f1b5853becf1169e166d745df9",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590414"
+  },
+  {
+    "id": 10590467,
+    "filename": "20S_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 9536639,
+    "md5": "efd284270c6ec0440fc7324a57c27efa",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590467"
+  },
+  {
+    "id": 10590470,
+    "filename": "20S_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7445647,
+    "md5": "d5ad8be67a23030bdc7d8fe051054057",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590470"
+  },
+  {
+    "id": 10590472,
+    "filename": "20S_130E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7639652,
+    "md5": "45e479519c0ca6d423c9d604b060eed0",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590472"
+  },
+  {
+    "id": 10590395,
+    "filename": "20S_140E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 44640870,
+    "md5": "6c4bfe6b124c79b14b527038a2a824ac",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590395"
+  },
+  {
+    "id": 10590412,
+    "filename": "20S_150E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 71043745,
+    "md5": "7aa65ca8c37cbbedf7cf8f3d4bb7b4c3",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590412"
+  },
+  {
+    "id": 10590476,
+    "filename": "20S_160E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 16081322,
+    "md5": "7ed1993215a5cf81cebfe0d35984a7ec",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590476"
+  },
+  {
+    "id": 10590443,
+    "filename": "20S_180W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7449472,
+    "md5": "89271265173c0bf913230ebf0cfbbb39",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590443"
+  },
+  {
+    "id": 10590524,
+    "filename": "30N_000E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7444492,
+    "md5": "aec7afe2b26414ae3a41b8e492289866",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590524"
+  },
+  {
+    "id": 10590538,
+    "filename": "30N_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7443194,
+    "md5": "8bbe461bb4ab14c4f9a24d9495df5c06",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590538"
+  },
+  {
+    "id": 10590502,
+    "filename": "30N_010W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7484084,
+    "md5": "b84bfaed297c0b1d47edd9c76ad3d949",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590502"
+  },
+  {
+    "id": 10590554,
+    "filename": "30N_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7442774,
+    "md5": "9a269ef5eee65dfeadf83cb3bf18d4ea",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590554"
+  },
+  {
+    "id": 10590504,
+    "filename": "30N_020W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 8405252,
+    "md5": "39f46e75301b6222a1ef704005f18651",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590504"
+  },
+  {
+    "id": 10590511,
+    "filename": "30N_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7498837,
+    "md5": "97c85f4c21dd63917ad23d5753f14da8",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590511"
+  },
+  {
+    "id": 10590498,
+    "filename": "30N_040E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7509460,
+    "md5": "421f335ae108f98eaddd1caaa054e21d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590498"
+  },
+  {
+    "id": 10590549,
+    "filename": "30N_050E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 8055668,
+    "md5": "628d75cc42363cd98ae28d756c800a75",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590549"
+  },
+  {
+    "id": 10590528,
+    "filename": "30N_060E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 8353530,
+    "md5": "f899dacdf4ff817b05578707864a1b5f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590528"
+  },
+  {
+    "id": 10590512,
+    "filename": "30N_070E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 38774550,
+    "md5": "bbe85f11d1503c39aebaa7aff6f1369c",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590512"
+  },
+  {
+    "id": 10590522,
+    "filename": "30N_080E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 166395610,
+    "md5": "3bd25f8930c6460cd32785da7db7f559",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590522"
+  },
+  {
+    "id": 10590509,
+    "filename": "30N_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 40770232,
+    "md5": "cd0f5642f01b777e164257c7d665a5ca",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590509"
+  },
+  {
+    "id": 10590539,
+    "filename": "30N_090E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 529797986,
+    "md5": "d5a2fa766438cd9ecabf08e3fe763162",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590539"
+  },
+  {
+    "id": 10590551,
+    "filename": "30N_090W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 113736558,
+    "md5": "f3d57265f161b9e112d6c11176e4e0ac",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590551"
+  },
+  {
+    "id": 10590555,
+    "filename": "30N_100E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 585128464,
+    "md5": "f5a992b19b738b8091c631a455c2a612",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590555"
+  },
+  {
+    "id": 10590508,
+    "filename": "30N_100W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 112250012,
+    "md5": "f46b10db270802611158ac394aff9ad9",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590508"
+  },
+  {
+    "id": 10590556,
+    "filename": "30N_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 341785708,
+    "md5": "f2cc5874cb82ce1ee6fcc428bda02b64",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590556"
+  },
+  {
+    "id": 10590505,
+    "filename": "30N_110W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 159945796,
+    "md5": "055693f8f60a4d4b00576f7c125f8167",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590505"
+  },
+  {
+    "id": 10590550,
+    "filename": "30N_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 39733343,
+    "md5": "1c681d884f80eaa2f3432c374243e9e0",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590550"
+  },
+  {
+    "id": 10590513,
+    "filename": "30N_120W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 8700145,
+    "md5": "77b483f91d2c5cf337908c581c8791fe",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590513"
+  },
+  {
+    "id": 10590547,
+    "filename": "30N_160W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 9451872,
+    "md5": "a9cb33c1e6f1b11f32003d693c281a28",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590547"
+  },
+  {
+    "id": 10590558,
+    "filename": "30N_170W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7483662,
+    "md5": "1fb10f5a34240316fcd61ababb2b461d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590558"
+  },
+  {
+    "id": 10590540,
+    "filename": "30S_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 15942932,
+    "md5": "63edb902e74ca8c76b512750eaa1fd93",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590540"
+  },
+  {
+    "id": 10590500,
+    "filename": "30S_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 40898862,
+    "md5": "15f66755f4c99e70fbf0400745946782",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590500"
+  },
+  {
+    "id": 10590548,
+    "filename": "30S_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 11921387,
+    "md5": "913e1823e2380dacc92579b61a1ee86a",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590548"
+  },
+  {
+    "id": 10590557,
+    "filename": "30S_060W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 114738660,
+    "md5": "94adedce509b37747c5e4616b218a47d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590557"
+  },
+  {
+    "id": 10590501,
+    "filename": "30S_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 41569178,
+    "md5": "1d225bc753b0705034cc6325addfc69b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590501"
+  },
+  {
+    "id": 10590527,
+    "filename": "30S_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 110955260,
+    "md5": "01b88d13528c35c5bd868d732464256f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590527"
+  },
+  {
+    "id": 10590516,
+    "filename": "30S_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 51165965,
+    "md5": "32543ada7294b893a641df2c52f3b614",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590516"
+  },
+  {
+    "id": 10590510,
+    "filename": "30S_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 38356000,
+    "md5": "7df7d2736151e60c6bca368f40c6cea2",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590510"
+  },
+  {
+    "id": 10590543,
+    "filename": "30S_130E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 17660342,
+    "md5": "748b64fa1733a35694a9533385519f74",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590543"
+  },
+  {
+    "id": 10590533,
+    "filename": "30S_140E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 112874500,
+    "md5": "27d9274cad4959c938ef460c07a5b7c9",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590533"
+  },
+  {
+    "id": 10590537,
+    "filename": "30S_150E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 56721380,
+    "md5": "fb9c536d051f1530587df38afb460c82",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590537"
+  },
+  {
+    "id": 10590497,
+    "filename": "30S_170E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 52863797,
+    "md5": "5477efccc3e62622b80cbb0de4b7883d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590497"
+  },
+  {
+    "id": 10590525,
+    "filename": "40N_000E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 35814848,
+    "md5": "6c3a24e8fac0ccadd61fe05f81790d0f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590525"
+  },
+  {
+    "id": 10590521,
+    "filename": "40N_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 18784534,
+    "md5": "127fca3dc877343c75eb2dc8a42ef24b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590521"
+  },
+  {
+    "id": 10590517,
+    "filename": "40N_010W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 73427246,
+    "md5": "3f9709273f01c9036b5174c8c12775c4",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590517"
+  },
+  {
+    "id": 10590530,
+    "filename": "40N_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 64133796,
+    "md5": "021672315a6ff87f1b6436563c0b514c",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590530"
+  },
+  {
+    "id": 10590519,
+    "filename": "40N_020W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7737710,
+    "md5": "fd87fc50931abd9e5328c5cd9b299720",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590519"
+  },
+  {
+    "id": 10590553,
+    "filename": "40N_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 51048335,
+    "md5": "28e18069ddefa791bbcc56293f32cc65",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590553"
+  },
+  {
+    "id": 10590541,
+    "filename": "40N_040E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 23458535,
+    "md5": "8d17f2f57112830effff6ad85621a9d3",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590541"
+  },
+  {
+    "id": 10590515,
+    "filename": "40N_050E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 17012726,
+    "md5": "8954d9fb8cde8e664e85142c44e162bf",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590515"
+  },
+  {
+    "id": 10590523,
+    "filename": "40N_060E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 14380163,
+    "md5": "db59fc5afcd840033dae5e50dc7cacfd",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590523"
+  },
+  {
+    "id": 10590531,
+    "filename": "40N_070E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 78008262,
+    "md5": "ba9dfefc14debc807aebf81b918972d5",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590531"
+  },
+  {
+    "id": 10590518,
+    "filename": "40N_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7461264,
+    "md5": "a740b9beb34c581adfdc991dcfeafa77",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590518"
+  },
+  {
+    "id": 10590514,
+    "filename": "40N_080E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 8171445,
+    "md5": "9de410d27551d246132d7affbbcdff81",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590514"
+  },
+  {
+    "id": 10590503,
+    "filename": "40N_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 137114686,
+    "md5": "c41edcc27a4b98343f8ec9cdc365b40d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590503"
+  },
+  {
+    "id": 10590536,
+    "filename": "40N_090E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 29678813,
+    "md5": "0c7118a08a6953668b225fc966c5ac28",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590536"
+  },
+  {
+    "id": 10590535,
+    "filename": "40N_090W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 465848905,
+    "md5": "a8e3e7401553a0ab23672d347018479a",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590535"
+  },
+  {
+    "id": 10590542,
+    "filename": "40N_100E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 172815677,
+    "md5": "5a7a0c4436b3953f6a6b6d7aa4e38697",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590542"
+  },
+  {
+    "id": 10590534,
+    "filename": "40N_100W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 303718165,
+    "md5": "31818b54456dd15fbdd4abef915380b5",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590534"
+  },
+  {
+    "id": 10590546,
+    "filename": "40N_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 177945387,
+    "md5": "75c2cbbadf63ca55ecfe2baf02ec086f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590546"
+  },
+  {
+    "id": 10590529,
+    "filename": "40N_110W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 71321407,
+    "md5": "f51918fa0f06ec725e14f3a525e38519",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590529"
+  },
+  {
+    "id": 10590559,
+    "filename": "40N_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 94361059,
+    "md5": "1d09290f20d200ec97cc14f2382704f0",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590559"
+  },
+  {
+    "id": 10590499,
+    "filename": "40N_120W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 67352022,
+    "md5": "4a177534f9437be5b2b7ec4da7eeea74",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590499"
+  },
+  {
+    "id": 10590544,
+    "filename": "40N_130E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 90082584,
+    "md5": "e3ec5e9c3208eba18fcaf2abfab68f18",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590544"
+  },
+  {
+    "id": 10590507,
+    "filename": "40N_130W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 55095088,
+    "md5": "5baff836d1964ebd26ff17cc03a45cbd",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590507"
+  },
+  {
+    "id": 10590552,
+    "filename": "40N_140E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 32587565,
+    "md5": "31e0599fa47931f636da33456b94a856",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590552"
+  },
+  {
+    "id": 10590520,
+    "filename": "40S_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 8339514,
+    "md5": "59b344bafb61682c49e4ed704dea7e37",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590520"
+  },
+  {
+    "id": 10590526,
+    "filename": "40S_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 102388720,
+    "md5": "b5477ac0dc84e148010066e5978334d0",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590526"
+  },
+  {
+    "id": 10590532,
+    "filename": "40S_140E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 44659585,
+    "md5": "c092fde3991861783844f3740a9319d4",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590532"
+  },
+  {
+    "id": 10590506,
+    "filename": "40S_160E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 28441150,
+    "md5": "874688a4367353dce750690ef623b19c",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590506"
+  },
+  {
+    "id": 10590545,
+    "filename": "40S_170E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 45478667,
+    "md5": "1c0a8767b9c2b1e35f79024759fa6778",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590545"
+  },
+  {
+    "id": 10590716,
+    "filename": "50N_000E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 162164377,
+    "md5": "b6710d03462e15d33072ef499ff164b0",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590716"
+  },
+  {
+    "id": 10590731,
+    "filename": "50N_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 173850271,
+    "md5": "9c680d278e0d093a0862d2f19a7e3073",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590731"
+  },
+  {
+    "id": 10590723,
+    "filename": "50N_010W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 126890354,
+    "md5": "e8fc802d30d5123ffdd75a680b5d05b9",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590723"
+  },
+  {
+    "id": 10590743,
+    "filename": "50N_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 164327657,
+    "md5": "a1a4c744f1a803e1c427bbda63008fe9",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590743"
+  },
+  {
+    "id": 10590722,
+    "filename": "50N_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 102122254,
+    "md5": "ca1b6416f0cf8ad41582e1804bc6c53b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590722"
+  },
+  {
+    "id": 10590747,
+    "filename": "50N_040E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 111515425,
+    "md5": "f8e73b09a32bb66a6dcc2c4ead076ed5",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590747"
+  },
+  {
+    "id": 10590736,
+    "filename": "50N_050E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 10494676,
+    "md5": "3ff46432dcd926b3ec5867a0c3241c09",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590736"
+  },
+  {
+    "id": 10590727,
+    "filename": "50N_060E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 12862135,
+    "md5": "b2fcf70e8e70aa563ff26a78e6a4799e",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590727"
+  },
+  {
+    "id": 10590769,
+    "filename": "50N_060W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 68422911,
+    "md5": "d248535f8d46207ae9d7206d69ab5f9b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590769"
+  },
+  {
+    "id": 10590766,
+    "filename": "50N_070E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 40949722,
+    "md5": "6fd6439c9acb4b5cec87561e45b0bea6",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590766"
+  },
+  {
+    "id": 10590758,
+    "filename": "50N_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 205754838,
+    "md5": "5d8098f2eafe878dd2ab4bcf62a127bc",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590758"
+  },
+  {
+    "id": 10590724,
+    "filename": "50N_080E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 54126930,
+    "md5": "7a1f8b7c997303ff01185b38e5681f42",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590724"
+  },
+  {
+    "id": 10590753,
+    "filename": "50N_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 380463354,
+    "md5": "15258156478ef48651a65b4f5cea180b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590753"
+  },
+  {
+    "id": 10590730,
+    "filename": "50N_090E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 18670003,
+    "md5": "8d37c517d4cf26287fceddd1c600551d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590730"
+  },
+  {
+    "id": 10590746,
+    "filename": "50N_090W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 254187116,
+    "md5": "61259048c0495c0788033eb2ffc6d63c",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590746"
+  },
+  {
+    "id": 10590755,
+    "filename": "50N_100E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 50940337,
+    "md5": "47f27b2c2d2a9496a6535739c3751de8",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590755"
+  },
+  {
+    "id": 10590761,
+    "filename": "50N_100W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 190404398,
+    "md5": "0f83ffb9416f380ca51adf02569ee2fd",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590761"
+  },
+  {
+    "id": 10590775,
+    "filename": "50N_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 50853468,
+    "md5": "add98ff4fa54388130921bfe8f3ebef4",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590775"
+  },
+  {
+    "id": 10590745,
+    "filename": "50N_110W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 57320575,
+    "md5": "fb75503b1accab66ff6059c27eb50269",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590745"
+  },
+  {
+    "id": 10590721,
+    "filename": "50N_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 220222809,
+    "md5": "cee66a66d0cf33718655b3f2041a8077",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590721"
+  },
+  {
+    "id": 10590720,
+    "filename": "50N_120W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 206604686,
+    "md5": "e2cb4bcd0457e7e7f1a3f5e9446ed10e",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590720"
+  },
+  {
+    "id": 10590719,
+    "filename": "50N_130E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 190486681,
+    "md5": "7072289cd002e21828610c23595e7083",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590719"
+  },
+  {
+    "id": 10590765,
+    "filename": "50N_130W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 178743951,
+    "md5": "0f3d18641c6b05c2dcbe5d4b54b3d6f6",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590765"
+  },
+  {
+    "id": 10590776,
+    "filename": "50N_140E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 76607233,
+    "md5": "cd7ebe1716f399c07a05d5311796d1a3",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590776"
+  },
+  {
+    "id": 10590768,
+    "filename": "50N_150E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 8635785,
+    "md5": "b0a7798875574ea2b0b708a94c2f97d6",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590768"
+  },
+  {
+    "id": 10590741,
+    "filename": "50S_060W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7522596,
+    "md5": "c14e5f1dd4857f6f0dd0c24975f06adc",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590741"
+  },
+  {
+    "id": 10590725,
+    "filename": "50S_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 24044656,
+    "md5": "a19c87f8f0fd696468f99e5701fe1f07",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590725"
+  },
+  {
+    "id": 10590718,
+    "filename": "50S_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 46005312,
+    "md5": "7e21041fd4354f549c779243154ea09e",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590718"
+  },
+  {
+    "id": 10590742,
+    "filename": "60N_000E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 91940308,
+    "md5": "5e1923692cebd1b2095bb3af1186df59",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590742"
+  },
+  {
+    "id": 10590740,
+    "filename": "60N_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 198966386,
+    "md5": "ede9abe0dd3eaecd120d76619134b85e",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590740"
+  },
+  {
+    "id": 10590726,
+    "filename": "60N_010W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 90547139,
+    "md5": "c3d0109380da6c67adf006c628305c25",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590726"
+  },
+  {
+    "id": 10590772,
+    "filename": "60N_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 248674342,
+    "md5": "9dbc62c29f87a519afe0601d8602dd82",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590772"
+  },
+  {
+    "id": 10590748,
+    "filename": "60N_020W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7837570,
+    "md5": "5661b2239a3c37969d003e0005e553e4",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590748"
+  },
+  {
+    "id": 10590729,
+    "filename": "60N_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 364736436,
+    "md5": "fbad1d8a9d066c0e7a4f0f9b798cd496",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590729"
+  },
+  {
+    "id": 10590744,
+    "filename": "60N_040E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 313461858,
+    "md5": "21a5cb571358fa15eced2a43f414af28",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590744"
+  },
+  {
+    "id": 10590760,
+    "filename": "60N_050E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 260937179,
+    "md5": "5f8794bf709b72cbae93815c15867c4c",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590760"
+  },
+  {
+    "id": 10590759,
+    "filename": "60N_060E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 213335956,
+    "md5": "44754ee8bbd9cad574073c855f9d028d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590759"
+  },
+  {
+    "id": 10590757,
+    "filename": "60N_060W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 69470897,
+    "md5": "17ef05d588c3d9c2fcd3256a41ece2b2",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590757"
+  },
+  {
+    "id": 10590773,
+    "filename": "60N_070E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 196173774,
+    "md5": "c8e396e2b07ae96e37f185c25677e6ea",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590773"
+  },
+  {
+    "id": 10590764,
+    "filename": "60N_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 304097138,
+    "md5": "f0e188960b2d84cfbef643f242a9482b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590764"
+  },
+  {
+    "id": 10590774,
+    "filename": "60N_080E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 312416212,
+    "md5": "f251d6e72624e1921eeecd789618beb0",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590774"
+  },
+  {
+    "id": 10590728,
+    "filename": "60N_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 338083415,
+    "md5": "f083fbca2639f2c090a5cdd49eb88c74",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590728"
+  },
+  {
+    "id": 10590752,
+    "filename": "60N_090E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 345580822,
+    "md5": "bb3aec6930fb0f6f1b864f0f5e052754",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590752"
+  },
+  {
+    "id": 10590754,
+    "filename": "60N_090W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 199683790,
+    "md5": "b1bd223982126fa6e3038867540b999f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590754"
+  },
+  {
+    "id": 10590770,
+    "filename": "60N_100E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 397187068,
+    "md5": "80126a70d74644907dea4633f5976fca",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590770"
+  },
+  {
+    "id": 10590737,
+    "filename": "60N_100W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 363496318,
+    "md5": "f99bc33282f773f72ccbf15cfdb4c3e5",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590737"
+  },
+  {
+    "id": 10590750,
+    "filename": "60N_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 397014017,
+    "md5": "ebb5ec7842db195e684d23d700f33647",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590750"
+  },
+  {
+    "id": 10590735,
+    "filename": "60N_110W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 388616617,
+    "md5": "bfe0770c0265c93ccf5c9f0235a50850",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590735"
+  },
+  {
+    "id": 10590767,
+    "filename": "60N_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 423386646,
+    "md5": "c1b88fa2a261674d9c5b6a51179ce8fa",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590767"
+  },
+  {
+    "id": 10590738,
+    "filename": "60N_120W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 403674467,
+    "md5": "086f93a45a58bebc327a80c5829cd612",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590738"
+  },
+  {
+    "id": 10590762,
+    "filename": "60N_130E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 389937747,
+    "md5": "72f382a65f1c2baa49c970f7e8f4f658",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590762"
+  },
+  {
+    "id": 10590739,
+    "filename": "60N_130W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 419337350,
+    "md5": "a5ecc2a61bc5e2d1a6cdfccd35e0b68f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590739"
+  },
+  {
+    "id": 10590734,
+    "filename": "60N_140E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 80184044,
+    "md5": "33fd97575160ca76d9d788e608920a22",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590734"
+  },
+  {
+    "id": 10590756,
+    "filename": "60N_140W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 101710630,
+    "md5": "ee21144223c2a31f730ac355555de7c5",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590756"
+  },
+  {
+    "id": 10590749,
+    "filename": "60N_150E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 101846145,
+    "md5": "221c9bf5df325900698da680b086cb0e",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590749"
+  },
+  {
+    "id": 10590733,
+    "filename": "60N_150W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 9097674,
+    "md5": "3fff649cb0739b261945ec827d4cb43f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590733"
+  },
+  {
+    "id": 10590751,
+    "filename": "60N_160E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 56885886,
+    "md5": "3fa6708a14fc5a60b3decd24d65bee38",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590751"
+  },
+  {
+    "id": 10590732,
+    "filename": "60N_160W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 54193565,
+    "md5": "c621ad39b0bcf57ad831ab9687938a9d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590732"
+  },
+  {
+    "id": 10590763,
+    "filename": "60N_170E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7443720,
+    "md5": "b2dc2f63caaa7c8d8f136e4e503f8ca2",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590763"
+  },
+  {
+    "id": 10590771,
+    "filename": "60N_170W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 19048860,
+    "md5": "d8773c1a468f05a1d76679d4ce206fd3",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590771"
+  },
+  {
+    "id": 10590717,
+    "filename": "60N_180W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 8450042,
+    "md5": "36470e3bfc4502af04253455afd372f3",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590717"
+  },
+  {
+    "id": 10590909,
+    "filename": "70N_000E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 39311650,
+    "md5": "00825d15804cd06a4f14ed0acb0f9866",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590909"
+  },
+  {
+    "id": 10590907,
+    "filename": "70N_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 185361076,
+    "md5": "ecbe4187bccad62e40c1cef16e7afd9e",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590907"
+  },
+  {
+    "id": 10590911,
+    "filename": "70N_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 282928918,
+    "md5": "28cd4e9cbbc68f31f7c0a4feca146acd",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590911"
+  },
+  {
+    "id": 10590912,
+    "filename": "70N_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 287990383,
+    "md5": "69706a7b5ba5ce733c5e3d82e9efa628",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590912"
+  },
+  {
+    "id": 10590916,
+    "filename": "70N_040E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 245775916,
+    "md5": "0cf4c3c63c46842bcfdc8cb6f343c074",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590916"
+  },
+  {
+    "id": 10590906,
+    "filename": "70N_050E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 254841864,
+    "md5": "65c918698e07806b659ae5bb09255b9d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590906"
+  },
+  {
+    "id": 10590914,
+    "filename": "70N_060E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 275338977,
+    "md5": "7b16722082da17cf0b20bda1ccc59889",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590914"
+  },
+  {
+    "id": 10590915,
+    "filename": "70N_070E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 262568999,
+    "md5": "616f67394fde16d3bc6e642cbf839810",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590915"
+  },
+  {
+    "id": 10590917,
+    "filename": "70N_070W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7450913,
+    "md5": "a3e6c71d1ae0ce9018d1931574c6a5b0",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590917"
+  },
+  {
+    "id": 10590880,
+    "filename": "70N_080E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 319606111,
+    "md5": "15b39aefecca2333927b9a9017bef633",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590880"
+  },
+  {
+    "id": 10590897,
+    "filename": "70N_080W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 9520174,
+    "md5": "3ab55cbbba2c3e3e45f563915861cb40",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590897"
+  },
+  {
+    "id": 10590872,
+    "filename": "70N_090E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 279038276,
+    "md5": "d95dd8dbabdc52d3391c96876fa1c1cb",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590872"
+  },
+  {
+    "id": 10590886,
+    "filename": "70N_090W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7628224,
+    "md5": "56343764054661d10ba5fc9a028acf2d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590886"
+  },
+  {
+    "id": 10590878,
+    "filename": "70N_100E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 344884491,
+    "md5": "cc507b352545b48858c3a42b1101fb1b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590878"
+  },
+  {
+    "id": 10590887,
+    "filename": "70N_100W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 28119601,
+    "md5": "bca61abfc0dde6972c90eeb803f2e352",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590887"
+  },
+  {
+    "id": 10590866,
+    "filename": "70N_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 374926606,
+    "md5": "6d34ef9f7188b211146074725121ed09",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590866"
+  },
+  {
+    "id": 10590875,
+    "filename": "70N_110W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 108661676,
+    "md5": "2a81a4947729d73a693f8fff538590f6",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590875"
+  },
+  {
+    "id": 10590883,
+    "filename": "70N_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 435517702,
+    "md5": "d0d6f540773a0c115e471d41dcb005c9",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590883"
+  },
+  {
+    "id": 10590879,
+    "filename": "70N_120W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 228566174,
+    "md5": "f42a266c9316c50cbdee082509f5712a",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590879"
+  },
+  {
+    "id": 10590901,
+    "filename": "70N_130E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 317111686,
+    "md5": "74cb023d01092b04623fc7c50f66c4fb",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590901"
+  },
+  {
+    "id": 10590885,
+    "filename": "70N_130W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 258699185,
+    "md5": "383e2993bcb129eb9b95f8d876671b01",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590885"
+  },
+  {
+    "id": 10590881,
+    "filename": "70N_140E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 268191434,
+    "md5": "21aef439e85cade8f7b14ab2ae07521d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590881"
+  },
+  {
+    "id": 10590868,
+    "filename": "70N_140W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 288843007,
+    "md5": "71413210e00f2c59c7ba98575b23ef9d",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590868"
+  },
+  {
+    "id": 10590896,
+    "filename": "70N_150E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 302331104,
+    "md5": "7313a08150aaa38d81438cf884931d04",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590896"
+  },
+  {
+    "id": 10590899,
+    "filename": "70N_150W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 260028047,
+    "md5": "cea587d19917fbdd4a514a171bad85f4",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590899"
+  },
+  {
+    "id": 10590891,
+    "filename": "70N_160E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 168390682,
+    "md5": "5a57f331490713ad763ce8dbef1126b4",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590891"
+  },
+  {
+    "id": 10590877,
+    "filename": "70N_160W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 276695507,
+    "md5": "8d02509a4811f5ebaf33af3012a811d5",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590877"
+  },
+  {
+    "id": 10590893,
+    "filename": "70N_170E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 68362633,
+    "md5": "6f84a626de847ad075fe79bd2f2fee6e",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590893"
+  },
+  {
+    "id": 10590892,
+    "filename": "70N_170W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 65133079,
+    "md5": "56d8feca115c669546892b4990a690ff",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590892"
+  },
+  {
+    "id": 10590890,
+    "filename": "70N_180W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 8699031,
+    "md5": "63dc7caa763a99b1d49a4a8d0b4a7353",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590890"
+  },
+  {
+    "id": 10590874,
+    "filename": "80N_010E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7985020,
+    "md5": "5a6c745fdd1cc26e401c6f4e024d012f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590874"
+  },
+  {
+    "id": 10590894,
+    "filename": "80N_020E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 12908914,
+    "md5": "ec47e036eb16d5584298441b0d1edd56",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590894"
+  },
+  {
+    "id": 10590889,
+    "filename": "80N_030E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7592722,
+    "md5": "49a42b3f9bf839df524971f413d63b09",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590889"
+  },
+  {
+    "id": 10590876,
+    "filename": "80N_070E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7784896,
+    "md5": "447d08f13f3c0fb67a33ee83636d5b4a",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590876"
+  },
+  {
+    "id": 10590873,
+    "filename": "80N_080E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 15271688,
+    "md5": "a0499c5f8d5e58f88ffa208bf0e4f8b2",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590873"
+  },
+  {
+    "id": 10590871,
+    "filename": "80N_090E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 29483068,
+    "md5": "f1faae6c3e5b9b93f618877c416059e9",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590871"
+  },
+  {
+    "id": 10590869,
+    "filename": "80N_100E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 19073207,
+    "md5": "22783ae63b6ba224b243f66fba58e0bf",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590869"
+  },
+  {
+    "id": 10590898,
+    "filename": "80N_110E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 24424979,
+    "md5": "0c5ee0315670dad9e7f29a57e250724f",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590898"
+  },
+  {
+    "id": 10590870,
+    "filename": "80N_120E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 21743684,
+    "md5": "6113f79693d8ffe80797376321146d30",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590870"
+  },
+  {
+    "id": 10590867,
+    "filename": "80N_130E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 16934900,
+    "md5": "1399dd08329c68d5a0d4c4c660e1c04b",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590867"
+  },
+  {
+    "id": 10590884,
+    "filename": "80N_130W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7443560,
+    "md5": "04f302a7d34869f5d76f6394752f1087",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590884"
+  },
+  {
+    "id": 10590900,
+    "filename": "80N_140E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 15762860,
+    "md5": "39ad82d0707a0c8c430311c1ce94bed7",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590900"
+  },
+  {
+    "id": 10590865,
+    "filename": "80N_140W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7441360,
+    "md5": "cb79966fcc5ad77b8f8246d0731e07bd",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590865"
+  },
+  {
+    "id": 10590895,
+    "filename": "80N_150E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 9548864,
+    "md5": "267230ea12a8b913cb0bf03e100268b5",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590895"
+  },
+  {
+    "id": 10590882,
+    "filename": "80N_150W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7446156,
+    "md5": "71182a13ebdfd3b5273e8feb821c1cf7",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590882"
+  },
+  {
+    "id": 10590888,
+    "filename": "80N_160E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7441167,
+    "md5": "db81be2417936292666c5468ac1a7f23",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590888"
+  },
+  {
+    "id": 10590905,
+    "filename": "80N_160W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7667281,
+    "md5": "a26aeab4eb373e1ba443e2cc26e79aac",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590905"
+  },
+  {
+    "id": 10590910,
+    "filename": "80N_170E_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7441644,
+    "md5": "54a821c52c3046d0d202d9daddd3b4a9",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590910"
+  },
+  {
+    "id": 10590918,
+    "filename": "80N_170W_gross_removals_AGCO2_BGCO2_Mg_ha_all_forest_types_forest_extent_2001_23.tif",
+    "size": 7445854,
+    "md5": "f9476c04235c833b1abad86d4a04e3ed",
+    "url": "https://dataverse.harvard.edu/api/access/datafile/10590918"
+  }
+]

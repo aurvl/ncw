@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use the code or derived data, please cite this repository and the associated manuscript."
+title: "Natural Carbon Wealth of Nations: code and data"
+type: software
+version: 0.1.0
+repository-code: "https://github.com/aurvl/ncw"
+license: MIT
+authors:
+  - family-names: Hilmi
+    given-names: Nathalie
+  - family-names: Chondrou
+    given-names: Maria-Sophia
+  - family-names: De Vince Vehi
+    given-names: Loua Aurel
+  - family-names: Issifu
+    given-names: Ibrahim
+  - family-names: Berzaghi
+    given-names: Fabio

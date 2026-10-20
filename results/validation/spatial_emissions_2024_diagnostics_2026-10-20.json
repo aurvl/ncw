@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-20",
+  "status": "complete",
+  "geographic_units": 235,
+  "units_without_geometry": [
+    "GIB"
+  ],
+  "spatial_weights": [
+    "queen_contiguity",
+    "symmetric_knn5"
+  ],
+  "number_of_specification_outcome_weight_cases": 28,
+  "number_of_primary_relationship_profiles": 9,
+  "number_of_primary_relationship_weight_cases": 18,
+  "number_of_auxiliary_specification_weight_cases": 4,
+  "number_of_matched_reference_weight_cases": 6,
+  "number_of_requested_emissions_x_cases": 6,
+  "number_of_requested_emissions_y_plus_prior_outcome_cases": 6,
+  "number_of_emissions_y_base_auxiliary_cases": 2,
+  "number_of_additional_population_sensitivity_cases": 2,
+  "predictor_block_nested_tests": 84,
+  "model_fit_rows": 168,
+  "moran_rows": 56,
+  "lm_rows": 168,
+  "nested_lr_rows": 84,
+  "permutations": 9999,
+  "seeds": {
+    "base": 20261019,
+    "step": 100
+  },
+  "model_families": [
+    "OLS",
+    "SAR",
+    "SEM",
+    "SDM",
+    "SDEM",
+    "GNS"
+  ],
+  "p_value_adjustment": "Holm within each specification and diagnostic family, across that specification's outcome-weight cases",
+  "same_sample_comparison": "For each of the three existing outcomes, baseline and add-emissions-X models use identical 2024 complete-case rows. Each emissions-Y plus prior-outcome-X model is compared with a reduced emissions-Y model on the exact same complete-case rows. The emissions-Y baseline and population sensitivity also use identical rows.",
+  "predictors": {
+    "base_2024": [
+      "ln_gdp_per_capita_2024",
+      "ln_forest_area_mha",
+      "warm_biome_share"
+    ],
+    "emissions_added_as_x": "ln_emissions_mtco2_2024",
+    "emissions_y_added_x_by_model": {
+      "lost_capacity_mtco2_yr": "log1p_lost_capacity_mtco2_yr",
+      "erosion_pct_of_gcw": "log1p_erosion_pct_of_gcw",
+      "gcw_gdp_pct_2024": "log1p_gcw_gdp_pct_2024"
+    },
+    "emissions_y_population_sensitivity": "ln_population_2024 added to base controls"
+  },
+  "transform": "log1p for all four outcomes and for each prior outcome when used as an emissions-Y predictor; emissions X uses log1p(MtCO2/year); GDP per capita and forest area use natural logs",
+  "interpretation_boundary": "Cross-sectional associations; no causal impact is estimated and the script does not select a preferred model.",
+  "limitations": [
+    "GCB emission values are mapped only where a country/territory row directly matches a study ISO3; parent-country totals are not copied to split territories.",
+    "World Bank 2024 GDP/population coverage is incomplete; model samples are complete cases, not imputed.",
+    "GDP-per-capita and GCW/GDP use WDI 2024 GDP and population; the ratio outcome uses 2024 GDP in constant 2015 US dollars.",
+    "The GCB 2025 country series is a recent estimated emissions vintage; it is not a direct emissions-monitoring measure.",
+    "Queen isolates are retained as zero-neighbour rows; kNN-5 links units to nearest representative points, sometimes across water."
+  ],
+  "outputs": [
+    "results/validation/spatial_emissions_2024_step1_moran_2026-10-20.csv",
+    "results/validation/spatial_emissions_2024_step2_lm_tests_2026-10-20.csv",
+    "results/validation/spatial_emissions_2024_step3_nested_tests_2026-10-20.csv",
+    "results/validation/spatial_emissions_2024_model_fit_2026-10-20.csv",
+    "results/validation/spatial_emissions_2024_model_coefficients_2026-10-20.csv",
+    "results/validation/spatial_emissions_2024_sample_audit_2026-10-20.csv",
+    "results/validation/spatial_emissions_2024_predictor_block_tests_2026-10-20.csv",
+    "results/validation/spatial_emissions_2024_predictor_correlations_2026-10-20.csv",
+    "results/validation/spatial_emissions_2024_predictor_vif_2026-10-20.csv",
+    "results/validation/emissions_2024_accounting_balance_by_unit_2026-10-20.csv",
+    "results/validation/emissions_2024_accounting_balance_groups_2026-10-20.csv",
+    "results/validation/emissions_2024_accounting_balance_summary_2026-10-20.json"
+  ],
+  "accounting_balance_summary": {
+    "units_with_emissions": 210,
+    "gcb_emissions_sum_covered_units_tco2_yr": 37101339208.09157,
+    "gcw_gross_additions_sum_covered_units_tco2_yr": 14701408782.84848,
+    "gcw_accounting_balance_positive_units": 78,
+    "ncw_accounting_balance_positive_units": 113,
+    "gcw_accounting_balance_world_sum_tco2_yr": -22399930422.612568,
+    "ncw_accounting_balance_world_sum_tco2_yr": -18269767425.473198,
+    "uncertainty_scope": "Percentiles propagate the existing GSCC/wealth draws only; 2024 emissions are held fixed.",
+    "interpretation_note": "This is a country-boundary accounting comparison, not a national climate-neutrality test or an estimate of total net ecosystem emissions."
+  }
+}
