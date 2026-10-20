@@ -1,4 +1,8 @@
-"""Insert the R1-R4 manuscript draft as true tracked additions in the Word file.
+"""Historical tracked-insertion script for the superseded Results draft.
+
+This draft predates the current 2024 accounts, GMW 2025 update, and new figure
+architecture. Do not use it for current manuscript editing; it remains only as
+an audit trail until the Results section is synchronized in a separate step.
 
 The script intentionally does not delete the legacy results. It preserves all
 existing comments and redlines for review, then inserts the proposed Results
@@ -20,7 +24,7 @@ from lxml import etree
 
 ROOT = Path(__file__).resolve().parents[3]
 ARTICLE = ROOT / "Article_Green_Carbon.docx"
-FIGURES = ROOT / "repo" / "results" / "figures" / "manuscript"
+FIGURES = ROOT / "repo" / "results" / "archive" / "legacy_manuscript_2026-10-19" / "figures"
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 R_NS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 PR_NS = "http://schemas.openxmlformats.org/package/2006/relationships"

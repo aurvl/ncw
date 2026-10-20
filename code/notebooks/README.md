@@ -4,10 +4,10 @@ The notebooks are grouped by their role in the analysis and manuscript workflow.
 
 | Notebook | Role |
 | --- | --- |
-| `03_figures.ipynb` | Earlier paper figure workflow |
+| `03_figures.ipynb` | Historical figure exploration; not the canonical manuscript output |
 | `04_analyses_R1_R4.ipynb` | Exploratory R1-R4 results and supplementary analyses |
-| `05_manuscript_tables_figures.ipynb` | Manuscript-specific tables and figure exports |
-| `06_paper_figures_v2.ipynb` | Current paper figure workflow |
+| `05_manuscript_tables_figures.ipynb` | Current four main tables and supplementary table exports |
+| `06_paper_figures_v2.ipynb` | Current manuscript figure workflow; generates Figures 1-3 and gates Figure 4 on author model selection |
 
 ## Component guides
 
@@ -22,4 +22,4 @@ The notebooks in `components/` are short navigation guides. They check file avai
 | `components/deforestation_finance.ipynb` | Capacity loss and climate-finance scenarios |
 | `components/spatial_models.ipynb` | Spatial diagnostics and model comparisons |
 
-Run notebooks from the repository root so their project-root discovery and relative paths resolve consistently. Rebuild the underlying accounts with `python code/scripts/main.py --reuse-gfw-rates` before refreshing notebook outputs. Add `--rasters` only when you intend to rebuild the biome allocation.
+Run notebooks from the repository root. The current manuscript notebooks call `code/scripts/build_manuscript_artifacts.py`, which reads the committed canonical outputs and validates sample counts. Rebuild underlying accounts with `python code/scripts/main.py --reuse-gfw-rates` only when the account inputs have changed. Add `--rasters` only when you intend to rebuild biome allocation.
