@@ -62,18 +62,18 @@
     "Queen isolates are retained as zero-neighbour rows; kNN-5 links units to nearest representative points, sometimes across water."
   ],
   "outputs": [
-    "results/validation/spatial_emissions_2024_step1_moran_2026-10-20.csv",
-    "results/validation/spatial_emissions_2024_step2_lm_tests_2026-10-20.csv",
-    "results/validation/spatial_emissions_2024_step3_nested_tests_2026-10-20.csv",
-    "results/validation/spatial_emissions_2024_model_fit_2026-10-20.csv",
-    "results/validation/spatial_emissions_2024_model_coefficients_2026-10-20.csv",
-    "results/validation/spatial_emissions_2024_sample_audit_2026-10-20.csv",
-    "results/validation/spatial_emissions_2024_predictor_block_tests_2026-10-20.csv",
-    "results/validation/spatial_emissions_2024_predictor_correlations_2026-10-20.csv",
-    "results/validation/spatial_emissions_2024_predictor_vif_2026-10-20.csv",
-    "results/validation/emissions_2024_accounting_balance_by_unit_2026-10-20.csv",
-    "results/validation/emissions_2024_accounting_balance_groups_2026-10-20.csv",
-    "results/validation/emissions_2024_accounting_balance_summary_2026-10-20.json"
+    "results/validation/spatial_emissions_2024_step1_moran.csv",
+    "results/validation/spatial_emissions_2024_step2_lm_tests.csv",
+    "results/validation/spatial_emissions_2024_step3_nested_tests.csv",
+    "results/validation/spatial_emissions_2024_model_fit.csv",
+    "results/validation/spatial_emissions_2024_model_coefficients.csv",
+    "results/validation/spatial_emissions_2024_sample_audit.csv",
+    "results/validation/spatial_emissions_2024_predictor_block_tests.csv",
+    "results/validation/spatial_emissions_2024_predictor_correlations.csv",
+    "results/validation/spatial_emissions_2024_predictor_vif.csv",
+    "results/validation/emissions_2024_accounting_balance_by_unit.csv",
+    "results/validation/emissions_2024_accounting_balance_groups.csv",
+    "results/validation/emissions_2024_accounting_balance_summary.json"
   ],
   "accounting_balance_summary": {
     "units_with_emissions": 210,

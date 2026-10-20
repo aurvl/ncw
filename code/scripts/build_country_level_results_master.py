@@ -238,7 +238,7 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
     )
     master = merge_one_to_one(master, erosion, "reported deforestation outcomes")
 
-    balance = read_unique_csv(VALIDATION / f"emissions_2024_accounting_balance_by_unit_{DATE}.csv")
+    balance = read_unique_csv(VALIDATION / "emissions_2024_accounting_balance_by_unit.csv")
     balance_columns = [
         "iso3", "co2_emissions_tco2_2024", "gcw_additions_tco2_yr",
         "gcw_accounting_balance_mean_tco2_yr", "gcw_accounting_balance_p05_tco2_yr",
@@ -253,14 +253,14 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
         "2024 emissions balance",
     )
 
-    ibrahim = read_unique_csv(VALIDATION / "ibrahim_2pct_and_pledge_allocations_2026-10-19.csv")
+    ibrahim = read_unique_csv(VALIDATION / "ibrahim_2pct_and_pledge_allocations.csv")
     ibrahim_columns = [
         "iso3", "ibrahim_2pct_usd2015_yr", "gcw_share_global_pct",
         "share_of_30yr_100bn_pledge_usd_cumulative", "lost_capacity_discounted_30yr_tco2",
     ]
     master = merge_one_to_one(master, ibrahim[ibrahim_columns], "Ibrahim allocation scenario")
 
-    busch = read_unique_csv(VALIDATION / "busch_action_curve_country_scenarios_2026-10-19.csv")
+    busch = read_unique_csv(VALIDATION / "busch_action_curve_country_scenarios.csv")
     busch_columns = [
         "iso3", "target_discounted_30yr_tco2", "busch_curve_available",
         "source_quantity_at_minus20_tco2_pv", "source_quantity_at_zero_tco2_pv",
@@ -320,7 +320,7 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
 
     # Use the exact code lists recorded by the spatial script, not a reconstructed
     # approximation that could ignore geometry availability or its sample filters.
-    sample_audit = pd.read_csv(VALIDATION / f"spatial_emissions_2024_sample_audit_{DATE}.csv")
+    sample_audit = pd.read_csv(VALIDATION / "spatial_emissions_2024_sample_audit.csv")
     inclusion_columns: list[str] = []
     sample_counts: dict[str, int] = {}
     for _, sample_row in sample_audit.iterrows():
@@ -386,11 +386,11 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
 
 def write_data_dictionary(audit: dict[str, object]) -> None:
     """Write concise provenance and unit guidance for the wide table."""
-    path = ROOT / "docs" / "COUNTRY_LEVEL_RESULTS_MASTER_DATA_DICTIONARY_2026-10-20.md"
+    path = ROOT / "docs" / "COUNTRY_LEVEL_RESULTS_MASTER_DATA_DICTIONARY.md"
     body = [
         "# Table pays et territoires pour la rédaction des Results",
         "",
-        f"Fichier : `results/validation/country_level_results_master_{DATE}.csv`.",
+        "Fichier : `results/validation/country_level_results_master.csv`.",
         f"Table : {audit['rows']} lignes, {audit['columns']} colonnes, une ligne par unité de `country_level_ncw.csv`.",
         "",
         "## Contenu et sources",
@@ -432,8 +432,8 @@ def write_data_dictionary(audit: dict[str, object]) -> None:
 def main() -> None:
     """Build the master CSV, audit JSON, and data dictionary."""
     master, audit = build_master_table()
-    csv_path = VALIDATION / f"country_level_results_master_{DATE}.csv"
-    json_path = VALIDATION / f"country_level_results_master_audit_{DATE}.json"
+    csv_path = VALIDATION / "country_level_results_master.csv"
+    json_path = VALIDATION / "country_level_results_master_audit.json"
     csv_path.parent.mkdir(parents=True, exist_ok=True)
     master.to_csv(csv_path, index=False, float_format="%.10g")
     json_path.write_text(json.dumps(audit, indent=2, ensure_ascii=False), encoding="utf-8")

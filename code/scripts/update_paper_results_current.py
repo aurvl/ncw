@@ -18,9 +18,9 @@ from lxml import etree
 
 ROOT = Path(__file__).resolve().parents[2]
 PAPER = ROOT.parent / "NEXT" / "PAPER.docx"
-BACKUP = ROOT / "results" / "validation" / "PAPER_before_current_results_refresh_2026-10-19.docx"
+BACKUP = ROOT / "results" / "validation" / "PAPER_before_current_results_refresh.docx"
 sys.path.insert(0, str(ROOT / "scripts"))
-from sync_paper_results_2026_10_19 import PaperEditor, W, visible_text  # noqa: E402
+from sync_paper_results import PaperEditor, W, visible_text  # noqa: E402
 
 
 def main() -> None:

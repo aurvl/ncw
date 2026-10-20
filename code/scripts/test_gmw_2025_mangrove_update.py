@@ -14,7 +14,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "results" / "validation"
-COMPARISON = OUT / "mangrove_area_source_comparison_2026-10-15.csv"
+COMPARISON = OUT / "mangrove_area_source_comparison.csv"
 
 # Codes in the GMW workbook that represent a component of an existing BNC2 unit.
 GMW_UNIT_ALIASES = {

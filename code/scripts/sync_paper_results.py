@@ -260,7 +260,7 @@ def update_images(package: dict[str, bytes], document: etree._Element) -> None:
 def main() -> None:
     if not PAPER.is_file():
         raise FileNotFoundError(PAPER)
-    backup = ROOT / "BNC2 paper" / "repo" / "results" / "validation" / "PAPER_before_results_sync_2026-10-19.docx"
+    backup = ROOT / "BNC2 paper" / "repo" / "results" / "validation" / "PAPER_before_results_sync.docx"
     if not backup.is_file():
         raise FileNotFoundError(f"Expected pre-edit backup: {backup}")
     with zipfile.ZipFile(PAPER, "r") as z:

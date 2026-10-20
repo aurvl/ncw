@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[2]
 PAPER = ROOT.parent / "NEXT" / "PAPER.docx"
-BACKUP = ROOT / "results" / "validation" / "PAPER_before_trend_slope_unit_fix_2026-10-19.docx"
+BACKUP = ROOT / "results" / "validation" / "PAPER_before_trend_slope_unit_fix.docx"
 TEMP = PAPER.with_name(PAPER.stem + ".trend-slope-unit-refresh.tmp.docx")
 OLD = "The Theil-Sen slope was −271.77 kha per year of trend (approximate non-parametric interval −460.07 to −80.06);"
 NEW = "The Theil-Sen slope was −0.272 Mha yr⁻² (approximate 95% non-parametric interval −0.460 to −0.080 Mha yr⁻²);"

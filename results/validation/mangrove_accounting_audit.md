@@ -51,7 +51,7 @@ Le dépôt conserve déjà les deux sensibilités `incl_mangroves` et `excl_mang
 
 Le nom du service est une question distincte de cette harmonisation spatiale. Le GIEC reconnaît la biomasse comme réservoir de carbone et définit la séquestration comme augmentation du contenu d'un réservoir ; il définit un puits par un flux net entrant supérieur au flux sortant pendant la période. Le SEEA EA (§6.114) retient, pour le service comptable de séquestration, du carbone attendu en stockage long et cite le bilan net de l'écosystème comme mesure appropriée. L'ajout brut Gibbs/GFW peut décrire un **flux entrant dans la biomasse**, mais ne prouve pas seul une augmentation nette du stock vivant ni du puits de l'écosystème complet.
 
-Le script `scripts/audit_mangrove_accounting.py` reproduit la table nationale de comparaison et `mangrove_area_fixed_rate_scenarios_2026-10-15.csv`. `scripts/audit_mangrove_biomes.py` reproduit le diagnostic ciblé avec les vecteurs GMW publics. Aucun des deux ne modifie le pipeline GCW/BCW principal ni le manuscrit.
+Le script `scripts/audit_mangrove_accounting.py` reproduit la table nationale de comparaison et `mangrove_area_fixed_rate_scenarios.csv`. `scripts/audit_mangrove_biomes.py` reproduit le diagnostic ciblé avec les vecteurs GMW publics. Aucun des deux ne modifie le pipeline GCW/BCW principal ni le manuscrit.
 
 ## Sources primaires
 

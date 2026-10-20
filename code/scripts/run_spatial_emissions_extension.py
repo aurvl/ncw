@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SCRIPTS = ROOT / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
-import run_spatial_full_sequence_2026_10_19 as spatial  # noqa: E402
+import run_spatial_full_sequence as spatial  # noqa: E402
 
 
 OUT = ROOT / "results" / "validation"
@@ -209,7 +209,7 @@ def _accounting_balance_2024(socio: pd.DataFrame) -> dict:
         on="iso3", how="left", validate="one_to_one",
     )
     details["gcw_additions_to_emissions_ratio"] = details["gcw_additions_tco2_yr"] / details["co2_emissions_tco2_2024"]
-    details.to_csv(OUT / f"emissions_2024_accounting_balance_by_unit_{DATE}.csv", index=False)
+    details.to_csv(OUT / "emissions_2024_accounting_balance_by_unit.csv", index=False)
 
     group_rows = []
     for dimension in ("continent", "groups"):
@@ -223,7 +223,7 @@ def _accounting_balance_2024(socio: pd.DataFrame) -> dict:
                 "positive_gcw_accounting_balance_units": int(part["gcw_accounting_balance_mean_tco2_yr"].gt(0).sum()),
                 "positive_ncw_accounting_balance_units": int(part["ncw_accounting_balance_mean_tco2_yr"].gt(0).sum()),
             })
-    pd.DataFrame(group_rows).to_csv(OUT / f"emissions_2024_accounting_balance_groups_{DATE}.csv", index=False)
+    pd.DataFrame(group_rows).to_csv(OUT / "emissions_2024_accounting_balance_groups.csv", index=False)
     summary = {
         "units_with_emissions": int(len(details)),
         "gcb_emissions_sum_covered_units_tco2_yr": float(details["co2_emissions_tco2_2024"].sum()),
@@ -235,7 +235,7 @@ def _accounting_balance_2024(socio: pd.DataFrame) -> dict:
         "uncertainty_scope": "Percentiles propagate the existing GSCC/wealth draws only; 2024 emissions are held fixed.",
         "interpretation_note": "This is a country-boundary accounting comparison, not a national climate-neutrality test or an estimate of total net ecosystem emissions.",
     }
-    (OUT / f"emissions_2024_accounting_balance_summary_{DATE}.json").write_text(
+    (OUT / "emissions_2024_accounting_balance_summary.json").write_text(
         json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8"
     )
     return summary
@@ -455,15 +455,15 @@ def run() -> dict:
     block_tests = _nested_block_tests(fits)
     correlations, vifs = _predictor_diagnostics(data, base_predictors, emissions_predictor, outcome_map)
 
-    moran.to_csv(OUT / f"spatial_emissions_2024_step1_moran_{DATE}.csv", index=False)
-    lms.to_csv(OUT / f"spatial_emissions_2024_step2_lm_tests_{DATE}.csv", index=False)
-    lrs.to_csv(OUT / f"spatial_emissions_2024_step3_nested_tests_{DATE}.csv", index=False)
-    fits.to_csv(OUT / f"spatial_emissions_2024_model_fit_{DATE}.csv", index=False)
-    pd.DataFrame(coefficient_rows).to_csv(OUT / f"spatial_emissions_2024_model_coefficients_{DATE}.csv", index=False)
-    pd.DataFrame(sample_rows).to_csv(OUT / f"spatial_emissions_2024_sample_audit_{DATE}.csv", index=False)
-    block_tests.to_csv(OUT / f"spatial_emissions_2024_predictor_block_tests_{DATE}.csv", index=False)
-    correlations.to_csv(OUT / f"spatial_emissions_2024_predictor_correlations_{DATE}.csv", index=False)
-    vifs.to_csv(OUT / f"spatial_emissions_2024_predictor_vif_{DATE}.csv", index=False)
+    moran.to_csv(OUT / "spatial_emissions_2024_step1_moran.csv", index=False)
+    lms.to_csv(OUT / "spatial_emissions_2024_step2_lm_tests.csv", index=False)
+    lrs.to_csv(OUT / "spatial_emissions_2024_step3_nested_tests.csv", index=False)
+    fits.to_csv(OUT / "spatial_emissions_2024_model_fit.csv", index=False)
+    pd.DataFrame(coefficient_rows).to_csv(OUT / "spatial_emissions_2024_model_coefficients.csv", index=False)
+    pd.DataFrame(sample_rows).to_csv(OUT / "spatial_emissions_2024_sample_audit.csv", index=False)
+    block_tests.to_csv(OUT / "spatial_emissions_2024_predictor_block_tests.csv", index=False)
+    correlations.to_csv(OUT / "spatial_emissions_2024_predictor_correlations.csv", index=False)
+    vifs.to_csv(OUT / "spatial_emissions_2024_predictor_vif.csv", index=False)
 
     # A compact, factual coefficient table to support inventory browsing.
     coefficient_frame = pd.DataFrame(coefficient_rows)
@@ -476,7 +476,7 @@ def run() -> dict:
             "log1p_erosion_pct_of_gcw",
             "log1p_gcw_gdp_pct_2024",
         ])
-    ].to_csv(OUT / f"spatial_emissions_2024_focus_coefficients_{DATE}.csv", index=False)
+    ].to_csv(OUT / "spatial_emissions_2024_focus_coefficients.csv", index=False)
     balance_summary = _accounting_balance_2024(pd.read_csv(ROOT / "data" / "derived" / "socioeconomic_2024_by_unit.csv"))
 
     checks = {
@@ -524,22 +524,22 @@ def run() -> dict:
             "Queen isolates are retained as zero-neighbour rows; kNN-5 links units to nearest representative points, sometimes across water.",
         ],
         "outputs": [
-            f"results/validation/spatial_emissions_2024_step1_moran_{DATE}.csv",
-            f"results/validation/spatial_emissions_2024_step2_lm_tests_{DATE}.csv",
-            f"results/validation/spatial_emissions_2024_step3_nested_tests_{DATE}.csv",
-            f"results/validation/spatial_emissions_2024_model_fit_{DATE}.csv",
-            f"results/validation/spatial_emissions_2024_model_coefficients_{DATE}.csv",
-            f"results/validation/spatial_emissions_2024_sample_audit_{DATE}.csv",
-            f"results/validation/spatial_emissions_2024_predictor_block_tests_{DATE}.csv",
-            f"results/validation/spatial_emissions_2024_predictor_correlations_{DATE}.csv",
-            f"results/validation/spatial_emissions_2024_predictor_vif_{DATE}.csv",
-            f"results/validation/emissions_2024_accounting_balance_by_unit_{DATE}.csv",
-            f"results/validation/emissions_2024_accounting_balance_groups_{DATE}.csv",
-            f"results/validation/emissions_2024_accounting_balance_summary_{DATE}.json",
+            "results/validation/spatial_emissions_2024_step1_moran.csv",
+            "results/validation/spatial_emissions_2024_step2_lm_tests.csv",
+            "results/validation/spatial_emissions_2024_step3_nested_tests.csv",
+            "results/validation/spatial_emissions_2024_model_fit.csv",
+            "results/validation/spatial_emissions_2024_model_coefficients.csv",
+            "results/validation/spatial_emissions_2024_sample_audit.csv",
+            "results/validation/spatial_emissions_2024_predictor_block_tests.csv",
+            "results/validation/spatial_emissions_2024_predictor_correlations.csv",
+            "results/validation/spatial_emissions_2024_predictor_vif.csv",
+            "results/validation/emissions_2024_accounting_balance_by_unit.csv",
+            "results/validation/emissions_2024_accounting_balance_groups.csv",
+            "results/validation/emissions_2024_accounting_balance_summary.json",
         ],
         "accounting_balance_summary": balance_summary,
     }
-    (OUT / f"spatial_emissions_2024_diagnostics_{DATE}.json").write_text(
+    (OUT / "spatial_emissions_2024_diagnostics.json").write_text(
         json.dumps(checks, indent=2, ensure_ascii=False), encoding="utf-8"
     )
     return checks

@@ -642,22 +642,22 @@ def run() -> dict:
     fits_df["aic_rank"] = fits_df.groupby(["outcome", "weight"])["aic"].rank(method="min").astype(int)
     fits_df["bic_rank"] = fits_df.groupby(["outcome", "weight"])["bic"].rank(method="min").astype(int)
 
-    moran.to_csv(OUT / "spatial_sequence_step1_moran_2026-10-19.csv", index=False)
-    lms.to_csv(OUT / "spatial_sequence_step2_lm_tests_2026-10-19.csv", index=False)
-    lrs.to_csv(OUT / "spatial_sequence_step3_nested_tests_2026-10-19.csv", index=False)
-    fits_df.to_csv(OUT / "spatial_sequence_model_fit_2026-10-19.csv", index=False)
-    pd.DataFrame(coefficient_rows).to_csv(OUT / "spatial_sequence_model_coefficients_2026-10-19.csv", index=False)
-    pd.DataFrame(sample_rows).to_csv(OUT / "spatial_sequence_sample_audit_2026-10-19.csv", index=False)
+    moran.to_csv(OUT / "spatial_sequence_step1_moran.csv", index=False)
+    lms.to_csv(OUT / "spatial_sequence_step2_lm_tests.csv", index=False)
+    lrs.to_csv(OUT / "spatial_sequence_step3_nested_tests.csv", index=False)
+    fits_df.to_csv(OUT / "spatial_sequence_model_fit.csv", index=False)
+    pd.DataFrame(coefficient_rows).to_csv(OUT / "spatial_sequence_model_coefficients.csv", index=False)
+    pd.DataFrame(sample_rows).to_csv(OUT / "spatial_sequence_sample_audit.csv", index=False)
 
     # Keep legacy filenames current so existing inventory/build scripts use the refreshed diagnostics.
     moran.loc[moran["measure"].eq("y_log1p")].drop(columns=["measure", "p_holm_all_six_per_measure"]).to_csv(
-        OUT / "spatial_moran_comparison_2026-10-19.csv", index=False
+        OUT / "spatial_moran_comparison.csv", index=False
     )
     moran.loc[moran["measure"].eq("ols_residual")].drop(columns=["measure", "p_holm_all_six_per_measure"]).to_csv(
-        OUT / "spatial_ols_residual_moran_2026-10-19.csv", index=False
+        OUT / "spatial_ols_residual_moran.csv", index=False
     )
-    pd.DataFrame(legacy_model_rows).to_csv(OUT / "spatial_models_comparison_2026-10-19.csv", index=False)
-    lms.to_csv(OUT / "spatial_lm_diagnostics_2026-10-19.csv", index=False)
+    pd.DataFrame(legacy_model_rows).to_csv(OUT / "spatial_models_comparison.csv", index=False)
+    lms.to_csv(OUT / "spatial_lm_diagnostics.csv", index=False)
 
     diagnostics = {
         "date": "2026-10-19",
@@ -695,7 +695,7 @@ def run() -> dict:
             "GIB": "No polygon in Natural Earth 50m; excluded.",
         },
     }
-    (OUT / "spatial_sequence_diagnostics_2026-10-19.json").write_text(json.dumps(diagnostics, indent=2), encoding="utf-8")
+    (OUT / "spatial_sequence_diagnostics.json").write_text(json.dumps(diagnostics, indent=2), encoding="utf-8")
     queen_full = full_weights["queen_contiguity"]
     knn_full = full_weights["symmetric_knn5"]
     legacy_diagnostics = {
@@ -724,7 +724,7 @@ def run() -> dict:
         "caveats": diagnostics["caveats"],
         "territory_crosswalk": diagnostics["territory_crosswalk"],
     }
-    (OUT / "spatial_analysis_diagnostics_2026-10-19.json").write_text(
+    (OUT / "spatial_analysis_diagnostics.json").write_text(
         json.dumps(legacy_diagnostics, indent=2), encoding="utf-8"
     )
     return diagnostics
@@ -739,7 +739,7 @@ if __name__ == "__main__":
     if args.self_test:
         checks = _self_test()
         OUT.mkdir(parents=True, exist_ok=True)
-        (OUT / "spatial_sequence_synthetic_self_test_2026-10-19.json").write_text(
+        (OUT / "spatial_sequence_synthetic_self_test.json").write_text(
             json.dumps(checks, indent=2), encoding="utf-8"
         )
         print(json.dumps(checks, indent=2))

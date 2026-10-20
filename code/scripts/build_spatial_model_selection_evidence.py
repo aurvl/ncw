@@ -1,7 +1,7 @@
 """Consolidate the four requested spatial-model screening steps for human review.
 
 This script joins diagnostics and information-criterion rankings already produced
-by ``run_spatial_emissions_extension_2026_10_20.py``. It does not select a final
+by ``run_spatial_emissions_extension.py``. It does not select a final
 model or interpret coefficients.
 """
 
@@ -14,12 +14,11 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 VALIDATION = ROOT / "results" / "validation"
-DATE = "2026-10-20"
 CASE_KEYS = ["specification", "outcome", "weight"]
 
 
 def load_table(filename: str) -> pd.DataFrame:
-    """Load one dated analysis output and fail if it is absent."""
+    """Load one analysis output and fail if it is absent."""
     path = VALIDATION / filename
     if not path.exists():
         raise FileNotFoundError(path)
@@ -41,7 +40,7 @@ def pivot_diagnostics(
 
 def build_evidence_table() -> pd.DataFrame:
     """Join Moran, LM, nested LR and AIC/BIC evidence without choosing a model."""
-    moran = load_table(f"spatial_emissions_2024_step1_moran_{DATE}.csv")
+    moran = load_table("spatial_emissions_2024_step1_moran.csv")
     moran = pivot_diagnostics(
         moran,
         ["moran_i", "p_permutation_two_sided", "p_holm_within_specification_measure", "islands", "components"],
@@ -50,7 +49,7 @@ def build_evidence_table() -> pd.DataFrame:
         "moran",
     )
 
-    lm = load_table(f"spatial_emissions_2024_step2_lm_tests_{DATE}.csv")
+    lm = load_table("spatial_emissions_2024_step2_lm_tests.csv")
     lm = pivot_diagnostics(
         lm,
         ["statistic", "p_value", "p_holm_within_specification_test"],
@@ -59,7 +58,7 @@ def build_evidence_table() -> pd.DataFrame:
         "lm",
     )
 
-    nested = load_table(f"spatial_emissions_2024_step3_nested_tests_{DATE}.csv")
+    nested = load_table("spatial_emissions_2024_step3_nested_tests.csv")
     nested = pivot_diagnostics(
         nested,
         ["lr_statistic", "df", "p_value", "p_holm_within_specification_comparison"],
@@ -68,7 +67,7 @@ def build_evidence_table() -> pd.DataFrame:
         "lr",
     )
 
-    fit = load_table(f"spatial_emissions_2024_model_fit_{DATE}.csv")
+    fit = load_table("spatial_emissions_2024_model_fit.csv")
     fit_records: list[dict[str, object]] = []
     for keys, group in fit.groupby(CASE_KEYS, sort=True):
         ordered_aic = group.sort_values(["aic", "model"])
@@ -163,7 +162,7 @@ def write_note(table: pd.DataFrame) -> None:
     note = [
         "# Aide de lecture pour la sélection des modèles spatiaux 2024",
         "",
-        f"Fichier de comparaison : `results/validation/spatial_emissions_2024_model_selection_evidence_{DATE}.csv`.",
+        "Fichier de comparaison : `results/validation/spatial_emissions_2024_model_selection_evidence.csv`.",
         "Sorties sources : étapes 1 (Moran), 2 (LM), 3 (LR emboîtés) et ajustements OLS/SAR/SEM/SDM/SDEM/GNS.",
         "",
         "## Ce qui est comparé",
@@ -186,7 +185,7 @@ def write_note(table: pd.DataFrame) -> None:
         "L’analyse est transversale et descriptive. Les coefficients et leurs p-values n’établissent pas un effet causal. Queen comporte des unités isolées; kNN relie les unités éloignées selon la distance des centroïdes représentatifs.",
         "",
     ]
-    (ROOT / "docs" / f"SPATIAL_MODEL_SELECTION_EVIDENCE_{DATE}.md").write_text(
+    (ROOT / "docs" / "SPATIAL_MODEL_SELECTION_EVIDENCE.md").write_text(
         "\n".join(note), encoding="utf-8"
     )
 
@@ -194,7 +193,7 @@ def write_note(table: pd.DataFrame) -> None:
 def main() -> None:
     """Write the evidence table and its reading note."""
     table = build_evidence_table()
-    path = VALIDATION / f"spatial_emissions_2024_model_selection_evidence_{DATE}.csv"
+    path = VALIDATION / "spatial_emissions_2024_model_selection_evidence.csv"
     table.to_csv(path, index=False, float_format="%.10g")
     write_note(table)
     print(f"Wrote {len(table)} spatial evidence rows to {path}")

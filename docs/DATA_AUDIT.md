@@ -45,7 +45,7 @@ Pour l'extension spatiale, le PIB par habitant est calculé comme PIB WDI 2024 /
 
 Un contrôle de millésime compare les émissions 2023 du GCB 2025 à la série 2023 embarquée dans la table BCW: 210 unités appariées, corrélation de Pearson `0,999875`, différence absolue médiane `4,87 %`. Cette comparaison documente la révision de la série et le crosswalk; elle ne remplace pas l'analyse 2024.
 
-Les extractions, crosswalks et résultats se trouvent dans `data/raw/economic/socioeconomics_2024/`, `data/derived/socioeconomic_2024_by_unit.csv` et `results/validation/spatial_emissions_2024_*_2026-10-20.csv`.
+Les extractions, crosswalks et résultats se trouvent dans `data/raw/economic/socioeconomics_2024/`, `data/derived/socioeconomic_2024_by_unit.csv` et les fichiers `results/validation/spatial_emissions_2024_*.csv`.
 
 ## 3. Points d'attention ouverts
 

@@ -135,7 +135,7 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame, dict]:
             "annualized_uniform_price_payment_upper_usd2015_yr_partial": pay_hi * cpi_factor if np.isfinite(pay_hi) else np.nan,
         })
     action = pd.DataFrame(rows)
-    action.to_csv(OUT / "busch_action_curve_country_scenarios_2026-10-19.csv", index=False)
+    action.to_csv(OUT / "busch_action_curve_country_scenarios.csv", index=False)
 
     statuses = action.groupby("status", as_index=False).agg(
         countries=("iso3", "nunique"),
@@ -145,11 +145,11 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     statuses["share_of_all_reported_loss_pct"] = (
         100 * statuses["lost_capacity_tco2_yr"] / action["reported_loss_capacity_tco2_yr"].sum()
     )
-    statuses.to_csv(OUT / "busch_action_curve_status_summary_2026-10-19.csv", index=False)
+    statuses.to_csv(OUT / "busch_action_curve_status_summary.csv", index=False)
 
     # The original Ibrahim allocation table is retained in properly labelled
     # annual and cumulative units. No annual-minus-cumulative "gap" is formed.
-    merged.to_csv(OUT / "ibrahim_2pct_and_pledge_allocations_2026-10-19.csv", index=False)
+    merged.to_csv(OUT / "ibrahim_2pct_and_pledge_allocations.csv", index=False)
 
     positive = action.loc[action["status"].eq("target_within_positive_price_curve")]
     covered_status = action["status"].isin([
@@ -194,7 +194,7 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame, dict]:
             "Austin et al.'s 20-72 billion USD/year for 2030 concerns forest-based NDC mitigation in its modelled countries/regions, not replacement of this paper's lost capacity.",
         ],
     }
-    (OUT / "finance_action_cost_comparison_2026-10-19.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    (OUT / "finance_action_cost_comparison.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     return action, statuses, summary
 
 

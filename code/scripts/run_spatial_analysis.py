@@ -318,10 +318,10 @@ def run() -> dict:
             })
             model_rows.extend(_model_rows(y, x, w, xnames, outcome, weight, len(sample)))
 
-    pd.DataFrame(moran_rows).to_csv(OUT / "spatial_moran_comparison_2026-10-19.csv", index=False)
-    pd.DataFrame(model_rows).to_csv(OUT / "spatial_models_comparison_2026-10-19.csv", index=False)
-    pd.DataFrame(sample_rows).to_csv(OUT / "spatial_sample_audit_2026-10-19.csv", index=False)
-    pd.DataFrame(ols_residual_rows).to_csv(OUT / "spatial_ols_residual_moran_2026-10-19.csv", index=False)
+    pd.DataFrame(moran_rows).to_csv(OUT / "spatial_moran_comparison.csv", index=False)
+    pd.DataFrame(model_rows).to_csv(OUT / "spatial_models_comparison.csv", index=False)
+    pd.DataFrame(sample_rows).to_csv(OUT / "spatial_sample_audit.csv", index=False)
+    pd.DataFrame(ols_residual_rows).to_csv(OUT / "spatial_ols_residual_moran.csv", index=False)
     diagnostics = {
         "date": "2026-10-19",
         "boundary_source": "Natural Earth 50m admin-0 country polygons",
@@ -352,7 +352,7 @@ def run() -> dict:
             "GIB": "No polygon in Natural Earth 50m; excluded from spatial analysis.",
         },
     }
-    (OUT / "spatial_analysis_diagnostics_2026-10-19.json").write_text(json.dumps(diagnostics, indent=2), encoding="utf-8")
+    (OUT / "spatial_analysis_diagnostics.json").write_text(json.dumps(diagnostics, indent=2), encoding="utf-8")
     return diagnostics
 
 

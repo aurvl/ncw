@@ -18,8 +18,9 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 VALIDATION = ROOT / "results" / "validation"
 SUMMARY = ROOT / "data" / "derived"
-BASE = VALIDATION / "RESULTS_INVENTORY_2026-10-19.txt"
-DEST = VALIDATION / "RESULTS_INVENTORY_2026-10-20.txt"
+NEXT = ROOT.parent / "NEXT"
+BASE = NEXT / ".RESULTS_INVENTORY_BASE.tmp.txt"
+DEST = NEXT / "RESULTS_INVENTORY.txt"
 
 
 def read_csv(path: Path) -> pd.DataFrame:
@@ -73,16 +74,16 @@ def main() -> None:
     emissions_change = read_csv(VALIDATION / "gcb2025_emissions_change_2023_2024_by_unit.csv")
     vintage = read_csv(VALIDATION / "gcb2025_2023_vintage_vs_bcw_2023_by_unit.csv")
     coverage = json.loads((VALIDATION / "socioeconomic_2024_coverage_audit.json").read_text(encoding="utf-8"))
-    accounting = json.loads((VALIDATION / "emissions_2024_accounting_balance_summary_2026-10-20.json").read_text(encoding="utf-8"))
-    diag = json.loads((VALIDATION / "spatial_emissions_2024_diagnostics_2026-10-20.json").read_text(encoding="utf-8"))
+    accounting = json.loads((VALIDATION / "emissions_2024_accounting_balance_summary.json").read_text(encoding="utf-8"))
+    diag = json.loads((VALIDATION / "spatial_emissions_2024_diagnostics.json").read_text(encoding="utf-8"))
 
-    fit = read_csv(VALIDATION / "spatial_emissions_2024_model_fit_2026-10-20.csv")
-    sample = read_csv(VALIDATION / "spatial_emissions_2024_sample_audit_2026-10-20.csv")
-    moran = read_csv(VALIDATION / "spatial_emissions_2024_step1_moran_2026-10-20.csv")
-    lm = read_csv(VALIDATION / "spatial_emissions_2024_step2_lm_tests_2026-10-20.csv")
-    nested = read_csv(VALIDATION / "spatial_emissions_2024_step3_nested_tests_2026-10-20.csv")
-    block_tests = read_csv(VALIDATION / "spatial_emissions_2024_predictor_block_tests_2026-10-20.csv")
-    focus_coefficients = read_csv(VALIDATION / "spatial_emissions_2024_focus_coefficients_2026-10-20.csv")
+    fit = read_csv(VALIDATION / "spatial_emissions_2024_model_fit.csv")
+    sample = read_csv(VALIDATION / "spatial_emissions_2024_sample_audit.csv")
+    moran = read_csv(VALIDATION / "spatial_emissions_2024_step1_moran.csv")
+    lm = read_csv(VALIDATION / "spatial_emissions_2024_step2_lm_tests.csv")
+    nested = read_csv(VALIDATION / "spatial_emissions_2024_step3_nested_tests.csv")
+    block_tests = read_csv(VALIDATION / "spatial_emissions_2024_predictor_block_tests.csv")
+    focus_coefficients = read_csv(VALIDATION / "spatial_emissions_2024_focus_coefficients.csv")
 
     required = {
         "study_units": len(socio),
@@ -144,7 +145,7 @@ def main() -> None:
         Holm_p_below_005=("p_holm_within_block_model", lambda x: int((x < 0.05).sum())),
         smallest_Holm_p=("p_holm_within_block_model", "min"),
     )
-    evidence = read_csv(VALIDATION / "spatial_emissions_2024_model_selection_evidence_2026-10-20.csv")
+    evidence = read_csv(VALIDATION / "spatial_emissions_2024_model_selection_evidence.csv")
     aic_bic_divergent = int((~evidence["aic_bic_minima_agree"]).sum())
 
     overview = [
@@ -192,35 +193,38 @@ def main() -> None:
 
     sections: list[str] = ["\n".join(overview)]
     sections.append(json_block("Audit de couverture socioéconomique 2024", VALIDATION / "socioeconomic_2024_coverage_audit.json"))
-    sections.append(json_block("Diagnostics du protocole spatial 2024", VALIDATION / "spatial_emissions_2024_diagnostics_2026-10-20.json"))
-    sections.append(json_block("Résumé du bilan comptable 2024", VALIDATION / "emissions_2024_accounting_balance_summary_2026-10-20.json"))
-    sections.append(json_block("Audit de la table pays/territoires consolidée", VALIDATION / "country_level_results_master_audit_2026-10-20.json"))
-    dictionary_path = ROOT / "docs" / "COUNTRY_LEVEL_RESULTS_MASTER_DATA_DICTIONARY_2026-10-20.md"
+    sections.append(json_block("Diagnostics du protocole spatial 2024", VALIDATION / "spatial_emissions_2024_diagnostics.json"))
+    sections.append(json_block("Résumé du bilan comptable 2024", VALIDATION / "emissions_2024_accounting_balance_summary.json"))
+    sections.append(json_block("Audit de la table pays/territoires consolidée", VALIDATION / "country_level_results_master_audit.json"))
+    dictionary_path = ROOT / "docs" / "COUNTRY_LEVEL_RESULTS_MASTER_DATA_DICTIONARY.md"
     sections.append("### Dictionnaire des données de la table pays/territoires consolidée\n\n" + dictionary_path.read_text(encoding="utf-8"))
 
     csv_specs = [
         ("Table complète des unités et variables socioéconomiques 2024", SUMMARY / "socioeconomic_2024_by_unit.csv"),
         ("Émissions GCB v2025 par unité pour 2023 et 2024", SUMMARY / "gcb2025_national_fossil_emissions_2023_2024_by_entity.csv"),
-        ("Table consolidée par pays/territoire pour la rédaction des Results", VALIDATION / "country_level_results_master_2026-10-20.csv"),
+        ("Table consolidée par pays/territoire pour la rédaction des Results", VALIDATION / "country_level_results_master.csv"),
         ("Variation 2023-2024 par unité", VALIDATION / "gcb2025_emissions_change_2023_2024_by_unit.csv"),
         ("Comparaison de millésime GCB 2025 2023 contre BCW 2023", VALIDATION / "gcb2025_2023_vintage_vs_bcw_2023_by_unit.csv"),
-        ("Bilan comptable 2024 par unité", VALIDATION / "emissions_2024_accounting_balance_by_unit_2026-10-20.csv"),
-        ("Bilan comptable 2024 par groupes", VALIDATION / "emissions_2024_accounting_balance_groups_2026-10-20.csv"),
-        ("Audit des échantillons spatiaux", VALIDATION / "spatial_emissions_2024_sample_audit_2026-10-20.csv"),
-        ("Étape 1 - Moran sur Y et résidus OLS", VALIDATION / "spatial_emissions_2024_step1_moran_2026-10-20.csv"),
-        ("Étape 2 - tests LM et robustes", VALIDATION / "spatial_emissions_2024_step2_lm_tests_2026-10-20.csv"),
-        ("Étape 3 - rapports de vraisemblance des modèles emboîtés", VALIDATION / "spatial_emissions_2024_step3_nested_tests_2026-10-20.csv"),
-        ("Table consolidée des quatre étapes de comparaison spatiale", VALIDATION / "spatial_emissions_2024_model_selection_evidence_2026-10-20.csv"),
-        ("Estimation et critères d’ajustement des 168 modèles", VALIDATION / "spatial_emissions_2024_model_fit_2026-10-20.csv"),
-        ("Coefficients de tous les modèles spatiaux", VALIDATION / "spatial_emissions_2024_model_coefficients_2026-10-20.csv"),
-        ("Coefficients ciblés pour les variables étudiées", VALIDATION / "spatial_emissions_2024_focus_coefficients_2026-10-20.csv"),
-        ("Tests d’ajout des blocs émissions/population sur échantillons identiques", VALIDATION / "spatial_emissions_2024_predictor_block_tests_2026-10-20.csv"),
-        ("Corrélations entre prédicteurs", VALIDATION / "spatial_emissions_2024_predictor_correlations_2026-10-20.csv"),
-        ("Facteurs d’inflation de variance (VIF)", VALIDATION / "spatial_emissions_2024_predictor_vif_2026-10-20.csv"),
+        ("Bilan comptable 2024 par unité", VALIDATION / "emissions_2024_accounting_balance_by_unit.csv"),
+        ("Bilan comptable 2024 par groupes", VALIDATION / "emissions_2024_accounting_balance_groups.csv"),
+        ("Audit des échantillons spatiaux", VALIDATION / "spatial_emissions_2024_sample_audit.csv"),
+        ("Étape 1 - Moran sur Y et résidus OLS", VALIDATION / "spatial_emissions_2024_step1_moran.csv"),
+        ("Étape 2 - tests LM et robustes", VALIDATION / "spatial_emissions_2024_step2_lm_tests.csv"),
+        ("Étape 3 - rapports de vraisemblance des modèles emboîtés", VALIDATION / "spatial_emissions_2024_step3_nested_tests.csv"),
+        ("Table consolidée des quatre étapes de comparaison spatiale", VALIDATION / "spatial_emissions_2024_model_selection_evidence.csv"),
+        ("Estimation et critères d’ajustement des 168 modèles", VALIDATION / "spatial_emissions_2024_model_fit.csv"),
+        ("Coefficients de tous les modèles spatiaux", VALIDATION / "spatial_emissions_2024_model_coefficients.csv"),
+        ("Coefficients ciblés pour les variables étudiées", VALIDATION / "spatial_emissions_2024_focus_coefficients.csv"),
+        ("Tests d’ajout des blocs émissions/population sur échantillons identiques", VALIDATION / "spatial_emissions_2024_predictor_block_tests.csv"),
+        ("Corrélations entre prédicteurs", VALIDATION / "spatial_emissions_2024_predictor_correlations.csv"),
+        ("Facteurs d’inflation de variance (VIF)", VALIDATION / "spatial_emissions_2024_predictor_vif.csv"),
     ]
     sections.extend(block(title, path) for title, path in csv_specs)
 
-    DEST.write_text(base.rstrip() + "\n\n" + "\n\n".join(sections) + "\n", encoding="utf-8")
+    temporary = DEST.with_suffix(DEST.suffix + ".tmp")
+    temporary.write_text(base.rstrip() + "\n\n" + "\n\n".join(sections) + "\n", encoding="utf-8")
+    temporary.replace(DEST)
+    BASE.unlink(missing_ok=True)
     print(json.dumps({"path": str(DEST), "bytes": DEST.stat().st_size, "coverage": required,
                       "models": len(fit), "all_models_converged": bool(fit.optimizer_success.all()),
                       "moran_rows": len(moran), "lm_rows": len(lm), "nested_rows": len(nested)}, indent=2))

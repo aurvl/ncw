@@ -78,7 +78,7 @@ def build_comparison() -> pd.DataFrame:
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     table = build_comparison()
-    path = OUT / "mangrove_area_source_comparison_2026-10-15.csv"
+    path = OUT / "mangrove_area_source_comparison.csv"
     table.to_csv(path, index=False)
     positive = lambda name: table[name].fillna(0).sum()  # noqa: E731
     print(f"Wrote {path}")
@@ -92,7 +92,7 @@ def main() -> None:
     scenarios["indicative_billion_2015usd_yr_at_fixed_price"] = (
         scenarios["burial_MtC_yr_at_fixed_rate"] * 44.0 / 12.0 * GSCC_USD_PER_TCO2 / 1000.0
     )
-    scenarios.to_csv(OUT / "mangrove_area_fixed_rate_scenarios_2026-10-15.csv", index=False)
+    scenarios.to_csv(OUT / "mangrove_area_fixed_rate_scenarios.csv", index=False)
     matched = table.dropna(subset=["fra_mangroves_ha", "hilmi_mangroves_ha", "gmw_mangroves_ha"])
     print(f"All three sources matched by ISO3: {len(matched)} units")
     print(f"FRA mangroves > total forest: {table['fra_mangroves_exceed_forest'].sum()} units")
