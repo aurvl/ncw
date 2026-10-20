@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/Natural_wealth-4F46E5?style=for-the-badge" alt="Natural wealth">
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.11 or newer">
   <a href="LICENSE"><img src="https://img.shields.io/badge/Code-MIT-111827?style=for-the-badge" alt="MIT licensed code"></a>
-  <a href="LICENSE-CC-BY-4.0.md"><img src="https://img.shields.io/badge/Data_and_docs-CC_BY_4.0-7C3AED?style=for-the-badge" alt="CC BY 4.0 data and documentation"></a>
+  <a href="LICENSE-CCBY40.md"><img src="https://img.shields.io/badge/Data_and_docs-CC_BY_4.0-7C3AED?style=for-the-badge" alt="CC BY 4.0 data and documentation"></a>
 </p>
 
 **Research code, source data, derived accounts, and analysis outputs for the national natural carbon wealth study.**
@@ -62,7 +62,7 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 ├── .github/                       automated tests and repository workflows
 ├── CITATION.cff                   repository citation metadata
 ├── LICENSE                        MIT licence for code
-└── LICENSE-CC-BY-4.0.md           CC BY 4.0 terms for project data and documentation
+└── LICENSE-CCBY40.md              CC BY 4.0 terms for project data and documentation
 ```
 
 ### Where to start
@@ -143,7 +143,7 @@ The validation folder also contains intermediate audits and local rendering chec
 ## Data, licensing, and citation
 
 - Code: MIT, see [`LICENSE`](LICENSE).
-- Project-produced data and documentation: CC BY 4.0, see [`LICENSE-CC-BY-4.0.md`](LICENSE-CC-BY-4.0.md).
+- Project-produced data and documentation: CC BY 4.0, see [`LICENSE-CCBY40.md`](LICENSE-CCBY40.md).
 - Source datasets retain their own licences and citation requirements. See [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md).
 - Repository citation metadata: [`CITATION.cff`](CITATION.cff).
 
