@@ -26,7 +26,7 @@ This repository rebuilds country-level forest and marine carbon accounts and com
 - **Forest account.** Annual carbon additions to above- and below-ground living forest biomass are estimated using Gibbs/GFW gross-removal pixels for 2001-2023. Four non-mangrove mean rates are calculated for the tropical, subtropical, temperate, and boreal FAO GEZ domains and applied to FRA 2025 forest area allocated by biome. This measure does not include forest soils, deadwood, or the net ecosystem carbon balance.
 - **Marine account.** Published Blue Carbon Wealth (BCW) components are combined with a spatial update of mangrove area from Global Mangrove Watch 2025. The update changes mangrove area; the other BCW components and source-specific rates are retained.
 - **National account.** Green Carbon Wealth (GCW) and Blue Carbon Wealth (BCW) are combined as Natural Carbon Wealth (NCW). The primary uncertainty draws propagate the GSCC draws. Spatial variation in Gibbs/GFW pixels is reported as a separate sensitivity, not as a confidence interval for the biome rates.
-- **Complementary analyses.** FAOSTAT forest flux, deforestation-related capacity loss, Ibrahim and Busch climate-finance scenarios, and spatial model sequences are retained as separately documented analyses.
+- **Complementary analyses.** FAOSTAT forest flux, deforestation-related capacity loss, a 2% GCW allocation scenario, the Busch et al. reforestation action-cost comparison ([2024](https://doi.org/10.1038/s41558-024-02068-1)), and spatial model sequences are retained as separately documented analyses.
 
 See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md), and [`docs/DATA_AUDIT.md`](docs/DATA_AUDIT.md) for definitions, sources, and checks.
 
@@ -125,8 +125,6 @@ data/raw/environmental/forest/gfw_gibbs_2025/forest_type/
 ```
 
 Then use `python code/scripts/build_gfw_rates.py --forest-type-dir data/raw/environmental/forest/gfw_gibbs_2025/forest_type --workers 2`. Increase the worker count only when memory permits. The GMW polygon archive is also large and is excluded from Git; download, checksum, and overlay instructions are in [`docs/GMW_GCW_VALUATION_AND_ABATEMENT_SCENARIOS.md`](docs/GMW_GCW_VALUATION_AND_ABATEMENT_SCENARIOS.md).
-
-To verify files that are present locally, run `python code/scripts/checksum_raw_sources.py --raw data/raw --output raw_checksums_local.csv`, then compare its SHA-256 values with `data/metadata/raw_checksums.csv`. Raw input files remain unchanged; see [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) for source-specific licences and citations.
 
 ## Results and manuscript material
 
