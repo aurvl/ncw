@@ -1,6 +1,6 @@
 """Q: What do the main tables of the paper show?
 
-All aggregates are summed draw by draw before being summarised (C8).
+All aggregates are summed draw by draw before being summarised.
 Outputs (results/tables/):
 - table1_global_by_ecosystem.csv  : tCO2/yr and US$2015/yr per ecosystem, BCW, GCW and NCW
 - table2_by_continent.csv         : GCW, BCW, NCW by continent

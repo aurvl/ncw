@@ -45,7 +45,7 @@ The GMW v4.1.12 annual series is the latest complete global extent product curre
 | File | Content |
 |---|---|
 | `reference/pan_biome_areas.csv` | Pan biome areas and published rates (transcribed) |
-| `reference/territory_crosswalk.csv` | BCW territory → accounting unit, with decision, author and date (C12) |
+| `reference/territory_crosswalk.csv` | Mapping of BCW territories to FRA accounting units, with the classification used for each territory |
 
 The Gibbs/GFW raster processing writes `summary/gfw_gibbs_biome_rates.csv` and per-tile audit rows to `summary/gfw_gibbs_tile_rates.csv`. The global biome table reports the count and share of negative source pixels by biome.
 

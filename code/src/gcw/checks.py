@@ -110,7 +110,7 @@ def global_checks(forest_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict)
     gap = float(np.max(np.abs(bcw_units_world - bcw_rows_world) / np.abs(bcw_rows_world)))
     add("world BCW = published rows + GMW mangrove area adjustment (draw by draw)", gap, "< 1e-5", gap < 1e-5)
     gapfill = pd.read_csv(SUMMARY / "bcw_mangrove_gapfill.csv")
-    add("units with FRA mangroves but no BCW mangroves, gap-filled (C18)",
+    add("units with FRA mangroves but no BCW mangroves, gap-filled",
         f"{len(gapfill)} units, {gapfill['fra_mangroves_km2'].sum():,.0f} km2", "documented", True)
 
     mapping = pd.read_csv(SUMMARY / "bcw_territory_mapping.csv")
@@ -118,7 +118,7 @@ def global_checks(forest_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict)
         not mapping["bcw_code"].duplicated().any())
     territories = pd.read_csv(SUMMARY / "territories.csv")
     published = pd.read_csv(BCW_COUNTRY_CSV)["Population"].sum()
-    add("world population: units vs published BCW rows (duplicated parts removed, C12)",
+    add("world population: units vs published BCW rows (duplicated parts removed)",
         f"{territories['population'].sum():.4e} vs {published:.4e}", "units <= published", territories["population"].sum() <= published)
 
     ncw_world = np.nansum(ncw["ncw_usd2015_yr"], axis=0)

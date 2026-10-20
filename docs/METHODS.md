@@ -5,8 +5,6 @@ selectively removes only report-documented FRA forest-mangrove overlap from GCW.
 Conditional GSCC valuation and the Rickels-style forest-loss abatement-cost
 scenario are documented in `docs/GMW_GCW_VALUATION_AND_ABATEMENT_SCENARIOS.md`.
 
-Subjective choices and their alternatives are documented in `MYCHOICES.md` (kept with the manuscript, outside this repository); `C#` references below point to it.
-
 ## 1. Accounting object
 
 For accounting unit `i`, Green Carbon Wealth values annual carbon additions to
@@ -24,7 +22,7 @@ analysed separately. The measure is not the net carbon balance of every forest
 ecosystem pool. GCW and NCW are annual welfare values, not stock values, market
 prices, finance needs or additional mitigation.
 
-## 2. Accounting units (C12)
+## 2. Accounting units
 
 Units are the FRA 2025 countries and territories. BCW rows are mapped onto them with `data/reference/territory_crosswalk.csv`:
 
@@ -36,9 +34,9 @@ Units are the FRA 2025 countries and territories. BCW rows are mapped onto them 
 
 ## 3. Forest areas
 
-FRA 2025 total forest area $F_i$ and mangrove area $M_i$ for 2025, in hectares. Naturally regenerating forest (NRF), planted forest and primary forest (PR) are kept as descriptive variables only: $F = NRF + Planted$ and $PR \subset NRF$, so PR is never added to NRF or planted forest (C17).
+FRA 2025 total forest area $F_i$ and mangrove area $M_i$ for 2025, in hectares. Naturally regenerating forest (NRF), planted forest and primary forest (PR) are kept as descriptive variables only: $F = NRF + Planted$ and $PR \subset NRF$, so PR is never added to NRF or planted forest.
 
-## 4. Biome shares (C2)
+## 4. Biome shares
 
 FAO Global Ecological Zones 2010 and EEZ_land_union v4 country polygons are rasterised on the grid of the JRC Global Forest Cover 2020 map (~2.3 km). For each country, forest pixel areas $a(\text{lat}) = R^2 \Delta\phi\, \Delta\lambda \cos(\text{lat})$ are summed by biome (first digit of the GEZ code; polar → boreal; water excluded):
 
@@ -48,7 +46,7 @@ $$
 
 Countries not resolved by the grid use FRA-reported climatic-domain shares.
 
-## 5. Four forest biomes and mangroves (C17, C7)
+## 5. Four forest biomes and mangroves
 
 Country forest area by biome is FRA 2025 total forest area multiplied by the four FAO Global Ecological Zones (GEZ) shares. A country-report audit identified nine cases where the exact mangrove class area matches FRA's 2025 mangrove total and the national crosswalk assigns 100% of that class to FRA Forest: BHS, KEN, KIR, PNG, VCT, WSM, SGP, TLS and TON. Their combined documented overlap is 495,400 ha. Only this documented amount is removed from the tropical allocation:
 
@@ -59,7 +57,7 @@ $$
 
 FRA defines its separately reported mangrove category as forest **and** other wooded land, so the whole reported mangrove total cannot be subtracted from the forest total. One audited report assigns its matched mangrove class entirely to other wooded land (LCA; 220 ha), so it is not subtracted. The split remains unresolved for three cases (PAK, SHN, TCA) and was not verified for 103 other positive-reporting units. Those areas are retained in FRA forest totals rather than assumed to be wholly inside or wholly outside forest. This conservative rule avoids unsupported subtraction but may leave some true overlap with the new BCW mangrove layer; that possible residual double attribution is disclosed as a limitation. The original category exceeds the GEZ tropical allocation in three units, which remains an audit warning only; it no longer drives a clipped area subtraction. The evidence table is `data/derived/fra_mangrove_forest_overlap_2025.csv`.
 
-## 6. Gibbs/GFW gross rates to living biomass (C28)
+## 6. Gibbs/GFW gross rates to living biomass
 
 The main rate source is the published Gibbs et al. (2025) / Global Forest Watch gross-removals raster set for 2001-2023. Its pixel values represent cumulative CO2 removals per hectare into above- and below-ground living biomass. For each modeled forest pixel, the pipeline divides the cumulative value by 23 and converts CO2 to carbon:
 
@@ -92,7 +90,7 @@ Both per-hectare columns are **our estimates from the published rasters**. They 
 
 The selected sensitivity analysis recomputes country estimates with $q_b- SD_b$ (floored at zero) and $q_b+SD_b$. These are deterministic spatial-dispersion scenarios, separate from the main estimate and from the GSCC Monte Carlo draws. Gibbs/GFW rates summarize 2001-2023, while the country areas are FRA 2025; this temporal pairing is an explicit approximation. The source's spatial model uses a hierarchy of factors, including IPCC defaults and region- or forest-type-specific factors; the IPCC comparison is therefore not fully independent.
 
-## 7. Country uptake (C1, C28)
+## 7. Country uptake
 
 $$
 C_i = A_{i,T}q_T + A_{i,ST}q_{ST} + A_{i,Te}q_{Te} + A_{i,B}q_B,
@@ -101,11 +99,11 @@ $$
 
 Here $C_i$ is the annual addition to living above- and below-ground biomass under the chosen indicator. The deforestation-related loss is assessed separately; it is not subtracted from this gross-addition measure.
 
-## 8. Net flux - Route A, complementary (C1, C4)
+## 8. Net flux - Route A, complementary
 
 FAOSTAT *Emissions from forests*, Item `Forestland`, Element `Net emissions/removals (CO2) (Forest land)`, source `FAO TIER 1`; sign flipped so removals are positive; mean 2015-2024. This is removals minus losses (it can be negative) and it includes mangroves.
 
-## 9. Uncertainty and spatial sensitivity (C8, C15, C28)
+## 9. Uncertainty and spatial sensitivity
 
 Monte Carlo with $B = 20\,000$ draws.
 
@@ -125,4 +123,4 @@ BCW draw rows are re-aligned to the published BCW table (matching mean and Monte
 
 ## 10. Aggregation and reporting
 
-Every total (continent, group, world) is summed draw by draw, then summarised by the mean, standard deviation and 5th, 50th and 95th percentiles. Standard deviations are never added. The reported standard deviation is the spread of the value, not the Monte Carlo standard error of the mean (C14).
+Every total (continent, group, world) is summed draw by draw, then summarised by the mean, standard deviation and 5th, 50th and 95th percentiles. Standard deviations are never added. The reported standard deviation is the spread of the value, not the Monte Carlo standard error of the mean.

@@ -1,21 +1,21 @@
 """Q (Route B): How much CO2 does each country's forest absorb per year?
 
-For country i (C17):
-    A_i,T  = forest_i x (s_i,tropical + s_i,subtropical)  - mangroves_i   (C7)
+For country i:
+    A_i,T  = forest_i x (s_i,tropical + s_i,subtropical)  - mangroves_i
     A_i,Te = forest_i x s_i,temperate
     A_i,B  = forest_i x s_i,boreal
     C_i    = A_i,T q_T + A_i,Te q_Te + A_i,B q_B   (tC/yr),   U_i = C_i x 44/12   (tCO2/yr)
 
 Mangroves, counted in BCW, are removed from the tropical area (they only occur in tropical and
-subtropical zones); a variant keeps them for the C7 alternative.
+subtropical zones); a variant keeps them for the alternative specification.
 
 Outputs:
 - data/derived/forest_area_by_biome.csv    : ha per country x Pan biome x variant (FRA AREA_YEAR)
 - data/derived/forest_uptake_pan.csv       : tCO2/yr per country (mean, sd, percentiles)
 - data/derived/draws/forest_uptake_pan.npz : (N, B) tCO2/yr draws, with and without mangroves
 
-Each rate is drawn once per draw from a normal distribution truncated at zero (C15) and shared by
-all countries, so countries in the same biome are perfectly correlated (C8).
+Each rate is drawn once per draw from a normal distribution truncated at zero and shared by
+all countries, so countries in the same biome are perfectly correlated.
 """
 
 from __future__ import annotations
