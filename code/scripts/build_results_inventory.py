@@ -19,7 +19,8 @@ from scipy import stats
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "results"
 DATA = ROOT / "data"
-DEST = OUT / "validation" / "RESULTS_INVENTORY_2026-10-19.txt"
+NEXT = ROOT.parent / "NEXT"
+DEST = NEXT / ".RESULTS_INVENTORY_BASE.tmp.txt"
 GROUP_ORDER = ["Developed economies", "Developing economies", "LDCs", "SIDS"]
 INTERVALS = ["1990-2000", "2000-2010", "2010-2015", "2015-2020", "2020-2025"]
 MIDPOINTS = np.array([1995, 2005, 2012.5, 2017.5, 2022.5], dtype=float)
@@ -73,20 +74,20 @@ def main() -> None:
     gmw_area_audit = pd.read_csv(OUT / "validation" / "gmw_2025_corrected_area_audit_by_source.csv")
     gmw_bcw_world = pd.read_csv(OUT / "validation" / "gmw_2025_spatial_bcw_world.csv")
     gmw_bcw_units = pd.read_csv(OUT / "validation" / "gmw_2025_spatial_bcw_by_unit.csv")
-    spatial_moran = pd.read_csv(OUT / "validation" / "spatial_moran_comparison_2026-10-19.csv")
-    spatial_models = pd.read_csv(OUT / "validation" / "spatial_models_comparison_2026-10-19.csv")
-    spatial_samples = pd.read_csv(OUT / "validation" / "spatial_sample_audit_2026-10-19.csv")
-    spatial_residuals = pd.read_csv(OUT / "validation" / "spatial_ols_residual_moran_2026-10-19.csv")
-    spatial_sequence_moran = pd.read_csv(OUT / "validation" / "spatial_sequence_step1_moran_2026-10-19.csv")
-    spatial_lm = pd.read_csv(OUT / "validation" / "spatial_sequence_step2_lm_tests_2026-10-19.csv")
-    spatial_nested = pd.read_csv(OUT / "validation" / "spatial_sequence_step3_nested_tests_2026-10-19.csv")
-    spatial_fit = pd.read_csv(OUT / "validation" / "spatial_sequence_model_fit_2026-10-19.csv")
-    spatial_coefficients = pd.read_csv(OUT / "validation" / "spatial_sequence_model_coefficients_2026-10-19.csv")
-    ibrahim = pd.read_csv(OUT / "validation" / "ibrahim_2pct_and_pledge_allocations_2026-10-19.csv")
-    busch = pd.read_csv(OUT / "validation" / "busch_action_curve_country_scenarios_2026-10-19.csv")
-    busch_status = pd.read_csv(OUT / "validation" / "busch_action_curve_status_summary_2026-10-19.csv")
-    finance_summary = json.loads((OUT / "validation" / "finance_action_cost_comparison_2026-10-19.json").read_text(encoding="utf-8"))
-    spatial_diagnostics = json.loads((OUT / "validation" / "spatial_analysis_diagnostics_2026-10-19.json").read_text(encoding="utf-8"))
+    spatial_moran = pd.read_csv(OUT / "validation" / "spatial_moran_comparison.csv")
+    spatial_models = pd.read_csv(OUT / "validation" / "spatial_models_comparison.csv")
+    spatial_samples = pd.read_csv(OUT / "validation" / "spatial_sample_audit.csv")
+    spatial_residuals = pd.read_csv(OUT / "validation" / "spatial_ols_residual_moran.csv")
+    spatial_sequence_moran = pd.read_csv(OUT / "validation" / "spatial_sequence_step1_moran.csv")
+    spatial_lm = pd.read_csv(OUT / "validation" / "spatial_sequence_step2_lm_tests.csv")
+    spatial_nested = pd.read_csv(OUT / "validation" / "spatial_sequence_step3_nested_tests.csv")
+    spatial_fit = pd.read_csv(OUT / "validation" / "spatial_sequence_model_fit.csv")
+    spatial_coefficients = pd.read_csv(OUT / "validation" / "spatial_sequence_model_coefficients.csv")
+    ibrahim = pd.read_csv(OUT / "validation" / "ibrahim_2pct_and_pledge_allocations.csv")
+    busch = pd.read_csv(OUT / "validation" / "busch_action_curve_country_scenarios.csv")
+    busch_status = pd.read_csv(OUT / "validation" / "busch_action_curve_status_summary.csv")
+    finance_summary = json.loads((OUT / "validation" / "finance_action_cost_comparison.json").read_text(encoding="utf-8"))
+    spatial_diagnostics = json.loads((OUT / "validation" / "spatial_analysis_diagnostics.json").read_text(encoding="utf-8"))
 
     # Per-biome national area x clean rate.
     main_area = areas.loc[areas.variant.eq("documented_overlap_removed")]

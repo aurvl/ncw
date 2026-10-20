@@ -17,7 +17,7 @@ from lxml import etree
 
 ROOT = Path(__file__).resolve().parents[2]
 PAPER = ROOT.parent / "NEXT" / "PAPER.docx"
-BACKUP = ROOT / "results" / "validation" / "PAPER_before_Gibbs_methods_2026-10-16.docx"
+BACKUP = ROOT / "results" / "validation" / "PAPER_before_Gibbs_methods.docx"
 
 
 REPLACEMENTS = {

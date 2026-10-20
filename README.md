@@ -70,10 +70,10 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 | Recalculate Gibbs/GFW biome rates | [`code/scripts/build_gfw_rates.py`](code/scripts/build_gfw_rates.py) | `data/derived/gfw_gibbs_biome_rates_non_mangrove.csv` |
 | Inspect the forest calculation | `code/src/gcw/forest_areas.py`, `biome_shares.py`, `gfw_rates.py`, `forest_uptake_gfw.py` | `data/derived/` |
 | Rebuild account tables and checks | `code/src/gcw/gcw.py`, `ncw.py`, `tables.py`, `checks.py` | `results/` |
-| Reproduce the spatial sequence | [`code/scripts/run_spatial_full_sequence_2026_10_19.py`](code/scripts/run_spatial_full_sequence_2026_10_19.py) | `docs/SPATIAL_MODEL_SELECTION_EVIDENCE_2026-10-20.md` |
-| Run the 2024 emissions extension | [`code/scripts/run_spatial_emissions_extension_2026_10_20.py`](code/scripts/run_spatial_emissions_extension_2026_10_20.py) | `results/validation/` |
-| Compare climate-finance approaches | [`code/scripts/compare_finance_and_action_costs_2026_10_19.py`](code/scripts/compare_finance_and_action_costs_2026_10_19.py) | `docs/FINANCE_APPROACH_COMPARISON_2026-10-19.md` |
-| Find the full results inventory | `results/validation/RESULTS_INVENTORY_2026-10-20.txt` | Detailed measures, comparisons, and diagnostics |
+| Reproduce the spatial sequence | [`code/scripts/run_spatial_full_sequence.py`](code/scripts/run_spatial_full_sequence.py) | `docs/SPATIAL_MODEL_SELECTION_EVIDENCE.md` |
+| Run the 2024 emissions extension | [`code/scripts/run_spatial_emissions_extension.py`](code/scripts/run_spatial_emissions_extension.py) | `results/validation/` |
+| Compare climate-finance approaches | [`code/scripts/compare_finance_and_action_costs.py`](code/scripts/compare_finance_and_action_costs.py) | `docs/FINANCE_APPROACH_COMPARISON.md` |
+| Find the full results inventory | `../NEXT/RESULTS_INVENTORY.txt` (local working file, outside Git) | Detailed measures, comparisons, and diagnostics |
 
 The reusable calculation modules in `code/src/gcw/` are the source of truth. Scripts call those modules. Notebooks are used for analysis and figures, not as hidden replacements for the pipeline.
 
@@ -131,10 +131,10 @@ To verify files that are present locally, run `python code/scripts/checksum_raw_
 | `results/country_level_ncw.csv` | Combined forest and marine account by unit |
 | `results/tables/manuscript/` | Main-text and supplementary tables |
 | `results/figures/paper_v2/` | Current paper figures |
-| `results/validation/country_level_results_master_2026-10-20.csv` | Consolidated country-level analysis table |
-| `results/validation/RESULTS_INVENTORY_2026-10-20.txt` | Full inventory of generated findings and diagnostics |
+| `results/validation/country_level_results_master.csv` | Consolidated country-level analysis table |
+| `../NEXT/RESULTS_INVENTORY.txt` | Full inventory of generated findings and diagnostics; stored outside the repository |
 
-The validation folder also contains intermediate audits and local rendering checks. Those files are not all manuscript outputs. The current paragraph-by-paragraph Results plan is [`docs/RESULTS_REWRITE_PLAN_2026-10-19.md`](docs/RESULTS_REWRITE_PLAN_2026-10-19.md).
+The validation folder also contains intermediate audits and local rendering checks. Those files are not all manuscript outputs. The current paragraph-by-paragraph Results plan is [`docs/RESULTS_REWRITE_PLAN.md`](docs/RESULTS_REWRITE_PLAN.md). To regenerate the full inventory, run `python code/scripts/build_results_inventory.py` followed by `python code/scripts/extend_results_inventory_2024.py`; the temporary intermediate is removed after the final inventory is written to the local `NEXT` folder, outside the repository.
 
 ## Data, licensing, and citation
 
