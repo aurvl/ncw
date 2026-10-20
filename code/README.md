@@ -12,7 +12,7 @@ The reusable calculations live in `code/src/gcw/`. Scripts are command-line entr
 | National accounts | `code/src/gcw/gcw.py`, `ncw.py`, `tables.py` | `code/scripts/main.py` |
 | Marine-area update and audits | scripts named `gmw`, `mangrove`, and `bcw` | `data/derived/` and `results/validation/` |
 | Socioeconomic and emissions inputs | scripts named `socioeconomic` and `spatial` | `data/derived/` and `results/validation/` |
-| Climate-finance comparisons | `code/scripts/compare_finance_and_action_costs.py` | `docs/FINANCE_APPROACH_COMPARISON.md` |
+| Climate-finance comparisons | `code/scripts/compare_finance_and_action_costs.py` | `results/validation/` |
 
 ## Command-line scripts
 
