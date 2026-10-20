@@ -1,1 +1,2 @@
-data_source/raw/** -text
+data/raw/** -text
+data/raw/** whitespace=-blank-at-eol,-blank-at-eof

@@ -1,0 +1,297 @@
+bcw_code,bcw_name,case,unit_code,is_main_part,add_socioeconomics,decision,role
+AE,"Abu musa, Greater and Lesser Tunb",D. Zone contestée ou revendications multiples,AE,False,False,keep separate (BCW only),unit_row
+AFG,Afghanistan,same code,AFG,False,False,,unit_row
+US-AK,Alaska,B. Sous-territoire BCW inclus dans le pays FRA,USA,False,False,regroup under FRA country,part
+ALB,Albania,same code,ALB,False,False,,unit_row
+DZA,Algeria,same code,DZA,False,False,,unit_row
+ES-ALH,Alhucemas Islands,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,part
+ASM,American Samoa,same code,ASM,False,False,,unit_row
+ATF-1,Amsterdam and Saint Paul Islands,C. Dépendance absente de FRA (sans donnée forêt),ATF-1,False,False,keep separate (BCW only),unit_row
+IN-AN,Andaman and Nicobar,B. Sous-territoire BCW inclus dans le pays FRA,IND,False,False,regroup under FRA country,part
+AND,Andorra,same code,AND,False,False,,unit_row
+AGO,Angola,same code,AGO,False,False,,unit_row
+AIA,Anguilla,same code,AIA,False,False,,unit_row
+ATA,Antarctica,C. Dépendance absente de FRA (sans donnée forêt),ATA,False,False,keep separate (BCW only),unit_row
+ATG,Antigua and Barbuda,same code,ATG,False,False,,unit_row
+ARG,Argentina,same code,ARG,False,False,,unit_row
+ARM,Armenia,same code,ARM,False,False,,unit_row
+ABW,Aruba,same code,ABW,False,False,,unit_row
+SHN-1,Ascension,"A. Pays découpé dans BCW, agrégé dans FRA",SHN,False,False,regroup under FRA country,part
+AUS,Australia,same code,AUS,False,False,,unit_row
+AUT,Austria,same code,AUT,False,False,,unit_row
+AZE,Azerbaijan,same code,AZE,False,False,,unit_row
+PT-20,Azores,B. Sous-territoire BCW inclus dans le pays FRA,PRT,False,False,regroup under FRA country,part
+BHS,Bahamas,same code,BHS,False,False,,unit_row
+BHR,Bahrain,same code,BHR,False,False,,unit_row
+CO-BN,Bajo Nuevo Bank,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,part
+BGD,Bangladesh,same code,BGD,False,False,,unit_row
+BRB,Barbados,same code,BRB,False,False,,unit_row
+ATF-2,Bassas da India,C. Dépendance absente de FRA (sans donnée forêt),ATF-2,False,False,keep separate (BCW only),unit_row
+BLR,Belarus,same code,BLR,False,False,,unit_row
+BEL,Belgium,same code,BEL,False,False,,unit_row
+BLZ-1,Belize,"A. Pays découpé dans BCW, agrégé dans FRA",BLZ,True,False,regroup under FRA country,main_part
+BEN,Benin,same code,BEN,False,False,,unit_row
+BMU,Bermuda,same code,BMU,False,False,,unit_row
+BTN,Bhutan,same code,BTN,False,False,,unit_row
+BOL,Bolivia,same code,BOL,False,False,,unit_row
+BES-1,Bonaire,"A. Pays découpé dans BCW, agrégé dans FRA",BES,True,False,regroup under FRA country,main_part
+BIH,Bosnia and Herzegovina,same code,BIH,False,False,,unit_row
+BWA,Botswana,same code,BWA,False,False,,unit_row
+BVT,Bouvet,C. Dépendance absente de FRA (sans donnée forêt),BVT,False,False,keep separate (BCW only),unit_row
+BRA,Brazil,same code,BRA,False,False,,unit_row
+VGB,British Virgin Islands,same code,VGB,False,False,,unit_row
+BRN,Brunei,same code,BRN,False,False,,unit_row
+BGR,Bulgaria,same code,BGR,False,False,,unit_row
+BFA,Burkina Faso,same code,BFA,False,False,,unit_row
+BDI,Burundi,same code,BDI,False,False,,unit_row
+KHM,Cambodia,same code,KHM,False,False,,unit_row
+CMR,Cameroon,same code,CMR,False,False,,unit_row
+CAN,Canada,same code,CAN,False,False,,unit_row
+ES-CN,Canary Islands,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,part
+CPV,Cape Verde,same code,CPV,False,False,,unit_row
+CYM,Cayman Islands,same code,CYM,False,False,,unit_row
+CAF,Central African Republic,same code,CAF,False,False,,unit_row
+ES-CE,Ceuta,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,part
+TCD,Chad,same code,TCD,False,False,,unit_row
+ES-CHAF,Chafarinas Islands,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,part
+IO,Chagos Archipelago,D. Zone contestée ou revendications multiples,IO,False,False,keep separate (BCW only),unit_row
+CHL-1,Chile,"A. Pays découpé dans BCW, agrégé dans FRA",CHL,True,False,regroup under FRA country,main_part
+CHN,China,same code,CHN,False,False,,unit_row
+CXR,Christmas Island,C. Dépendance absente de FRA (sans donnée forêt),CXR,False,False,keep separate (BCW only),unit_row
+CP,Clipperton Island,C. Dépendance absente de FRA (sans donnée forêt),CP,False,False,keep separate (BCW only),unit_row
+CCK,Cocos Islands,C. Dépendance absente de FRA (sans donnée forêt),CCK,False,False,keep separate (BCW only),unit_row
+MAF,Collectivity of Saint Martin,same code,MAF,False,False,,unit_row
+COL,Colombia,same code,COL,False,False,,unit_row
+CO-QS,Colombian Exclusive Economic Zone (Quitasueño Bank),B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,part
+COM,Comores,same code,COM,False,False,,unit_row
+COK,Cook Islands,same code,COK,False,False,,unit_row
+CRI,Costa Rica,same code,CRI,False,False,,unit_row
+HRV,Croatia,same code,HRV,False,False,,unit_row
+ATF-3,Crozet Islands,C. Dépendance absente de FRA (sans donnée forêt),ATF-3,False,False,keep separate (BCW only),unit_row
+CUB,Cuba,same code,CUB,False,False,,unit_row
+CUW,Curaçao,same code,CUW,False,False,,unit_row
+CYP,Cyprus,same code,CYP,False,False,,unit_row
+CZE,Czech Republic,same code,CZE,False,False,,unit_row
+COD,Democratic Republic of the Congo,same code,COD,False,False,,unit_row
+DNK,Denmark,same code,DNK,False,False,,unit_row
+DJI,Djibouti,same code,DJI,False,False,,unit_row
+DMA,Dominica,same code,DMA,False,False,,unit_row
+DOM,Dominican Republic,same code,DOM,False,False,,unit_row
+DJ,Doumeira Islands,D. Zone contestée ou revendications multiples,DJ,False,False,keep separate (BCW only),unit_row
+TLS,East Timor,same code,TLS,False,False,,unit_row
+CL-EI,Easter Island,B. Sous-territoire BCW inclus dans le pays FRA,CHL,False,False,regroup under FRA country,part
+ECU,Ecuador,same code,ECU,False,False,,unit_row
+EGY,Egypt,same code,EGY,False,False,,unit_row
+SLV,El Salvador,same code,SLV,False,False,,unit_row
+GNQ,Equatorial Guinea,same code,GNQ,False,False,,unit_row
+ERI,Eritrea,same code,ERI,False,False,,unit_row
+EST,Estonia,same code,EST,False,False,,unit_row
+ETH,Ethiopia,same code,ETH,False,False,,unit_row
+ATF-4,Europa Island,C. Dépendance absente de FRA (sans donnée forêt),ATF-4,False,False,keep separate (BCW only),unit_row
+FRO,Faeroe,same code,FRO,False,False,,unit_row
+FLK,Falkland Islands,D. Zone contestée ou revendications multiples,FLK,False,False,keep separate (BCW only),unit_row
+SOM,Federal Republic of Somalia,same code,SOM,False,False,,unit_row
+FJI,Fiji,same code,FJI,False,False,,unit_row
+FIN,Finland,same code,FIN,False,False,,unit_row
+FRA,France,same code,FRA,False,False,,unit_row
+GUF,French Guiana,same code,GUF,False,False,,unit_row
+PYF,French Polynesia,same code,PYF,False,False,,unit_row
+GAB,Gabon,same code,GAB,False,False,,unit_row
+EC-W,Galapagos,B. Sous-territoire BCW inclus dans le pays FRA,ECU,False,False,regroup under FRA country,part
+GMB,Gambia,same code,GMB,False,False,,unit_row
+GEO,Georgia,same code,GEO,False,False,,unit_row
+DEU,Germany,same code,DEU,False,False,,unit_row
+GHA,Ghana,same code,GHA,False,False,,unit_row
+GIB,Gibraltar,same code,GIB,False,False,,unit_row
+FR-GLO,Glorioso Islands,D. Zone contestée ou revendications multiples,FR-GLO,False,False,keep separate (BCW only),unit_row
+LUX,Grand Duchy of Luxembourg,same code,LUX,False,False,,unit_row
+GRC,Greece,same code,GRC,False,False,,unit_row
+GRL,Greenland,same code,GRL,False,False,,unit_row
+GRD,Grenada,same code,GRD,False,False,,unit_row
+GLP,Guadeloupe,same code,GLP,False,False,,unit_row
+GUM,Guam,same code,GUM,False,False,,unit_row
+GTM,Guatemala,same code,GTM,False,False,,unit_row
+GGY,Guernsey,same code,GGY,False,False,,unit_row
+GIN,Guinea,same code,GIN,False,False,,unit_row
+GNB,Guinea-Bissau,same code,GNB,False,False,,unit_row
+GUY,Guyana,same code,GUY,False,False,,unit_row
+HTI,Haiti,same code,HTI,False,False,,unit_row
+SD,Hala'ib Triangle,D. Zone contestée ou revendications multiples,SD,False,False,keep separate (BCW only),unit_row
+US-HI,Hawaii,B. Sous-territoire BCW inclus dans le pays FRA,USA,False,False,regroup under FRA country,part
+HMD,Heard and McDonald Islands,C. Dépendance absente de FRA (sans donnée forêt),HMD,False,False,keep separate (BCW only),unit_row
+HND,Honduras,same code,HND,False,False,,unit_row
+UMI-1,Howland and Baker islands,C. Dépendance absente de FRA (sans donnée forêt),UMI-1,False,False,keep separate (BCW only),unit_row
+HUN,Hungary,same code,HUN,False,False,,unit_row
+ISL,Iceland,same code,ISL,False,False,,unit_row
+IND,India,same code,IND,False,False,,unit_row
+IDN,Indonesia,same code,IDN,False,False,,unit_row
+IRN,Iran,same code,IRN,False,False,,unit_row
+IRQ,Iraq,same code,IRQ,False,False,,unit_row
+IRL,Ireland,same code,IRL,False,False,,unit_row
+CHL-2,Islas San Félix and San Ambrosio,"A. Pays découpé dans BCW, agrégé dans FRA",CHL,False,False,regroup under FRA country,part
+IMN,Isle of Man,same code,IMN,False,False,,unit_row
+ISR,Israel,same code,ISR,False,False,,unit_row
+ITA,Italy,same code,ITA,False,False,,unit_row
+CIV,Ivory Coast,same code,CIV,False,False,,unit_row
+JAM,Jamaica,same code,JAM,False,False,,unit_row
+SJM-1,Jan Mayen,"A. Pays découpé dans BCW, agrégé dans FRA",SJM,False,False,regroup under FRA country,part
+JPN,Japan,same code,JPN,False,False,,unit_row
+UMI-2,Jarvis Island,C. Dépendance absente de FRA (sans donnée forêt),UMI-2,False,False,keep separate (BCW only),unit_row
+JEY,Jersey,same code,JEY,False,False,,unit_row
+UMI-3,Johnston Atoll,C. Dépendance absente de FRA (sans donnée forêt),UMI-3,False,False,keep separate (BCW only),unit_row
+BCW-JR,Joint Regimes,F. Lignes BCW sans code,BCW-JR,False,False,keep as world-total row,unit_row
+JOR,Jordan,same code,JOR,False,False,,unit_row
+ATF-5,Juan de Nova Island,C. Dépendance absente de FRA (sans donnée forêt),ATF-5,False,False,keep separate (BCW only),unit_row
+KAZ,Kazakhstan,same code,KAZ,False,False,,unit_row
+KEN,Kenya,same code,KEN,False,False,,unit_row
+ATF-6,Kerguélen,C. Dépendance absente de FRA (sans donnée forêt),ATF-6,False,False,keep separate (BCW only),unit_row
+KIR,Kiribati,same code,KIR,False,False,,unit_row
+RU-SA,Kuril Islands,D. Zone contestée ou revendications multiples,RU-SA,False,False,keep separate (BCW only),unit_row
+KWT,Kuwait,same code,KWT,False,False,,unit_row
+KGZ,Kyrgyzstan,same code,KGZ,False,False,,unit_row
+LAO,Laos,same code,LAO,False,False,,unit_row
+LVA,Latvia,same code,LVA,False,False,,unit_row
+LBN,Lebanon,same code,LBN,False,False,,unit_row
+LSO,Lesotho,same code,LSO,False,False,,unit_row
+LBR,Liberia,same code,LBR,False,False,,unit_row
+LBY,Libya,same code,LBY,False,False,,unit_row
+LIE,Liechtenstein,same code,LIE,False,False,,unit_row
+LTU,Lithuania,same code,LTU,False,False,,unit_row
+MKD,Macedonia,same code,MKD,False,False,,unit_row
+AU-TAS,Macquarie Island,B. Sous-territoire BCW inclus dans le pays FRA,AUS,False,False,regroup under FRA country,part
+MDG,Madagascar,same code,MDG,False,False,,unit_row
+PT-30,Madeira,B. Sous-territoire BCW inclus dans le pays FRA,PRT,False,False,regroup under FRA country,part
+MWI,Malawi,same code,MWI,False,False,,unit_row
+MYS,Malaysia,same code,MYS,False,False,,unit_row
+MDV,Maldives,same code,MDV,False,False,,unit_row
+MLI,Mali,same code,MLI,False,False,,unit_row
+MLT,Malta,same code,MLT,False,False,,unit_row
+MHL,Marshall Islands,same code,MHL,False,False,,unit_row
+MTQ,Martinique,same code,MTQ,False,False,,unit_row
+VU,Matthew and Hunter Islands,D. Zone contestée ou revendications multiples,VU,False,False,keep separate (BCW only),unit_row
+MRT,Mauritania,same code,MRT,False,False,,unit_row
+MYT,Mayotte,D. Zone contestée ou revendications multiples,MYT,False,False,keep separate (BCW only),unit_row
+ES-ML,Melilla,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,part
+MEX,Mexico,same code,MEX,False,False,,unit_row
+FSM,Micronesia,same code,FSM,False,False,,unit_row
+MDA,Moldova,same code,MDA,False,False,,unit_row
+MCO,Monaco,same code,MCO,False,False,,unit_row
+MNG,Mongolia,same code,MNG,False,False,,unit_row
+MNE,Montenegro,same code,MNE,False,False,,unit_row
+MSR,Montserrat,same code,MSR,False,False,,unit_row
+MAR,Morocco,same code,MAR,False,False,,unit_row
+MOZ,Mozambique,same code,MOZ,False,False,,unit_row
+MMR,Myanmar,same code,MMR,False,False,,unit_row
+NAM,Namibia,same code,NAM,False,False,,unit_row
+NRU,Nauru,same code,NRU,False,False,,unit_row
+UM-76,Navassa Island,D. Zone contestée ou revendications multiples,UM-76,False,False,keep separate (BCW only),unit_row
+NPL,Nepal,same code,NPL,False,False,,unit_row
+NLD,Netherlands,same code,NLD,False,False,,unit_row
+NCL,New Caledonia,same code,NCL,False,False,,unit_row
+NZL,New Zealand,same code,NZL,False,False,,unit_row
+NIC,Nicaragua,same code,NIC,False,False,,unit_row
+NER,Niger,same code,NER,False,False,,unit_row
+NGA,Nigeria,same code,NGA,False,False,,unit_row
+NIU,Niue,same code,NIU,False,False,,unit_row
+NFK,Norfolk Island,same code,NFK,False,False,,unit_row
+PRK,North Korea,same code,PRK,False,False,,unit_row
+MNP,Northern Mariana Islands,same code,MNP,False,False,,unit_row
+NOR,Norway,same code,NOR,False,False,,unit_row
+TL-OE,Oecusse,B. Sous-territoire BCW inclus dans le pays FRA,TLS,False,False,regroup under FRA country,part
+OMN,Oman,same code,OMN,False,False,,unit_row
+BCW-OC,Overlapping Claims,F. Lignes BCW sans code,BCW-OC,False,False,keep as world-total row,unit_row
+PAK,Pakistan,same code,PAK,False,False,,unit_row
+PLW,Palau,same code,PLW,False,False,,unit_row
+PSE,Palestine,same code,PSE,False,False,,unit_row
+UMI-4,Palmyra Atoll,C. Dépendance absente de FRA (sans donnée forêt),UMI-4,False,False,keep separate (BCW only),unit_row
+PAN,Panama,same code,PAN,False,False,,unit_row
+PNG,Papua New Guinea,same code,PNG,False,False,,unit_row
+PRY,Paraguay,same code,PRY,False,False,,unit_row
+ES-PER,Perejil Island,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,part
+PER,Peru,same code,PER,False,False,,unit_row
+ES-PVG,Peñón de Vélez de la Gomera,B. Sous-territoire BCW inclus dans le pays FRA,ESP,False,False,regroup under FRA country,part
+PHL,Philippines,same code,PHL,False,False,,unit_row
+PCN,Pitcairn,same code,PCN,False,False,,unit_row
+POL,Poland,same code,POL,False,False,,unit_row
+PRT,Portugal,same code,PRT,False,False,,unit_row
+ZA-PE,Prince Edward Islands,B. Sous-territoire BCW inclus dans le pays FRA,ZAF,False,False,regroup under FRA country,part
+PRI,Puerto Rico,same code,PRI,False,False,,unit_row
+QAT,Qatar,same code,QAT,False,False,,unit_row
+MUS,Republic of Mauritius,same code,MUS,False,False,,unit_row
+COG,Republic of the Congo,same code,COG,False,False,,unit_row
+ROU,Romania,same code,ROU,False,False,,unit_row
+RUS,Russia,same code,RUS,False,False,,unit_row
+RWA,Rwanda,same code,RWA,False,False,,unit_row
+REU,Réunion,same code,REU,False,False,,unit_row
+BES-2,Saba,"A. Pays découpé dans BCW, agrégé dans FRA",BES,False,False,regroup under FRA country,part
+SHN-2,Saint Helena,"A. Pays découpé dans BCW, agrégé dans FRA",SHN,True,False,regroup under FRA country,main_part
+KNA,Saint Kitts and Nevis,same code,KNA,False,False,,unit_row
+LCA,Saint Lucia,same code,LCA,False,False,,unit_row
+VCT,Saint Vincent and the Grenadines,same code,VCT,False,False,,unit_row
+BLM,Saint-Barthélemy,same code,BLM,False,False,,unit_row
+SPM,Saint-Pierre and Miquelon,same code,SPM,False,False,,unit_row
+WSM,Samoa,same code,WSM,False,False,,unit_row
+SMR,San Marino,same code,SMR,False,False,,unit_row
+STP,Sao Tome and Principe,same code,STP,False,False,,unit_row
+BLZ-2,Sapodilla Cayes,"A. Pays découpé dans BCW, agrégé dans FRA",BLZ,False,False,regroup under FRA country,part
+SAU,Saudi Arabia,same code,SAU,False,False,,unit_row
+SEN,Senegal,same code,SEN,False,False,,unit_row
+JP,Senkaku Islands,D. Zone contestée ou revendications multiples,JP,False,False,keep separate (BCW only),unit_row
+SRB,Serbia,same code,SRB,False,False,,unit_row
+CO-SR,Serrana Bank,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,part
+CO-SL,Serranilla Bank,B. Sous-territoire BCW inclus dans le pays FRA,COL,False,False,regroup under FRA country,part
+SYC,Seychelles,same code,SYC,False,False,,unit_row
+SLE,Sierra Leone,same code,SLE,False,False,,unit_row
+SGP,Singapore,same code,SGP,False,False,,unit_row
+BES-3,Sint-Eustatius,"A. Pays découpé dans BCW, agrégé dans FRA",BES,False,False,regroup under FRA country,part
+SXM,Sint-Maarten,same code,SXM,False,False,,unit_row
+SVK,Slovakia,same code,SVK,False,False,,unit_row
+SVN,Slovenia,same code,SVN,False,False,,unit_row
+SLB,Solomon Islands,same code,SLB,False,False,,unit_row
+ZAF,South Africa,same code,ZAF,False,False,,unit_row
+SGS,South Georgia and the South Sandwich Islands,C. Dépendance absente de FRA (sans donnée forêt),SGS,False,False,keep separate (BCW only),unit_row
+KOR,South Korea,same code,KOR,False,False,,unit_row
+SSD,South Sudan,same code,SSD,False,False,,unit_row
+ESP,Spain,same code,ESP,False,False,,unit_row
+LKA,Sri Lanka,same code,LKA,False,False,,unit_row
+SDN,Sudan,same code,SDN,False,False,,unit_row
+SUR,Suriname,same code,SUR,False,False,,unit_row
+SJM-2,Svalbard,"A. Pays découpé dans BCW, agrégé dans FRA",SJM,True,False,regroup under FRA country,main_part
+SWZ,Swaziland,same code,SWZ,False,False,,unit_row
+SWE,Sweden,same code,SWE,False,False,,unit_row
+CHE,Switzerland,same code,CHE,False,False,,unit_row
+SYR,Syria,same code,SYR,False,False,,unit_row
+TWN,Taiwan,E. Taïwan,CHN,False,True,regroup under CHN (FAO China incl. Taiwan),part
+TJK,Tajikistan,same code,TJK,False,False,,unit_row
+TZA,Tanzania,same code,TZA,False,False,,unit_row
+THA,Thailand,same code,THA,False,False,,unit_row
+TGO,Togo,same code,TGO,False,False,,unit_row
+TKL,Tokelau,same code,TKL,False,False,,unit_row
+TON,Tonga,same code,TON,False,False,,unit_row
+TTO,Trinidad and Tobago,same code,TTO,False,False,,unit_row
+BR-ES,Trinidade,B. Sous-territoire BCW inclus dans le pays FRA,BRA,False,False,regroup under FRA country,part
+SHN-3,Tristan Da Cunha,"A. Pays découpé dans BCW, agrégé dans FRA",SHN,False,False,regroup under FRA country,part
+FR-TRO,Tromelin Island,C. Dépendance absente de FRA (sans donnée forêt),FR-TRO,False,False,keep separate (BCW only),unit_row
+TUN,Tunisia,same code,TUN,False,False,,unit_row
+TUR,Turkey,same code,TUR,False,False,,unit_row
+TKM,Turkmenistan,same code,TKM,False,False,,unit_row
+TCA,Turks and Caicos Islands,same code,TCA,False,False,,unit_row
+TUV,Tuvalu,same code,TUV,False,False,,unit_row
+UGA,Uganda,same code,UGA,False,False,,unit_row
+UKR,Ukraine,same code,UKR,False,False,,unit_row
+ARE,United Arab Emirates,same code,ARE,False,False,,unit_row
+GBR,United Kingdom,same code,GBR,False,False,,unit_row
+USA,United States,same code,USA,False,False,,unit_row
+VIR,United States Virgin Islands,same code,VIR,False,False,,unit_row
+URY,Uruguay,same code,URY,False,False,,unit_row
+UZB,Uzbekistan,same code,UZB,False,False,,unit_row
+VUT,Vanuatu,same code,VUT,False,False,,unit_row
+VAT,Vatican City,same code,VAT,False,False,,unit_row
+VEN,Venezuela,same code,VEN,False,False,,unit_row
+VNM,Vietnam,same code,VNM,False,False,,unit_row
+UMI-5,Wake Island,C. Dépendance absente de FRA (sans donnée forêt),UMI-5,False,False,keep separate (BCW only),unit_row
+WLF,Wallis and Futuna,same code,WLF,False,False,,unit_row
+ESH,Western Sahara,D. Zone contestée ou revendications multiples,ESH,False,False,keep separate (BCW only),unit_row
+YEM,Yemen,same code,YEM,False,False,,unit_row
+ZMB,Zambia,same code,ZMB,False,False,,unit_row
+ZWE,Zimbabwe,same code,ZWE,False,False,,unit_row

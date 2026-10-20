@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this repository in your research, please cite it as shown below."
+type: dataset
+title: "Global assessment shows blue carbon wealth dominated by ocean processes and unevenly distributed across countries - Data and Code Repository"
+version: "1.0"
+date-released: 2026-07-07
+authors:
+  - family-names: "Hilmi"
+    given-names: "Nathalie"
+  - family-names: "Vehi"
+    given-names: "Loua Aurel De Vince"
+  - family-names: "Treskova"
+    given-names: "Marina"
+  - family-names: "Sabourault"
+    given-names: "Cécile"
+  - family-names: "Levin"
+    given-names: "Lisa"
+url: "https://github.com/aurvl/bcw-paper-2025"
+preferred-citation:
+  type: data
+  authors:
+    - family-names: "Hilmi"
+      given-names: "Nathalie"
+    - family-names: "Vehi"
+      given-names: "Loua Aurel De Vince"
+    - family-names: "Treskova"
+      given-names: "Marina"
+    - family-names: "Sabourault"
+      given-names: "Cécile"
+    - family-names: "Levin"
+      given-names: "Lisa"
+  title: "Global assessment shows blue carbon wealth dominated by ocean processes and unevenly distributed across countries - Data and Code Repository"
+  year: 2026
+  month: 7
+  url: "https://github.com/aurvl/bcw-paper-2025"

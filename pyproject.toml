@@ -8,17 +8,27 @@ version = "0.1.0"
 description = "Reproducible Green Carbon Wealth data pipeline"
 requires-python = ">=3.11"
 dependencies = [
+  "affine>=2.4,<3",
   "numpy>=1.26",
   "pandas>=2.2",
   "lxml>=5.0",
   "pyogrio>=0.10",
+  "pyproj>=3.6",
   "rasterio>=1.4",
+  "requests>=2.32",
   "shapely>=2.0",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "jupyterlab>=4.0", "ipykernel>=6.0", "matplotlib>=3.8", "geopandas>=1.0"]
+dev = ["pytest>=8.0", "jupyterlab>=4.0", "ipykernel>=6.0", "matplotlib>=3.8", "geopandas>=1.0", "openpyxl>=3.1"]
+spatial = ["geopandas>=1.0", "statsmodels>=0.14", "esda>=2.9,<3", "libpysal>=4.14,<5", "spreg>=1.9,<2"]
+
+[tool.setuptools.package-dir]
+"" = "code/src"
+
+[tool.setuptools.packages.find]
+where = ["code/src"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
+testpaths = ["code/tests"]
+pythonpath = ["code/src"]
