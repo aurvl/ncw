@@ -44,4 +44,4 @@ results/validation/supplement_*/
 results/validation/supplementary_*/
 results/validation/*.tmp.docx
 results/validation/gfw_non_mangrove_results.tar.gz
-results/validation/RESULTS_INVENTORY_2026-10-19.txt
+results/validation/RESULTS_INVENTORY*.txt

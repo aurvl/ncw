@@ -130,10 +130,10 @@ def build_document() -> Document:
         REPO / "results" / "validation" / "gcw_valuation_fraction_sensitivity_world.csv"
     )
     finance = json.loads(
-        (REPO / "results" / "validation" / "finance_action_cost_comparison_2026-10-19.json").read_text(encoding="utf-8")
+        (REPO / "results" / "validation" / "finance_action_cost_comparison.json").read_text(encoding="utf-8")
     )
     busch_status = pd.read_csv(
-        REPO / "results" / "validation" / "busch_action_curve_status_summary_2026-10-19.csv"
+        REPO / "results" / "validation" / "busch_action_curve_status_summary.csv"
     )
     busch_status_labels = {
         "no_country_curve_in_published_table": "No national curve available",
@@ -143,13 +143,13 @@ def build_document() -> Document:
         "target_within_supply_at_or_below_minus20": "At/below −$20/tCO2 (subset)",
     }
     ibrahim = pd.read_csv(
-        REPO / "results" / "validation" / "ibrahim_2pct_and_pledge_allocations_2026-10-19.csv"
+        REPO / "results" / "validation" / "ibrahim_2pct_and_pledge_allocations.csv"
     )
     spatial_moran = pd.read_csv(
-        REPO / "results" / "validation" / "spatial_moran_comparison_2026-10-19.csv"
+        REPO / "results" / "validation" / "spatial_moran_comparison.csv"
     )
     spatial_models = pd.read_csv(
-        REPO / "results" / "validation" / "spatial_models_comparison_2026-10-19.csv"
+        REPO / "results" / "validation" / "spatial_models_comparison.csv"
     )
     gmw_comparison = pd.read_csv(REPO / "results" / "validation" / "gmw_2025_spatial_bcw_world.csv")
     deforestation_trend = pd.read_csv(
@@ -310,7 +310,7 @@ def build_document() -> Document:
     add_paragraph(
         document,
         "Country-level GCW and NCW results, deforestation outcomes, and the full set of derived descriptive and spatial statistics are retained in the project result files. "
-        "The complete, traceable inventory is results/validation/RESULTS_INVENTORY_2026-10-19.txt; the retention-valuation sensitivity is reported in S5 and in its accompanying CSV files.",
+        "The retention-valuation sensitivity is reported in S5 and in its accompanying CSV files.",
     )
 
     document.add_heading("S7 Annual forest-addition capacity no longer supplied after deforestation", level=1)
