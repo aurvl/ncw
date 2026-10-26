@@ -20,18 +20,18 @@
       .pale { fill: #D9E8DD; }
     </style>
   </defs>
-  <rect width="1440" height="1010" rx="28" fill="#F4F7F1"/>
+  <rect width="1440" height="1010" rx="8" fill="#F4F7F1"/>
   <text x="72" y="68" class="title">From source data to national carbon wealth</text>
   <text x="72" y="98" class="subtitle">A reproducible workflow for forest and marine accounts, valuation, and country-level analysis</text>
 
   <text x="72" y="145" class="stage">01  SOURCE DATA</text>
   <g filter="url(#shadow)">
-    <rect x="72" y="166" width="400" height="158" rx="18" fill="#FFFFFF" stroke="#D8E3D9"/>
-    <rect x="72" y="166" width="8" height="158" rx="4" fill="#2F6F4F"/>
-    <rect x="520" y="166" width="400" height="158" rx="18" fill="#FFFFFF" stroke="#D8E3D9"/>
-    <rect x="520" y="166" width="8" height="158" rx="4" fill="#177E89"/>
-    <rect x="968" y="166" width="400" height="158" rx="18" fill="#FFFFFF" stroke="#D8E3D9"/>
-    <rect x="968" y="166" width="8" height="158" rx="4" fill="#A97828"/>
+    <rect x="72" y="166" width="400" height="158" rx="6" fill="#FFFFFF" stroke="#D8E3D9"/>
+    <rect x="72" y="166" width="8" height="158" rx="2" fill="#2F6F4F"/>
+    <rect x="520" y="166" width="400" height="158" rx="6" fill="#FFFFFF" stroke="#D8E3D9"/>
+    <rect x="520" y="166" width="8" height="158" rx="2" fill="#177E89"/>
+    <rect x="968" y="166" width="400" height="158" rx="6" fill="#FFFFFF" stroke="#D8E3D9"/>
+    <rect x="968" y="166" width="8" height="158" rx="2" fill="#A97828"/>
   </g>
   <text x="102" y="202" class="tag forest">FOREST SOURCES</text>
   <text x="102" y="235" class="card-title">Area and annual biomass rates</text>
@@ -48,15 +48,15 @@
 
   <path d="M272 324 V402 M720 324 V402 M1168 324 V402" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text x="72" y="389" class="stage">02  HARMONISE INPUTS</text>
-  <g filter="url(#shadow)"><rect x="72" y="408" width="1296" height="108" rx="18" fill="#E7EFE7" stroke="#C8D8CB"/></g>
+  <g filter="url(#shadow)"><rect x="72" y="408" width="1296" height="108" rx="6" fill="#E7EFE7" stroke="#C8D8CB"/></g>
   <text x="108" y="450" class="card-title">Align source definitions, country units, and time periods</text>
   <text x="108" y="482" class="body">Country crosswalks  •  forest area by biome  •  marine boundaries  •  matched socioeconomic and emissions series</text>
 
   <path d="M720 516 V548 M720 548 H382 V574 M720 548 H1058 V574" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text x="72" y="563" class="stage">03  ESTIMATE ANNUAL PHYSICAL FLOWS</text>
   <g filter="url(#shadow)">
-    <rect x="72" y="584" width="620" height="158" rx="18" fill="#FFFFFF" stroke="#D8E3D9"/>
-    <rect x="748" y="584" width="620" height="158" rx="18" fill="#FFFFFF" stroke="#D8E3D9"/>
+    <rect x="72" y="584" width="620" height="158" rx="6" fill="#FFFFFF" stroke="#D8E3D9"/>
+    <rect x="748" y="584" width="620" height="158" rx="6" fill="#FFFFFF" stroke="#D8E3D9"/>
   </g>
   <text x="108" y="624" class="tag forest">FOREST ACCOUNT</text>
   <text x="108" y="659" class="card-title">Living-biomass additions</text>
@@ -69,13 +69,13 @@
 
   <path d="M382 742 V775 H720 M1058 742 V775 H720 V790" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text x="72" y="775" class="stage">04  VALUE AND AGGREGATE</text>
-  <g filter="url(#shadow)"><rect x="250" y="802" width="940" height="96" rx="18" fill="#173F35"/></g>
+  <g filter="url(#shadow)"><rect x="250" y="802" width="940" height="96" rx="6" fill="#173F35"/></g>
   <text x="292" y="843" class="card-title white">Apply GSCC draws and build country-level wealth accounts</text>
   <text x="292" y="874" class="body pale">Green Carbon Wealth (GCW) + Blue Carbon Wealth (BCW) = Natural Carbon Wealth (NCW)</text>
 
   <path d="M720 898 V925 M720 925 H390 V942 M720 925 H1050 V942" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <rect x="72" y="944" width="620" height="50" rx="14" fill="#E8E2D3"/>
-  <rect x="748" y="944" width="620" height="50" rx="14" fill="#DDE9E4"/>
+  <rect x="72" y="944" width="620" height="50" rx="5" fill="#E8E2D3"/>
+  <rect x="748" y="944" width="620" height="50" rx="5" fill="#DDE9E4"/>
   <text x="102" y="975" class="body" font-weight="700">Analyses: deforestation, finance, and spatial models</text>
   <text x="778" y="975" class="body" font-weight="700">Release: country tables, paper figures, and supplement</text>
 </svg>

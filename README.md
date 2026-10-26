@@ -21,9 +21,10 @@ This repository rebuilds country-level forest and marine carbon accounts and com
 
 On 23 October 2026, the FRA 2025 mangrove Forest/OWL audit was propagated through the complete computational chain. The main accounts, validation tables, manuscript tables and supplementary outputs were regenerated from the FRA-first rule: only mangrove area documented as Forest is removed from the FRA forest allocation; documented Other wooded land and Remaining land are kept separate; unresolved Forest/OWL shares remain explicit rather than being imputed. The GMW--JRC spatial overlap is retained as a separate sensitivity test and is not used in the main accounts. The manuscript DOCX itself was not edited automatically; its tables and supporting outputs were refreshed for author review.
 
-<img src="docs/figures/ncw-workflow.svg" alt="Workflow from source data to national carbon wealth and paper outputs" width="70%">
-
-*Repository workflow. Source-specific physical measures and assumptions remain documented separately.*
+<p align="center">
+  <img src="docs/figures/ncw-workflow.svg" alt="Workflow from source data to national carbon wealth and paper outputs" width="70%" style="border-radius: 4px;"><br>
+  <em>Repository workflow. Source-specific physical measures and assumptions remain documented separately.</em>
+</p>
 
 ## Study accounts
 
