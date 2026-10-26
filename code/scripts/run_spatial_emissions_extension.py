@@ -31,7 +31,7 @@ import run_spatial_full_sequence as spatial  # noqa: E402
 
 
 OUT = ROOT / "results" / "validation"
-DATE = "2026-10-20"
+DATE = "2026-10-23"
 
 
 def _load_2024_data() -> tuple[pd.DataFrame, gpd.GeoDataFrame, list[str]]:
@@ -226,6 +226,8 @@ def _accounting_balance_2024(socio: pd.DataFrame) -> dict:
     pd.DataFrame(group_rows).to_csv(OUT / "emissions_2024_accounting_balance_groups.csv", index=False)
     summary = {
         "units_with_emissions": int(len(details)),
+        "units_with_gcw_account_balance": int(np.isfinite(gcw_balance).all(axis=1).sum()),
+        "units_with_ncw_account_balance": int(np.isfinite(ncw_balance).all(axis=1).sum()),
         "gcb_emissions_sum_covered_units_tco2_yr": float(details["co2_emissions_tco2_2024"].sum()),
         "gcw_gross_additions_sum_covered_units_tco2_yr": float(details["gcw_additions_tco2_yr"].sum()),
         "gcw_accounting_balance_positive_units": int(details["gcw_accounting_balance_mean_tco2_yr"].gt(0).sum()),
@@ -548,6 +550,19 @@ def run() -> dict:
 def main() -> None:
     if "--self-test" in sys.argv:
         print(json.dumps(_self_test(), indent=2))
+        return
+    if "--balances-only" in sys.argv:
+        OUT.mkdir(parents=True, exist_ok=True)
+        socio = pd.read_csv(ROOT / "data" / "derived" / "socioeconomic_2024_by_unit.csv")
+        balance_summary = _accounting_balance_2024(socio)
+        diagnostics_path = OUT / "spatial_emissions_2024_diagnostics.json"
+        if diagnostics_path.exists():
+            diagnostics = json.loads(diagnostics_path.read_text(encoding="utf-8"))
+            diagnostics["accounting_balance_summary"] = balance_summary
+            diagnostics_path.write_text(
+                json.dumps(diagnostics, indent=2, ensure_ascii=False), encoding="utf-8"
+            )
+        print(json.dumps(balance_summary, indent=2, ensure_ascii=False))
         return
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", UserWarning)

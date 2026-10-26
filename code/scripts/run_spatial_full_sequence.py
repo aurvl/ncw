@@ -660,7 +660,7 @@ def run() -> dict:
     lms.to_csv(OUT / "spatial_lm_diagnostics.csv", index=False)
 
     diagnostics = {
-        "date": "2026-10-19",
+        "date": "2026-10-23",
         "boundary_source": "Natural Earth 50m admin-0 country polygons",
         "units_with_geometry": int(len(d)),
         "units_without_geometry": missing_geometry,
@@ -699,7 +699,7 @@ def run() -> dict:
     queen_full = full_weights["queen_contiguity"]
     knn_full = full_weights["symmetric_knn5"]
     legacy_diagnostics = {
-        "date": "2026-10-19",
+        "date": "2026-10-23",
         "boundary_source": "Natural Earth 50m admin-0 country polygons",
         "units_with_geometry": int(len(d)),
         "units_without_geometry": missing_geometry,

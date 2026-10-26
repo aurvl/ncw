@@ -12,7 +12,6 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
 import pandas as pd
-import numpy as np
 
 
 OUTPUT = Path(__file__).resolve().parents[3] / "Supplementary Material.docx"
@@ -145,11 +144,28 @@ def build_document() -> Document:
     ibrahim = pd.read_csv(
         REPO / "results" / "validation" / "ibrahim_2pct_and_pledge_allocations.csv"
     )
-    spatial_moran = pd.read_csv(
-        REPO / "results" / "validation" / "spatial_moran_comparison.csv"
+    allocation_column = "ibrahim_2pct_usd2015_yr"
+    allocation_ranked = ibrahim.sort_values("gcw_usd2015_yr_mean", ascending=False)
+    allocation_total = float(ibrahim[allocation_column].sum())
+    top10_share = float(allocation_ranked.head(10)[allocation_column].sum() / allocation_total * 100)
+    top50_share = float(allocation_ranked.head(50)[allocation_column].sum() / allocation_total * 100)
+    cell_reconstruction_dir = REPO / "results" / "validation" / "busch_reconstruction"
+    cell_reconstruction = json.loads(
+        (cell_reconstruction_dir / "busch_mangrove_refresh_20261023_summary.json").read_text(encoding="utf-8")
     )
-    spatial_models = pd.read_csv(
-        REPO / "results" / "validation" / "spatial_models_comparison.csv"
+    cell_reconstruction_coverage = pd.read_csv(
+        cell_reconstruction_dir / "busch_mangrove_refresh_20261023_coverage_105.csv"
+    )
+    cell_reconstruction_loss = float(cell_reconstruction_coverage["lost_capacity_tco2_yr"].sum())
+    cell_reconstruction_within = cell_reconstruction_coverage.loc[
+        cell_reconstruction_coverage["status"].eq("target_within_cell_supply"), "lost_capacity_tco2_yr"
+    ]
+    cell_reconstruction_loss_share = float(cell_reconstruction_within.sum() / cell_reconstruction_loss * 100)
+    spatial_moran = pd.read_csv(
+        REPO / "results" / "validation" / "spatial_emissions_2024_step1_moran.csv"
+    )
+    spatial_diagnostics = json.loads(
+        (REPO / "results" / "validation" / "spatial_emissions_2024_diagnostics.json").read_text(encoding="utf-8")
     )
     gmw_comparison = pd.read_csv(REPO / "results" / "validation" / "gmw_2025_spatial_bcw_world.csv")
     deforestation_trend = pd.read_csv(
@@ -182,8 +198,8 @@ def build_document() -> Document:
         document,
         "All values use constant 2015 US dollars. Forest uptake rates are means for 2001-2023, applied to FRA 2025 forest areas. "
         "The deforestation analysis uses annual conversion reported for 2010-2020. "
-        "Population, GDP, debt, and fossil and industrial CO2 emissions refer to 2023 or the nearest available year. "
-        "The emissions series excludes land-use change. This separation avoids double counting the deforestation analysis.",
+        "Population and GDP use 2024 World Development Indicators; fossil and industrial CO2 emissions use the Global Carbon Budget 2025 country estimates for 2024. Debt is not an input to the current spatial model sequence. "
+        "The emissions series excludes land-use change. This keeps it separate from the forest-conversion capacity-loss analysis.",
     )
 
     document.add_heading("S2 Data, accounting units, and harmonisation", level=1)
@@ -197,7 +213,7 @@ def build_document() -> Document:
             ["Forest uptake rates", "Gibbs et al. 2025 / GFW, 2001-2023", "Gross additions to above- and below-ground living biomass, summarized by FAO GEZ biome"],
             ["Blue Carbon Wealth", "Hilmi et al. account, mangrove area updated with GMW 2025", "Coastal blue-carbon and oceanic biological-pump components; published rates retained"],
             ["Deforestation", "FAO FRA 2025", "Reported annual forest conversion over 2010-2020"],
-            ["Socioeconomic indicators", "BCW harmonised dataset, 2023", "GDP, population, debt, and fossil and industrial CO2 emissions"],
+            ["Socioeconomic indicators", "WDI 2024; Global Carbon Budget 2025, emissions year 2024", "GDP, population, and fossil and industrial CO2 emissions; debt is not used in the current spatial models"],
         ],
     )
     add_paragraph(
@@ -232,7 +248,7 @@ def build_document() -> Document:
         "For each pixel p, the published cumulative gross-removal value R_p (Mg CO2/ha over 2001-2023) is converted to an annual carbon rate as r_p = R_p × (12/44) / 23. "
         "Within each GEZ biome, we weight r_p by the pixel's spherical area. The source-model forest-type raster identifies mangroves with code 6; those pixels are excluded from both the numerator and the area denominator of the rate applied to countries. "
         "The rates describe mean annual gross additions to above- and below-ground living forest biomass. They do not measure a net ecosystem carbon balance or carbon stored in soils, dead organic matter, or harvested wood, and they do not establish a residence time for the added carbon. "
-        "The forest-area calculation separately subtracts only those FRA mangrove hectares that national reports document as already classified entirely as Forest; unresolved categories are not subtracted. The rule and its limits are described in S4.",
+        "The forest-area calculation separately subtracts FRA mangrove hectares documented as Forest: exact 100% Forest matches and the quantified 80% Forest share reported for Mozambique. Unresolved categories are not subtracted. The rule, its classification-stability assumption for Mozambique, and its limits are described in S4.",
     )
     add_table(
         document,
@@ -255,7 +271,7 @@ def build_document() -> Document:
     add_paragraph(
         document,
         "FRA forest area can include mangroves that meet the forest definition, whereas the separately reported FRA mangrove category can include forest and other wooded land. The global FRA table does not give a Forest/Other wooded land split for every unit. "
-        "For GCW, mangrove hectares are subtracted only when a national report matches the FRA 2025 category and classifies 100% of it as Forest. This documents 495,400 ha in nine units. Saint Lucia's 220 ha classified as Other wooded land are not subtracted. PAK, SHN, TCA and 103 other units have no comparable split and are not subtracted; their category-level overlap remains unresolved. The unresolved FRA category totals 15,371,250 ha. Kiribati's match relies on a desk-study source and has weaker evidential support. "
+        "For GCW, mangrove hectares are subtracted when a national report documents a Forest share: this includes 2,082,920 ha in 12 exact 100% Forest units and 1,809,830 ha in 11 stability-assumption units, plus 287,848 ha in Mozambique and 312 ha in Mayotte from their reported Forest shares. The documented Forest overlap is 4,180,910 ha. The Mozambique, Mayotte and copied/forecast 2025 applications state their classification-stability assumptions. The evidence table also documents 72,477.75 ha as Other wooded land and 42.25 ha as Remaining land; neither is subtracted. PAK, SHN, TCA and the other units without a comparable quantitative split are not subtracted; their unknown Forest/Other wooded land area totals 11,613,440 ha. Kiribati's match relies on a desk-study source and has weaker evidential support. "
         "The current GMW extraction assigns 0 ha to Montserrat (MSR) and Ascension, Saint Helena and Tristan da Cunha (SHN), while FRA 2025 reports 10 ha and 2,000 ha, respectively, in its mangrove category. This cross-source coverage mismatch is not interpreted as confirmed absence of mangroves. "
         "For BCW, mapped mangrove area is updated using GMW v4.1.12 for 2025, the latest complete global annual extent series identified, released on 3 August 2026. GMW's global accuracy assessment reports an F1 score of 0.9276 (95% CI 0.9220-0.9330), with local accuracy varying by place. The official area-correction factor of 0.9775 is applied before the mapped extent is allocated with the study's marine boundaries. The main spatially reassigned case assigns 14,728,336.51 ha; 27.75 ha remain without an admissible attribution. It has a 2,745 ha Guyana/Venezuela boundary-code disagreement. The published mangrove-burial rate and other marine components are retained. These area rules do not establish exact non-overlap of carbon flows for every country.",
         keep_together=True,
@@ -265,8 +281,9 @@ def build_document() -> Document:
     add_paragraph(
         document,
         "The analysis uses 20,000 Monte Carlo draws for the GSCC. Biome mean rates and forest areas are held fixed in the main estimate; spatial dispersion is reported separately as a deterministic sensitivity, not sampled as rate uncertainty. "
-        "GCW uses the same GSCC draw as BCW. NCW totals are summed draw by draw. "
-        "Reported intervals are the 5th and 95th percentiles of the resulting distribution. Standard deviations are not added across components.",
+        "GCW and BCW use aligned GSCC draws. Global Table 1 reports available-component totals: GCW across its 236 units and BCW across its 179 country or territory accounts plus the source Joint Regimes residual. Global NCW is their sum on each aligned draw, giving US$10.590 trillion 2015/year from mean GCW of US$8.261 trillion and mean BCW of US$2.329 trillion. "
+        "The national NCW distribution remains complete-case because a unit-level NCW requires both accounts; 174 units have both, and their NCW values sum to US$9.891 trillion/year. This is a different coverage scope, so that complete-case sum is not used as the global additive total. "
+        "Reported intervals are the 5th and 95th percentiles of the corresponding draw distribution. Standard deviations are not added across components.",
     )
     add_paragraph(
         document,
@@ -304,8 +321,7 @@ def build_document() -> Document:
     add_paragraph(
         document,
         "R2 classifies units as green-dominant when GCW represents at least 66.7% of NCW and blue-dominant when it represents at most 33.3%. "
-        "It compares positive accounting balances based on forest-only and forest-plus-marine flows after subtracting emissions. The forest term is gross addition to living biomass, so this comparison is not a net ecosystem carbon balance. The debt-carbon quadrant uses the same debt threshold as the BCW analysis. "
-        "The threshold must be checked against the final BCW documentation before submission.",
+        "It compares forest-only and forest-plus-marine flow balances after subtracting 2024 fossil and industrial emissions in the 161-unit common sample. The forest term is gross addition to living biomass, so this comparison is not a net ecosystem carbon balance. Debt is not included in the current spatial model sequence.",
     )
     add_paragraph(
         document,
@@ -347,7 +363,8 @@ def build_document() -> Document:
     add_paragraph(
         document,
         "The main finance scenario applies Ibrahim's proposed allocation rule to all 236 units with a GCW estimate: each unit is allocated 2% of its annual GCW value. "
-        "With the recalculated world GCW, this allocates 164.889 billion constant 2015 US dollars per year. The ten largest GCW units account for 64.06% of the total and the fifty largest for 90.67%. "
+        f"With the recalculated world GCW, this allocates {allocation_total / 1e9:.3f} billion constant 2015 US dollars per year. "
+        f"The ten largest GCW units account for {top10_share:.2f}% of the total and the fifty largest for {top50_share:.2f}%. "
         "This is an allocation scenario, not an estimate of national need, observed climate-finance flows, or action costs.",
     )
     add_paragraph(
@@ -376,60 +393,71 @@ def build_document() -> Document:
         f"The corresponding uniform-price proxy is {finance['positive_price_payment_proxy_usd2015_yr_partial_lo'] / 1e6:.2f}-{finance['positive_price_payment_proxy_usd2015_yr_partial_hi'] / 1e6:.2f} million US$2015/year for those units only. It is not an integrated project cost or a global financing need. "
         "The full unit-by-unit allocation and curve statuses are in the accompanying CSV outputs and the comprehensive results inventory.",
     )
+    add_paragraph(
+        document,
+        f"A separate reconstruction of the public Busch cell outputs uses both workbook sheets and re-estimates country supply after converting source quantities from tC to tCO2 and counting the natural-regeneration soil term once. "
+        f"It reproduces 71 source-country curves and places {int(cell_reconstruction['finance_target_within_supply'])} of the 105 positive-loss targets within reconstructed supply, covering {cell_reconstruction_loss_share:.1f}% of the sample's annual capacity loss ({cell_reconstruction_loss / 1e6:.3f} MtCO2/year in total). "
+        f"Twelve targets exceed reconstructed supply and 34 have no matched source curve. These are our derived results, not values published by Busch et al.; the unit and soil corrections remain provisional because the reconstructed quantities require clarification against the published aggregate. "
+        "They are reported separately from the published-grid screening above and are not used to revise its Figure 4 counts.",
+    )
 
     document.add_heading("S9 Spatial patterns and exploratory models", level=1)
-    p = spatial_moran["p_permutation_two_sided"].to_numpy(dtype=float)
-    order = p.argsort()
-    adjusted = np.maximum.accumulate((len(p) - np.arange(len(p))) * p[order])
-    holm = np.empty_like(adjusted)
-    holm[order] = np.clip(adjusted, 0.0, 1.0)
-    spatial_moran["p_holm"] = holm
-    outcome_names = {
-        "lost_capacity_mtco2_yr": "Annual capacity loss",
-        "erosion_pct_of_gcw": "Loss / GCW",
-        "gcw_gdp_pct": "GCW / GDP",
-    }
-    weights = {"queen_contiguity": "Queen", "symmetric_knn5": "Symmetric kNN (k=5)"}
+    spatial_moran = spatial_moran.loc[spatial_moran["measure"].eq("y_log1p")].copy()
+    spatial_relations = [
+        ("Capacity loss / base", "baseline_2024_same_sample", "lost_capacity_mtco2_yr"),
+        ("Relative erosion / base", "baseline_2024_same_sample", "erosion_pct_of_gcw"),
+        ("GCW/GDP / base", "baseline_2024_same_sample", "gcw_gdp_pct_2024"),
+        ("Capacity loss / + emissions X", "add_emissions_2024_as_x", "lost_capacity_mtco2_yr"),
+        ("Relative erosion / + emissions X", "add_emissions_2024_as_x", "erosion_pct_of_gcw"),
+        ("GCW/GDP / + emissions X", "add_emissions_2024_as_x", "gcw_gdp_pct_2024"),
+        ("Emissions Y / + capacity loss X", "emissions_2024_as_y_plus_lost_capacity_x", "emissions_mtco2_yr_2024"),
+        ("Emissions Y / + erosion X", "emissions_2024_as_y_plus_erosion_x", "emissions_mtco2_yr_2024"),
+        ("Emissions Y / + GCW/GDP X", "emissions_2024_as_y_plus_gcw_gdp_x", "emissions_mtco2_yr_2024"),
+    ]
     rows = []
-    for outcome, label in outcome_names.items():
-        current = spatial_moran.loc[spatial_moran.outcome.eq(outcome)]
+    for label, specification, outcome in spatial_relations:
+        current = spatial_moran.loc[
+            spatial_moran["specification"].eq(specification) & spatial_moran["outcome"].eq(outcome)
+        ]
         row = {r.weight: r for r in current.itertuples(index=False)}
         q, k = row["queen_contiguity"], row["symmetric_knn5"]
         rows.append([
-            label, str(int(q.n)), f"{q.moran_i:.3f}", f"{q.p_holm:.4f}",
-            f"{k.moran_i:.3f}", f"{k.p_holm:.4f}",
+            label, str(int(q.n)),
+            f"{q.moran_i:.3f} ({q.p_holm_within_specification_measure:.4f})",
+            f"{k.moran_i:.3f} ({k.p_holm_within_specification_measure:.4f})",
         ])
+    if len(rows) != 9:
+        raise ValueError(f"Expected nine primary spatial relationships in the current Moran output; found {len(rows)}")
     add_paragraph(
         document,
-        "Three outcomes are assessed under shared-border (Queen) and symmetrised five-nearest-neighbour weights, using 9,999 permutations. "
-        "Holm adjustment covers the six global Moran tests. Spatial regressions compare OLS with HC3 errors, spatial lag (SAR), and spatial error (SEM) models, using the same exploratory covariates. The models describe associations and are not causal estimates.",
+        "The first three rows use each existing outcome as Y with base controls; the next three add 2024 emissions as X; the last three use emissions as Y and add one existing outcome as X. The nine relationships are tested under Queen and symmetric kNN-5 weights. The table reports Moran's I for the log-transformed outcome, with Holm-adjusted permutation p-values in parentheses. OLS residuals are also tested using 9,999 permutations.",
     )
     add_table(
         document,
-        ["Outcome", "N", "Queen I", "Queen p Holm", "kNN I", "kNN p Holm"],
+        ["Relationship", "N", "Queen I (Holm p)", "kNN I (Holm p)"],
         rows,
     )
     add_paragraph(
         document,
-        f"Across the {len(spatial_models)} model specifications, forest area and warm-biome share are positively associated with absolute lost capacity; GDP per capita is negatively associated with loss intensity; and GCW/GDP remains spatially patterned under both weights. "
-        "The GDP-per-capita predictor is mathematically related to the denominator in GCW/GDP. Queen contiguity leaves islands unconnected; kNN links them to potentially distant territories. Full coefficients, residual tests, sample audits, and diagnostics are provided in the companion result files and the comprehensive inventory.",
+        f"The primary set contains {spatial_diagnostics['number_of_primary_relationship_profiles']} relationships and {spatial_diagnostics['number_of_primary_relationship_weight_cases']} weight cases. With references and auxiliary specifications, the complete run covers {spatial_diagnostics['number_of_specification_outcome_weight_cases']} cases and {spatial_diagnostics['model_fit_rows']} fits (OLS, SAR, SEM, SDM, SDEM, and GNS), with {spatial_diagnostics['moran_rows']} Moran, {spatial_diagnostics['lm_rows']} LM, {spatial_diagnostics['nested_lr_rows']} nested likelihood-ratio, and {spatial_diagnostics['predictor_block_nested_tests']} predictor-block tests. "
+        "Coefficient, fit-rank, convergence, sample, and diagnostic outputs are retained for review. No model is selected automatically; estimates are descriptive associations, not causal estimates.",
     )
 
     document.add_heading("S10 Limitations", level=1)
     add_paragraph(
         document,
-        "The study applies four biome-average Gibbs/GFW rates to FRA national forest areas. It does not capture national variation in forest age, disturbance, management, or climate response. "
-        "The rates cover gross additions to living biomass only and do not quantify the full net ecosystem carbon balance or the duration of storage.",
+        "The four mean Gibbs/GFW rates do not capture national differences in forest age, disturbance, management, or climate response. "
+        "They measure gross additions to living biomass, not the full ecosystem carbon balance or storage duration.",
     )
     add_paragraph(
         document,
-        "The ecological and socioeconomic series use different reference periods. The mean annual forest rates cover 2001-2023 and are applied to FRA 2025 area, whereas socioeconomic indicators refer to 2023 and deforestation is averaged over 2010-2020. "
-        "This temporal mismatch supports a comparative accounting exercise but limits causal interpretation. The deforestation estimates also have incomplete reporting coverage.",
+        "Reference periods differ: forest rates cover 2001-2023 and are applied to FRA 2025 area; socioeconomic inputs are from 2024; deforestation is averaged over 2010-2020. "
+        "This temporal mismatch limits causal interpretation, and deforestation reporting is incomplete.",
     )
     add_paragraph(
         document,
-        "GCW and NCW are annual welfare contributions. They are not estimates of carbon stocks, ownership, payment obligations, or additional mitigation potential. "
-        "The climate-finance scenarios depend on an imposed allocation share or on published action-cost curves and their coverage. They do not measure observed transfers, a national funding need, or the cost of protecting every existing forest.",
+        "GCW and NCW are annual welfare contributions, not carbon stocks, ownership, payment obligations, or additional mitigation. "
+        "The finance scenarios are imposed allocations or action-cost comparisons; they do not measure observed transfers, funding needs, or the cost of protecting all forests.",
     )
 
     document.add_heading("S11 Data and code availability", level=1)

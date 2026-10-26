@@ -20,7 +20,13 @@ def area_by_biome(
     if overlap_evidence is None:
         overlap_evidence = pd.read_csv(SUMMARY / "fra_mangrove_forest_overlap_2025.csv")
     overlap_columns = ["iso3", "documented_forest_mangrove_area_ha"]
-    for optional in ("overlap_status", "fra_mangroves_2025_ha"):
+    for optional in (
+        "overlap_status",
+        "fra_mangroves_2025_ha",
+        "documented_other_wooded_land_area_ha",
+        "documented_remaining_land_area_ha",
+        "unresolved_mangrove_area_ha",
+    ):
         if optional in overlap_evidence.columns:
             overlap_columns.append(optional)
     overlap = overlap_evidence[overlap_columns].copy()
@@ -33,11 +39,19 @@ def area_by_biome(
         .merge(overlap, on="iso3", how="left")
     )
     grouped["documented_forest_mangrove_area_ha"] = grouped["documented_forest_mangrove_area_ha"].fillna(0.0)
-    grouped["unresolved_fra_mangrove_category_ha"] = (
-        grouped["mangroves"] - grouped["documented_forest_mangrove_area_ha"]
-    ).clip(lower=0.0)
-    if "overlap_status" in grouped.columns:
-        grouped.loc[grouped["overlap_status"] == "documented_all_other_wooded_land", "unresolved_fra_mangrove_category_ha"] = 0.0
+    for column in ("documented_other_wooded_land_area_ha", "documented_remaining_land_area_ha"):
+        if column not in grouped.columns:
+            grouped[column] = 0.0
+        else:
+            grouped[column] = grouped[column].fillna(0.0)
+    if "unresolved_mangrove_area_ha" in grouped.columns:
+        grouped["unresolved_fra_mangrove_category_ha"] = grouped["unresolved_mangrove_area_ha"].fillna(0.0)
+    else:
+        grouped["unresolved_fra_mangrove_category_ha"] = (
+            grouped["mangroves"] - grouped["documented_forest_mangrove_area_ha"]
+        ).clip(lower=0.0)
+        if "overlap_status" in grouped.columns:
+            grouped.loc[grouped["overlap_status"] == "documented_all_other_wooded_land", "unresolved_fra_mangrove_category_ha"] = 0.0
     grouped["area_incl_mangroves_ha"] = grouped["share"] * grouped["forest"]
     tropical = grouped["biome"].eq("tropical")
     grouped["area_documented_overlap_removed_ha"] = grouped["area_incl_mangroves_ha"]
@@ -62,6 +76,8 @@ def area_by_biome(
                 "share",
                 "share_source",
                 "documented_forest_mangrove_area_ha",
+                "documented_other_wooded_land_area_ha",
+                "documented_remaining_land_area_ha",
                 "unresolved_fra_mangrove_category_ha",
                 "fra_mangroves_exceed_tropical_allocation",
                 "documented_overlap_exceeds_tropical_allocation",
