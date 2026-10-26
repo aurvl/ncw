@@ -22,7 +22,7 @@ The script directory includes reproducible pipeline steps, source downloads, val
 
 ## Notebooks
 
-`code/notebooks/components/` contains one short guide per main component: `forest_account`, `marine_account`, `national_accounts`, `socioeconomic_emissions`, `deforestation_finance`, and `spatial_models`. The numbered notebooks contain the figure, analysis, and manuscript-output workflows. See [`code/notebooks/README.md`](notebooks/README.md) for the index.
+The nine current notebooks are directly under `code/notebooks/`. They are the reader-facing analysis, figure and manuscript-output workflows: each reads prepared data or results, states its sample and units, and points back to the reusable pipeline that produced its inputs. The R/Quarto spatial notebook reviews the prepared model evidence. Earlier exploratory notebooks and short component navigation guides remain locally under `code/notebooks/archive/`, which is ignored by Git. See [`code/notebooks/README.md`](notebooks/README.md) for the full index and run instructions.
 
 ## Tests
 
