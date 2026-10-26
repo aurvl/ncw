@@ -1,4 +1,4 @@
-"""Exploratory spatial analysis for the 2026-10-19 Results refresh.
+"""Exploratory spatial analysis for the 2026-10-23 Results refresh.
 
 The script compares first-order land contiguity with symmetric k-nearest
 neighbours (k=5) for three country-level indicators. It is an exploratory
@@ -323,7 +323,7 @@ def run() -> dict:
     pd.DataFrame(sample_rows).to_csv(OUT / "spatial_sample_audit.csv", index=False)
     pd.DataFrame(ols_residual_rows).to_csv(OUT / "spatial_ols_residual_moran.csv", index=False)
     diagnostics = {
-        "date": "2026-10-19",
+        "date": "2026-10-23",
         "boundary_source": "Natural Earth 50m admin-0 country polygons",
         "units_with_geometry": int(len(d)),
         "units_without_geometry": missing_geometry,

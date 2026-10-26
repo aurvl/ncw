@@ -30,6 +30,7 @@ BCW_DRAWS_NPZ = RAW / "environmental" / "marine" / "bcw" / "output" / "draws.npz
 GMW_MANGROVE_AREA_CSV = SUMMARY / "gmw_2025_mangrove_area_by_unit.csv"
 PAN_BIOME_AREAS_CSV = REFERENCE / "pan_biome_areas.csv"
 TERRITORY_CROSSWALK_CSV = REFERENCE / "territory_crosswalk.csv"
+ECONOMIC_GROUP_OVERRIDES_CSV = REFERENCE / "economic_group_overrides.csv"
 
 # --- Accounting units -------------------------------------------------------
 # FAO/FRA "China" (M49 159) includes Taiwan, Hong Kong SAR and Macao SAR.

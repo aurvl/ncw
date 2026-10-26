@@ -175,6 +175,8 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
     territories = read_unique_csv(SUMMARY / "territories.csv")
     identity_columns = [
         "iso3",
+        "UNIT_CODE",
+        "ISO3",
         "m49",
         "in_fra",
         "in_bcw",
@@ -183,9 +185,16 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
         "bcw_name",
         "sovereign",
         "fra_subregion",
+        "region",
+        "group_source",
     ]
     identity = territories[identity_columns].copy()
     master = merge_one_to_one(ncw, identity, "territorial identifiers")
+    # The GMW allocation adds ATF_GI to NCW without a FRA/BCW territory row.
+    # Keep its accounting identifier without inventing an ISO code or group.
+    master["UNIT_CODE"] = master["UNIT_CODE"].fillna(master["iso3"])
+    master["region"] = master["region"].fillna(master["continent"])
+    master["group_source"] = master["group_source"].fillna("unclassified")
 
     master = merge_one_to_one(master, read_unique_csv(OUTPUT / "country_level_gcw.csv").drop(
         columns=["name", "continent", "fra_region", "groups", "population", "gdp", "gcw_usd2015_yr_mean",
@@ -349,6 +358,9 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
     master = master.sort_values("iso3").reset_index(drop=True)
     if len(master) != 267 or master["iso3"].duplicated().any():
         raise ValueError(f"Master table must preserve the 267 unique NCW units; got {len(master)} rows")
+    master[["UNIT_CODE", "ISO3", "name", "sovereign", "groups", "group_source"]].to_csv(
+        VALIDATION / "economic_group_assignment_by_unit.csv", index=False,
+    )
 
     area_rate = master["forest_additions_from_area_rates_tCO2_yr"]
     model_flux = master["uptake_tco2_yr_mean"]

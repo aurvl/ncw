@@ -3,8 +3,9 @@
 Outputs (data/derived/):
 - gez_area_by_country.csv : forest and land km2 per country x GEZ zone
                             (GEZ 2010 x EEZ_land_union v4 x JRC GFC2020 forest mask)
-- biome_shares_fra.csv    : shares reported by countries in FRA 2025 (control)
+- biome_shares_fra.csv    : shares reported by countries in FRA 2025
 - biome_shares.csv        : shares used by the pipeline, with their source
+- biome_shares_map_first.csv : map-first allocation retained as a sensitivity
 
 Polygons are burnt part by part and rasters read in stripes so that memory use stays low.
 Intermediate rasters: data/derived/rasters/{countries,gez}.tif
@@ -179,10 +180,45 @@ def shares_from_fra() -> pd.DataFrame:
 
 
 def select_shares(gez: pd.DataFrame, fra: pd.DataFrame) -> pd.DataFrame:
-    """Use GEZ and the forest mask first; use FRA shares where rasters do not resolve a country."""
-    selected = gez.loc[gez["source"] == "gez_forest_mask", ["iso3", "biome", "share", "source"]]
-    missing = fra.loc[~fra["iso3"].isin(selected["iso3"])]
-    remaining = gez.loc[~gez["iso3"].isin(selected["iso3"]) & ~gez["iso3"].isin(missing["iso3"]), ["iso3", "biome", "share", "source"]]
+    """Use valid FRA shares first, then GEZ forest and land fallbacks.
+
+    FRA 2025 is the temporally aligned national source for the main estimate. The
+    GEZ/JRC raster remains useful when FRA has no positive climatic-domain
+    breakdown, and the land-weighted result is the last fallback when the forest
+    mask finds no forest pixels for a country.
+    """
+    columns = ["iso3", "biome", "share", "source"]
+    fra_selected = fra.loc[:, columns].copy()
+    fra_units = set(fra_selected["iso3"])
+
+    gez_forest = gez.loc[
+        (gez["source"] == "gez_forest_mask") & ~gez["iso3"].isin(fra_units),
+        columns,
+    ]
+    forest_units = set(gez_forest["iso3"])
+    gez_land = gez.loc[
+        (gez["source"] == "gez_land") & ~gez["iso3"].isin(fra_units | forest_units),
+        columns,
+    ]
+    land_units = set(gez_land["iso3"])
+    remaining = gez.loc[
+        ~gez["iso3"].isin(fra_units | forest_units | land_units),
+        columns,
+    ]
+    shares = pd.concat([fra_selected, gez_forest, gez_land, remaining], ignore_index=True)
+    shares = shares.loc[shares["share"] > 0]
+    return shares.sort_values(["iso3", "biome"]).reset_index(drop=True)
+
+
+def select_shares_map_first(gez: pd.DataFrame, fra: pd.DataFrame) -> pd.DataFrame:
+    """Reproduce the former map-first allocation for sensitivity analysis."""
+    columns = ["iso3", "biome", "share", "source"]
+    selected = gez.loc[gez["source"] == "gez_forest_mask", columns]
+    missing = fra.loc[~fra["iso3"].isin(selected["iso3"]), columns]
+    remaining = gez.loc[
+        ~gez["iso3"].isin(selected["iso3"]) & ~gez["iso3"].isin(missing["iso3"]),
+        columns,
+    ]
     shares = pd.concat([selected, missing, remaining], ignore_index=True)
     shares = shares.loc[shares["share"] > 0]
     return shares.sort_values(["iso3", "biome"]).reset_index(drop=True)
@@ -198,4 +234,5 @@ def run(recompute_rasters: bool = False) -> pd.DataFrame:
     write_table(fra, SUMMARY / "biome_shares_fra.csv")
     shares = select_shares(gez, fra)
     write_table(shares, SUMMARY / "biome_shares.csv")
+    write_table(select_shares_map_first(gez, fra), SUMMARY / "biome_shares_map_first.csv")
     return shares

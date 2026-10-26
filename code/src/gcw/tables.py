@@ -3,7 +3,7 @@
 All aggregates are summed draw by draw before being summarised.
 Outputs (results/tables/):
 - table1_global_by_ecosystem.csv  : tCO2/yr and US$2015/yr per ecosystem, BCW, GCW and NCW
-- table2_by_continent.csv         : GCW, BCW, NCW by continent
+- table2_by_region.csv            : GCW, BCW, NCW by analytical region
 - table3_by_group.csv             : GCW, BCW, NCW by economic group
 - table4_top_territories.csv      : 20 largest NCW territories
 - table5_route_a_faostat.csv      : complementary FAOSTAT net flux (global and extremes)
@@ -40,6 +40,9 @@ def global_by_ecosystem(forest: dict, faostat: pd.DataFrame, gcw: dict, ncw: dic
     notes = {
         "Open ocean biological carbon pump": "BCW point estimate, no physical uncertainty",
         "Mangroves": "GMW 2025 mapped area × Hilmi/Alongi mangrove-rate draws; spatially assigned to BCW territorial units",
+        "BCW (published coastal and ocean components + GMW 2025 mangroves)": (
+            "Global source total includes the BCW 'Joint Regimes' residual; this non-country row is excluded from country/group tables."
+        ),
     }
     rows = []
     for label, tco2 in flows.items():
@@ -47,7 +50,18 @@ def global_by_ecosystem(forest: dict, faostat: pd.DataFrame, gcw: dict, ncw: dic
         rows.append(_row(label, tco2 * gscc, "US$2015/yr", notes.get(label, "")))
     rows.append(_row("GCW (Gibbs/GFW; documented FRA mangrove overlap removed)", np.nansum(ncw["gcw_usd2015_yr"], axis=0), "US$2015/yr"))
     rows.append(_row("BCW (published coastal and ocean components + GMW 2025 mangroves)", np.nansum(ncw["bcw_usd2015_yr"], axis=0), "US$2015/yr"))
-    rows.append(_row("NCW = GCW + BCW", np.nansum(ncw["ncw_usd2015_yr"], axis=0), "US$2015/yr"))
+    # Global ecosystem totals use each account's available units. Country-level
+    # NCW is reported only for units with both accounts, so its sum is a smaller
+    # complete-case total and is not the global component total.
+    global_ncw = np.nansum(ncw["gcw_usd2015_yr"], axis=0) + np.nansum(ncw["bcw_usd2015_yr"], axis=0)
+    rows.append(
+        _row(
+            "NCW = GCW + BCW",
+            global_ncw,
+            "US$2015/yr",
+            "Global sum of available GCW and BCW components; BCW includes the source Joint Regimes residual. National NCW requires both accounts.",
+        )
+    )
     faostat_tco2 = faostat["net_uptake_tco2_yr"].sum()
     rows.append(_row("Forests net flux (Route A, FAOSTAT)", np.full(gscc.shape, faostat_tco2), "tCO2/yr", "complementary analysis"))
     rows.append(_row("Forests net flux (Route A, FAOSTAT)", faostat_tco2 * gscc, "US$2015/yr", "complementary analysis"))
@@ -55,15 +69,20 @@ def global_by_ecosystem(forest: dict, faostat: pd.DataFrame, gcw: dict, ncw: dic
 
 
 def by_group(ncw_table: pd.DataFrame, ncw: dict, column: str) -> pd.DataFrame:
-    groups = ncw_table.set_index("iso3").reindex(ncw["iso3"])[column].reset_index(drop=True)
-    if column == "continent":
-        fallback = ncw_table.set_index("iso3").reindex(ncw["iso3"])["fra_region"].reset_index(drop=True)
+    source_column = "continent" if column == "region" else column
+    unit_codes = np.asarray(ncw["iso3"]).astype(str)
+    keep = ~np.isin(unit_codes, ["BCW-JR", "BCW-OC"])
+    unit_codes = unit_codes[keep]
+    unit_accounts = {key: np.asarray(ncw[key])[keep] for key in ["gcw_usd2015_yr", "bcw_usd2015_yr", "ncw_usd2015_yr"]}
+    groups = ncw_table.set_index("iso3").reindex(unit_codes)[source_column].reset_index(drop=True)
+    if column == "region":
+        fallback = ncw_table.set_index("iso3").reindex(unit_codes)["fra_region"].reset_index(drop=True)
         groups = groups.fillna(fallback)
     groups = groups.fillna("Unclassified")
     frames = []
-    world = {key: np.nansum(ncw[key], axis=0) for key in ["gcw_usd2015_yr", "bcw_usd2015_yr", "ncw_usd2015_yr"]}
+    world = {key: np.nansum(values, axis=0) for key, values in unit_accounts.items()}
     for key in ["gcw_usd2015_yr", "bcw_usd2015_yr", "ncw_usd2015_yr"]:
-        labels, summed = sum_draws(np.nan_to_num(ncw[key]), groups)
+        labels, summed = sum_draws(np.nan_to_num(unit_accounts[key]), groups)
         summary = summarise_draws(summed, key)
         summary[f"{key}_share_of_world"] = np.mean(summed / world[key][None, :], axis=1)
         frames.append(summary)
@@ -89,7 +108,7 @@ def route_a_extremes(gcw_table: pd.DataFrame, n: int = 10) -> pd.DataFrame:
 
 def run(forest: dict, faostat: pd.DataFrame, gcw_table: pd.DataFrame, gcw: dict, ncw_table: pd.DataFrame, ncw: dict) -> None:
     write_table(global_by_ecosystem(forest, faostat, gcw, ncw), TABLES / "table1_global_by_ecosystem.csv")
-    write_table(by_group(ncw_table, ncw, "continent"), TABLES / "table2_by_continent.csv")
+    write_table(by_group(ncw_table, ncw, "region"), TABLES / "table2_by_region.csv")
     write_table(by_group(ncw_table, ncw, "groups"), TABLES / "table3_by_group.csv")
     write_table(top_territories(ncw_table), TABLES / "table4_top_territories.csv")
     write_table(route_a_extremes(gcw_table), TABLES / "table5_route_a_faostat.csv")

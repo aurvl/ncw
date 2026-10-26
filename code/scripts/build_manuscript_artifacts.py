@@ -19,7 +19,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.colors import LinearSegmentedColormap, LogNorm
 from matplotlib.patches import Patch, Rectangle
-from scipy import stats
+from scipy import stats as scipy_stats
 
 
 GROUP_ORDER = ["Developed economies", "Developing economies", "LDCs", "SIDS"]
@@ -37,8 +37,8 @@ IBRAHIM_ALLOCATION_RATE = 0.02
 DISCOUNT_RATE = 0.02
 EXPECTED_COUNTS = {
     "gcw_units": 236,
-    "both_accounts": 175,
-    "balance_common_sample": 162,
+    "both_accounts": 174,
+    "balance_common_sample": 161,
     "deforestation_reporters": 139,
     "positive_loss_units": 105,
     "units_with_2024_gdp": 196,
@@ -68,6 +68,20 @@ def require_columns(frame: pd.DataFrame, columns: list[str], source: str) -> Non
     missing = sorted(set(columns) - set(frame.columns))
     if missing:
         raise ValueError(f"{source} is missing required columns: {missing}")
+
+
+def with_unit_identifiers(frame: pd.DataFrame, master: pd.DataFrame) -> pd.DataFrame:
+    """Expose the accounting key, validated ISO code and region in unit supplements.
+
+    The internal ``iso3`` join key is retained for existing analytical scripts;
+    only ``ISO3`` should be interpreted as an ISO 3166 alpha-3 identifier.
+    """
+    identifiers = master[["iso3", "UNIT_CODE", "ISO3", "region"]].drop_duplicates("iso3")
+    displayed = frame.drop(columns=["continent", "region"], errors="ignore").merge(
+        identifiers, on="iso3", how="left", validate="many_to_one"
+    )
+    front = [column for column in ["UNIT_CODE", "ISO3", "name", "region"] if column in displayed]
+    return displayed[[*front, *(column for column in displayed if column not in front)]]
 
 
 def load_inputs(root: Path) -> dict[str, pd.DataFrame | np.ndarray]:
@@ -167,6 +181,17 @@ def draw_summary(draws: np.ndarray) -> dict[str, float]:
     }
 
 
+def aggregate_global_accounts(gcw_draws: np.ndarray, bcw_draws: np.ndarray) -> dict[str, np.ndarray]:
+    """Aggregate each available ecosystem account, then add the global totals."""
+    global_gcw = np.nansum(np.asarray(gcw_draws, dtype="float64"), axis=0)
+    global_bcw = np.nansum(np.asarray(bcw_draws, dtype="float64"), axis=0)
+    return {
+        "Green carbon wealth": global_gcw,
+        "Blue carbon wealth": global_bcw,
+        "Natural carbon wealth": global_gcw + global_bcw,
+    }
+
+
 def gini_coefficient(values: pd.Series) -> float:
     """Compute the Gini coefficient for a finite non-negative series."""
     x = np.sort(pd.to_numeric(values, errors="coerce").dropna().to_numpy(dtype=float))
@@ -196,13 +221,24 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
     gcw_units = inputs["gcw_units"]
 
     # Table 1: global monetary distributions from the aligned Monte Carlo draws.
-    global_draws = {
-        "Green carbon wealth": np.nansum(gcw_draws, axis=0),
-        "Blue carbon wealth": np.nansum(bcw_draws, axis=0),
-        "Natural carbon wealth": np.nansum(ncw_draws, axis=0),
-    }
+    # Global accounts use every available ecosystem component. The national NCW
+    # file intentionally requires both accounts, so its complete-case sum is a
+    # different perimeter and must not be substituted for the additive total.
+    global_draws = aggregate_global_accounts(gcw_draws, bcw_draws)
     summaries = {name: draw_summary(draws) for name, draws in global_draws.items()}
     total_mean = summaries["Natural carbon wealth"]["mean"]
+    has_gcw = master["has_gcw"].astype(bool)
+    has_bcw = master["has_bcw"].astype(bool)
+    both_accounts = has_gcw & has_bcw
+    either_account = has_gcw | has_bcw
+    territorial_bcw = master["has_bcw"].astype(bool) & ~master["iso3"].isin(["BCW-JR", "BCW-OC"])
+    account_scope = {
+        "gcw_records": int(has_gcw.sum()),
+        "bcw_records_including_source_aggregate": int(has_bcw.sum()),
+        "bcw_country_or_territory_records": int(territorial_bcw.sum()),
+        "units_with_both_accounts": int(both_accounts.sum()),
+        "records_with_either_account": int(either_account.sum()),
+    }
     table1 = pd.DataFrame(
         [
             {
@@ -212,11 +248,50 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
                 "value_p50_trillion_usd2015_yr": stats["p50"] / 1e12,
                 "value_p95_trillion_usd2015_yr": stats["p95"] / 1e12,
                 "share_of_ncw_pct": 100 * stats["mean"] / total_mean,
+                **account_scope,
+                "aggregation_scope": (
+                    "Available component total; BCW includes the source Joint Regimes residual."
+                    if name == "Blue carbon wealth" else
+                    "Available component total across all GCW units."
+                    if name == "Green carbon wealth" else
+                    "Global GCW + global BCW; national NCW remains complete-case."
+                ),
             }
             for name, stats in summaries.items()
         ]
     )
     table1.to_csv(out / "Table1_global_carbon_wealth.csv", index=False)
+
+    # Preserve both legitimate global scopes explicitly. Table 1 uses the
+    # additive ecosystem totals; national NCW distributions use complete cases.
+    complete_case_ncw = np.nansum(np.asarray(ncw_draws, dtype="float64"), axis=0)
+    scope_draws = {
+        "GCW global available-component total": global_draws["Green carbon wealth"],
+        "BCW global available-component total": global_draws["Blue carbon wealth"],
+        "NCW global additive total": global_draws["Natural carbon wealth"],
+        "NCW complete-case country sum": complete_case_ncw,
+        "Difference: global additive minus complete-case sum": global_draws["Natural carbon wealth"] - complete_case_ncw,
+    }
+    scope_rows = []
+    for label, draws in scope_draws.items():
+        stats = draw_summary(draws)
+        scope_rows.append({
+            "aggregate": label,
+            **{f"value_{key}_trillion_usd2015_yr": stats[key] / 1e12 for key in ("mean", "p05", "p50", "p95")},
+            **account_scope,
+            "definition": (
+                "GCW rows summed with their available values; BCW rows summed with their available values; the two totals added draw by draw."
+                if label == "NCW global additive total" else
+                "Sum of country-level NCW values only where both GCW and BCW are available."
+                if label == "NCW complete-case country sum" else
+                "Difference between the Table 1 global additive NCW and the sum of complete-case national NCW."
+                if label.startswith("Difference") else
+                "Sum of available component values draw by draw; BCW includes the source Joint Regimes residual."
+            ),
+        })
+    pd.DataFrame(scope_rows).to_csv(
+        out / "Supplementary_global_account_aggregation_scope.csv", index=False
+    )
 
     # Supplement S1: physical forest account and four non-mangrove biome rates.
     area_totals = area.groupby("biome", as_index=False)["area_ha"].sum()
@@ -317,6 +392,8 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
     for group in [*GROUP_ORDER, "Unclassified"]:
         group_all = master.loc[master["group_label"] == group]
         group_profiles = both.loc[both["group_label"] == group]
+        if group_all["has_gcw"].sum() == 0 and group_profiles.empty:
+            continue
         ratio_values = group_all.loc[group_all["gcw_gdp_2024_pct"].notna(), "gcw_gdp_2024_pct"]
         group_records.append(
             {
@@ -347,39 +424,51 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
     table2.to_csv(out / "Table2_geographic_economic_profiles.csv", index=False)
 
     # Supplementary current geographic profiles and distribution diagnostics.
-    continent_rows = []
-    master["continent_label"] = master["continent"].fillna("Unclassified")
-    for continent, subset in master.groupby("continent_label", sort=True):
+    region_rows = []
+    master["region_label"] = master["region"].fillna("Unclassified")
+    for region, subset in master.groupby("region_label", sort=True):
         gcw_units = subset.loc[subset["has_gcw"]]
         bcw_units = subset.loc[subset["has_bcw"]]
         both_units = subset.loc[subset["has_gcw"] & subset["has_bcw"]]
-        continent_rows.append(
+        region_rows.append(
             {
-                "continent": continent,
+                "region": region,
                 "units_with_gcw": int(gcw_units["iso3"].nunique()),
                 "units_with_bcw": int(bcw_units["iso3"].nunique()),
                 "units_with_both_accounts": int(both_units["iso3"].nunique()),
                 "gcw_trillion_usd2015_yr": gcw_units["gcw_usd2015_yr_mean"].sum(min_count=1) / 1e12,
                 "bcw_trillion_usd2015_yr": bcw_units["bcw_usd2015_yr_mean"].sum(min_count=1) / 1e12,
-                "ncw_trillion_usd2015_yr": both_units["ncw_usd2015_yr_mean"].sum(min_count=1) / 1e12,
+                "ncw_trillion_usd2015_yr": (
+                    gcw_units["gcw_usd2015_yr_mean"].sum(min_count=1)
+                    + bcw_units["bcw_usd2015_yr_mean"].sum(min_count=1)
+                ) / 1e12,
+                "ncw_complete_case_trillion_usd2015_yr": (
+                    both_units["ncw_usd2015_yr_mean"].sum(min_count=1) / 1e12
+                ),
                 "units_with_2024_gdp": int(gcw_units["gcw_gdp_2024_pct"].notna().sum()),
                 "median_gcw_gdp_2024_pct": gcw_units["gcw_gdp_2024_pct"].median(),
             }
         )
-    continent_table = pd.DataFrame(continent_rows)
-    continent_total = {
-        "continent": "All units",
+    region_table = pd.DataFrame(region_rows)
+    region_total = {
+        "region": "All units",
         "units_with_gcw": int(master["has_gcw"].sum()),
         "units_with_bcw": int(master["has_bcw"].sum()),
         "units_with_both_accounts": int((master["has_gcw"] & master["has_bcw"]).sum()),
         "gcw_trillion_usd2015_yr": master.loc[master["has_gcw"], "gcw_usd2015_yr_mean"].sum() / 1e12,
         "bcw_trillion_usd2015_yr": master.loc[master["has_bcw"], "bcw_usd2015_yr_mean"].sum() / 1e12,
-        "ncw_trillion_usd2015_yr": master.loc[master["has_gcw"] & master["has_bcw"], "ncw_usd2015_yr_mean"].sum() / 1e12,
+        "ncw_trillion_usd2015_yr": (
+            master.loc[master["has_gcw"], "gcw_usd2015_yr_mean"].sum()
+            + master.loc[master["has_bcw"], "bcw_usd2015_yr_mean"].sum()
+        ) / 1e12,
+        "ncw_complete_case_trillion_usd2015_yr": (
+            master.loc[master["has_gcw"] & master["has_bcw"], "ncw_usd2015_yr_mean"].sum() / 1e12
+        ),
         "units_with_2024_gdp": int(master.loc[master["has_gcw"], "gcw_gdp_2024_pct"].notna().sum()),
         "median_gcw_gdp_2024_pct": master.loc[master["has_gcw"], "gcw_gdp_2024_pct"].median(),
     }
-    continent_table = pd.concat([continent_table, pd.DataFrame([continent_total])], ignore_index=True)
-    continent_table.to_csv(out / "Supplementary_continent_profiles_2024.csv", index=False)
+    region_table = pd.concat([region_table, pd.DataFrame([region_total])], ignore_index=True)
+    region_table.to_csv(out / "Supplementary_region_profiles_2024.csv", index=False)
 
     distribution_rows = []
     concentration_specs = [
@@ -398,6 +487,11 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
                 "top_10_share_pct": 100 * ordered.head(10).sum() / values.sum(),
                 "top_50_share_pct": 100 * ordered.head(50).sum() / values.sum(),
                 "median_usd2015_yr": float(values.median()),
+                "aggregation_scope": (
+                    "Country/territory NCW where both accounts are available; complete-case distribution."
+                    if measure == "NCW" else
+                    "Available component values by country/territory; component-specific coverage."
+                ),
             }
         )
     distribution_table = pd.DataFrame(distribution_rows)
@@ -410,7 +504,7 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
         for group in GROUP_ORDER
     }
     ratio_samples = {group: values for group, values in ratio_samples.items() if len(values) > 2}
-    kw_stat, kw_p = stats.kruskal(*ratio_samples.values())
+    kw_stat, kw_p = scipy_stats.kruskal(*ratio_samples.values())
     pairwise_rows = [
         {
             "test": "Kruskal-Wallis across economic groups",
@@ -427,7 +521,7 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
     group_names = list(ratio_samples)
     for i, group_a in enumerate(group_names):
         for group_b in group_names[i + 1 :]:
-            u_stat, p_value = stats.mannwhitneyu(
+            u_stat, p_value = scipy_stats.mannwhitneyu(
                 ratio_samples[group_a], ratio_samples[group_b], alternative="two-sided"
             )
             pairwise_rows.append(
@@ -455,7 +549,7 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
         master["reported_deforestation"] & master["loss_tco2_mean"].gt(0),
         ["gcw_usd2015_yr_mean", "erosion_pct_of_gcw"],
     ].dropna()
-    rho, rho_p = stats.spearmanr(scatter["gcw_usd2015_yr_mean"], scatter["erosion_pct_of_gcw"])
+    rho, rho_p = scipy_stats.spearmanr(scatter["gcw_usd2015_yr_mean"], scatter["erosion_pct_of_gcw"])
     pd.DataFrame(
         [
             {
@@ -494,7 +588,11 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
                 }
             )
     transition_table = pd.DataFrame(transition_rows)
-    expected_transitions = {(True, True): 56, (True, False): 0, (False, True): 35, (False, False): 71}
+    # Expected counts are refreshed whenever the canonical mangrove/BCW inputs
+    # change, because the NCW side of this comparison depends on the current
+    # blue-carbon account.  These are the counts from the FRA-first refresh on
+    # 2026-10-23, not a frozen pre-refresh assertion.
+    expected_transitions = {(True, True): 57, (True, False): 0, (False, True): 34, (False, False): 70}
     actual_transitions = {
         (bool(row.before_gcw_balance_positive), bool(row.after_ncw_balance_positive)): int(row.units)
         for row in transition_table.itertuples(index=False)
@@ -502,12 +600,15 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
     if actual_transitions != expected_transitions:
         raise ValueError(f"2024 balance-transition check failed: {actual_transitions}")
     transition_table.to_csv(out / "Supplementary_accounting_balance_transitions.csv", index=False)
-    balance.merge(
+    balance_by_unit = balance.merge(
         master[["iso3", "has_gcw", "has_bcw", "groups", "gcw_usd2015_yr_mean", "bcw_usd2015_yr_mean"]],
         on="iso3",
         how="left",
         validate="one_to_one",
-    ).to_csv(out / "Supplementary_accounting_balances_2024_by_unit.csv", index=False)
+    )
+    with_unit_identifiers(balance_by_unit, master).to_csv(
+        out / "Supplementary_accounting_balances_2024_by_unit.csv", index=False
+    )
 
     # Table 3: losses among reporting units; unreported units remain missing.
     report = master.loc[master["reported_deforestation"]].copy()
@@ -557,7 +658,9 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
             "loss_value_usd2015_yr_p95": "loss_usd_p95",
         }
     )
-    erosion_country.to_csv(out / "Supplementary_country_level_erosion.csv", index=False)
+    with_unit_identifiers(erosion_country, master).to_csv(
+        out / "Supplementary_country_level_erosion.csv", index=False
+    )
 
     # Country-level manuscript file: one current row per unit. Historical
     # emissions/mangrove baselines and non-Pan alternative forest estimates stay
@@ -593,7 +696,10 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
         columns=[column for column in country.columns if column.startswith("spatial_sample_legacy")],
         errors="ignore",
     )
-    country = country.sort_values("iso3").reset_index(drop=True)
+    country = country.drop(columns=["iso3", "continent", "group_label", "region_label"], errors="ignore")
+    front = ["UNIT_CODE", "ISO3", "name", "region", "groups", "group_source"]
+    country = country.sort_values("UNIT_CODE").reset_index(drop=True)
+    country = country[[*front, *(column for column in country.columns if column not in front)]]
     country.to_csv(out / "Supplementary_country_level_accounts_2024.csv", index=False)
 
     # Supplement S3: align the FRA overlap audit, GMW 2025 area, updated BCW
@@ -621,7 +727,9 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
         "their inclusion in the strict forest total; GMW 2025 is the applied BCW mangrove area. "
         "Unresolved FRA overlap is retained and reported as a limitation."
     )
-    mangrove.to_csv(out / "Supplementary_mangrove_reconciliation.csv", index=False)
+    with_unit_identifiers(mangrove, master).to_csv(
+        out / "Supplementary_mangrove_reconciliation.csv", index=False
+    )
 
     # The projection/capitalisation are distinct from the 2% allocation scenario.
     annual_loss_tco2 = float(all_report["loss_tco2_mean"].sum(min_count=1))
@@ -738,7 +846,9 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
                 }
             )
     national_rankings = pd.DataFrame(ranking_rows)
-    national_rankings.to_csv(out / "Supplementary_national_top10_2024.csv", index=False)
+    with_unit_identifiers(national_rankings, master).to_csv(
+        out / "Supplementary_national_top10_2024.csv", index=False
+    )
 
     # Busch categories are a separate, exhaustive classification of 105 positive-loss cases.
     busch_status = inputs["busch_status"].copy()
@@ -760,7 +870,9 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
         }
     )
     busch_status.to_csv(out / "Supplementary_Busch_action_cost_coverage.csv", index=False)
-    inputs["busch_units"].to_csv(out / "Supplementary_Busch_action_cost_by_unit.csv", index=False)
+    with_unit_identifiers(inputs["busch_units"], master).to_csv(
+        out / "Supplementary_Busch_action_cost_by_unit.csv", index=False
+    )
 
     # Retain all competing specifications until the researcher validates selection.
     spatial_evidence = inputs["spatial_evidence"]
@@ -774,7 +886,7 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
         "Table 3": table3,
         "Table 4": table4,
         "Table S1 - Forest biome additions": paper_s1,
-        "Continent profiles 2024": continent_table,
+        "Regional profiles 2024": region_table,
         "Account concentration 2024": distribution_table,
         "GCW/GDP group tests 2024": pd.DataFrame(pairwise_rows),
         "National top-ten rankings 2024": national_rankings,
@@ -862,42 +974,48 @@ def build_figures(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> l
     plt.close(fig)
     outputs.append(fig1)
 
-    # Figure 2a: show composition only where both accounts are available.
+    # Figure 2a: missing BCW means no data; BCW-only units have a 0% forest share.
     map2 = master[
         ["iso3", "has_gcw", "has_bcw", "gcw_usd2015_yr_mean", "bcw_usd2015_yr_mean", "ncw_usd2015_yr_mean"]
     ].copy()
-    map2["gcw_share_pct"] = 100 * map2["gcw_usd2015_yr_mean"] / map2["ncw_usd2015_yr_mean"]
+    has_gcw_source = as_bool(map2["has_gcw"])
+    has_bcw_source = as_bool(map2["has_bcw"])
+    complete = has_gcw_source & has_bcw_source & map2["ncw_usd2015_yr_mean"].notna()
+    map2["gcw_share_pct"] = np.nan
+    map2.loc[complete, "gcw_share_pct"] = (
+        100 * map2.loc[complete, "gcw_usd2015_yr_mean"] / map2.loc[complete, "ncw_usd2015_yr_mean"]
+    )
+    map2.loc[~has_gcw_source & has_bcw_source, "gcw_share_pct"] = 0.0
     geo2 = map_join(world, map2)
     has_gcw_map = geo2["has_gcw"].astype("boolean").fillna(False).astype(bool)
     has_bcw_map = geo2["has_bcw"].astype("boolean").fillna(False).astype(bool)
-    both = has_gcw_map & has_bcw_map & geo2["gcw_share_pct"].notna()
-    forest_only = has_gcw_map & ~has_bcw_map
-    blue_only = ~has_gcw_map & has_bcw_map
+    composition_available = has_bcw_map & geo2["gcw_share_pct"].notna()
+    no_bcw_data = ~has_bcw_map
     cmap = LinearSegmentedColormap.from_list("blue_to_green", ["#2878A5", "#F4F1D0", "#2E7D4F"])
     fig, (ax_map, ax_matrix) = plt.subplots(
         1, 2, figsize=(13, 5.8), gridspec_kw={"width_ratios": [1.65, 1]}, layout="constrained"
     )
     draw_map_base(ax_map, world)
-    if forest_only.any():
-        geo2.loc[forest_only].plot(ax=ax_map, color="#D2D4D4", edgecolor="white", linewidth=0.2)
-    if blue_only.any():
-        geo2.loc[blue_only].plot(ax=ax_map, color="#989E9D", edgecolor="white", linewidth=0.2)
-    if both.any():
-        geo2.loc[both].plot(
+    if no_bcw_data.any():
+        geo2.loc[no_bcw_data].plot(ax=ax_map, color="#D2D4D4", edgecolor="white", linewidth=0.2)
+    if composition_available.any():
+        geo2.loc[composition_available].plot(
             ax=ax_map, column="gcw_share_pct", cmap=cmap, vmin=0, vmax=100,
             edgecolor="white", linewidth=0.2,
         )
     sm = mpl.cm.ScalarMappable(norm=mpl.colors.Normalize(vmin=0, vmax=100), cmap=cmap)
     cbar = fig.colorbar(sm, ax=ax_map, orientation="horizontal", fraction=0.045, pad=0.035)
-    cbar.set_label("GCW share of NCW among units with both accounts (%)")
-    missing_handles = [
-        Patch(facecolor="#D2D4D4", label="GCW available; BCW unavailable"),
-        Patch(facecolor="#989E9D", label="BCW available; GCW unavailable"),
-    ]
-    ax_map.legend(handles=missing_handles, loc="lower left", bbox_to_anchor=(0.01, 0.01), frameon=True, fontsize=7)
-    ax_map.set_title("a  Green-blue composition (n=175 with both accounts)", loc="left", fontweight="bold")
+    cbar.set_label("Forest share where BCW data are available (%)")
+    ax_map.legend(
+        handles=[Patch(facecolor="#D2D4D4", label="No data (BCW unavailable)")],
+        loc="lower left", bbox_to_anchor=(0.01, 0.01), frameon=True, fontsize=7,
+    )
+    ax_map.set_title(
+        f"a  Green-blue composition (n={int(composition_available.sum())} with BCW data)",
+        loc="left", fontweight="bold",
+    )
 
-    # Figure 2b: 2 x 2 transition matrix on the 162-unit complete sample.
+    # Figure 2b: 2 x 2 transition matrix on the 161-unit complete sample.
     common = inputs["balance"].merge(
         master[["iso3", "has_gcw", "has_bcw"]], on="iso3", how="left", validate="one_to_one"
     )
@@ -920,7 +1038,7 @@ def build_figures(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> l
     ax_matrix.set_yticks([0, 1], ["Positive", "Non-positive"])
     ax_matrix.set_xlabel("After adding marine carbon (NCW − emissions 2024)")
     ax_matrix.set_ylabel("Forest account (GCW − emissions 2024)")
-    ax_matrix.set_title("b  Accounting-balance transitions (n=162)", loc="left", fontweight="bold")
+    ax_matrix.set_title("b  Accounting-balance transitions (n=161)", loc="left", fontweight="bold")
     ax_matrix.tick_params(length=0)
     for spine in ax_matrix.spines.values():
         spine.set_visible(False)

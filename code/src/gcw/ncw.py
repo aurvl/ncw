@@ -97,12 +97,53 @@ def mangrove_gapfill(bcw_mangroves: pd.DataFrame, n_draws: int) -> tuple[pd.Data
     return table, uptake_tc
 
 
+def combine_complete_accounts(gcw: np.ndarray, bcw: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """Return national NCW only where both ecosystem accounts have observations."""
+    gcw = np.asarray(gcw, dtype=np.float64)
+    bcw = np.asarray(bcw, dtype=np.float64)
+    if gcw.shape != bcw.shape or gcw.ndim != 2:
+        raise ValueError("GCW and BCW must be same-shaped two-dimensional draw arrays")
+    has_gcw = ~np.isnan(gcw).all(axis=1)
+    has_bcw = ~np.isnan(bcw).all(axis=1)
+    complete = has_gcw & has_bcw
+    ncw = np.full(gcw.shape, np.nan, dtype=np.float64)
+    ncw[complete] = np.nan_to_num(gcw[complete]) + np.nan_to_num(bcw[complete])
+    return ncw, has_gcw, has_bcw, complete
+
+
+def forest_share_for_composition(
+    gcw_mean: np.ndarray,
+    ncw_mean: np.ndarray,
+    has_gcw: np.ndarray,
+    has_bcw: np.ndarray,
+) -> np.ndarray:
+    """Forest share for map composition: missing BCW is NA; BCW-only is 0%."""
+    gcw_mean = np.asarray(gcw_mean, dtype=np.float64)
+    ncw_mean = np.asarray(ncw_mean, dtype=np.float64)
+    has_gcw = np.asarray(has_gcw, dtype=bool)
+    has_bcw = np.asarray(has_bcw, dtype=bool)
+    if not (gcw_mean.shape == ncw_mean.shape == has_gcw.shape == has_bcw.shape):
+        raise ValueError("Composition inputs must have identical shapes")
+    share = np.full(gcw_mean.shape, np.nan, dtype=np.float64)
+    complete = has_gcw & has_bcw & np.isfinite(ncw_mean) & (ncw_mean != 0)
+    share[complete] = gcw_mean[complete] / ncw_mean[complete]
+    share[~has_gcw & has_bcw] = 0.0
+    return share
+
+
 def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame, dict, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     bcw = read_bcw_table()
     bcw_row_draws, alignment = align_bcw_draws(bcw)
     bcw_units, bcw_unit_draws, bcw_mangroves = aggregate_bcw_to_units(bcw, bcw_row_draws)
     gscc = gcw_draws["gscc"][None, :]
     gapfill, gapfill_tc = mangrove_gapfill(bcw_mangroves, gscc.shape[1])
+
+    # A mapped mangrove area cannot turn a missing national BCW account into a
+    # complete account. Keep the gap-fill only for units with a published BCW total.
+    source_bcw_available = dict(zip(bcw_units, ~np.isnan(bcw_unit_draws).all(axis=1)))
+    keep_gapfill = gapfill["iso3"].map(source_bcw_available).fillna(False).to_numpy(dtype=bool)
+    gapfill = gapfill.loc[keep_gapfill].reset_index(drop=True)
+    gapfill_tc = gapfill_tc[keep_gapfill]
     gapfill["gapfill_bcw_usd2015_yr_mean"] = (gapfill_tc * CARBON_TO_CO2 * gscc).mean(axis=1)
 
     gmw_areas = pd.read_csv(GMW_MANGROVE_AREA_CSV)
@@ -145,9 +186,11 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
         area_delta.to_numpy(dtype=np.float64)[:, None] / 100.0
         * mangrove_rate[None, :] * CARBON_TO_CO2 * gscc
     ).astype(np.float32)
-    bcw_gmw = np.nan_to_num(bcw_current) + gmw_adjustment
-    no_bcw_after_gmw = np.isnan(bcw_current).all(axis=1) & (gmw_area.to_numpy() == 0)
-    bcw_gmw[no_bcw_after_gmw] = np.nan
+    has_published_bcw = ~np.isnan(bcw_published).all(axis=1)
+    gmw_adjustment[~has_published_bcw] = np.nan
+    bcw_gmw = np.full_like(bcw_current, np.nan)
+    valid_bcw = has_published_bcw & ~np.isnan(bcw_current).all(axis=1)
+    bcw_gmw[valid_bcw] = bcw_current[valid_bcw] + gmw_adjustment[valid_bcw]
     gmw_mangrove_value = (
         gmw_area.to_numpy(dtype=np.float64)[:, None] / 100.0
         * mangrove_rate[None, :] * CARBON_TO_CO2 * gscc
@@ -165,12 +208,20 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
         }
     )
 
-    both_missing = np.isnan(gcw) & np.isnan(bcw_gmw)
-    ncw = np.where(both_missing, np.nan, np.nan_to_num(gcw) + np.nan_to_num(bcw_gmw))
-    ncw_spatial_low = np.where(both_missing, np.nan, np.nan_to_num(gcw_spatial_low) + np.nan_to_num(bcw_gmw))
-    ncw_spatial_high = np.where(both_missing, np.nan, np.nan_to_num(gcw_spatial_high) + np.nan_to_num(bcw_gmw))
-    ncw_alt = np.where(
-        both_missing, np.nan, np.nan_to_num(gcw_no_overlap_removed) + np.nan_to_num(bcw_gmw) - np.nan_to_num(gmw_mangrove_value)
+    ncw, has_gcw, has_bcw, complete_accounts = combine_complete_accounts(gcw, bcw_gmw)
+    ncw_spatial_low = np.full_like(ncw, np.nan)
+    ncw_spatial_high = np.full_like(ncw, np.nan)
+    ncw_alt = np.full_like(ncw, np.nan)
+    ncw_spatial_low[complete_accounts] = (
+        np.nan_to_num(gcw_spatial_low[complete_accounts]) + np.nan_to_num(bcw_gmw[complete_accounts])
+    )
+    ncw_spatial_high[complete_accounts] = (
+        np.nan_to_num(gcw_spatial_high[complete_accounts]) + np.nan_to_num(bcw_gmw[complete_accounts])
+    )
+    ncw_alt[complete_accounts] = (
+        np.nan_to_num(gcw_no_overlap_removed[complete_accounts])
+        + np.nan_to_num(bcw_gmw[complete_accounts])
+        - np.nan_to_num(gmw_mangrove_value[complete_accounts])
     )
 
     table = pd.concat(
@@ -188,15 +239,20 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
         ],
         axis=1,
     )
-    table["has_gcw"] = ~np.isnan(gcw).all(axis=1)
-    table["has_bcw"] = ~np.isnan(bcw_gmw).all(axis=1)
+    table["has_gcw"] = has_gcw
+    table["has_bcw"] = has_bcw
     table["bcw_mangrove_gapfilled"] = table["iso3"].isin(gapfill["iso3"])
     info = territories[["iso3", "name", "bcw_codes", "continent", "fra_region", "groups", "population", "gdp"]]
     table = info.merge(table, on="iso3", how="right")
     table["name"] = table["name"].fillna(table["iso3"])
     table["ncw_per_capita_usd2015"] = table["ncw_usd2015_yr_mean"] / table["population"]
     table["ncw_share_of_gdp"] = table["ncw_usd2015_yr_mean"] / table["gdp"]
-    table["forest_share_of_ncw"] = table["gcw_usd2015_yr_mean"] / table["ncw_usd2015_yr_mean"]
+    table["forest_share_of_ncw"] = forest_share_for_composition(
+        table["gcw_usd2015_yr_mean"].to_numpy(),
+        table["ncw_usd2015_yr_mean"].to_numpy(),
+        has_gcw,
+        has_bcw,
+    )
     table = table.sort_values("ncw_usd2015_yr_mean", ascending=False).reset_index(drop=True)
 
     draws = {

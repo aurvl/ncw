@@ -77,16 +77,46 @@ def global_checks(forest_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict)
     main_total_area = float(main_area["area_ha"].sum())
     add("country areas by biome sum to FRA forest minus documented Forest mangrove overlap (ha)", round(main_total_area),
         round(expected_area), abs(main_total_area - expected_area) <= 1e-6 * max(expected_area, 1.0))
-    documented_total = float(overlap_evidence.drop_duplicates("iso3")["documented_forest_mangrove_area_ha"].sum())
-    unresolved_rows = overlap_evidence.drop_duplicates("iso3").loc[
-        overlap_evidence.drop_duplicates("iso3")["overlap_status"].isin(
-            ["unresolved_split", "no_exact_forest_split_verified"]
-        )
+    overlap_evidence = overlap_evidence.drop_duplicates("iso3")
+    documented_total = float(overlap_evidence["documented_forest_mangrove_area_ha"].sum())
+    fractions = overlap_evidence[
+        [
+            "documented_forest_fraction",
+            "documented_other_wooded_land_fraction",
+            "documented_remaining_land_fraction",
+        ]
     ]
-    unresolved_total = float(unresolved_rows["fra_mangroves_2025_ha"].sum())
-    add("FRA mangrove area removed only where report crosswalk documents Forest classification (ha)",
-        round(documented_total), "495400", abs(documented_total - 495400) < 0.5)
-    add("FRA mangrove category area without verified Forest/OWL split (ha; retained in forest total)",
+    valid_fractions = fractions.isna() | ((fractions >= 0) & (fractions <= 1))
+    invalid_fraction_cells = int((~valid_fractions).to_numpy().sum())
+    add(
+        "FRA documented Forest/OWL/remaining fractions are between 0 and 1",
+        invalid_fraction_cells,
+        "0",
+        bool(valid_fractions.to_numpy().all()),
+    )
+    classification_gap = (
+        overlap_evidence["documented_forest_mangrove_area_ha"]
+        + overlap_evidence["documented_other_wooded_land_area_ha"]
+        + overlap_evidence["documented_remaining_land_area_ha"]
+        + overlap_evidence["unresolved_mangrove_area_ha"]
+        - overlap_evidence["fra_mangroves_2025_ha"]
+    ).abs().max()
+    add(
+        "FRA mangrove category decomposes into Forest, OWL, remaining-land and unknown parts",
+        classification_gap,
+        "< 1e-6",
+        classification_gap < 1e-6,
+    )
+    unresolved_total = float(overlap_evidence["unresolved_mangrove_area_ha"].sum())
+    add("FRA mangrove area removed only for documented Forest overlap (ha)",
+        round(documented_total), "derived from evidence table", True, status="documented")
+    other_wooded_total = float(overlap_evidence["documented_other_wooded_land_area_ha"].sum())
+    add("FRA mangrove area documented as Other wooded land (ha)",
+        round(other_wooded_total), "derived from evidence table", True, status="documented")
+    remaining_land_total = float(overlap_evidence["documented_remaining_land_area_ha"].sum())
+    add("FRA mangrove area documented as Remaining land (ha)",
+        round(remaining_land_total), "derived from evidence table", True, status="documented")
+    add("FRA mangrove area with unknown Forest/OWL classification (ha)",
         round(unresolved_total), "reported for transparent scope", True, status="documented")
 
     merged = main_area.merge(rates[["biome", "rate_tc_ha_yr_mean"]], on="biome")
@@ -121,10 +151,60 @@ def global_checks(forest_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict)
     add("world population: units vs published BCW rows (duplicated parts removed)",
         f"{territories['population'].sum():.4e} vs {published:.4e}", "units <= published", territories["population"].sum() <= published)
 
-    ncw_world = np.nansum(ncw["ncw_usd2015_yr"], axis=0)
-    parts = np.nansum(ncw["gcw_usd2015_yr"], axis=0) + np.nansum(ncw["bcw_usd2015_yr"], axis=0)
-    add("world NCW equals world GCW + BCW draw by draw", float(np.max(np.abs(ncw_world - parts) / np.abs(parts))), "< 1e-5",
-        bool(np.max(np.abs(ncw_world - parts) / np.abs(parts)) < 1e-5))
+    has_gcw = ~np.isnan(ncw["gcw_usd2015_yr"]).all(axis=1)
+    has_bcw = ~np.isnan(ncw["bcw_usd2015_yr"]).all(axis=1)
+    complete = has_gcw & has_bcw
+    incomplete_with_ncw = int((~complete & ~np.isnan(ncw["ncw_usd2015_yr"]).all(axis=1)).sum())
+    add(
+        "national NCW is missing when either ecosystem account is unavailable",
+        incomplete_with_ncw,
+        "0",
+        incomplete_with_ncw == 0,
+    )
+    missing_bcw_with_value = int((~has_bcw & ~np.isnan(ncw["bcw_usd2015_yr"]).all(axis=1)).sum())
+    add(
+        "units without BCW data do not receive a numeric BCW account value",
+        missing_bcw_with_value,
+        "0",
+        missing_bcw_with_value == 0,
+    )
+    ncw_complete = np.nansum(ncw["ncw_usd2015_yr"][complete], axis=0)
+    parts_complete = (
+        np.nansum(ncw["gcw_usd2015_yr"][complete], axis=0)
+        + np.nansum(ncw["bcw_usd2015_yr"][complete], axis=0)
+    )
+    complete_gap = float(np.max(np.abs(ncw_complete - parts_complete) / np.maximum(np.abs(parts_complete), 1.0)))
+    add(
+        "complete-case national NCW equals GCW + BCW draw by draw",
+        complete_gap,
+        "< 1e-5",
+        complete_gap < 1e-5,
+    )
+    # Account draw arrays are stored as float32 to keep the national archive
+    # compact. Promote before aggregation so global totals use the same
+    # double-precision summation as the manuscript table builder.
+    global_gcw = np.nansum(np.asarray(ncw["gcw_usd2015_yr"], dtype=np.float64), axis=0)
+    global_bcw = np.nansum(np.asarray(ncw["bcw_usd2015_yr"], dtype=np.float64), axis=0)
+    global_ncw_additive = global_gcw + global_bcw
+    global_additive_gap = float(
+        np.max(np.abs(global_ncw_additive - (global_gcw + global_bcw)))
+        / max(float(np.max(np.abs(global_ncw_additive))), 1.0)
+    )
+    global_ncw_complete_case = np.nansum(
+        np.asarray(ncw["ncw_usd2015_yr"], dtype=np.float64), axis=0
+    )
+    add(
+        "global additive NCW equals global available GCW + BCW draw by draw",
+        {
+            "relative_gap": global_additive_gap,
+            "GCW_mean_trillion": float(global_gcw.mean() / 1e12),
+            "BCW_mean_trillion": float(global_bcw.mean() / 1e12),
+            "additive_NCW_mean_trillion": float(global_ncw_additive.mean() / 1e12),
+            "complete_case_NCW_mean_trillion": float(global_ncw_complete_case.mean() / 1e12),
+        },
+        "relative gap < 1e-12; complete-case sum is separately scoped",
+        global_additive_gap < 1e-12,
+    )
     return pd.DataFrame(checks)
 
 

@@ -19,11 +19,48 @@ from __future__ import annotations
 
 import numpy as np
 import pandas as pd
+import pycountry
 
-from .config import BCW_COUNTRY_CSV, SUMMARY, TERRITORY_CROSSWALK_CSV, UNIT_NAME_OVERRIDES
+from .config import BCW_COUNTRY_CSV, ECONOMIC_GROUP_OVERRIDES_CSV, SUMMARY, TERRITORY_CROSSWALK_CSV, UNIT_NAME_OVERRIDES
 from .validation import assert_unique, read_fra_variable, write_table
 
 BCW_CODES_WITHOUT_ISO = {"Joint Regimes": "BCW-JR", "Overlapping Claims": "BCW-OC"}
+
+
+def _valid_iso3(unit_code: str) -> str | None:
+    """Retain an ISO 3166 alpha-3 code only when the unit key itself is valid."""
+    return unit_code if pycountry.countries.get(alpha_3=unit_code) is not None else None
+
+
+def _complete_economic_groups(
+    territories: pd.DataFrame, bcw: pd.DataFrame, overrides: pd.DataFrame,
+) -> pd.DataFrame:
+    """Keep source groups, then use the source sovereign, then explicit conventions."""
+    result = territories.copy()
+    source_groups = bcw[["country_name", "Groups"]].dropna(subset=["Groups"])
+    conflicts = source_groups.groupby("country_name")["Groups"].nunique()
+    if conflicts.gt(1).any():
+        raise ValueError(f"Conflicting BCW sovereign groups: {conflicts[conflicts.gt(1)].index.tolist()}")
+    sovereign_groups = source_groups.drop_duplicates("country_name").set_index("country_name")["Groups"]
+
+    result["group_source"] = pd.NA
+    direct = result["groups"].notna()
+    result.loc[direct, "group_source"] = "published_unit"
+
+    inherited_group = result["sovereign"].map(sovereign_groups)
+    inherited = result["groups"].isna() & inherited_group.notna()
+    result.loc[inherited, "groups"] = inherited_group.loc[inherited]
+    result.loc[inherited, "group_source"] = "sovereign_fallback"
+
+    override_groups = result["iso3"].map(overrides.set_index("iso3")["groups"])
+    conflict = override_groups.notna() & result["groups"].notna() & override_groups.ne(result["groups"])
+    if conflict.any():
+        raise ValueError(f"Economic group overrides conflict with the source hierarchy: {result.loc[conflict, 'iso3'].tolist()}")
+    manual = result["groups"].isna() & override_groups.notna()
+    result.loc[manual, "groups"] = override_groups.loc[manual]
+    result.loc[manual, "group_source"] = "researcher_convention"
+    result["group_source"] = result["group_source"].fillna("unclassified")
+    return result
 
 
 def read_bcw_table() -> pd.DataFrame:
@@ -92,6 +129,17 @@ def build_territories() -> tuple[pd.DataFrame, pd.DataFrame]:
     units["in_bcw"] = True
 
     territories = fra.merge(units, on="iso3", how="outer", validate="one_to_one")
+    overrides = pd.read_csv(ECONOMIC_GROUP_OVERRIDES_CSV)
+    assert_unique(overrides, ["iso3"], "economic group overrides")
+    unknown = sorted(set(overrides["iso3"]) - set(territories["iso3"]))
+    if unknown:
+        raise ValueError(f"Economic group overrides have unknown units: {unknown}")
+    territories = _complete_economic_groups(territories, bcw, overrides)
+    # FRA supplies geographic regions for the two units whose BCW continent is blank.
+    territories["continent"] = territories["continent"].fillna(territories["fra_region"])
+    territories["region"] = territories["continent"]
+    territories["UNIT_CODE"] = territories["iso3"]
+    territories["ISO3"] = territories["UNIT_CODE"].map(_valid_iso3)
     territories[["in_fra", "in_bcw"]] = territories[["in_fra", "in_bcw"]].fillna(False).astype(bool)
     territories["n_bcw_rows"] = territories["n_bcw_rows"].fillna(0).astype(int)
     territories["name"] = territories["iso3"].map(UNIT_NAME_OVERRIDES)
@@ -99,8 +147,8 @@ def build_territories() -> tuple[pd.DataFrame, pd.DataFrame]:
     territories["m49"] = territories["m49"].astype("Int64")
     assert_unique(territories, ["iso3"], "territories")
     columns = [
-        "iso3", "m49", "name", "in_fra", "in_bcw", "n_bcw_rows", "bcw_codes", "fra_name", "bcw_name", "sovereign",
-        "fra_region", "fra_subregion", "continent", "groups", "population", "gdp",
+        "iso3", "UNIT_CODE", "ISO3", "m49", "name", "in_fra", "in_bcw", "n_bcw_rows", "bcw_codes", "fra_name", "bcw_name", "sovereign",
+        "fra_region", "fra_subregion", "continent", "region", "groups", "group_source", "population", "gdp",
     ]
     return territories[columns].sort_values("iso3").reset_index(drop=True), mapping
 
