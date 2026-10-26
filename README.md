@@ -17,7 +17,11 @@ Authors: Nathalie Hilmi, Maria-Sophia Chondrou, Loua Aurel De Vince Vehi, Ibrahi
 
 This repository rebuilds country-level forest and marine carbon accounts and combines them into **Natural Carbon Wealth** (NCW). It also contains analyses of forest capacity loss, climate-finance scenarios, and spatial relationships.
 
-![Workflow from source data to national carbon wealth and paper outputs](docs/figures/ncw-workflow.svg)
+## Current mangrove-method refresh
+
+On 23 October 2026, the FRA 2025 mangrove Forest/OWL audit was propagated through the complete computational chain. The main accounts, validation tables, manuscript tables and supplementary outputs were regenerated from the FRA-first rule: only mangrove area documented as Forest is removed from the FRA forest allocation; documented Other wooded land and Remaining land are kept separate; unresolved Forest/OWL shares remain explicit rather than being imputed. The GMW--JRC spatial overlap is retained as a separate sensitivity test and is not used in the main accounts. The manuscript DOCX itself was not edited automatically; its tables and supporting outputs were refreshed for author review.
+
+<img src="docs/figures/ncw-workflow.svg" alt="Workflow from source data to national carbon wealth and paper outputs" width="70%">
 
 *Repository workflow. Source-specific physical measures and assumptions remain documented separately.*
 
@@ -56,7 +60,7 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 │   ├── country_level_gcw.csv      country and territory forest account
 │   ├── country_level_ncw.csv      combined country-level account
 │   ├── tables/                    paper and supplementary tables
-│   ├── figures/manuscript/        current paper figures (Figure 4 gated on model selection)
+│   ├── figures/                   original-style candidate and alternative paper figures
 │   └── validation/                checks, inventories, and analysis diagnostics
 ├── docs/                          methods and data provenance
 ├── .github/                       automated tests and repository workflows
@@ -76,6 +80,7 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 | Reproduce the spatial sequence | [`code/scripts/run_spatial_full_sequence.py`](code/scripts/run_spatial_full_sequence.py) | `results/validation/spatial_emissions_2024_model_selection_evidence.csv` |
 | Run the 2024 emissions extension | [`code/scripts/run_spatial_emissions_extension.py`](code/scripts/run_spatial_emissions_extension.py) | `results/validation/` |
 | Compare climate-finance approaches | [`code/scripts/compare_finance_and_action_costs.py`](code/scripts/compare_finance_and_action_costs.py) | `results/validation/` |
+| Build Figure 4 finance data | [`code/scripts/build_finance_figure4.py`](code/scripts/build_finance_figure4.py) | `results/tables/manuscript/Supplementary_Figure4_*.csv` and `results/validation/finance_figure4_summary.json` |
 
 The reusable calculation modules in `code/src/gcw/` are the source of truth. Scripts call those modules. Notebooks are used for analysis and figures, not as hidden replacements for the pipeline.
 
@@ -133,21 +138,22 @@ Then use `python code/scripts/build_gfw_rates.py --forest-type-dir data/raw/envi
 | `results/country_level_gcw.csv` | Forest account by accounting unit |
 | `results/country_level_ncw.csv` | Combined forest and marine account by unit |
 | `results/tables/manuscript/` | Current Tables 1-4 and supplementary tables, including the full 2024 country accounts and mangrove audit |
-| `results/figures/manuscript/` | Current Figures 1-3; Figure 4 awaits author model selection |
-| `results/tables/manuscript/Supplementary_country_level_accounts_2024.csv` | Canonical 267-unit, current-version country table for Results drafting |
+| `code/notebooks/08_paper_figures.ipynb` | Original-style candidate Figures 1-3, the three-panel finance Figure 4, and the provisional spatial-coefficient chart as a supplementary candidate |
+| `results/figures/Candidate_Figure*` and `results/figures/Alternative_original_Figure*` | Optional PNG/PDF exports when `SAVE_FIGURES` is enabled after visual review |
+| `results/tables/manuscript/Supplementary_country_level_accounts_2024.csv` | Canonical 267-unit Results table; `UNIT_CODE` is the study-unit key, `ISO3` is validated where available, and `region` names the analytical geographic grouping |
 | `results/validation/country_level_results_master.csv` | Full calculation master used by the artifact builder; legacy comparison fields are filtered from paper-facing outputs |
 
 The validation folder also contains intermediate audits and local rendering checks. Those files are not all manuscript outputs.
 
 Superseded manuscript figure and table exports are retained under `results/archive/legacy_manuscript_2026-10-19/` for audit only. They are not used by the current notebooks or canonical tables.
 
-Build the current paper tables and figures from canonical outputs with:
+Build the current paper tables from canonical outputs with:
 
 ```bash
-python code/scripts/build_manuscript_artifacts.py
+python code/scripts/build_manuscript_artifacts.py --tables-only
 ```
 
-Use `--tables-only` or `--figures-only` to run the corresponding notebook workflow. The spatial coefficient figure is not generated until the researcher selects the final models; all candidate specifications remain in the supplementary spatial outputs.
+Run `code/notebooks/08_paper_figures.ipynb` for the figures. Its plotting code restores the Inter typography, cream background, Robinson maps, segmented legends and original three-panel arrangements for Figures 1 and 2. Figure 4 displays the 2% allocation scenario, its country and group distribution, and Busch curve coverage and marginal prices. The provisional minimum-BIC spatial chart remains a separate supplementary candidate until the researcher records final model choices. The R/Quarto notebook `code/notebooks/07_spatial_econometrics.qmd` reviews the nine spatial relationships; rendering it requires R, knitr and Quarto. Its upstream model fits are generated by the documented Python pipeline.
 
 ## Data, licensing, and citation
 
