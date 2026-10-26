@@ -1,0 +1,222 @@
+---
+title: "Spatial econometric analysis"
+subtitle: "Diagnostics, candidate models, and author-led selection"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+engine: knitr
+execute:
+  echo: true
+  warning: false
+---
+
+# Purpose and scope
+
+This Quarto notebook uses **R throughout** to audit, compare, and visualise the spatial-analysis sequence for the nine primary relationships. It reads the prepared 2024 model fits and diagnostics in `results/validation/`; rendering the notebook does not refit the 168 upstream candidate models. To regenerate those estimates, run `python code/scripts/run_spatial_emissions_extension.py` from the repository root. The distinction between upstream estimation and this R-based review is explicit so that the numerical provenance remains traceable.
+
+The nine relationships are grouped into three sets:
+
+1. Capacity loss, relative erosion of GCW, and GCW/GDP as outcomes under the baseline covariates.
+2. The same three outcomes with 2024 emissions added as a predictor.
+3. 2024 emissions as the outcome, with capacity loss, relative erosion, or GCW/GDP added as the focal predictor.
+
+Each relationship is examined under two spatial-weights definitions: Queen contiguity and symmetrised five-nearest neighbours. The outputs also contain auxiliary specifications and matched-sample references. Those are retained for diagnostics but are not counted among the nine primary relationships above.
+
+This notebook exposes evidence for the researcher to review. It does not automatically select a model, choose a weight matrix, interpret coefficients, or treat associations as causal.
+
+# 1. Setup and input audit
+
+The cells below locate the repository and load the outputs created by the spatial sequence. The filename suffix `spatial_emissions_2024` identifies the expanded analysis that includes emissions as both a predictor and an outcome. `specification`, `outcome`, and `weight` jointly identify each model case; `model` identifies OLS, SAR, SEM, SDM, SDEM, or GNS.
+
+```{r}
+root <- normalizePath(getwd(), winslash = "/", mustWork = TRUE)
+while (!file.exists(file.path(root, "pyproject.toml"))) {
+  parent <- dirname(root)
+  if (identical(parent, root)) stop("Render from the repository or one of its subfolders")
+  root <- parent
+}
+v <- file.path(root, "results", "validation")
+files <- c(
+  moran = "spatial_emissions_2024_step1_moran.csv",
+  lm = "spatial_emissions_2024_step2_lm_tests.csv",
+  nested = "spatial_emissions_2024_step3_nested_tests.csv",
+  fit = "spatial_emissions_2024_model_fit.csv",
+  coefficients = "spatial_emissions_2024_model_coefficients.csv",
+  decisions = "spatial_model_decision_template.csv"
+)
+paths <- file.path(v, files)
+names(paths) <- names(files)
+missing <- paths[!file.exists(paths)]
+if (length(missing)) stop("Missing spatial outputs: ", paste(missing, collapse = ", "))
+tables <- lapply(paths, read.csv, check.names = FALSE, stringsAsFactors = FALSE)
+moran <- tables$moran
+lm <- tables$lm
+nested <- tables$nested
+fit <- tables$fit
+coefficients <- tables$coefficients
+decisions <- tables$decisions
+show_table <- function(x, cols, digits = 3) {
+  knitr::kable(x[, intersect(cols, names(x)), drop = FALSE], digits = digits)
+}
+stopifnot(nrow(decisions) == 9L, !anyNA(decisions$specification))
+data.frame(
+  source = names(tables),
+  rows = vapply(tables, nrow, integer(1)),
+  path = basename(paths), row.names = NULL
+) |> knitr::kable()
+cat("Weights:", paste(sort(unique(fit$weight)), collapse = ", "), "\n")
+cat("Models:", paste(sort(unique(fit$model)), collapse = ", "), "\n")
+```
+
+# 2. Define the primary relationships
+
+The decision template is the authoritative map from each of the nine relationships to its specification name, outcome, and complete-case sample size. It also contains blank author-decision fields. The mapping below uses those nine rows to filter the primary evidence while leaving auxiliary diagnostics available in the source tables.
+
+```{r}
+primary <- decisions[decisions$role %in% c("Primary", "Extended"), , drop = FALSE]
+key <- function(d) paste(d$specification, d$outcome, sep = "::")
+primary_keys <- key(primary)
+stopifnot(nrow(primary) == 9L, !anyDuplicated(primary_keys))
+filter_primary <- function(d) d[key(d) %in% primary_keys, , drop = FALSE]
+moran_primary <- filter_primary(moran)
+lm_primary <- filter_primary(lm)
+nested_primary <- filter_primary(nested)
+fit_primary <- filter_primary(fit)
+coef_primary <- filter_primary(coefficients)
+show_table(primary, c("relationship_order", "relationship", "role", "specification", "outcome", "sample_n"))
+stopifnot(length(unique(paste(fit_primary$specification, fit_primary$outcome,
+                              fit_primary$weight, sep = "::"))) == 18L)
+```
+
+# 3. Step 1 - Moran's I for the outcome and OLS residuals
+
+Moran's I is calculated here for the transformed outcome (`y_log1p`) and the OLS residuals (`ols_residual`). The first diagnostic describes spatial autocorrelation in the outcome; the second checks whether spatial pattern remains in the residuals of the non-spatial baseline. The table reports the statistic, permutation result, sample size, island/component counts, and the stored Holm-adjusted value where available.
+
+Queen contiguity connects units sharing a boundary. Symmetric kNN-5 connects each unit to its five nearest neighbours and symmetrises the links. These define alternative neighbourhood matrices, so compare them as separate specifications rather than treating their statistics as interchangeable.
+
+```{r}
+moran_view <- moran_primary[order(moran_primary$specification, moran_primary$outcome,
+                                  moran_primary$weight, moran_primary$measure), , drop = FALSE]
+show_table(moran_view, c("specification", "outcome", "weight", "measure", "n",
+                         "islands", "components", "moran_i", "p_permutation_two_sided",
+                         "p_holm_within_specification_measure"), digits = 4)
+```
+
+Reading note: a small p-value is evidence against the null used by that diagnostic, not evidence that a particular spatial regression is automatically correct. The multiple-testing-adjusted column should be kept alongside the unadjusted permutation result.
+
+# 4. Step 2 - Lagrange-multiplier diagnostics after OLS
+
+The LM diagnostics test specific spatial-dependence alternatives relative to the OLS baseline. `LM_lag` and `LM_error` are the conventional lag and error tests; their robust counterparts adjust each test for the competing form of dependence. The joint tests are also retained. The reported p-values and Holm-adjusted values are shown without using a significance threshold to choose a final estimator automatically.
+
+```{r}
+lm_view <- lm_primary[order(lm_primary$specification, lm_primary$outcome,
+                            lm_primary$weight, lm_primary$test), , drop = FALSE]
+show_table(lm_view, c("specification", "outcome", "weight", "n", "test",
+                      "statistic", "df", "p_value", "p_holm_within_specification_test"), digits = 4)
+```
+
+# 5. Step 3 - Nested spatial-model comparisons
+
+The likelihood-ratio comparisons evaluate three nested restrictions encoded in the prepared analysis: SDM versus SAR, SDEM versus SEM, and GNS versus SDM. The restricted and unrestricted model labels are included in the output so each comparison is traceable. These tests address whether the additional parameters in the unrestricted specification improve fit under the tested restriction; they do not settle all assumptions or determine which spatial weights matrix should be used.
+
+```{r}
+nested_view <- nested_primary[order(nested_primary$specification, nested_primary$outcome,
+                                    nested_primary$weight, nested_primary$comparison), , drop = FALSE]
+show_table(nested_view, c("specification", "outcome", "weight", "comparison",
+                          "restricted_model", "unrestricted_model", "n", "lr_statistic",
+                          "df", "p_value", "p_holm_within_specification_comparison",
+                          "test_status"), digits = 4)
+```
+
+# 6. Step 4 - Compare candidate fit statistics and diagnostics
+
+Candidate models are compared only within the same relationship, sample, and weight definition. AIC and BIC ranks are provided as fit summaries; the smallest value is not an automatic scientific decision. The table also exposes convergence and covariance status so a nominal rank cannot hide an estimation problem.
+
+```{r}
+fit_view <- fit_primary[order(fit_primary$specification, fit_primary$outcome,
+                              fit_primary$weight, fit_primary$bic_rank), , drop = FALSE]
+show_table(fit_view, c("specification", "outcome", "weight", "model", "n",
+                       "aic", "bic", "aic_rank", "bic_rank", "rho", "lambda",
+                       "optimizer_success", "covariance_status"), digits = 3)
+
+cases <- split(fit_primary, paste(fit_primary$specification, fit_primary$outcome,
+                                  fit_primary$weight, sep = "::"))
+fit_health <- do.call(rbind, lapply(cases, function(d) data.frame(
+  specification = d$specification[1], outcome = d$outcome[1], weight = d$weight[1],
+  candidate_models = length(unique(d$model)),
+  all_optimizers_successful = all(d$optimizer_success %in% c(TRUE, "True", "TRUE")),
+  covariance_statuses = paste(sort(unique(d$covariance_status)), collapse = ", ")
+)))
+row.names(fit_health) <- NULL
+stopifnot(nrow(fit_health) == 18L, all(fit_health$candidate_models == 6L))
+show_table(fit_health, names(fit_health))
+```
+
+## Diagnostic shortlist, without a final manuscript choice
+
+The code below identifies the smallest-BIC fit for each relationship and weights matrix, then the smallest-BIC fit across the two matrices. For OLS, the likelihood and BIC are identical under both matrices because OLS does not use the spatial weights; Queen is shown first when the values tie. The table places the OLS-residual Moran and robust LM results alongside that shortlist. This is a reproducible **candidate screen**, not a rule that overrides the model restrictions, disconnected Queen components, coefficient interpretation, or the researcher's final decision.
+
+```{r}
+case_key <- function(d) paste(d$specification, d$outcome, d$weight, sep = "::")
+ordered <- fit_primary[order(case_key(fit_primary), fit_primary$bic,
+                             fit_primary$model), , drop = FALSE]
+best_by_weight <- ordered[!duplicated(case_key(ordered)), , drop = FALSE]
+best_by_weight$weight_priority <- ifelse(best_by_weight$weight == "queen_contiguity", 0L, 1L)
+best_overall <- best_by_weight[order(key(best_by_weight), best_by_weight$bic,
+                                       best_by_weight$weight_priority), , drop = FALSE]
+best_overall <- best_overall[!duplicated(key(best_overall)), , drop = FALSE]
+best_overall <- merge(primary[, c("relationship_order", "relationship", "specification", "outcome")],
+                      best_overall, by = c("specification", "outcome"), sort = FALSE)
+
+residual_moran <- moran_primary[moran_primary$measure == "ols_residual",
+                               c("specification", "outcome", "weight", "moran_i",
+                                 "p_permutation_two_sided"), drop = FALSE]
+names(residual_moran)[names(residual_moran) == "p_permutation_two_sided"] <- "ols_residual_moran_p"
+robust_lm <- lm_primary[lm_primary$test %in% c("robust_LM_lag", "robust_LM_error"),
+                        c("specification", "outcome", "weight", "test", "p_value"), drop = FALSE]
+robust_lm <- reshape(robust_lm, idvar = c("specification", "outcome", "weight"),
+                     timevar = "test", direction = "wide")
+best_overall <- merge(best_overall, residual_moran,
+                      by = c("specification", "outcome", "weight"), all.x = TRUE, sort = FALSE)
+best_overall <- merge(best_overall, robust_lm,
+                      by = c("specification", "outcome", "weight"), all.x = TRUE, sort = FALSE)
+best_overall <- best_overall[order(best_overall$relationship_order), , drop = FALSE]
+stopifnot(nrow(best_overall) == 9L)
+show_table(best_overall, c("relationship_order", "relationship", "n", "model", "weight",
+                           "bic", "moran_i", "ols_residual_moran_p",
+                           "p_value.robust_LM_lag", "p_value.robust_LM_error"), digits = 4)
+```
+
+The candidate screen does not convert a statistical association into a causal effect. It also does not imply that the minimum-BIC weights matrix is substantively preferred. Section 8 retains the explicit researcher-decision fields.
+
+# 7. Inspect coefficients without assigning causal meaning
+
+The coefficient table holds the estimates and model-based standard errors for each fitted specification. Spatial models can contain direct, indirect, and feedback effects; a raw coefficient is not necessarily the full marginal effect. Use the model's parameterisation and the analysis script before describing a coefficient. The table is exposed for traceability and author review, not as an automatic interpretation.
+
+```{r}
+coef_cols <- c("specification", "outcome", "weight", "model", "term", "coefficient",
+               "std_error_ml", "z_wald_ml", "p_wald_ml", "optimizer_success", "covariance_status")
+show_table(utils::head(coef_primary, 80), coef_cols, digits = 3)
+```
+
+# 8. Author-led model and weight decisions
+
+The following table is intentionally not auto-filled. `minimum_bic_candidate_by_weight` is a diagnostic summary; the author should enter the final model and weight choice only after reviewing the diagnostics, sample, model assumptions, and substantive purpose. Record the rationale in the supplied decision template so the manuscript's selected three relationships can be traced back to this review.
+
+```{r}
+review_cols <- c("relationship_order", "relationship", "role", "specification", "outcome",
+                 "sample_n", "minimum_bic_candidate_by_weight", "final_model_decision",
+                 "final_weight_decision", "researcher_rationale", "status")
+show_table(decisions, review_cols)
+```
+
+# 9. Reproduction and boundaries
+
+- Prepared outputs: `results/validation/spatial_emissions_2024_*`.
+- Main sequence script: `code/scripts/run_spatial_emissions_extension.py`.
+- Selection template: `results/validation/spatial_model_decision_template.csv`.
+- All executable chunks in this Quarto notebook use R. Rendering reviews existing model results; it does not rerun the upstream model fits.
+- Model-selection decisions and coefficient interpretation remain with the researcher.
+- The reported relationships are observational associations; the notebook does not establish causality.

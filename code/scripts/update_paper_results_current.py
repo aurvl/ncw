@@ -194,7 +194,7 @@ def main() -> None:
     )
     editor.replace_paragraph(
         "The forest and marine accounts rely on different spatial products",
-        "The forest and marine accounts rely on different spatial products, definitions, and reference periods. Our four FAO GEZ mean rates are estimated from Gibbs/GFW gross-removal pixels for 2001-2023, with source-model mangrove pixels excluded, and applied to FRA forest areas for 2025. For GCW, FRA mangrove area is subtracted only where national reports document that the corresponding category is entirely classified as Forest; the remaining category-level overlap is unresolved. For BCW, mapped mangrove area is updated with GMW 2025 while the other Hilmi account components and rates are retained. The forest rates estimate gross additions to living above- and below-ground biomass; they do not represent a net balance of the whole forest ecosystem or the duration for which each added tonne remains in living biomass. Socio-economic variables refer to 2023 or the nearest compatible year, while reported deforestation is averaged over 2010-2020. The country comparisons therefore combine non-contemporaneous inputs and spatial classifications that are not perfectly aligned.",
+        "The forest and marine accounts rely on different spatial products, definitions, and reference periods. Our four FAO GEZ mean rates are estimated from Gibbs/GFW gross-removal pixels for 2001-2023, with source-model mangrove pixels excluded, and applied to FRA forest areas for 2025. For GCW, valid FRA-reported biome shares are used first and the GEZ/JRC map fills missing units. FRA mangrove area is subtracted only where national reports document a Forest share: exact 100% matches plus the quantified 80% Forest share for Mozambique; the remaining category-level overlap is unresolved. For BCW, mapped mangrove area is updated with GMW 2025 while the other Hilmi account components and rates are retained. The forest rates estimate gross additions to living above- and below-ground biomass; they do not represent a net balance of the whole forest ecosystem or the duration for which each added tonne remains in living biomass. Socio-economic variables refer to 2023 or the nearest compatible year, while reported deforestation is averaged over 2010-2020. The country comparisons therefore combine non-contemporaneous inputs and spatial classifications that are not perfectly aligned.",
         label="Discussion harmonisation and forest-rate limits",
     )
     editor.replace_paragraph(
@@ -211,7 +211,7 @@ def main() -> None:
     )
     editor.replace_paragraph(
         "The current national calculation deducts the FRA-reported mangrove category",
-        "For GCW, we deduct mangrove hectares from FRA forest area only where a national report documents that the corresponding FRA 2025 mangrove category is entirely classified as Forest and the reported area matches that category. This rule identifies 495,400 ha in nine units. The FRA source for Kiribati is classified as a desk study, so its match has weaker evidential support than a country-reported survey. The 220 ha in Saint Lucia documented as Other wooded land are not deducted from strict forest area. Where a comparable Forest/Other wooded land split is unavailable, the FRA mangrove category is not subtracted, leaving possible overlap with the coastal mangrove component in BCW. The Gibbs/GFW rate derivation separately excludes pixels classified as mangroves by its source model.",
+        "For GCW, we deduct mangrove hectares from FRA forest area only where a national report documents a Forest share: exact 100% Forest matches identify 2,082,920 ha in 12 units, 1,809,830 ha are covered by explicit stability assumptions, and Mozambique and Mayotte contribute 287,848 ha and 312 ha from their reported Forest shares. The main documented Forest overlap is 4,180,910 ha. The Mozambique, Mayotte and copied/forecast 2025 applications assume classification stability. The evidence table documents 72,477.75 ha as Other wooded land and 42.25 ha as Remaining land; neither is deducted from strict forest area. Where a comparable Forest/Other wooded land split is unavailable, the FRA mangrove category is not subtracted, leaving 11,613,440 ha with unknown classification and a possible residual overlap with the coastal mangrove component in BCW. The Gibbs/GFW rate derivation separately excludes pixels classified as mangroves by its source model.",
         label="Methods selective FRA mangrove accounting",
     )
     editor.replace_paragraph(
@@ -248,7 +248,7 @@ def main() -> None:
             "72 were green-dominant", "71.9% of global emissions", "32.3% of global accounted removals",
             "139 of 236 forest units, representing 78.7%", "2.36%", "US$0.974 trillion",
             "15.82 Mha per year in 1990-2000", "p = 0.0257", "208.5 MtCO₂",
-            "GMW 2025", "495,400 ha in nine units", "remains outside forest",
+            "GMW 2025", "4,180,910 ha", "287,848 ha from its reported 80% Forest share", "remains outside forest",
         ]
         missing = [item for item in required if item not in text]
         if missing:
