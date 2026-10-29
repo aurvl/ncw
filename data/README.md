@@ -16,7 +16,7 @@ data/
   logs/                    processing logs where retained
 ```
 
-Generated analytical artifacts belong in `outputs/`, not in the manuscript-facing `results/` folder. Compact tables and diagnostics are versioned with the code; large Monte Carlo arrays and generated raster intermediates are ignored by Git and recreated locally.
+Generated analytical artifacts belong in `outputs/`, not in the manuscript-facing `results/` folder. Calculated tables, provenance, Monte Carlo draws, and the small derived raster intermediates are versioned with the code. Large source rasters and source archives are excluded and downloaded by their dedicated pipelines when a full rebuild is requested.
 
 Raw files are not edited in place. Their source, release, access date, licence, and use are recorded in [`metadata/source_registry.csv`](metadata/source_registry.csv). Checksums for versioned raw files are in [`metadata/raw_checksums.csv`](metadata/raw_checksums.csv). Source-specific citation and licence requirements are described in [`../docs/DATA_SOURCES.md`](../docs/DATA_SOURCES.md).
 

@@ -16,7 +16,7 @@ The reusable calculations live in `code/src/gcw/`. Scripts are command-line entr
 
 ## Command-line scripts
 
-Run commands from the repository root. Use `python code/scripts/main.py --reuse-gfw-rates` to rebuild accounts from the prepared non-mangrove rate table. Use `python code/scripts/main.py` to recalculate those rates from source tiles and rebuild the accounts in one run. Large raster calculations have separate prerequisites documented in the root README and method notes.
+Run commands from the repository root. By default, `python code/scripts/main.py` reuses the versioned analytical intermediates under `data/outputs/`; it does not download or recompute the large source datasets. To rebuild all large source-derived intermediates before the accounts and tables, run `python code/scripts/main.py --rebuild-heavy-intermediates`. The source stages can also be launched separately with `python code/scripts/rebuild_gmw_2025_pipeline.py`, `python code/scripts/rebuild_gibbs_gfw_pipeline.py`, `python code/scripts/rebuild_forest_raster_allocation.py`, and `python code/scripts/rebuild_busch_pipeline.py`.
 
 The script directory includes reproducible pipeline steps, source downloads, validation, spatial analyses, and manuscript utilities. Harmonised calculation inputs go to `data/derived/`; generated analytical artifacts go to `data/outputs/`; manuscript-facing tables and figures go to `results/`. Source inputs under `data/raw/` are not modified.
 
