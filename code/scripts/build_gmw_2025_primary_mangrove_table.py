@@ -20,7 +20,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
-VALIDATION = ROOT / "results/validation"
+VALIDATION = ROOT / "data/outputs/validation"
 RAW_GMW = DATA / "raw/environmental/marine/gmw"
 STATS_XLSX = RAW_GMW / "gmw_v4_timeseries_4112_gmw_country_stats_corr_area_formatted.xlsx"
 MAIN_OUTPUT = DATA / "derived/gmw_2025_mangrove_area_by_unit.csv"

@@ -23,7 +23,7 @@ from spreg import ML_Error, ML_Lag
 
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "results" / "validation"
+OUT = ROOT / "data" / "outputs" / "validation"
 SEED = 20261019
 PERMUTATIONS = 9_999
 K_NEIGHBOURS = 5
@@ -43,7 +43,7 @@ def _unit_geometries() -> tuple[gpd.GeoDataFrame, list[str]]:
     """
     path = ROOT / "data" / "raw" / "geospatial" / "boundaries" / "ne_50m_admin_0_countries.zip"
     ne = gpd.read_file(f"zip://{path}")
-    gcw = pd.read_csv(ROOT / "results" / "country_level_gcw.csv")
+    gcw = pd.read_csv(ROOT / "data" / "outputs" / "accounts" / "country_level_gcw.csv")
     wanted = set(gcw["iso3"].astype(str))
 
     by_code: dict[str, list] = {}
@@ -226,9 +226,9 @@ def _model_rows(y: np.ndarray, x: np.ndarray, w: W, names: list[str], yname: str
 def run() -> dict:
     OUT.mkdir(parents=True, exist_ok=True)
     gdf, missing_geometry = _unit_geometries()
-    gcf = pd.read_csv(ROOT / "results" / "country_level_gcw.csv")
+    gcf = pd.read_csv(ROOT / "data" / "outputs" / "accounts" / "country_level_gcw.csv")
     erosion = pd.read_csv(ROOT / "results" / "tables" / "manuscript" / "Supplementary_country_level_erosion.csv")
-    area = pd.read_csv(ROOT / "data" / "derived" / "forest_area_by_biome.csv")
+    area = pd.read_csv(ROOT / "data" / "outputs" / "forest_account" / "forest_area_by_biome.csv")
     area = area.loc[area["variant"].eq("documented_overlap_removed")].copy()
     area_table = area.pivot_table(index="iso3", columns="biome", values="area_ha", aggfunc="sum", fill_value=0)
     area_table["forest_area_ha"] = area_table.sum(axis=1)

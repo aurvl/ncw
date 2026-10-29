@@ -1,4 +1,7 @@
-"""Run every utility module and write its table to data/derived/.
+"""Prepare reusable inputs and build forest-analysis outputs.
+
+Harmonised source inputs are stored under data/derived/. Calculated rates,
+forest uptake tables and analysis draws are written under data/outputs/.
 
 Usage:
     python code/scripts/build_summaries.py               # reuse cached raster table if present
@@ -22,12 +25,12 @@ from gcw import biome_shares, faostat_flux, forest_areas, forest_uptake_gfw, gfw
 from gcw.config import (  # noqa: E402
     GFW_GIBBS_FOREST_TYPE_DIR,
     GFW_GIBBS_REMOVALS_DIR,
-    SUMMARY,
+    GIBBS_OUTPUT,
 )
 
 
 def build_summaries(recompute_rasters: bool = False, reuse_gfw_rates: bool | None = None) -> dict:
-    cached_rates = SUMMARY / "gfw_gibbs_biome_rates_non_mangrove.csv"
+    cached_rates = GIBBS_OUTPUT / "gfw_gibbs_biome_rates_non_mangrove.csv"
     source_root = GFW_GIBBS_REMOVALS_DIR.parent
     manifests = (
         (source_root / "gfw_dataverse_manifest.json", GFW_GIBBS_REMOVALS_DIR),
@@ -101,7 +104,7 @@ def main() -> None:
     mode.add_argument(
         "--reuse-gfw-rates",
         action="store_true",
-        help="reuse data/derived/gfw_gibbs_biome_rates_non_mangrove.csv",
+        help="reuse data/outputs/gibbs_gfw/gfw_gibbs_biome_rates_non_mangrove.csv",
     )
     mode.add_argument("--recompute-gfw-rates", action="store_true", help="require raw Gibbs/GFW tiles and recompute rates")
     args = parser.parse_args()

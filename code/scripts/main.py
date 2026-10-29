@@ -41,9 +41,9 @@ def prepare_gmw() -> None:
         / "EEZ_land_union_v4_202410.shp",
     ]
     overlay_outputs = [
-        ROOT / "results" / "validation" / "gmw_2025_direct_overlay_summary.json",
-        ROOT / "results" / "validation" / "gmw_2025_direct_overlay_by_eez_unit_and_source.csv",
-        ROOT / "results" / "validation" / "gmw_2025_direct_overlay_area_by_eez_unit.csv",
+        ROOT / "data" / "outputs" / "validation" / "gmw_2025_direct_overlay_summary.json",
+        ROOT / "data" / "outputs" / "validation" / "gmw_2025_direct_overlay_by_eez_unit_and_source.csv",
+        ROOT / "data" / "outputs" / "validation" / "gmw_2025_direct_overlay_area_by_eez_unit.csv",
     ]
     if all(path.is_file() for path in sources):
         if not all(path.is_file() for path in overlay_outputs):
@@ -58,7 +58,7 @@ def prepare_gmw() -> None:
 
 def prepare_busch_reconstruction() -> None:
     """Refresh cell-level restoration results when inputs or code change."""
-    output_dir = ROOT / "results" / "validation" / "busch_reconstruction"
+    output_dir = ROOT / "data" / "outputs" / "busch_reconstruction"
     prefix = f"busch_{BUSCH_RECON_LABEL}"
     summary_path = output_dir / f"{prefix}_summary.json"
     required = [
@@ -72,7 +72,7 @@ def prepare_busch_reconstruction() -> None:
     ]
     inputs = [
         ROOT / "data" / "raw" / "economic" / "busch_2024" / "11_MAC_curves_consolidated.xlsx",
-        ROOT / "results" / "validation" / "our_2pct_gcw_allocation_and_pledge.csv",
+        ROOT / "data" / "outputs" / "validation" / "our_2pct_gcw_allocation_and_pledge.csv",
         ROOT / "code" / "scripts" / "download_busch_inputs.py",
         ROOT / "code" / "scripts" / "busch_stata_parameters.py",
         ROOT / "code" / "scripts" / "rebuild_busch_sample_finance.py",
@@ -99,10 +99,10 @@ def prepare_busch_reconstruction() -> None:
 def verify_outputs(started_at: float) -> None:
     """Fail if a core account or manuscript CSV table was not refreshed."""
     expected = [
-        ROOT / "results" / "country_level_gcw.csv",
-        ROOT / "results" / "country_level_ncw_accounts.csv",
-        ROOT / "results" / "validation" / "global_checks.csv",
-        ROOT / "results" / "validation" / "country_level_results_master.csv",
+        ROOT / "data" / "outputs" / "accounts" / "country_level_gcw.csv",
+        ROOT / "data" / "outputs" / "accounts" / "country_level_ncw_accounts.csv",
+        ROOT / "data" / "outputs" / "validation" / "global_checks.csv",
+        ROOT / "data" / "outputs" / "validation" / "country_level_results_master.csv",
         ROOT / "results" / "tables" / "manuscript" / "Table1_global_carbon_wealth.csv",
         ROOT / "results" / "tables" / "manuscript" / "Table2_geographic_economic_profiles.csv",
         ROOT / "results" / "tables" / "manuscript" / "Table3_forest_capacity_erosion.csv",

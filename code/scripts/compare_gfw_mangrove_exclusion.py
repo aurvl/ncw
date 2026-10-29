@@ -9,17 +9,17 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SUMMARY = ROOT / "data/summary"
-VALIDATION = ROOT / "results/validation"
+GIBBS_OUTPUT = ROOT / "data" / "outputs" / "gibbs_gfw"
+VALIDATION = ROOT / "data/outputs/validation"
 BIOMES = ["tropical", "subtropical", "temperate", "boreal"]
 
 
 def main() -> None:
-    old_path = SUMMARY / "gfw_gibbs_biome_rates_with_mangroves.csv"
+    old_path = GIBBS_OUTPUT / "gfw_gibbs_biome_rates_with_mangroves.csv"
     if not old_path.is_file():
-        old_path = SUMMARY / "gfw_gibbs_biome_rates.csv"
+        old_path = GIBBS_OUTPUT / "gfw_gibbs_biome_rates.csv"
     old = pd.read_csv(old_path).set_index("biome")
-    clean = pd.read_csv(SUMMARY / "gfw_gibbs_biome_rates_non_mangrove.csv").set_index("biome")
+    clean = pd.read_csv(GIBBS_OUTPUT / "gfw_gibbs_biome_rates_non_mangrove.csv").set_index("biome")
     if set(old.index) != set(BIOMES) or set(clean.index) != set(BIOMES):
         raise ValueError("Both rate tables must contain exactly the four FAO GEZ biomes")
     rows = []

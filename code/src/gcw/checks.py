@@ -1,6 +1,6 @@
 """Q: Are the intermediate and final tables internally consistent?
 
-Outputs (results/validation/):
+Outputs (data/outputs/validation/):
 - coverage.csv                  : which inputs each territory has
 - biome_share_comparison.csv    : GEZ x forest mask shares versus FRA-reported shares
 - global_checks.csv             : named checks with value, expectation and status
@@ -11,7 +11,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .config import AREA_YEAR, BCW_COUNTRY_CSV, CARBON_TO_CO2, SUMMARY, VALIDATION
+from .config import AREA_YEAR, BCW_COUNTRY_CSV, CARBON_TO_CO2, FOREST_OUTPUT, SUMMARY, VALIDATION
 from .validation import write_table
 
 
@@ -56,7 +56,7 @@ def global_checks(forest_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict)
     add(f"countries where primary forest exceeds NRF ({AREA_YEAR}, descriptive)", int(year["primary_exceeds_nrf"].sum()), "0",
         int(year["primary_exceeds_nrf"].sum()) == 0)
 
-    by_biome = pd.read_csv(SUMMARY / "forest_area_by_biome.csv")
+    by_biome = pd.read_csv(FOREST_OUTPUT / "forest_area_by_biome.csv")
     main_area = by_biome.loc[by_biome["variant"] == "documented_overlap_removed"].copy()
     tropical = main_area.loc[main_area["biome"] == "tropical"]
     raw_overallocation = int(tropical["fra_mangroves_exceed_tropical_allocation"].sum())

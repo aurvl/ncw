@@ -16,8 +16,8 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw" / "economic" / "busch_2024" / "11_MAC_curves_consolidated.xlsx"
 LOSS = ROOT / "results" / "tables" / "manuscript" / "Supplementary_country_level_erosion.csv"
-GCW = ROOT / "results" / "country_level_gcw.csv"
-OUT = ROOT / "results" / "validation"
+GCW = ROOT / "data" / "outputs" / "accounts" / "country_level_gcw.csv"
+OUT = ROOT / "data" / "outputs" / "validation"
 PRICE_PREFIX = "MAC_mi_whrv_sGr_bu_ad_"
 DISCOUNT_RATE = 0.05
 HORIZON = 30

@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-29T22:05:48.337446+00:00",
+  "generated_utc": "2026-10-29T22:49:30.232370+00:00",
   "source_version": "GMW v4.1.12 2025; direct Mollweide spatial intersection by EEZ UNION",
   "area_measurement": "Direct GMW polygon x EEZ UNION intersection in Mollweide; raw geometric area is retained before GMW's global accuracy correction.",
   "area_correction_applied": true,
@@ -11,10 +11,10 @@
   "files_sha256": {
     "data/raw/environmental/marine/gmw/gmw_v4112_2025_mng_ext_cntry_info_vec.gpkg": "872485534391ae15e70a6a2932e611a8dda6a3ed91253c5c72c2578f29b56282",
     "data/raw/geospatial/boundaries/EEZ_land_union_v4_202410.shp": "75aefbf949733235a2eda9d3b4d223c0898945005b8ed10f83d44ba3a58f6cdf",
-    "results/validation/gmw_2025_direct_overlay_by_eez_unit_and_source.csv": "7028289b2e7ec9affb7ac286326d0977dd7a5ec8a36f4d60c3bc7bf59464a398",
-    "results/validation/gmw_2025_direct_overlay_area_by_eez_unit.csv": "24fdd6973af58a88df54b53170fa4f55cf0b400aba65048bb7dc69ea4c6372fd",
+    "data/outputs/validation/gmw_2025_direct_overlay_by_eez_unit_and_source.csv": "7028289b2e7ec9affb7ac286326d0977dd7a5ec8a36f4d60c3bc7bf59464a398",
+    "data/outputs/validation/gmw_2025_direct_overlay_area_by_eez_unit.csv": "24fdd6973af58a88df54b53170fa4f55cf0b400aba65048bb7dc69ea4c6372fd",
     "data/derived/gmw_2025_mangrove_area_by_unit.csv": "e7e8fc08eed2b5f66ad76d71f3da47554ad8d762d924bea4aeb5ff5076ccfdac",
-    "results/validation/gmw_2025_direct_area_by_account_iso3.csv": "8520ceac0e086c01c77d717710478bfd9ce7d47e172bbdb20bbd39ff26b567e9",
-    "results/validation/gmw_2025_direct_area_eez_crosswalk.csv": "db65570e4878d50f7f0fa90c386400e37e51f90c5384c0169d259786358fb935"
+    "data/outputs/validation/gmw_2025_direct_area_by_account_iso3.csv": "8520ceac0e086c01c77d717710478bfd9ce7d47e172bbdb20bbd39ff26b567e9",
+    "data/outputs/validation/gmw_2025_direct_area_eez_crosswalk.csv": "db65570e4878d50f7f0fa90c386400e37e51f90c5384c0169d259786358fb935"
   }
 }

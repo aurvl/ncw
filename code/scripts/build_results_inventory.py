@@ -201,7 +201,7 @@ def build_inventory() -> str:
         "- The 2% allocation rate and the 2% discount rate used for the perpetuity scenario are separate inputs. Busch action costs are a separate, partially covered analysis.",
         f"- Busch classification contains {busch_units} positive-loss cases in disjoint coverage categories. The categories at prices above -20 through 0 and at/below -20 are separate groups.",
         f"- Spatial analysis covers {spatial['relationship'].nunique()} primary relationships, each estimated with six model families under two weights ({len(spatial)} fit records in the selection dossier). No final model is auto-selected.",
-        f"- Figures 1-3 are generated. Figure 4 status: {figure_status['status']}. The final model/weight decisions remain in `results/validation/spatial_model_decision_template.csv`.",
+        f"- Figures 1-3 are generated. Figure 4 status: {figure_status['status']}. The final model/weight decisions remain in `data/outputs/validation/spatial_model_decision_template.csv`.",
         "",
         "## Full outputs by topic",
     ]

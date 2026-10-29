@@ -51,7 +51,7 @@ while (!file.exists(file.path(root, "pyproject.toml"))) {
   root <- parent
 }
 
-validation_dir <- file.path(root, "results", "validation")
+validation_dir <- file.path(root, "data", "outputs", "validation")
 master_path <- file.path(validation_dir, "country_level_results_master.csv")
 output_files <- c(
   moran = "spatial_emissions_2024_step1_moran.csv",
@@ -986,8 +986,8 @@ Final estimator, weights-matrix, and manuscript-interpretation decisions remain 
 
 # 8. Reproduction and limits
 
-- Current national inputs: `results/validation/country_level_results_master.csv`.
-- Prepared model results: `results/validation/spatial_emissions_2024_*`.
+- Current national inputs: `data/outputs/validation/country_level_results_master.csv`.
+- Prepared model results: `data/outputs/validation/spatial_emissions_2024_*`.
 - Upstream estimation entry point: `code/scripts/run_spatial_emissions_extension.py`.
 - Relationship and sample mapping: `spatial_model_decision_template.csv` and `spatial_emissions_2024_sample_audit.csv`.
 - The notebook reads prepared model outputs; `main.py` is responsible for rebuilding them.

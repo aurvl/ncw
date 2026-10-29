@@ -4,7 +4,7 @@ GCW_i (US$2015/yr) = forest CO2 uptake_i (tCO2/yr) x GSCC (US$2015/tCO2), comput
 - Main estimate: FRA biome area x Gibbs/GFW gross living-biomass rate, mangroves excluded.
 - Route A (complementary): FAOSTAT net flux; only the GSCC is uncertain.
 
-Outputs: results/country_level_gcw.csv, results/draws/gcw_draws.npz
+Outputs: data/outputs/accounts/country_level_gcw.csv, data/outputs/draws/gcw_draws.npz
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .config import OUTPUT
+from .config import ACCOUNTS, DRAWS
 from .validation import summarise_draws, write_npz_atomic, write_table
 
 
@@ -72,8 +72,8 @@ def build_gcw(territories: pd.DataFrame, forest: dict, faostat: pd.DataFrame, gs
 
 def run(territories: pd.DataFrame, forest: dict, faostat: pd.DataFrame, gscc: np.ndarray) -> tuple[pd.DataFrame, dict]:
     table, draws = build_gcw(territories, forest, faostat, gscc)
-    write_table(table, OUTPUT / "country_level_gcw.csv")
-    path = OUTPUT / "draws" / "gcw_draws.npz"
+    write_table(table, ACCOUNTS / "country_level_gcw.csv")
+    path = DRAWS / "gcw_draws.npz"
     path.parent.mkdir(parents=True, exist_ok=True)
     write_npz_atomic(path, **draws)
     return table, draws

@@ -8,7 +8,7 @@ Outputs (data/derived/):
 - biome_shares_map_first.csv : map-first allocation retained as a sensitivity
 
 Polygons are burnt part by part and rasters read in stripes so that memory use stays low.
-Intermediate rasters: data/derived/rasters/{countries,gez}.tif
+Intermediate rasters: data/outputs/rasters/{countries,gez}.tif
 """
 
 from __future__ import annotations
@@ -23,6 +23,7 @@ from shapely.geometry import Polygon
 
 from .config import (
     BIOMES, BOUNDARIES_SHP, FOREST_MASK_TIF, GEZ_DOMAIN_TO_BIOME, GEZ_SHP, RASTER_CODE_ALIASES, RASTER_STRIPE_ROWS,
+    RASTER_OUTPUT,
     SUMMARY,
 )
 from .validation import read_fra_variable, write_table
@@ -106,8 +107,8 @@ def compute_gez_area_by_country() -> pd.DataFrame:
     codes = sorted({code for record in records if (code := _country_code(record))})
     index_of = {code: i + 1 for i, code in enumerate(codes)}
 
-    country_tif = SUMMARY / "rasters" / "countries.tif"
-    gez_tif = SUMMARY / "rasters" / "gez.tif"
+    country_tif = RASTER_OUTPUT / "countries.tif"
+    gez_tif = RASTER_OUTPUT / "gez.tif"
     country_tif.parent.mkdir(parents=True, exist_ok=True)
     with rasterio.open(FOREST_MASK_TIF) as template:
         print("    burning country polygons")

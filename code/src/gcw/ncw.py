@@ -5,7 +5,7 @@ Hilmi-reported seagrass and saltmarsh areas, the three ecosystem rates, the Hilm
 reported biological-carbon-pump flux, and the shared GSCC draws. NCW is the draw-by-
 draw sum of the available GCW and BCW account values.
 
-Outputs: results/country_level_ncw_accounts.csv, results/draws/ncw_draws.npz,
+Outputs: data/outputs/accounts/country_level_ncw_accounts.csv, data/outputs/draws/ncw_draws.npz,
          data/derived/bcw_draw_alignment.csv,
          data/derived/bcw_mangrove_gmw_area_replacement.csv
 """
@@ -24,8 +24,11 @@ from .config import (
     CARBON_TO_CO2,
     FRA_MANGROVE_AREA_YEAR,
     GMW_MANGROVE_AREA_CSV,
+    ACCOUNTS,
+    DRAWS,
     OUTPUT,
     SUMMARY,
+    VALIDATION,
 )
 from .territories import bcw_mapping, read_bcw_table
 from .validation import summarise_draws, write_npz_atomic, write_table
@@ -227,9 +230,13 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
         root = SUMMARY.parents[1]
         for relative, expected_sha256 in provenance["files_sha256"].items():
             source = root / relative
+            # Raw layers may be absent when the versioned, checksummed area table
+            # and its overlay audits are used as the prepared input cache.
+            if not source.is_file() and relative.startswith("data/raw/"):
+                continue
             if not source.is_file() or _sha256(source) != expected_sha256:
                 raise ValueError(f"GMW input has changed since the area table was built: {relative}")
-    audit_file = SUMMARY.parents[1] / "results" / "validation" / "gmw_2025_direct_area_by_account_iso3.csv"
+    audit_file = VALIDATION / "gmw_2025_direct_area_by_account_iso3.csv"
     if audit_file.is_file():
         audit = pd.read_csv(audit_file, usecols=["iso3", "gmw_2025_mangrove_area_ha"])
         comparison = gmw_areas.merge(
@@ -435,6 +442,6 @@ def run(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame, dict]
         json.dumps(alignment_provenance, indent=2) + "\n", encoding="utf-8"
     )
     write_table(mangrove_area_audit, SUMMARY / "bcw_mangrove_gmw_area_replacement.csv")
-    write_table(table, OUTPUT / "country_level_ncw_accounts.csv")
-    write_npz_atomic(OUTPUT / "draws" / "ncw_draws.npz", **draws)
+    write_table(table, ACCOUNTS / "country_level_ncw_accounts.csv")
+    write_npz_atomic(DRAWS / "ncw_draws.npz", **draws)
     return table, draws

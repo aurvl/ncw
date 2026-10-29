@@ -31,7 +31,7 @@ from pyproj import Transformer
 ROOT = Path(__file__).resolve().parents[2]
 GMW = ROOT / "data/raw/environmental/marine/gmw/gmw_v4112_2025_mng_ext_cntry_info_vec.gpkg"
 EEZ = ROOT / "data/raw/geospatial/boundaries/EEZ_land_union_v4_202410.shp"
-VALIDATION = ROOT / "results/validation"
+VALIDATION = ROOT / "data/outputs/validation"
 PAIR_OUT = VALIDATION / "gmw_2025_direct_overlay_by_eez_unit_and_source.csv"
 UNIT_OUT = VALIDATION / "gmw_2025_direct_overlay_area_by_eez_unit.csv"
 SUMMARY_OUT = VALIDATION / "gmw_2025_direct_overlay_summary.json"
