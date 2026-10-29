@@ -21,6 +21,8 @@ This repository rebuilds country-level forest and marine carbon accounts and com
 
 On 23 October 2026, the FRA 2025 mangrove Forest/OWL audit was propagated through the complete computational chain. The main accounts, validation tables, manuscript tables and supplementary outputs were regenerated from the FRA-first rule: only mangrove area documented as Forest is removed from the FRA forest allocation; documented Other wooded land and Remaining land are kept separate; unresolved Forest/OWL shares remain explicit rather than being imputed. The GMW--JRC spatial overlap is retained as a separate sensitivity test and is not used in the main accounts. The manuscript DOCX itself was not edited automatically; its tables and supporting outputs were refreshed for author review.
 
+On 27 October 2026, the primary BCW mangrove-area candidate was changed to a direct GIS intersection of GMW 2025 polygons with EEZ `UNION` geometries. The intersection area is measured in Mollweide, mapped to study units through the EEZ crosswalk, and corrected by GMW's published global factor 0.9775. The selected area follows this order: positive corrected GMW 2025 area, reported FRA 2025 area (including a declared zero), the area reported in the prior account, then missing when no area is available. GMW 2024 and 2023 national statistics are not used because they cannot be spatially assigned to study units with the same EEZ overlay.
+
 <p align="center">
   <img src="docs/figures/ncw-workflow.svg" alt="Workflow from source data to national carbon wealth and paper outputs" width="70%" style="border-radius: 4px;"><br>
   <em>Repository workflow. Source-specific physical measures and assumptions remain documented separately.</em>
@@ -61,7 +63,7 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 │   └── tests/                     pipeline unit tests
 ├── results/
 │   ├── country_level_gcw.csv      country and territory forest account
-│   ├── country_level_ncw.csv      combined country-level account
+│   ├── country_level_ncw_accounts.csv  core calculated account table
 │   ├── tables/                    paper and supplementary tables
 │   ├── figures/                   paper figures, supplementary figures and reviewed alternatives
 │   └── validation/                checks, inventories, and analysis diagnostics
@@ -78,7 +80,7 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 
 | Task | Main entry point | Main output or guide |
 | --- | --- | --- |
-| Rebuild the full country accounts | [`code/scripts/main.py`](code/scripts/main.py) | `results/country_level_gcw.csv`, `results/country_level_ncw.csv` |
+| Rebuild the accounts, analyses and machine-readable tables | [`code/scripts/main.py`](code/scripts/main.py) | Core account CSVs, analysis outputs and manuscript input tables under `results/` |
 | Recalculate Gibbs/GFW biome rates | [`code/scripts/build_gfw_rates.py`](code/scripts/build_gfw_rates.py) | `data/derived/gfw_gibbs_biome_rates_non_mangrove.csv` |
 | Inspect the forest calculation | `code/src/gcw/forest_areas.py`, `biome_shares.py`, `gfw_rates.py`, `forest_uptake_gfw.py` | `data/derived/` |
 | Rebuild account tables and checks | `code/src/gcw/gcw.py`, `ncw.py`, `tables.py`, `checks.py` | `results/` |
@@ -87,7 +89,7 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 | Compare climate-finance approaches | [`code/scripts/compare_finance_and_action_costs.py`](code/scripts/compare_finance_and_action_costs.py) | `results/validation/` |
 | Build Figure 4 finance data | [`code/scripts/build_finance_figure4.py`](code/scripts/build_finance_figure4.py) | `results/tables/manuscript/Supplementary_Figure4_*.csv` and `results/validation/finance_figure4_summary.json` |
 
-The reusable calculation modules in `code/src/gcw/` are the source of truth. Scripts call those modules. Notebooks are used for analysis and figures, not as hidden replacements for the pipeline.
+The reusable account modules in `code/src/gcw/` calculate GCW and NCW. `main.py` runs the data preparations, account calculations, analyses, validations and machine-readable table builders. The notebooks are independent deep dives: they read the prepared results and may also read source/reference files needed for their analyses or maps. Run them separately after `main.py`.
 
 ## Reproduce the project
 
@@ -114,13 +116,13 @@ python -m pip install -e ".[dev,spatial]"
 python -m pytest -q
 ```
 
-For a quick rebuild using the committed four-biome Gibbs/GFW rate table and cached biome allocation, run:
+For a full rebuild of the current paper outputs, run:
 
 ```bash
-python code/scripts/main.py --reuse-gfw-rates
+python code/scripts/main.py
 ```
 
-To recompute the Gibbs/GFW rates from the published tiles, run `python code/scripts/build_gfw_rates.py --forest-type-dir data/raw/environmental/forest/gfw_gibbs_2025/forest_type`, then run `python code/scripts/main.py --reuse-gfw-rates`. This uses the non-mangrove rate table just produced, without processing the tiles a second time. Add `--rasters` to the second command to recompute the GEZ x country x JRC forest-mask allocation as well. Without `--rasters`, the pipeline uses the cached allocation in `data/derived/`.
+The command directly intersects GMW 2025 mangrove polygons with EEZ `UNION` units and retains the GMW source-country code for each intersection. For each account it selects mangrove area in priority order: corrected GMW 2025, reported FRA 2025 (including zero), prior-account area, then missing. It then validates GCW/NCW, regenerates deforestation and 2024 socioeconomic outputs, reruns the spatial analysis, and exports the machine-readable tables. It does not execute notebooks, build the manuscript workbook, or export paper figures. When the complete Gibbs/GFW source tiles are absent, it validates and uses the four-biome rate cache and prints that limitation. Use `--accounts-only` for the central account tables and checks, `--skip-busch-reconstruction` to keep the existing cell-level restoration outputs without downloading the 12.4 GB input archive, `--recompute-gfw-rates` to require and process all raw tiles, or `--rasters` to recompute GEZ x country x JRC forest-mask allocation. Without `--rasters`, the pipeline uses the cached allocation in `data/derived/`. Full table generation requires the `dev` and `spatial` dependencies, plus the documented Busch and map inputs unless the existing Busch outputs are retained.
 
 ### Large source files
 
@@ -134,21 +136,34 @@ data/raw/environmental/forest/gfw_gibbs_2025/gross_removals/
 data/raw/environmental/forest/gfw_gibbs_2025/forest_type/
 ```
 
-Then use `python code/scripts/build_gfw_rates.py --forest-type-dir data/raw/environmental/forest/gfw_gibbs_2025/forest_type --workers 2`. Increase the worker count only when memory permits. The GMW polygon archive is also large and is excluded from Git; download, checksum, and overlay instructions are in [`docs/GMW_GCW_VALUATION_AND_ABATEMENT_SCENARIOS.md`](docs/GMW_GCW_VALUATION_AND_ABATEMENT_SCENARIOS.md).
+From the repository root, download, verify, aggregate, then reuse the four-biome CSV:
+
+```bash
+python code/scripts/download_gfw_dataverse.py --destination data/raw/environmental/forest/gfw_gibbs_2025/gross_removals --workers 8
+python code/scripts/download_gfw_forest_types.py --removals-manifest data/raw/environmental/forest/gfw_gibbs_2025/gfw_dataverse_manifest.json --destination data/raw/environmental/forest/gfw_gibbs_2025/forest_type --workers 8
+python code/scripts/build_gfw_rates.py --forest-type-dir data/raw/environmental/forest/gfw_gibbs_2025/forest_type --workers 2
+python code/scripts/main.py --reuse-gfw-rates
+```
+
+The download scripts write verification manifests. The rate builder writes tile-level audit rows and `data/derived/gfw_gibbs_biome_rates_non_mangrove.csv`; `main.py` reads that compact CSV when `--reuse-gfw-rates` is set. Increase the rate-builder worker count only when memory permits. The GMW polygon archive is also large and is excluded from Git; download, checksum, and overlay instructions are in [`docs/GMW_GCW_VALUATION_AND_ABATEMENT_SCENARIOS.md`](docs/GMW_GCW_VALUATION_AND_ABATEMENT_SCENARIOS.md).
+
+The optional Busch cell-level reconstruction uses the study's public cell-level input data and the published price grid. Country parameters and model constants copied from the study's Stata program are transcribed in `code/scripts/busch_stata_parameters.py` and in documented constants in the reconstruction script; the Stata file itself is not parsed or required at runtime. When the Busch reconstruction is needed, the pipeline downloads the public `08_input_dtas.zip` archive (about 12.4 GB) to `.tmp/busch_08_reconstruction/` outside Git, verifies its size and MD5, and reads the cell values from those DTA files. The published price grid is read from `11_MAC_curves_consolidated.xlsx`. The archive and extracted files are not stored in the repository.
 
 ## Results and manuscript material
 
 | Path | Contents |
 | --- | --- |
 | `results/country_level_gcw.csv` | Forest account by accounting unit |
-| `results/country_level_ncw.csv` | Combined forest and marine account by unit |
+| `results/country_level_ncw_accounts.csv` | Core calculated forest-plus-marine account by unit; pipeline input for downstream tables |
 | `results/tables/manuscript/` | Current Tables 1-4 and supplementary tables, including the full 2024 country accounts and mangrove audit |
 | `code/notebooks/08_paper_figures.ipynb` | Paper figures and supplementary visual diagnostics generated from the current canonical account and analysis outputs |
 | `results/figures/Candidate_Figure*` and `results/figures/Alternative_original_Figure*` | Optional PNG/PDF exports when `SAVE_FIGURES` is enabled after visual review |
-| `results/tables/manuscript/Supplementary_country_level_accounts_2024.csv` | Canonical 267-unit Results table; `UNIT_CODE` is the study-unit key, `ISO3` is validated where available, and `region` names the analytical geographic grouping |
+| `results/tables/manuscript/Supplementary_country_level_accounts_2024.csv` | Canonical study-unit Results table; `UNIT_CODE` is the study-unit key, `ISO3` is validated where available, and `region` names the analytical geographic grouping |
 | `results/validation/country_level_results_master.csv` | Full calculation master used by the artifact builder; legacy comparison fields are filtered from paper-facing outputs |
 
 The validation folder also contains intermediate audits and local rendering checks. Those files are not all manuscript outputs.
+
+[`code/notebooks/09_manuscript_tables.ipynb`](code/notebooks/09_manuscript_tables.ipynb) independently previews the generated manuscript tables and writes `results/tables/manuscript/Manuscript_tables.xlsx`. The narrower account table produced by `main.py` remains in `results/country_level_ncw_accounts.csv`.
 
 Superseded manuscript figure and table exports are retained under `results/archive/legacy_manuscript_2026-10-19/` for audit only. They are not used by the current notebooks or canonical tables.
 
@@ -158,13 +173,14 @@ Build the current paper tables from canonical outputs with:
 python code/scripts/build_manuscript_artifacts.py --tables-only
 ```
 
-Run `code/notebooks/08_paper_figures.ipynb` for the manuscript figures and explicitly labelled supplementary diagnostics. It reads the current canonical tables and analysis outputs; it does not replace the account pipeline. Figure 4 displays the stipulated 2% allocation scenario together with the reconstructed Busch reforestation comparison. The provisional minimum-BIC spatial chart remains separate until the researcher records final model choices. The R/Quarto notebook `code/notebooks/07_spatial_econometrics.qmd` reviews the nine spatial relationships; rendering it requires R, knitr and Quarto. Its upstream model fits are generated by the documented Python pipeline.
+[`code/notebooks/08_paper_figures.ipynb`](code/notebooks/08_paper_figures.ipynb) is run separately to display the figures and save its approved figure files. Figure 5 uses the cell-level Busch reconstruction; when a refresh is needed, `main.py` verifies the inputs and downloads the public DTA archive to scratch space outside Git. The R/Quarto notebook `code/notebooks/07_spatial_econometrics.qmd` reviews the spatial relationships; its prepared model outputs are generated by the Python pipeline and the document is rendered separately.
 
 ## Data, licensing, and citation
 
 - Code: MIT, see [`LICENSE`](LICENSE).
 - Project-produced data and documentation: CC BY 4.0, see [`LICENSE-CCBY40.md`](LICENSE-CCBY40.md).
 - Source datasets retain their own licences and citation requirements. See [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md).
+- Input periods are listed in [`data/metadata/account_variable_vintages.csv`](data/metadata/account_variable_vintages.csv); added source files have SHA-256 values in [`data/metadata/paper_extension_source_checksums.csv`](data/metadata/paper_extension_source_checksums.csv).
 - Repository citation metadata: [`CITATION.cff`](CITATION.cff).
 
 Please cite the associated manuscript when using its research results, and cite the original data sources listed in the data documentation.

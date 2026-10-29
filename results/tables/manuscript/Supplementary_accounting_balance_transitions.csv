@@ -1,5 +1,5 @@
 before_gcw_balance_positive,after_ncw_balance_positive,units,common_sample_n
-True,True,56,162
-True,False,0,162
-False,True,35,162
-False,False,71,162
+True,True,79,208
+True,False,0,208
+False,True,35,208
+False,False,94,208

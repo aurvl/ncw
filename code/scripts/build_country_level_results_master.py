@@ -1,8 +1,8 @@
 """Build a joined country-level dataset for the Results drafting workflow.
 
-The table is keyed to the 267 rows in ``results/country_level_ncw.csv``. It joins
-the current forest and marine accounts, source-area data, 2024 socioeconomic
-data, deforestation outcomes, climate-finance scenarios, and the 2024 emissions
+The table preserves every row in ``results/country_level_ncw_accounts.csv``. It joins
+the current forest and marine accounts, source-area data, socioeconomic values
+available through 2024, deforestation outcomes, climate-finance scenarios, and 2024 emissions
 accounting comparison. It keeps component fluxes separate because the forest,
 coastal, and open-ocean quantities have different physical boundaries.
 """
@@ -10,6 +10,7 @@ coastal, and open-ocean quantities have different physical boundaries.
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -17,6 +18,9 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "code" / "src"))
+from gcw.config import BCW_ECOSYSTEM_RATE_ROWS
+
 OUTPUT = ROOT / "results"
 VALIDATION = OUTPUT / "validation"
 SUMMARY = ROOT / "data" / "derived"
@@ -79,6 +83,16 @@ def build_bcw_source_by_unit() -> pd.DataFrame:
         "Total BCseq": "total_bcw_physical_flux_tC_yr_source",
     }
     grouped = mapped.groupby("unit_code", as_index=False)[list(additive_columns)].sum(min_count=1)
+    coverage = mapped.groupby("unit_code", as_index=False).agg(
+        bcw_source_rows_with_published_account=("Total BCW", "count"),
+        bcw_source_rows_with_saltmarsh_area=("saltmarshes_area_km2", "count"),
+        bcw_source_rows_with_seagrass_area=("seagrasses_area_km2", "count"),
+        bcw_source_rows_with_mangrove_area=("mangroves_area_km2", "count"),
+        bcw_source_rows_with_bcp_flux=("BCP Seq (tC)", "count"),
+        bcw_source_rows_with_total_coastal_flux=("uptake_total_mean", "count"),
+        bcw_source_rows_with_total_physical_flux=("Total BCseq", "count"),
+    )
+    grouped = grouped.merge(coverage, on="unit_code", validate="one_to_one")
     return grouped.rename(columns={"unit_code": "iso3", **additive_columns})
 
 
@@ -132,24 +146,32 @@ def build_gmw_mangrove_flux() -> pd.DataFrame:
     areas = read_unique_csv(SUMMARY / "bcw_mangrove_gmw_area_replacement.csv")
     archive_path = ROOT / "data" / "raw" / "environmental" / "marine" / "bcw" / "output" / "draws.npz"
     with np.load(archive_path, allow_pickle=True) as archive:
-        rate_draws = np.asarray(archive["bce_rates_draws"][2], dtype=float)
-    area_km2 = areas["gmw_2025_mangroves_ha"].to_numpy(dtype=float) / 100.0
+        rate_draws = np.asarray(
+            archive["bce_rates_draws"][BCW_ECOSYSTEM_RATE_ROWS["mangroves"]],
+            dtype=float,
+        )
+    area_km2 = areas["selected_mangrove_area_ha"].to_numpy(dtype=float) / 100.0
     flux_tc_draws = area_km2[:, None] * rate_draws[None, :]
     summaries: dict[str, np.ndarray] = {
-        "gmw_mangrove_uptake_tC_yr_mean": np.mean(flux_tc_draws, axis=1),
-        "gmw_mangrove_uptake_tC_yr_sd": np.std(flux_tc_draws, axis=1, ddof=1),
-        "gmw_mangrove_uptake_tC_yr_p05": np.percentile(flux_tc_draws, 5, axis=1),
-        "gmw_mangrove_uptake_tC_yr_p50": np.percentile(flux_tc_draws, 50, axis=1),
-        "gmw_mangrove_uptake_tC_yr_p95": np.percentile(flux_tc_draws, 95, axis=1),
+        "selected_mangrove_uptake_tC_yr_mean": np.mean(flux_tc_draws, axis=1),
+        "selected_mangrove_uptake_tC_yr_sd": np.std(flux_tc_draws, axis=1, ddof=1),
+        "selected_mangrove_uptake_tC_yr_p05": np.percentile(flux_tc_draws, 5, axis=1),
+        "selected_mangrove_uptake_tC_yr_p50": np.percentile(flux_tc_draws, 50, axis=1),
+        "selected_mangrove_uptake_tC_yr_p95": np.percentile(flux_tc_draws, 95, axis=1),
     }
-    result = areas[["iso3", "bcw_mangroves_before_gmw_ha", "gmw_2025_mangroves_ha", "delta_mangroves_ha"]].copy()
+    result = areas[[
+        "iso3", "hilmi_2026_mangroves_ha", "selected_mangrove_area_ha",
+        "mangrove_area_source", "gmw_2025_mangroves_ha", "fra_2025_mangroves_ha",
+        "mangrove_area_source_updated_from_hilmi", "mangrove_area_changed_from_hilmi",
+        "mangrove_area_new_where_hilmi_missing", "mangrove_area_comparable_to_hilmi",
+    ]].copy()
     for column, values in summaries.items():
         result[column] = values
         result[column.replace("_tC_", "_tCO2_")] = values * CARBON_TO_CO2
     return result.rename(
         columns={
-            "gmw_2025_mangroves_ha": "gmw_2025_mangrove_area_applied_ha",
-            "delta_mangroves_ha": "gmw_minus_preupdate_mangrove_area_ha",
+            "selected_mangrove_area_ha": "mangrove_area_selected_ha",
+            "mangrove_area_source": "mangrove_area_source",
         }
     )
 
@@ -171,7 +193,7 @@ def build_fra_mangrove_audit() -> pd.DataFrame:
 
 def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
     """Join available country and territory data while preserving all NCW rows."""
-    ncw = read_unique_csv(OUTPUT / "country_level_ncw.csv")
+    ncw = read_unique_csv(OUTPUT / "country_level_ncw_accounts.csv")
     territories = read_unique_csv(SUMMARY / "territories.csv")
     identity_columns = [
         "iso3",
@@ -190,8 +212,7 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
     ]
     identity = territories[identity_columns].copy()
     master = merge_one_to_one(ncw, identity, "territorial identifiers")
-    # The GMW allocation adds ATF_GI to NCW without a FRA/BCW territory row.
-    # Keep its accounting identifier without inventing an ISO code or group.
+    # Preserve any account unit without a FRA/BCW identity row under its own key.
     master["UNIT_CODE"] = master["UNIT_CODE"].fillna(master["iso3"])
     master["region"] = master["region"].fillna(master["continent"])
     master["group_source"] = master["group_source"].fillna("unclassified")
@@ -206,14 +227,14 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
         columns={
             "forest": "fra_total_forest_area_2025_ha",
             "mangroves": "fra_mangrove_category_2025_ha",
-            "nrf": "fra_other_wooded_land_2025_ha",
+            "nrf": "fra_naturally_regenerating_forest_2025_ha",
             "planted": "fra_planted_forest_2025_ha",
             "primary": "fra_primary_forest_2025_ha",
         }
     )
     forest_areas = forest_areas[[
         "iso3", "fra_total_forest_area_2025_ha", "fra_mangrove_category_2025_ha",
-        "fra_other_wooded_land_2025_ha", "fra_planted_forest_2025_ha", "fra_primary_forest_2025_ha",
+        "fra_naturally_regenerating_forest_2025_ha", "fra_planted_forest_2025_ha", "fra_primary_forest_2025_ha",
     ]]
     if forest_areas["iso3"].duplicated().any():
         raise ValueError("FRA 2025 forest areas are not unique by accounting unit")
@@ -226,10 +247,11 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
     socio = read_unique_csv(SUMMARY / "socioeconomic_2024_by_unit.csv")
     socio_columns = [
         "iso3", "gcb_name", "gcb_2023_mtC_yr", "gcb_2024_mtC_yr", "gcb_2023_mtco2_yr",
-        "gcb_2024_mtco2_yr", "population_2024", "gdp_2015usd_2024", "co2_emissions_tco2_2024",
+        "gcb_2024_mtco2_yr", "population_2024", "population_source_year",
+        "gdp_2015usd_2024", "gdp_source_year", "co2_emissions_tco2_2024",
         "co2_emissions_tco2_2023_gcb2025", "gdp_per_capita_2024", "emissions_2024_match_status",
     ]
-    master = merge_one_to_one(master, socio[socio_columns], "GCB and WDI 2024 socioeconomic data")
+    master = merge_one_to_one(master, socio[socio_columns], "GCB 2024 emissions and WDI values through 2024")
 
     erosion = read_unique_csv(OUTPUT / "tables" / "manuscript" / "Supplementary_country_level_erosion.csv")
     erosion_columns = [
@@ -262,12 +284,12 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
         "2024 emissions balance",
     )
 
-    ibrahim = read_unique_csv(VALIDATION / "ibrahim_2pct_and_pledge_allocations.csv")
-    ibrahim_columns = [
-        "iso3", "ibrahim_2pct_usd2015_yr", "gcw_share_global_pct",
+    allocation = read_unique_csv(VALIDATION / "our_2pct_gcw_allocation_and_pledge.csv")
+    allocation_columns = [
+        "iso3", "our_2pct_gcw_allocation_usd2015_yr", "gcw_share_global_pct",
         "share_of_30yr_100bn_pledge_usd_cumulative", "lost_capacity_discounted_30yr_tco2",
     ]
-    master = merge_one_to_one(master, ibrahim[ibrahim_columns], "Ibrahim allocation scenario")
+    master = merge_one_to_one(master, allocation[allocation_columns], "2% GCW allocation scenario")
 
     busch = read_unique_csv(VALIDATION / "busch_action_curve_country_scenarios.csv")
     busch_columns = [
@@ -319,7 +341,7 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
     source_flux_columns = [
         "saltmarsh_uptake_tC_yr_source_mean",
         "seagrass_uptake_tC_yr_source_mean",
-        "gmw_mangrove_uptake_tC_yr_mean",
+        "selected_mangrove_uptake_tC_yr_mean",
     ]
     master["coastal_component_uptake_tC_yr_current_area"] = master[source_flux_columns].sum(axis=1, min_count=1)
     master["coastal_component_uptake_tCO2_yr_current_area"] = (
@@ -356,8 +378,16 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
         }
     )
     master = master.sort_values("iso3").reset_index(drop=True)
-    if len(master) != 267 or master["iso3"].duplicated().any():
-        raise ValueError(f"Master table must preserve the 267 unique NCW units; got {len(master)} rows")
+    expected_units = set(ncw["iso3"].astype(str))
+    observed_units = set(master["iso3"].astype(str))
+    if len(master) != len(ncw) or master["iso3"].duplicated().any() or observed_units != expected_units:
+        missing_units = sorted(expected_units - observed_units)
+        unexpected_units = sorted(observed_units - expected_units)
+        raise ValueError(
+            "Master table must preserve every unique NCW unit; "
+            f"expected {len(ncw)}, observed {len(master)}, "
+            f"missing={missing_units}, unexpected={unexpected_units}"
+        )
     master[["UNIT_CODE", "ISO3", "name", "sovereign", "groups", "group_source"]].to_csv(
         VALIDATION / "economic_group_assignment_by_unit.csv", index=False,
     )
@@ -374,7 +404,7 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
 
     audit = {
         "created_on": DATE,
-        "source_key_table": "results/country_level_ncw.csv",
+        "source_key_table": "results/country_level_ncw_accounts.csv",
         "rows": int(len(master)),
         "columns": int(len(master.columns)),
         "unique_unit_codes": int(master["iso3"].nunique()),
@@ -405,18 +435,18 @@ def write_data_dictionary(audit: dict[str, object]) -> None:
         "# Table pays et territoires pour la rédaction des Results",
         "",
         "Fichier : `results/validation/country_level_results_master.csv`.",
-        f"Table : {audit['rows']} lignes, {audit['columns']} colonnes, une ligne par unité de `country_level_ncw.csv`.",
+        f"Table : {audit['rows']} lignes, {audit['columns']} colonnes, une ligne par unité de `country_level_ncw_accounts.csv`.",
         "",
         "## Contenu et sources",
         "",
         "- Identifiants et groupes : `data/derived/territories.csv`; les lignes `BCW-JR` et `BCW-OC` sont des agrégats BCW conservés pour traçabilité et marqués `exclude_from_country_sum=true`.",
         "- GCW et flux forestier : `results/country_level_gcw.csv`, surfaces FRA/GEZ dans `data/derived/forest_area_by_biome.csv`, taux non-mangrove dans `gfw_gibbs_biome_rates_non_mangrove.csv`.",
-        "- Écosystèmes et EEZ : `data/raw/environmental/marine/bcw/output/country_level_bcw.csv`, agrégé avec `bcw_territory_mapping.csv`. Les superficies côtières sont en km² selon la source BCW; l’aire GMW corrigée appliquée à BCW est en ha.",
-        "- Mangroves GMW : `bcw_mangrove_gmw_area_replacement.csv`; le flux physique est calculé à partir de l’aire GMW 2025 et des tirages du taux d’enfouissement Hilmi/Alongi. Il concerne les sédiments, pas la biomasse des arbres.",
+        "- Écosystèmes et EEZ : `data/raw/environmental/marine/bcw/output/country_level_bcw.csv`, agrégé avec `bcw_territory_mapping.csv`. Les superficies côtières de Hilmi et al. (2026) sont en km²; le croisement direct GMW 2025 fournit une aire brute et corrigée en ha. La surface retenue suit la priorité GMW 2025 > FRA 2025 > aire rapportée par Hilmi et al. (2026).",
+        "- Mangroves : la surface retenue suit GMW 2025 > FRA 2025 > aire rapportée par Hilmi et al. (2026). Le compte BCW est recalculé directement à partir de l'aire mangrove sélectionnée, des aires d'herbiers et de marais salés rapportées par Hilmi, de leurs taux, du flux BCP, de 44/12 et des tirages GSCC. Le flux mangrove correspond à l'enfouissement dans les sédiments, pas à la biomasse des arbres.",
         "- FRA mangroves : `fra_mangrove_forest_overlap_2025.csv`; le statut et le rapport source sont gardés séparément de l’aire GMW.",
-        "- Données économiques et émissions : `socioeconomic_2024_by_unit.csv`; population et PIB WDI 2024, émissions fossiles et industrielles GCB 2024. Les champs d’émissions 2023 sont conservés pour la comparaison de millésime. La dette n’est pas incluse.",
+        "- Données économiques et émissions : `socioeconomic_2024_by_unit.csv`; population et PIB WDI retiennent séparément la dernière valeur disponible parmi 2024, 2023 et 2022, avec l’année source; les émissions fossiles et industrielles GCB portent sur 2024. Les champs d’émissions 2023 servent à la comparaison entre versions de la série. La dette n’est pas incluse.",
         "- Déforestation : `Supplementary_country_level_erosion.csv`; les valeurs manquantes signifient non déclaré/non couvert, jamais zéro par défaut.",
-        "- Finance : scénario Ibrahim 2 % du GCW et table de comparaison de courbes d’action Busch. Les statuts Busch sont manquants quand une courbe nationale n’est pas disponible.",
+        "- Finance: our stipulated allocation of 2% of GCW and the Busch action-curve comparison table. Busch status is missing when a national curve is unavailable.",
         "- Solde 2024 : table de comparaison comptable nationale avec émissions fixes et tirages de valeur déjà disponibles.",
         "",
         "## Lecture des variables",
@@ -425,7 +455,7 @@ def write_data_dictionary(audit: dict[str, object]) -> None:
         "- `forest_area_allocated_*_ha` désigne les surfaces FRA réparties par biome et selon la convention de chevauchement FRA documentée utilisée dans GCW. `forest_additions_*` est le produit surface × taux moyen Gibbs/GFW, pas une mesure nationale observée.",
         "- `forest_rate_*_spatial_sd` décrit la dispersion des pixels dans le biome; elle n’est pas un écart-type d’incertitude des taux.",
         "- Les colonnes `spatial_predictor_log1p_*` donnent les transformations utilisées quand une variable de résultat antérieure entre comme X dans un modèle avec les émissions comme Y.",
-        "- Les flux saltmarsh, seagrass, mangrove-sédiments et BCP océanique sont séparés. Leur somme physique n’est pas présentée comme un flux homogène dans le code.",
+        "- Les flux des trois écosystèmes côtiers et celui de la pompe biologique océanique sont des termes distincts de la formule BCW; leurs frontières biophysiques restent visibles dans le tableau.",
         "- `ncw_usd2015_yr_*`, `gcw_usd2015_yr_*` et `bcw_usd2015_yr_*` sont des valeurs monétaires annuelles aux prix de 2015. Les P05/P50/P95 ne propagent pas l’incertitude de toutes les surfaces et taux forestiers.",
         "- Les colonnes `spatial_sample_*` reproduisent les échantillons complets de la séquence économétrique 2024; elles ne déclarent pas qu’un modèle final a été choisi.",
         "",
@@ -434,7 +464,7 @@ def write_data_dictionary(audit: dict[str, object]) -> None:
         f"- Lignes FRA : {audit['fra_units']}; unités BCW : {audit['bcw_units']}; lignes agrégées exclues des sommes nationales : {audit['bcw_aggregate_rows_excluded_from_country_sums']}.",
         f"- Écart relatif maximum entre surface × taux et flux physique GCW existant : {audit['area_rate_vs_country_flux_max_relative_difference']:.3g}.",
         f"- Effectifs spatiaux attendus et retrouvés : `{json.dumps(audit['spatial_complete_case_counts'], ensure_ascii=False)}`.",
-        "- `population_bcw_reference`, `gdp_2015usd_bcw_reference`, `ncw_per_capita_usd2015_bcw_reference` et `ncw_share_of_gdp_bcw_reference` viennent de la table de référence BCW; les variables WDI 2024 portent le suffixe `_2024`.",
+        "- `population_bcw_reference`, `gdp_2015usd_bcw_reference`, `ncw_per_capita_usd2015_bcw_reference` et `ncw_share_of_gdp_bcw_reference` viennent de la table de référence BCW; les champs WDI `_2024` sont des valeurs retenues au plus tard en 2024, avec `population_source_year` et `gdp_source_year` indiquant l’année de chaque observation.",
         "- Les champs sans valeur restent vides dans le CSV, sauf les indicateurs booléens d’appartenance au périmètre. Un zéro observé reste distinct d’une valeur manquante.",
         "",
         "La table est un fichier analytique large, pas une table prête à publier. Les limites de définition et de couverture sont détaillées dans `docs/METHODS.md` et `docs/DATA_AUDIT.md`.",

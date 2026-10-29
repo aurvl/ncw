@@ -1,6 +1,6 @@
-metric,value,unit,assumption_or_formula,discount_rate,ibrahim_allocation_rate
-Current annual lost forest addition capacity,34.82508711532377,MtCO2/yr,"Sum of reported-unit estimates; 139 reporting units, including zero-loss reports",,
-Ten-year cumulative capacity not supplied,0.3482508711532377,GtCO2 over 10 years,Current annual loss repeats for 10 years; no regrowth or rate change,,
-Ten-year cumulative loss relative to current annual forest flow,2.363678578415258,% of current annual forest additions,Ten-year cumulative loss / global annual forest additions,,
-Current annual lost GCW value,19.48717468404784,billion US$2015/yr,Sum of reported-unit annual lost GCW estimates,,
-Perpetuity value of annual lost GCW at 2% discount rate,0.9743587342023919,trillion US$2015,"Annual lost GCW value / 0.02; perpetual constant stream, no growth",0.02,
+metric,value,unit,assumption_or_formula,discount_rate,our_allocation_rate
+Current annual lost forest addition capacity,33.37739980165137,MtCO2/yr,"Sum of reported-unit estimates; 139 reporting units, including zero-loss reports",,
+Ten-year cumulative capacity not supplied,0.3337739980165137,GtCO2 over 10 years,Current annual loss repeats for 10 years; no regrowth or rate change,,
+Current annual lost capacity relative to current annual forest flow,0.2260753724692703,% of current annual forest additions,Annual lost capacity / global annual forest additions; annual flows on both sides,,
+Current annual lost GCW value,18.677088105849418,billion US$2015/yr,Sum of reported-unit annual lost GCW estimates,,
+Perpetuity value of annual lost GCW at 2% discount rate,0.933854405292471,trillion US$2015,"Annual lost GCW value / 0.02; perpetual constant stream, no growth",0.02,

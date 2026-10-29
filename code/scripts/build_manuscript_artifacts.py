@@ -33,17 +33,17 @@ GROUP_COLORS = {
 }
 CO2_PER_C = 44.0 / 12.0
 PROFILE_THRESHOLD_PCT = 66.7
-IBRAHIM_ALLOCATION_RATE = 0.02
+OUR_ALLOCATION_RATE = 0.02
 DISCOUNT_RATE = 0.02
 EXPECTED_COUNTS = {
     "gcw_units": 236,
-    "both_accounts": 174,
-    "balance_common_sample": 161,
+    "both_accounts": 232,
+    "balance_common_sample": 208,
     "deforestation_reporters": 139,
-    "positive_loss_units": 105,
-    "units_with_2024_gdp": 196,
+    "positive_loss_units": 100,
+    "units_with_2024_gdp": 204,
     "units_with_2024_emissions": 210,
-    "units_with_all_2024_socioeconomics": 193,
+    "units_with_all_2024_socioeconomics": 195,
 }
 NE_TO_UNIT = {
     "SDS": "SSD", "SAH": "ESH", "PSX": "PSE", "HKG": "CHN",
@@ -98,7 +98,7 @@ def load_inputs(root: Path) -> dict[str, pd.DataFrame | np.ndarray]:
             "gcw_usd2015_yr_mean", "bcw_usd2015_yr_mean", "ncw_usd2015_yr_mean",
             "gdp_2015usd_2024", "population_2024", "co2_emissions_tco2_2024", "reported_deforestation",
             "loss_tco2_mean", "loss_value_usd2015_yr_mean", "erosion_pct_of_gcw",
-            "forest_additions_from_area_rates_tCO2_yr", "ibrahim_2pct_usd2015_yr",
+            "forest_additions_from_area_rates_tCO2_yr", "our_2pct_gcw_allocation_usd2015_yr",
         ],
         "country_level_results_master.csv",
     )
@@ -254,7 +254,7 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
                     if name == "Blue carbon wealth" else
                     "Available component total across all GCW units."
                     if name == "Green carbon wealth" else
-                    "Global GCW + global BCW; national NCW remains complete-case."
+                    "Global and unit-level NCW sum available components; missing components are counted as zero."
                 ),
             }
             for name, stats in summaries.items()
@@ -474,7 +474,7 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
     concentration_specs = [
         ("GCW", master.loc[master["has_gcw"], "gcw_usd2015_yr_mean"]),
         ("BCW", master.loc[master["has_bcw"], "bcw_usd2015_yr_mean"]),
-        ("NCW", master.loc[master["has_gcw"] & master["has_bcw"], "ncw_usd2015_yr_mean"]),
+        ("NCW", master.loc[master["ncw_usd2015_yr_mean"].notna(), "ncw_usd2015_yr_mean"]),
     ]
     for measure, values in concentration_specs:
         values = pd.to_numeric(values, errors="coerce").dropna()
@@ -488,7 +488,7 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
                 "top_50_share_pct": 100 * ordered.head(50).sum() / values.sum(),
                 "median_usd2015_yr": float(values.median()),
                 "aggregation_scope": (
-                    "Country/territory NCW where both accounts are available; complete-case distribution."
+                    "Country/territory sum of available account components; missing components are counted as zero."
                     if measure == "NCW" else
                     "Available component values by country/territory; component-specific coverage."
                 ),
@@ -588,11 +588,8 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
                 }
             )
     transition_table = pd.DataFrame(transition_rows)
-    # Expected counts are refreshed whenever the canonical mangrove/BCW inputs
-    # change, because the NCW side of this comparison depends on the current
-    # blue-carbon account.  These are the counts from the FRA-first refresh on
-    # 2026-10-23, not a frozen pre-refresh assertion.
-    expected_transitions = {(True, True): 57, (True, False): 0, (False, True): 34, (False, False): 70}
+    # Counts from the current area-priority, BCW recalculation, and 2024 emissions inputs.
+    expected_transitions = {(True, True): 79, (True, False): 0, (False, True): 35, (False, False): 94}
     actual_transitions = {
         (bool(row.before_gcw_balance_positive), bool(row.after_ncw_balance_positive)): int(row.units)
         for row in transition_table.itertuples(index=False)
@@ -671,14 +668,10 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
         "ncw_per_capita_usd2015_bcw_reference",
         "ncw_share_of_gdp_bcw_reference",
         "bcw_published_usd2015_yr_mean",
-        "bcw_mangrove_gapfill_usd2015_yr_mean",
-        "bcw_mangrove_gapfilled",
-        "ncw_alt_mangroves_usd2015_yr_mean",
         "co2_emissions_tco2_2023_gcb2025",
         "gcb_2023_mtC_yr",
         "gcb_2023_mtco2_yr",
-        "bcw_mangroves_before_gmw_ha",
-        "gmw_minus_preupdate_mangrove_area_ha",
+        "hilmi_2026_mangroves_ha",
         "mangrove_area_km2_hilmi_source",
         "mangrove_uptake_tC_yr_hilmi_source_mean",
         "coastal_uptake_tC_yr_hilmi_source_mean",
@@ -702,19 +695,22 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
     country = country[[*front, *(column for column in country.columns if column not in front)]]
     country.to_csv(out / "Supplementary_country_level_accounts_2024.csv", index=False)
 
-    # Supplement S3: align the FRA overlap audit, GMW 2025 area, updated BCW
-    # mangrove contribution, and national identifiers in one traceable table.
+    # Supplement S3: align FRA overlap, GMW-2025 candidates, selected area source,
+    # total BCW account value, and national identifiers.
     derived = root / "data" / "derived"
     overlap = pd.read_csv(derived / "fra_mangrove_forest_overlap_2025.csv")
     gmw_area = pd.read_csv(derived / "gmw_2025_mangrove_area_by_unit.csv")
     mangrove_columns = [
         "iso3", "name", "continent", "groups", "fra_total_forest_area_2025_ha",
-        "fra_mangrove_category_2025_ha", "fra_other_wooded_land_2025_ha",
-        "gmw_2025_mangrove_area_applied_ha", "gmw_mangrove_uptake_tC_yr_mean",
-        "gmw_mangrove_uptake_tCO2_yr_mean", "gmw_mangrove_uptake_tC_yr_p05",
-        "gmw_mangrove_uptake_tC_yr_p50", "gmw_mangrove_uptake_tC_yr_p95",
-        "bcw_gmw_mangroves_usd2015_yr_mean", "bcw_usd2015_yr_mean",
-        "gmw_name", "gmw_minus_fra_mangroves_ha",
+        "fra_mangrove_category_2025_ha", "fra_naturally_regenerating_forest_2025_ha",
+        "hilmi_2026_mangroves_ha", "mangrove_area_selected_ha", "mangrove_area_source",
+        "mangrove_area_source_updated_from_hilmi", "mangrove_area_changed_from_hilmi",
+        "mangrove_area_new_where_hilmi_missing", "mangrove_area_comparable_to_hilmi",
+        "selected_mangrove_uptake_tC_yr_mean",
+        "selected_mangrove_uptake_tCO2_yr_mean", "selected_mangrove_uptake_tC_yr_p05",
+        "selected_mangrove_uptake_tC_yr_p50", "selected_mangrove_uptake_tC_yr_p95",
+        "bcw_sequestration_tco2_yr_mean", "bcw_usd2015_yr_mean",
+        "gmw_name",
     ]
     available_mangrove_columns = [column for column in mangrove_columns if column in master.columns]
     mangrove = overlap.merge(gmw_area, on="iso3", how="outer", validate="one_to_one")
@@ -724,7 +720,9 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
     mangrove = mangrove.sort_values("iso3").reset_index(drop=True)
     mangrove["accounting_note"] = (
         "FRA mangrove hectares are removed from GCW only where national documentation verifies "
-        "their inclusion in the strict forest total; GMW 2025 is the applied BCW mangrove area. "
+        "their inclusion in the strict forest total; the BCW mangrove area follows the documented "
+        "GMW 2025, FRA 2025, GMW 2024, GMW 2023, then the area reported by Hilmi et al. (2026). "
+        "The BCW total is recalculated directly from the selected mangrove area, the Hilmi-reported seagrass and saltmarsh areas, the ecosystem rates, the reported BCP flux, 44/12, and GSCC. "
         "Unresolved FRA overlap is retained and reported as a limitation."
     )
     with_unit_identifiers(mangrove, master).to_csv(
@@ -750,10 +748,10 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
                 "assumption_or_formula": "Current annual loss repeats for 10 years; no regrowth or rate change",
             },
             {
-                "metric": "Ten-year cumulative loss relative to current annual forest flow",
-                "value": 100 * annual_loss_tco2 * 10 / global_forest_flow_tco2,
+                "metric": "Current annual lost capacity relative to current annual forest flow",
+                "value": 100 * annual_loss_tco2 / global_forest_flow_tco2,
                 "unit": "% of current annual forest additions",
-                "assumption_or_formula": "Ten-year cumulative loss / global annual forest additions",
+                "assumption_or_formula": "Annual lost capacity / global annual forest additions; annual flows on both sides",
             },
             {
                 "metric": "Current annual lost GCW value",
@@ -772,12 +770,12 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
     scenarios["discount_rate"] = np.where(
         scenarios["metric"].str.contains("Perpetuity"), DISCOUNT_RATE, np.nan
     )
-    scenarios["ibrahim_allocation_rate"] = np.nan
+    scenarios["our_allocation_rate"] = np.nan
     scenarios.to_csv(out / "Supplementary_deforestation_scenarios.csv", index=False)
 
-    # Table 4: Ibrahim's stipulated 2% of annual GCW; Busch remains separate.
+    # Table 4: our stipulated allocation of 2% of annual GCW; Busch remains separate.
     allocation = master.loc[master["has_gcw"]].copy()
-    allocation["allocation_usd2015_yr"] = allocation["ibrahim_2pct_usd2015_yr"]
+    allocation["allocation_usd2015_yr"] = allocation["our_2pct_gcw_allocation_usd2015_yr"]
     allocation["group_label"] = allocation["groups"].fillna("Unclassified")
     finance_rows = []
     for group in [*GROUP_ORDER, "Unclassified"]:
@@ -812,12 +810,12 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
         ],
         ignore_index=True,
     )
-    table4.to_csv(out / "Table4_Ibrahim_2pct_allocation.csv", index=False)
+    table4.to_csv(out / "Table4_our_2pct_gcw_allocation.csv", index=False)
 
     ranking_specs = [
         ("GCW", "gcw_usd2015_yr_mean", "US$2015/yr", master["has_gcw"]),
         ("BCW", "bcw_usd2015_yr_mean", "US$2015/yr", master["has_bcw"]),
-        ("NCW", "ncw_usd2015_yr_mean", "US$2015/yr", master["has_gcw"] & master["has_bcw"]),
+        ("NCW", "ncw_usd2015_yr_mean", "US$2015/yr", master["ncw_usd2015_yr_mean"].notna()),
         ("GCW / GDP 2024", "gcw_gdp_2024_pct", "%", master["has_gcw"]),
         ("GDP 2024", "gdp_2015usd_2024", "US$2015/yr", master["gdp_2015usd_2024"].notna()),
         ("Population 2024", "population_2024", "people", master["population_2024"].notna()),
@@ -826,7 +824,7 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
         ("NCW accounting balance 2024", "ncw_accounting_balance_mean_tco2_yr", "tCO2/yr", master["ncw_accounting_balance_mean_tco2_yr"].notna()),
         ("Lost annual forest addition capacity", "loss_tco2_mean", "tCO2/yr", master["reported_deforestation"] & master["loss_tco2_mean"].gt(0)),
         ("Relative forest-capacity erosion", "erosion_pct_of_gcw", "% of GCW", master["reported_deforestation"] & master["loss_tco2_mean"].gt(0)),
-        ("Ibrahim 2% GCW allocation", "ibrahim_2pct_usd2015_yr", "US$2015/yr", master["has_gcw"]),
+        ("Our 2% GCW allocation", "our_2pct_gcw_allocation_usd2015_yr", "US$2015/yr", master["has_gcw"]),
     ]
     ranking_rows = []
     for metric, column, unit, mask in ranking_specs:
@@ -850,7 +848,7 @@ def build_tables(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> di
         out / "Supplementary_national_top10_2024.csv", index=False
     )
 
-    # Busch categories are a separate, exhaustive classification of 105 positive-loss cases.
+    # Busch categories are a separate, exhaustive classification of positive-loss cases.
     busch_status = inputs["busch_status"].copy()
     if int(busch_status["countries"].sum()) != len(inputs["busch_units"]):
         raise ValueError("Busch status categories do not form an exhaustive disjoint partition of the positive-loss sample")

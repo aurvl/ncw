@@ -1,44 +1,36 @@
 # Notebooks
 
-The nine numbered notebooks in `code/notebooks/` are the reader-facing workflows for the paper: six Jupyter analysis notebooks, one Quarto spatial review, one figure notebook and one manuscript-table notebook. They connect the canonical data products to the analyses and visualisations reported in the manuscript. Reusable transformations and model-fitting code remain in `code/src/gcw/` and `code/scripts/`.
+The notebooks are independent analytical deep dives into the pipeline. Run `code/scripts/main.py` first to refresh the canonical accounts, analysis outputs and machine-readable tables. Then open or execute the notebooks separately. They may read these generated outputs and source/reference files needed for a specific analysis or map; they do not call `main.py` themselves.
 
-## Analysis notebooks
+## Analytical deep dives
 
-| Notebook | What it explains and inspects |
+| Notebook | Focus |
 | --- | --- |
-| [`01_forest_account.ipynb`](01_forest_account.ipynb) | Four Gibbs/GFW non-mangrove biome rates, forest-area allocation, annual additions, the 44/12 conversion, spatial dispersion, and the Pan comparison. |
-| [`02_marine_account.ipynb`](02_marine_account.ipynb) | GMW 2025 mangrove-area update, spatial assignment and reconciliation, unit-level coverage, and global BCW totals. |
-| [`03_national_accounts.ipynb`](03_national_accounts.ipynb) | GCW, BCW, NCW, the row-level account identity, geographic/economic profiles, and unit-level distributions. |
-| [`04_socioeconomic_emissions.ipynb`](04_socioeconomic_emissions.ipynb) | 2024 emissions, population and GDP coverage; group/continent availability; emissions changes and accounting-balance outputs. |
-| [`05_deforestation_capacity.ipynb`](05_deforestation_capacity.ipynb) | Deforestation reporting coverage, positive capacity losses, group erosion summaries, trends and scenario assumptions. |
-| [`06_climate_finance.ipynb`](06_climate_finance.ipynb) | The stipulated 2% GCW allocation and Busch action-cost comparison, including their separate units, assumptions and coverage. |
-| [`07_spatial_econometrics.qmd`](07_spatial_econometrics.qmd) | R/Quarto review of nine relationships under Queen and symmetric kNN-5 weights; Moran, LM, nested-model tests, fit diagnostics, a provisional BIC screen and the researcher decision template. |
+| [`01_forest_account.ipynb`](01_forest_account.ipynb) | How forest area and Gibbs/GFW uptake rates combine within each biome to form GCW, how the annual flow is distributed across biomes, and how spatial rate dispersion differs from account uncertainty. |
+| [`02_marine_account.ipynb`](02_marine_account.ipynb) | How marine ecosystem areas and rates form the physical coastal account and BCW; how the GMW–EEZ overlay and mangrove-area selection affect coverage and national results. |
+| [`03_national_accounts.ipynb`](03_national_accounts.ipynb) | How GCW and BCW combine into NCW; account availability, concentration, national/territorial distributions, and geographic/economic profiles. |
+| [`04_socioeconomic_emissions.ipynb`](04_socioeconomic_emissions.ipynb) | Coverage and distributions of emissions, GDP and population; the selected data years; and how the account balances and ratios are assembled. |
+| [`05_deforestation_capacity.ipynb`](05_deforestation_capacity.ipynb) | The coverage and recency of FRA loss rates and how reported annual forest-area loss is valued as lost annual addition capacity. |
+| [`06_climate_finance.ipynb`](06_climate_finance.ipynb) | The 2% GCW allocation scenario and the separate Busch forest-restoration supply/cost analysis, including coverage and sensitivity results. |
+| [`07_spatial_econometrics.qmd`](07_spatial_econometrics.qmd) | Spatial patterns and model diagnostics across the study relationships and weight matrices. [Open the published HTML](https://aurvl.github.io/NotebookSites/gcw-spatial-econometrics/07_spatial_econometrics.html). |
 
-Each notebook starts with the question it addresses, names its input files, explains the steps and units, and describes what each diagnostic can and cannot establish. The Jupyter notebooks read the canonical outputs under `data/derived/` and `results/`; they do not download the large source rasters. To rebuild underlying estimates, use the linked Python scripts and the instructions in the root README.
+Each deep dive introduces its analytical question and the relevant data, then examines the calculation through distributions, comparisons, plots and consistency checks. Outputs from notebooks 01–07 are displayed in the notebook or rendered document; they are not exported as separate analysis tables or figures. The spatial Quarto document reads model outputs prepared by the Python pipeline. Render it from the repository root with:
 
-Run a Jupyter notebook from the repository root or from its own folder. For example:
-
-```bash
-python -m nbconvert --to notebook --execute --inplace code/notebooks/01_forest_account.ipynb
-```
-
-Render the spatial Quarto notebook from the repository root with:
-
-```bash
+```powershell
 quarto render code/notebooks/07_spatial_econometrics.qmd --to html --output-dir tmp/quarto-render
 ```
 
-The spatial notebook contains R chunks only and requires R, knitr and Quarto. It reads the prepared model fits and diagnostics, compares candidates in R, and leaves final model/weight selections blank for the researcher. The upstream 168 model fits remain generated by the documented Python pipeline. The provisional BIC screen is not a final scientific choice or a causal interpretation.
+The Python notebooks can be executed from the repository root, for example:
 
-## Figures and tables
+```powershell
+python -m nbconvert --to notebook --execute --inplace code/notebooks/01_forest_account.ipynb
+```
 
-The figure notebook generates manuscript figures and clearly labelled alternative or supplementary diagnostics from the current 2024 account table, GMW 2025 mangrove update, Gibbs/GFW rates and documented finance/reforestation outputs. Its Inter typography, cream background, Robinson maps, palettes and segmented legends are presentation choices; they do not alter the underlying calculations. Figure 2 is the green/blue composition map, with `GCW only` kept distinct from `No data`; the account-status audit is written to `results/tables/manuscript/Supplementary_Figure2_map_categories.csv`, and no missing BCW or forest share is imputed. Alternative arrangements for Figures 1 and 2 are retained only to support visual comparison. `SAVE_FIGURES = False` during figure review: outputs appear inline, with no PNG/PDF exports. Figure 4 covers the 2% allocation and the reconstructed Busch action-cost comparison; the provisional minimum-BIC spatial chart remains a supplementary diagnostic until final model choices are recorded.
+## Presentation notebooks
 
-| Notebook | Role |
+| Notebook | Role and output |
 | --- | --- |
-| [`08_paper_figures.ipynb`](08_paper_figures.ipynb) | Generates the current paper figures, Figure 4 finance/reforestation panels, a supplementary spatial diagnostic and explicitly labelled visual alternatives. |
-| [`09_manuscript_tables.ipynb`](09_manuscript_tables.ipynb) | Rebuilds Tables 1-4, Table S1, and the supplementary table exports. |
+| [`08_paper_figures.ipynb`](08_paper_figures.ipynb) | Standalone figure notebook. Its existing figure-export behaviour is unchanged; run it separately when refreshing the approved paper figures. |
+| [`09_manuscript_tables.ipynb`](09_manuscript_tables.ipynb) | Previews the prepared manuscript tables and independently writes `results/tables/manuscript/Manuscript_tables.xlsx`. Run it after `main.py`. |
 
-## Archived notebooks
-
-`archive/historical/` retains earlier exploratory figure and R1-R4 notebooks. `archive/navigation_guides/` retains the six short component guides that were superseded by the explanatory analysis notebooks above. The archive is retained for audit and provenance only; it is not part of the canonical workflow and is ignored by Git.
+`main.py` produces the inputs to these presentation notebooks but does not execute any notebook, generate the workbook, or require figure exports. Notebook 09 reads the prepared CSVs; it does not rebuild them. The archived notebooks are retained for provenance and are not part of the current workflow.

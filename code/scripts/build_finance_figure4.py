@@ -92,10 +92,10 @@ def positive_price_cost(target: float, quantities: np.ndarray, prices: np.ndarra
 
 
 def build() -> dict:
-    allocation = pd.read_csv(VALIDATION / "ibrahim_2pct_and_pledge_allocations.csv")
+    allocation = pd.read_csv(VALIDATION / "our_2pct_gcw_allocation_and_pledge.csv")
     if len(allocation) != 236 or allocation.iso3.duplicated().any():
         raise ValueError("Expected 236 unique national allocation units")
-    amount = "ibrahim_2pct_usd2015_yr"
+    amount = "our_2pct_gcw_allocation_usd2015_yr"
     if allocation[amount].isna().any() or (allocation[amount] < 0).any():
         raise ValueError("National allocations must be nonmissing and nonnegative")
     allocation = allocation.sort_values([amount, "iso3"], ascending=[False, True]).reset_index(drop=True)

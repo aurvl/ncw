@@ -30,7 +30,10 @@ def area_by_biome(
         if optional in overlap_evidence.columns:
             overlap_columns.append(optional)
     overlap = overlap_evidence[overlap_columns].copy()
-    year = forest_areas.loc[forest_areas["year"].astype(str) == AREA_YEAR, ["iso3", "forest", "mangroves"]]
+    year = forest_areas.loc[forest_areas["year"].astype(str) == AREA_YEAR].copy()
+    if "mangroves_reported" not in year:
+        year["mangroves_reported"] = year["mangroves"].notna()
+    year = year[["iso3", "forest", "mangroves", "mangroves_reported"]]
     grouped = (
         shares.loc[shares["biome"].isin(BIOMES)]
         .groupby(["iso3", "biome"], as_index=False)
@@ -81,6 +84,7 @@ def area_by_biome(
                 "unresolved_fra_mangrove_category_ha",
                 "fra_mangroves_exceed_tropical_allocation",
                 "documented_overlap_exceeds_tropical_allocation",
+                "mangroves_reported",
             ]
         ].copy()
         part["variant"] = variant

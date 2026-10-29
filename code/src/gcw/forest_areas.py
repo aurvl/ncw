@@ -31,6 +31,10 @@ def build_forest_areas() -> pd.DataFrame:
         long.append(frame.set_index(["iso3", "year"]))
     areas = pd.concat(long, axis=1).reset_index()
     areas[list(VARIABLES)] = areas[list(VARIABLES)] * 1000.0  # 1000 ha -> ha
+    # Preserve the distinction between a reported zero and an unreported value.
+    # The forest-overlap calculation uses zero when a mangrove area is missing;
+    # the BCW area hierarchy uses this flag so missing FRA data stay missing.
+    areas["mangroves_reported"] = areas["mangroves"].notna()
     areas["mangroves"] = areas["mangroves"].fillna(0.0)
 
     # Descriptive consistency flags (not used in the estimate).

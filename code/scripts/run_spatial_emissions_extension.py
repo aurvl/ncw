@@ -172,25 +172,29 @@ def _predictor_diagnostics(
 
 
 def _accounting_balance_2024(socio: pd.DataFrame) -> dict:
-    """Re-evaluate descriptive GCW/NCW accounting balances with 2024 emissions."""
-    gcw_archive = np.load(ROOT / "results" / "draws" / "gcw_draws.npz", allow_pickle=True)
+    """Compare stored physical carbon-uptake draws directly with 2024 emissions."""
     ncw_archive = np.load(ROOT / "results" / "draws" / "ncw_draws.npz", allow_pickle=True)
-    # The combined archive stores the aligned GCW and NCW draws; the standalone
-    # GCW archive is used only for the matching GSCC draw vector.
+    # The combined archive stores physical GCW and blue-carbon fluxes aligned
+    # to the same accounting units and draw index.
     units = ncw_archive["iso3"].astype(str)
-    gcw_draws = ncw_archive["gcw_usd2015_yr"].astype(float)
-    gscc = gcw_archive["gscc"].astype(float)
-    ncw_draws = ncw_archive["ncw_usd2015_yr"].astype(float)
-    if gcw_draws.shape[1] != len(gscc) or ncw_draws.shape[1] != len(gscc):
-        raise ValueError("GSCC draw count does not align with wealth draw arrays")
+    gcw_uptake = ncw_archive["gcw_additions_tco2_yr"].astype(float)
+    blue_uptake = ncw_archive["bcw_sequestration_tco2_yr"].astype(float)
+    if gcw_uptake.shape != blue_uptake.shape:
+        raise ValueError("Physical green and blue flux draws do not align")
 
     emissions_map = socio.set_index("iso3")["co2_emissions_tco2_2024"]
     emissions = emissions_map.reindex(units).to_numpy(dtype=float)
     covered = np.isfinite(emissions)
-    gcw_balance = gcw_draws[covered] / gscc - emissions[covered, None]
-    ncw_balance = ncw_draws[covered] / gscc - emissions[covered, None]
+    gcw_balance = gcw_uptake[covered] - emissions[covered, None]
+    # As in the NCW account, sum the available components. A missing component
+    # remains flagged as unavailable in the account; it is not recorded as a
+    # measured zero flux.
+    ncw_uptake = np.nansum(np.stack([gcw_uptake, blue_uptake]), axis=0)
+    no_account = np.isnan(gcw_uptake).all(axis=1) & np.isnan(blue_uptake).all(axis=1)
+    ncw_uptake[no_account] = np.nan
+    ncw_balance = ncw_uptake[covered] - emissions[covered, None]
     base = pd.read_csv(ROOT / "results" / "country_level_gcw.csv").set_index("iso3")
-    ncw_base = pd.read_csv(ROOT / "results" / "country_level_ncw.csv").set_index("iso3")
+    ncw_base = pd.read_csv(ROOT / "results" / "country_level_ncw_accounts.csv").set_index("iso3")
     details = pd.DataFrame({
         "iso3": units[covered],
         "co2_emissions_tco2_2024": emissions[covered],
@@ -520,8 +524,8 @@ def run() -> dict:
         "interpretation_boundary": "Cross-sectional associations; no causal impact is estimated and the script does not select a preferred model.",
         "limitations": [
             "GCB emission values are mapped only where a country/territory row directly matches a study ISO3; parent-country totals are not copied to split territories.",
-            "World Bank 2024 GDP/population coverage is incomplete; model samples are complete cases, not imputed.",
-            "GDP-per-capita and GCW/GDP use WDI 2024 GDP and population; the ratio outcome uses 2024 GDP in constant 2015 US dollars.",
+            "World Bank GDP/population use the latest available values through 2024, falling back independently to 2023 then 2022; model samples are complete cases after that selection.",
+            "GDP-per-capita and GCW/GDP use the selected WDI GDP and population values; their source years are retained separately, and GDP is in constant 2015 US dollars.",
             "The GCB 2025 country series is a recent estimated emissions vintage; it is not a direct emissions-monitoring measure.",
             "Queen isolates are retained as zero-neighbour rows; kNN-5 links units to nearest representative points, sometimes across water.",
         ],

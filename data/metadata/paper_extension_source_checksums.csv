@@ -1,0 +1,7 @@
+"source_id","raw_target","sha256"
+"gmw_2025_vector","data/raw/environmental/marine/gmw/gmw_v4112_2025_mng_ext_cntry_info_vec.gpkg.gz","65f99b28c3fee0f793a7ffbaeca45d3246f439bdfbdf7b92c0a3fb0859fc2cdb"
+"gmw_2025_corrected_stats","data/raw/environmental/marine/gmw/gmw_v4_timeseries_4112_gmw_country_stats_corr_area_formatted.xlsx","b658e27301dd70be1839efeeb84217d989dd16d297d51a2fd5a47e3a20e09fc6"
+"busch_2024_mac","data/raw/economic/busch_2024/11_MAC_curves_consolidated.xlsx","b46061dcafaf40b16b87cf1626a1d07f213eaf4c4cea2aafa214390e21346a87"
+"busch_2024_stata","data/raw/economic/busch_2024/12_stata_code.zip","fe5a560f8b54031e9e7a7dcd57c79c3f9f0ecf32861b04b0ed00da8aeaa39785"
+"natural_earth_admin0_10m_map_units","data/raw/geospatial/boundaries/ne_10m_admin_0_map_units.zip","45bebe2aaf8bf42b9daf4428594925bcb11eabd32fe9dc6e0acf681438053eb5"
+"bcw_source_metadata","data/raw/environmental/marine/bcw/CITATION.cff","4695f9a61591f04e5f4b389f511efd5f88ba7f4717db2994dc8affdc75e20c90"

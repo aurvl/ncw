@@ -1,4 +1,4 @@
-measure,n_units,gini,top_10_share_pct,top_50_share_pct,median_usd2015_yr
-GCW,236,0.8655743377674611,64.05646219278377,90.67466968053445,3550711865.0
-BCW,181,,44.03931259045301,88.04377382406544,2473246400.0
-NCW,175,0.809474607997209,60.82706410029034,89.56641320964465,11603158230.0
+measure,n_units,gini,top_10_share_pct,top_50_share_pct,median_usd2015_yr,aggregation_scope
+GCW,236,0.8652173702022631,64.05607391298794,90.63034453744753,3328198126.5,Available component values by country/territory; component-specific coverage.
+BCW,238,0.8197071997402211,44.03768307000882,88.0408914670626,487113736.0,Available component values by country/territory; component-specific coverage.
+NCW,242,0.8244031124165992,56.80221553020545,85.46211862105751,7080593681.0,Country/territory sum of available account components; missing components are counted as zero.

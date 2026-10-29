@@ -1,0 +1,63 @@
+/* Trial: Playfair Display for the logo, titles and headings (Google Fonts). */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* Design tokens. Data colours reuse the paper figure palettes (notebook 08). */
+:root {
+  --font-serif: 'Playfair Display', 'Source Serif 4 Variable', 'Source Serif 4', Georgia, serif;
+  --font-sans: 'Inter Variable', 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  --radius: 6px;
+  --shadow: 0 10px 30px rgb(16 24 40 / 0.10), 0 2px 6px rgb(16 24 40 / 0.06);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Data: no-data grey and reported-zero red match the paper figures. */
+  --missing: #d3d3d3;
+  --zero-edge: #c62828;
+}
+
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --surface-2: #f3f3ee;
+  --text: #14171a;
+  --text-2: #5f6368;
+  --line: #e2e2dc;
+  --accent: #0b3d6b;
+  --accent-soft: #e6eef6;
+  --green: #1e8e43;
+  --blue: #1f6eb4;
+  --ocean: #eef3f6;
+  --land-neutral: #e7e7e1;
+  --border-map: #7d858e;
+  --overlay: rgb(250 250 247 / 0.86);
+  --tone-ncw: #0868ac;
+  --tone-purple: #6a51a3;
+  --tone-erosion: #b8473c;
+  --tone-amber: #9a6410;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0e1215;
+  --surface: #161b20;
+  --surface-2: #1d242a;
+  --text: #ebe9e4;
+  --text-2: #a3a9b0;
+  --line: #2a3138;
+  --accent: #8fb8de;
+  --accent-soft: #1b2a38;
+  --green: #5cbf7a;
+  --blue: #6aa8dd;
+  --ocean: #0b1a26;
+  --land-neutral: #2b3238;
+  --border-map: #0e1215;
+  --overlay: rgb(14 18 21 / 0.82);
+  --missing: #50575e;
+  --tone-ncw: #6cb6e0;
+  --tone-purple: #b4a7e0;
+  --tone-erosion: #e88a7e;
+  --tone-amber: #e0b060;
+  --shadow: 0 10px 30px rgb(0 0 0 / 0.45), 0 2px 6px rgb(0 0 0 / 0.3);
+}

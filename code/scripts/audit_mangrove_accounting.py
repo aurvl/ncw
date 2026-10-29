@@ -1,4 +1,4 @@
-"""Compare published Hilmi, FRA 2025 and GMW 2025 mangrove areas.
+"""Compare published Hilmi, FRA, direct GMW 2025 and selected mangrove areas.
 
 This is a source reconciliation audit, not a spatial intersection. National
 area totals cannot establish which mangrove hectares are inside FRA forest.
@@ -40,13 +40,20 @@ def build_comparison() -> pd.DataFrame:
     )
 
     sheets = pd.read_excel(GMW_FILE, sheet_name=["Extent", "lower95th", "upper95th"])
-    gmw = sheets["Extent"].loc[:, ["iso", "cnty_name", "2025"]].copy()
-    gmw = gmw.rename(columns={"iso": "iso3", "cnty_name": "gmw_name", "2025": "gmw_mangroves_ha"})
+    gmw_stats = sheets["Extent"].loc[:, ["iso", "cnty_name", "2025"]].copy()
+    gmw_stats = gmw_stats.rename(columns={"iso": "iso3", "cnty_name": "gmw_name", "2025": "gmw_stats_2025_mangroves_ha"})
     # The source workbook contains a global total row with no ISO code.
-    gmw = gmw.loc[gmw["iso3"].notna()].copy()
+    gmw_stats = gmw_stats.loc[gmw_stats["iso3"].notna()].copy()
     for sheet, column in [("lower95th", "gmw_lower95_ha"), ("upper95th", "gmw_upper95_ha")]:
         bounds = sheets[sheet].loc[:, ["iso", "2025"]].rename(columns={"iso": "iso3", "2025": column})
-        gmw = gmw.merge(bounds.loc[bounds["iso3"].notna()], on="iso3", how="left", validate="one_to_one")
+        gmw_stats = gmw_stats.merge(bounds.loc[bounds["iso3"].notna()], on="iso3", how="left", validate="one_to_one")
+
+    gmw_direct = pd.read_csv(SUMMARY / "gmw_2025_mangrove_area_by_unit.csv")
+    gmw_direct = gmw_direct[["iso3", "gmw_2025_mangrove_area_ha"]].rename(
+        columns={"gmw_2025_mangrove_area_ha": "gmw_2025_direct_corrected_mangroves_ha"}
+    )
+    selected = pd.read_csv(SUMMARY / "bcw_mangrove_gmw_area_replacement.csv")
+    selected = selected[["iso3", "selected_mangrove_area_ha", "mangrove_area_source"]]
 
     areas = pd.read_csv(SUMMARY / "forest_area_by_biome.csv")
     tropical = areas.loc[
@@ -55,19 +62,14 @@ def build_comparison() -> pd.DataFrame:
     ].rename(columns={"area_ha": "current_tropical_allocation_ha"})
 
     joined = fra.merge(hilmi, on="iso3", how="outer", validate="one_to_one")
-    joined = joined.merge(gmw, on="iso3", how="outer", validate="one_to_one")
+    joined = joined.merge(gmw_stats, on="iso3", how="outer", validate="one_to_one")
+    joined = joined.merge(gmw_direct, on="iso3", how="outer", validate="one_to_one")
+    joined = joined.merge(selected, on="iso3", how="outer", validate="one_to_one")
     joined = joined.merge(tropical, on="iso3", how="left", validate="one_to_one")
-    gapfill = pd.read_csv(SUMMARY / "bcw_mangrove_gapfill.csv")
-    gapfill = gapfill[["iso3", "fra_mangroves_km2"]].rename(
-        columns={"fra_mangroves_km2": "project_gapfill_mangroves_km2"}
-    )
-    joined = joined.merge(gapfill, on="iso3", how="left", validate="one_to_one")
-    joined["project_bcw_mangroves_ha"] = joined["hilmi_mangroves_ha"].fillna(0) + (
-        joined["project_gapfill_mangroves_km2"].fillna(0) * 100.0
-    )
+    joined["project_bcw_mangroves_ha"] = joined["selected_mangrove_area_ha"]
     joined["fra_minus_hilmi_ha"] = joined["fra_mangroves_ha"] - joined["hilmi_mangroves_ha"]
-    joined["fra_minus_gmw_ha"] = joined["fra_mangroves_ha"] - joined["gmw_mangroves_ha"]
-    joined["gmw_minus_hilmi_ha"] = joined["gmw_mangroves_ha"] - joined["hilmi_mangroves_ha"]
+    joined["fra_minus_gmw_ha"] = joined["fra_mangroves_ha"] - joined["gmw_2025_direct_corrected_mangroves_ha"]
+    joined["gmw_minus_hilmi_ha"] = joined["gmw_2025_direct_corrected_mangroves_ha"] - joined["hilmi_mangroves_ha"]
     joined["fra_mangroves_exceed_forest"] = joined["fra_mangroves_ha"] > joined["fra_forest_ha"]
     joined["fra_mangroves_exceed_allocated_tropical"] = (
         joined["fra_mangroves_ha"] > joined["current_tropical_allocation_ha"]
@@ -82,7 +84,7 @@ def main() -> None:
     table.to_csv(path, index=False)
     positive = lambda name: table[name].fillna(0).sum()  # noqa: E731
     print(f"Wrote {path}")
-    sources = ["fra_mangroves_ha", "hilmi_mangroves_ha", "project_bcw_mangroves_ha", "gmw_mangroves_ha"]
+    sources = ["fra_mangroves_ha", "hilmi_mangroves_ha", "project_bcw_mangroves_ha", "gmw_2025_direct_corrected_mangroves_ha"]
     for name in sources:
         print(f"{name}: {positive(name):,.1f} ha")
     scenarios = pd.DataFrame({"source": sources, "mangroves_ha": [positive(name) for name in sources]})
@@ -93,7 +95,7 @@ def main() -> None:
         scenarios["burial_MtC_yr_at_fixed_rate"] * 44.0 / 12.0 * GSCC_USD_PER_TCO2 / 1000.0
     )
     scenarios.to_csv(OUT / "mangrove_area_fixed_rate_scenarios.csv", index=False)
-    matched = table.dropna(subset=["fra_mangroves_ha", "hilmi_mangroves_ha", "gmw_mangroves_ha"])
+    matched = table.dropna(subset=["fra_mangroves_ha", "hilmi_mangroves_ha", "gmw_2025_direct_corrected_mangroves_ha"])
     print(f"All three sources matched by ISO3: {len(matched)} units")
     print(f"FRA mangroves > total forest: {table['fra_mangroves_exceed_forest'].sum()} units")
     print(f"FRA mangroves > allocated tropical forest: {table['fra_mangroves_exceed_allocated_tropical'].sum()} units")

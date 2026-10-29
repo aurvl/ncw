@@ -141,12 +141,12 @@ def build_document() -> Document:
         "target_within_supply_at_nonpositive_price": "Target within zero/negative-price range",
         "target_within_supply_at_or_below_minus20": "At/below −$20/tCO2 (subset)",
     }
-    ibrahim = pd.read_csv(
-        REPO / "results" / "validation" / "ibrahim_2pct_and_pledge_allocations.csv"
+    allocation = pd.read_csv(
+        REPO / "results" / "validation" / "our_2pct_gcw_allocation_and_pledge.csv"
     )
-    allocation_column = "ibrahim_2pct_usd2015_yr"
-    allocation_ranked = ibrahim.sort_values("gcw_usd2015_yr_mean", ascending=False)
-    allocation_total = float(ibrahim[allocation_column].sum())
+    allocation_column = "our_2pct_gcw_allocation_usd2015_yr"
+    allocation_ranked = allocation.sort_values("gcw_usd2015_yr_mean", ascending=False)
+    allocation_total = float(allocation[allocation_column].sum())
     top10_share = float(allocation_ranked.head(10)[allocation_column].sum() / allocation_total * 100)
     top50_share = float(allocation_ranked.head(50)[allocation_column].sum() / allocation_total * 100)
     cell_reconstruction_dir = REPO / "results" / "validation" / "busch_reconstruction"
@@ -273,7 +273,7 @@ def build_document() -> Document:
         "FRA forest area can include mangroves that meet the forest definition, whereas the separately reported FRA mangrove category can include forest and other wooded land. The global FRA table does not give a Forest/Other wooded land split for every unit. "
         "For GCW, mangrove hectares are subtracted when a national report documents a Forest share: this includes 2,082,920 ha in 12 exact 100% Forest units and 1,809,830 ha in 11 stability-assumption units, plus 287,848 ha in Mozambique and 312 ha in Mayotte from their reported Forest shares. The documented Forest overlap is 4,180,910 ha. The Mozambique, Mayotte and copied/forecast 2025 applications state their classification-stability assumptions. The evidence table also documents 72,477.75 ha as Other wooded land and 42.25 ha as Remaining land; neither is subtracted. PAK, SHN, TCA and the other units without a comparable quantitative split are not subtracted; their unknown Forest/Other wooded land area totals 11,613,440 ha. Kiribati's match relies on a desk-study source and has weaker evidential support. "
         "The current GMW extraction assigns 0 ha to Montserrat (MSR) and Ascension, Saint Helena and Tristan da Cunha (SHN), while FRA 2025 reports 10 ha and 2,000 ha, respectively, in its mangrove category. This cross-source coverage mismatch is not interpreted as confirmed absence of mangroves. "
-        "For BCW, mapped mangrove area is updated using GMW v4.1.12 for 2025, the latest complete global annual extent series identified, released on 3 August 2026. GMW's global accuracy assessment reports an F1 score of 0.9276 (95% CI 0.9220-0.9330), with local accuracy varying by place. The official area-correction factor of 0.9775 is applied before the mapped extent is allocated with the study's marine boundaries. The main spatially reassigned case assigns 14,728,336.51 ha; 27.75 ha remain without an admissible attribution. It has a 2,745 ha Guyana/Venezuela boundary-code disagreement. The published mangrove-burial rate and other marine components are retained. These area rules do not establish exact non-overlap of carbon flows for every country.",
+        "For BCW, mapped mangrove area is updated using GMW v4.1.12 for 2025, the latest complete global annual extent series identified, released on 3 August 2026. GMW's global accuracy assessment reports an F1 score of 0.9276 (95% CI 0.9220-0.9330), with local accuracy varying by place. The update directly intersects the 2025 GMW polygons with the study's EEZ UNION geometries after reprojection to Mollweide, retains the source cntry_iso3 for provenance, and assigns area according to the intersected EEZ geometry. Following the GMW README, the raw geometric intersections are multiplied by its global 0.9775 area factor before aggregation. The 234 country/territory EEZ units are mapped to study units; overlapping EEZ geometries may cause physical-area overlap in the summed area. The published mangrove-burial rate and other marine components are retained. These area rules do not establish exact non-overlap of carbon flows for every country.",
         keep_together=True,
     )
 
@@ -282,7 +282,7 @@ def build_document() -> Document:
         document,
         "The analysis uses 20,000 Monte Carlo draws for the GSCC. Biome mean rates and forest areas are held fixed in the main estimate; spatial dispersion is reported separately as a deterministic sensitivity, not sampled as rate uncertainty. "
         "GCW and BCW use aligned GSCC draws. Global Table 1 reports available-component totals: GCW across its 236 units and BCW across its 179 country or territory accounts plus the source Joint Regimes residual. Global NCW is their sum on each aligned draw, giving US$10.590 trillion 2015/year from mean GCW of US$8.261 trillion and mean BCW of US$2.329 trillion. "
-        "The national NCW distribution remains complete-case because a unit-level NCW requires both accounts; 174 units have both, and their NCW values sum to US$9.891 trillion/year. This is a different coverage scope, so that complete-case sum is not used as the global additive total. "
+        "Unit-level NCW sums the GCW and BCW components available for each unit, treating an unavailable component as zero; units with neither component have no NCW value. Complete-account comparisons are reported separately for units with both accounts. "
         "Reported intervals are the 5th and 95th percentiles of the corresponding draw distribution. Standard deviations are not added across components.",
     )
     add_paragraph(
@@ -362,14 +362,14 @@ def build_document() -> Document:
     document.add_heading("S8 Climate finance scenarios", level=1)
     add_paragraph(
         document,
-        "The main finance scenario applies Ibrahim's proposed allocation rule to all 236 units with a GCW estimate: each unit is allocated 2% of its annual GCW value. "
+        "The main finance scenario applies our stipulated allocation rule to all 236 units with a GCW estimate: each unit is allocated 2% of its annual GCW value. "
         f"With the recalculated world GCW, this allocates {allocation_total / 1e9:.3f} billion constant 2015 US dollars per year. "
         f"The ten largest GCW units account for {top10_share:.2f}% of the total and the fifty largest for {top50_share:.2f}%. "
         "This is an allocation scenario, not an estimate of national need, observed climate-finance flows, or action costs.",
     )
     add_paragraph(
         document,
-        "Ibrahim's separate illustration of 100 billion US dollars per year for 30 years totals 3 trillion dollars cumulatively. It is not directly subtracted from annual GCW, because the two quantities use different time units. "
+        "The separate illustration of a 100 billion US dollar annual pledge for 30 years totals 3 trillion dollars cumulatively. It is not directly subtracted from annual GCW, because the two quantities use different time units. "
         "The 2% rule remains an explicit assumption; it is not derived from the cost curves below.",
     )
     add_paragraph(

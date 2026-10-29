@@ -24,17 +24,18 @@ CSV_GROUPS = {
         ("Table 1 - Global carbon wealth distributions", "tables/manuscript/Table1_global_carbon_wealth.csv"),
         ("Table 2 - Geographic and economic profiles", "tables/manuscript/Table2_geographic_economic_profiles.csv"),
         ("Table 3 - Forest capacity erosion by economic group", "tables/manuscript/Table3_forest_capacity_erosion.csv"),
-        ("Table 4 - Ibrahim 2% of GCW allocation", "tables/manuscript/Table4_Ibrahim_2pct_allocation.csv"),
+        ("Table 4 - Our 2% GCW allocation", "tables/manuscript/Table4_our_2pct_gcw_allocation.csv"),
     ],
     "Current physical, geographic, and country-account results": [
         ("Table S1 - Paper-ready four-biome forest additions", "tables/manuscript/TableS1_forest_biome_additions.csv"),
         ("Detailed four-biome forest additions and Gibbs/GFW rates", "tables/manuscript/Supplementary_forest_biome_accounting.csv"),
         ("Pan forest-rate comparison - only retained rate comparator", "tables/manuscript/Supplementary_Pan_rate_comparison.csv"),
         ("Country/territory account with current 2024 fields", "tables/manuscript/Supplementary_country_level_accounts_2024.csv"),
-        ("Continent profiles using current accounts and 2024 GDP", "tables/manuscript/Supplementary_continent_profiles_2024.csv"),
+        ("Economic-group assignment and provenance for all study units", "validation/economic_group_assignment_by_unit.csv"),
+        ("Regional profiles using current accounts and 2024 GDP", "tables/manuscript/Supplementary_region_profiles_2024.csv"),
         ("National top-ten values using current 2024 accounts", "tables/manuscript/Supplementary_national_top10_2024.csv"),
         ("Account concentration statistics", "tables/manuscript/Supplementary_account_concentration_2024.csv"),
-        ("Mangrove reconciliation: current GMW 2025 and FRA evidence", "tables/manuscript/Supplementary_mangrove_reconciliation.csv"),
+        ("Mangrove area source selection and FRA evidence", "tables/manuscript/Supplementary_mangrove_reconciliation.csv"),
     ],
     "Balances, deforestation, and carbon-account comparisons": [
         ("2024 green/blue accounting-balance transitions", "tables/manuscript/Supplementary_accounting_balance_transitions.csv"),
@@ -63,7 +64,7 @@ CSV_GROUPS = {
         ("Human decision template - no model auto-selected", "validation/spatial_model_decision_template.csv"),
     ],
     "Climate-finance analyses - separate estimands": [
-        ("Ibrahim 2% GCW allocation by group", "tables/manuscript/Table4_Ibrahim_2pct_allocation.csv"),
+        ("Our 2% GCW allocation by group", "tables/manuscript/Table4_our_2pct_gcw_allocation.csv"),
         ("Busch action-curve coverage classes", "tables/manuscript/Supplementary_Busch_action_cost_coverage.csv"),
         ("Busch country-level action-cost results", "tables/manuscript/Supplementary_Busch_action_cost_by_unit.csv"),
         ("GSCC valuation-fraction sensitivity by world draw", "validation/gcw_valuation_fraction_sensitivity_world.csv"),
@@ -102,8 +103,10 @@ def json_block(title: str, relative: str) -> str:
 
 def validate_current_outputs() -> tuple[pd.DataFrame, dict[str, int], pd.DataFrame]:
     country = read_csv("tables/manuscript/Supplementary_country_level_accounts_2024.csv")
-    if "iso3" not in country or country["iso3"].duplicated().any():
+    if "UNIT_CODE" not in country or country["UNIT_CODE"].duplicated().any():
         raise ValueError("The current country/territory table must have unique unit identifiers.")
+    if "ISO3" not in country or "region" not in country:
+        raise ValueError("The current country/territory table needs validated ISO3 and region fields.")
     obsolete_markers = ("2023", "faostat_", "preupdate", "before_gmw", "hilmi_source_mean", "mangrove_area_km2_hilmi_source")
     stale_columns = [
         name for name in country.columns if any(marker in name.lower() for marker in obsolete_markers)
@@ -133,8 +136,8 @@ def validate_current_outputs() -> tuple[pd.DataFrame, dict[str, int], pd.DataFra
     }
     expected = {
         "gcw_units": 236,
-        "both_accounts": 175,
-        "balance_common_sample": 162,
+        "both_accounts": 174,
+        "balance_common_sample": 161,
         "deforestation_reporters": 139,
         "positive_loss_units": 105,
         "units_with_2024_gdp": 196,
@@ -154,7 +157,7 @@ def build_inventory() -> str:
     wealth = read_csv("tables/manuscript/Table1_global_carbon_wealth.csv")
     biome = read_csv("tables/manuscript/Supplementary_forest_biome_accounting.csv")
     table3 = read_csv("tables/manuscript/Table3_forest_capacity_erosion.csv")
-    table4 = read_csv("tables/manuscript/Table4_Ibrahim_2pct_allocation.csv")
+    table4 = read_csv("tables/manuscript/Table4_our_2pct_gcw_allocation.csv")
     busch = read_csv("tables/manuscript/Supplementary_Busch_action_cost_coverage.csv")
     figure_status = json.loads(
         (RESULTS / "figures/manuscript/Figure4_spatial_associations_status.json").read_text(encoding="utf-8")
@@ -172,7 +175,7 @@ def build_inventory() -> str:
         "",
         "## Canonical data versions and coverage",
         "- Forest rates: Gibbs/GFW gross additions to living above- and below-ground biomass, mean annual period 2001-2023, with mangrove pixels excluded; four FAO GEZ domains; FRA 2025 forest area.",
-        "- Marine mangrove area: GMW v4.1.12, map year 2025, spatially assigned under the current BCW unit crosswalk; other published BCW components and rates are retained.",
+        "- Marine mangrove area: GMW v4.1.12, map year 2025, directly intersected with EEZ UNION geometries in Mollweide, multiplied by GMW's global 0.9775 accuracy factor, then assigned under the current BCW unit crosswalk; other published BCW components and rates are retained.",
         "- Emissions: Global Carbon Budget 2025 national fossil and industrial-process series through 2024. Population and GDP: WDI 2024. Debt is not used.",
         "- Pan is the only alternative forest-rate estimate retained as a comparison in the current supplementary tables.",
         "- The canonical country table is one row per study unit. Validation of obsolete columns is performed before this inventory is written.",
@@ -180,18 +183,18 @@ def build_inventory() -> str:
         "## Results navigation (from supporting evidence to main findings)",
         "This is an order for reading and drafting, not a ranking of statistical significance.",
         "- Supporting evidence: source coverage, group tests, concentration measures, top-ten lists, spatial diagnostics and candidate comparisons; use these to qualify the main findings.",
-        "- National and group distribution: current 267-unit country table, continent profiles, economic-group profiles and green/mixed/blue account types.",
+        "- National and group distribution: current study-unit country table, regional profiles, economic-group profiles and green/mixed/blue account types.",
         "- Main global estimates: four biome rates and physical forest additions, followed by GCW, BCW and NCW distributions.",
-        "- Carbon-balance comparison: green/blue account composition and transitions relative to 2024 emissions on the 162-unit common sample.",
+        "- Carbon-balance comparison: green/blue account composition and transitions relative to 2024 emissions on the 161-unit common sample.",
         "- Forest-loss implications: reported deforestation coverage, 105 positive capacity-loss estimates, group differences, relative erosion and scenario values.",
         "- Spatial relationships: three primary outcomes and six emissions extensions, with candidate diagnostics and no final model automatically selected.",
-        "- Climate finance: Ibrahim's 2% GCW allocation first, Busch action costs as a complementary analysis with partial coverage; neither is conflated with the 2% discount rate.",
+        "- Climate finance: our stipulated 2% GCW allocation, with Busch action costs as a complementary analysis with partial coverage; neither is conflated with the 2% discount rate.",
         "",
         "## Headline values and agreed samples",
         f"- Annual forest additions: {world_flow:.6f} GtCO2/year.",
         f"- GCW mean: {wealth.loc[wealth.component.eq('Green carbon wealth'), 'value_mean_trillion_usd2015_yr'].iloc[0]:.6f} trillion US$2015/year; BCW mean: {wealth.loc[wealth.component.eq('Blue carbon wealth'), 'value_mean_trillion_usd2015_yr'].iloc[0]:.6f}; NCW mean: {wealth.loc[wealth.component.eq('Natural carbon wealth'), 'value_mean_trillion_usd2015_yr'].iloc[0]:.6f}.",
         f"- Reported deforestation capacity loss: {total_loss:.6f} MtCO2/year; corresponding annual lost GCW value: {total_lost_value:.6f} billion US$2015/year.",
-        f"- Ibrahim allocation rule: 2% of current annual GCW = {allocation_total:.6f} billion US$2015/year. It is not observed finance or an estimated funding need.",
+        f"- Our allocation rule: 2% of current annual GCW = {allocation_total:.6f} billion US$2015/year. It is not observed finance or an estimated funding need.",
         f"- Unit counts: {counts['gcw_units']} GCW; {counts['both_accounts']} with both accounts; {counts['balance_common_sample']} in the common 2024 balance comparison; {counts['deforestation_reporters']} deforestation reporters, including {counts['positive_loss_units']} with positive estimated loss.",
         f"- 2024 coverage across the study units: GDP {counts['units_with_2024_gdp']}; emissions {counts['units_with_2024_emissions']}; all population/GDP/emissions {counts['units_with_all_2024_socioeconomics']}. Missing values are not replaced with zero.",
         "- Monetary P05-P95 intervals propagate GSCC draws. Pixel spatial standard deviation is a separate sensitivity, not a confidence interval for the biome rates.",

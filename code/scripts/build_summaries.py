@@ -8,6 +8,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -21,34 +22,59 @@ from gcw import biome_shares, faostat_flux, forest_areas, forest_uptake_gfw, gfw
 from gcw.config import (  # noqa: E402
     GFW_GIBBS_FOREST_TYPE_DIR,
     GFW_GIBBS_REMOVALS_DIR,
-    GFW_GIBBS_REMOVALS_PATTERN,
     SUMMARY,
 )
 
 
-def build_summaries(recompute_rasters: bool = False, reuse_gfw_rates: bool = False) -> dict:
+def build_summaries(recompute_rasters: bool = False, reuse_gfw_rates: bool | None = None) -> dict:
     cached_rates = SUMMARY / "gfw_gibbs_biome_rates_non_mangrove.csv"
+    source_root = GFW_GIBBS_REMOVALS_DIR.parent
+    manifests = (
+        (source_root / "gfw_dataverse_manifest.json", GFW_GIBBS_REMOVALS_DIR),
+        (source_root / "gfw_forest_type_manifest.json", GFW_GIBBS_FOREST_TYPE_DIR),
+    )
+    raw_available = True
+    for manifest_path, folder in manifests:
+        if not manifest_path.is_file():
+            raw_available = False
+            break
+        entries = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if len(entries) != 272 or any(
+            not (folder / entry["filename"]).is_file()
+            or (folder / entry["filename"]).stat().st_size != entry["size"]
+            for entry in entries
+        ):
+            raw_available = False
+            break
+    if reuse_gfw_rates is None:
+        reuse_gfw_rates = not raw_available
     if reuse_gfw_rates and not cached_rates.is_file():
         raise FileNotFoundError(f"Cached Gibbs/GFW rates requested but missing: {cached_rates}")
-    if not reuse_gfw_rates and not any(GFW_GIBBS_REMOVALS_DIR.glob(GFW_GIBBS_REMOVALS_PATTERN)):
+    if not reuse_gfw_rates and not raw_available:
         raise FileNotFoundError(
-            f"Gibbs/GFW source tiles are missing from {GFW_GIBBS_REMOVALS_DIR}; "
-            "stage the published 2001-2023 gross-removals GeoTIFF set before building summaries."
-        )
-    if not reuse_gfw_rates and not GFW_GIBBS_FOREST_TYPE_DIR.is_dir():
-        raise FileNotFoundError(
-            f"The source-version forest-type mask tiles are missing from {GFW_GIBBS_FOREST_TYPE_DIR}. "
-            "They are required to exclude code-6 mangrove pixels from the main rates."
+            "The two Gibbs/GFW manifests do not match complete 272-tile source sets by filename and size; "
+            "stage the source-version removals and forest-type masks or use the validated cached rates."
         )
     print("[1/7] territories")
     territory_table = territories.run()
     print("[2/7] forest areas (FRA 2025)")
     area_table = forest_areas.run()
-    print("[3/7] biome shares (GEZ x boundaries x forest mask)")
+    print("[3/7] biome shares (FRA first; GEZ/JRC fallback)")
     share_table = biome_shares.run(recompute_rasters=recompute_rasters)
     if reuse_gfw_rates:
         print(f"[4/7] reusing cached Gibbs/GFW gross living-biomass rates ({cached_rates})")
         rate_table = pd.read_csv(cached_rates)
+        required = {"biome", "rate_tc_ha_yr_mean", "rate_tc_ha_yr_spatial_sd", "period", "pool", "source"}
+        if not required.issubset(rate_table.columns):
+            raise ValueError(f"Cached Gibbs/GFW rates lack columns: {sorted(required - set(rate_table))}")
+        if set(rate_table["biome"]) != {"tropical", "subtropical", "temperate", "boreal"} or len(rate_table) != 4:
+            raise ValueError("Cached Gibbs/GFW rates must contain each of the four biomes once")
+        if not rate_table["period"].eq("2001-2023 mean annual rate").all():
+            raise ValueError("Cached Gibbs/GFW rates have an unexpected source period")
+        if not rate_table["pool"].eq("above- and below-ground living biomass").all():
+            raise ValueError("Cached Gibbs/GFW rates have an unexpected carbon pool")
+        if not raw_available:
+            print("  Source tiles/masks are absent: this is a cache-based reproduction, not a fresh raster audit.")
     else:
         print("[4/7] Gibbs/GFW non-mangrove gross living-biomass rates by biome")
         rate_table = gfw_rates.run(forest_type_dir=GFW_GIBBS_FOREST_TYPE_DIR)
@@ -71,13 +97,16 @@ def build_summaries(recompute_rasters: bool = False, reuse_gfw_rates: bool = Fal
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--rasters", action="store_true", help="recompute the GEZ x boundaries x forest mask table")
-    parser.add_argument(
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument(
         "--reuse-gfw-rates",
         action="store_true",
         help="reuse data/derived/gfw_gibbs_biome_rates_non_mangrove.csv",
     )
+    mode.add_argument("--recompute-gfw-rates", action="store_true", help="require raw Gibbs/GFW tiles and recompute rates")
     args = parser.parse_args()
-    build_summaries(recompute_rasters=args.rasters, reuse_gfw_rates=args.reuse_gfw_rates)
+    use_cache = True if args.reuse_gfw_rates else False if args.recompute_gfw_rates else None
+    build_summaries(recompute_rasters=args.rasters, reuse_gfw_rates=use_cache)
 
 
 if __name__ == "__main__":
