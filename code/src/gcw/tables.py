@@ -30,7 +30,7 @@ def global_by_ecosystem(forest: dict, faostat: pd.DataFrame, gcw: dict, ncw: dic
             name: np.nansum(archive[f"bce_{key}_draws"], axis=0) * CARBON_TO_CO2
             for name, key in [("Mangroves", "mangroves"), ("Seagrasses", "seagrasses"), ("Saltmarshes", "saltmarshes")]
         }
-    coastal["Mangroves"] = np.nansum(ncw["gmw_mangrove_tco2_yr"], axis=0)
+    coastal["Mangroves"] = np.nansum(ncw["selected_mangrove_tco2_yr"], axis=0)
     bcp_tco2 = pd.read_csv(BCW_COUNTRY_CSV)["BCP Seq (tC)"].sum() * CARBON_TO_CO2
     flows = {
         "Forests after documented FRA mangrove-overlap removal (Gibbs/GFW gross living-biomass additions)": np.nansum(forest["documented_overlap_removed"], axis=0),
@@ -39,8 +39,8 @@ def global_by_ecosystem(forest: dict, faostat: pd.DataFrame, gcw: dict, ncw: dic
     }
     notes = {
         "Open ocean biological carbon pump": "BCW point estimate, no physical uncertainty",
-        "Mangroves": "GMW 2025 mapped area × Hilmi/Alongi mangrove-rate draws; spatially assigned to BCW territorial units",
-        "BCW (published coastal and ocean components + GMW 2025 mangroves)": (
+        "Mangroves": "Selected mangrove area under the per-unit hierarchy (GMW 2025, FRA 2025, then the area reported by Hilmi et al. (2026)) × Hilmi/Alongi mangrove-rate draws",
+        "BCW (published coastal and ocean components + selected mangrove areas)": (
             "Global source total includes the BCW 'Joint Regimes' residual; this non-country row is excluded from country/group tables."
         ),
     }
@@ -49,17 +49,16 @@ def global_by_ecosystem(forest: dict, faostat: pd.DataFrame, gcw: dict, ncw: dic
         rows.append(_row(label, tco2, "tCO2/yr", notes.get(label, "")))
         rows.append(_row(label, tco2 * gscc, "US$2015/yr", notes.get(label, "")))
     rows.append(_row("GCW (Gibbs/GFW; documented FRA mangrove overlap removed)", np.nansum(ncw["gcw_usd2015_yr"], axis=0), "US$2015/yr"))
-    rows.append(_row("BCW (published coastal and ocean components + GMW 2025 mangroves)", np.nansum(ncw["bcw_usd2015_yr"], axis=0), "US$2015/yr"))
-    # Global ecosystem totals use each account's available units. Country-level
-    # NCW is reported only for units with both accounts, so its sum is a smaller
-    # complete-case total and is not the global component total.
+    rows.append(_row("BCW (published coastal and ocean components + selected mangrove areas)", np.nansum(ncw["bcw_usd2015_yr"], axis=0), "US$2015/yr"))
+    # NCW sums the components available for each unit; a missing component is
+    # treated as zero, while units with neither component remain missing.
     global_ncw = np.nansum(ncw["gcw_usd2015_yr"], axis=0) + np.nansum(ncw["bcw_usd2015_yr"], axis=0)
     rows.append(
         _row(
             "NCW = GCW + BCW",
             global_ncw,
             "US$2015/yr",
-            "Global sum of available GCW and BCW components; BCW includes the source Joint Regimes residual. National NCW requires both accounts.",
+            "Sum of available GCW and BCW components; a missing component is counted as zero. BCW includes the source Joint Regimes residual.",
         )
     )
     faostat_tco2 = faostat["net_uptake_tco2_yr"].sum()

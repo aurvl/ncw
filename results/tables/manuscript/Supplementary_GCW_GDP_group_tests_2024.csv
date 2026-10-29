@@ -1,8 +1,8 @@
 test,group_a,group_b,n_a,n_b,statistic,p_raw,p_holm
-Kruskal-Wallis across economic groups,All classified groups,,196,,33.35232158206957,2.7140581598344245e-07,
-Mann-Whitney U; Holm-adjusted pairwise comparison,Developed economies,Developing economies,50,67.0,1250.0,0.01934248956165443,0.058027468684963286
-Mann-Whitney U; Holm-adjusted pairwise comparison,Developed economies,LDCs,50,34.0,235.0,2.145023742097076e-08,1.2870142452582457e-07
-Mann-Whitney U; Holm-adjusted pairwise comparison,Developed economies,SIDS,50,45.0,1080.0,0.74012481781665,0.74012481781665
-Mann-Whitney U; Holm-adjusted pairwise comparison,Developing economies,LDCs,67,34.0,583.0,6.55000652324881e-05,0.0002620002609299524
-Mann-Whitney U; Holm-adjusted pairwise comparison,Developing economies,SIDS,67,45.0,1804.0,0.07896703967898241,0.15793407935796483
-Mann-Whitney U; Holm-adjusted pairwise comparison,LDCs,SIDS,34,45.0,1176.0,4.811895008366385e-05,0.00024059475041831926
+Kruskal-Wallis across economic groups,All classified groups,,204,,36.91070552939476,4.805955693036488e-08,
+Mann-Whitney U; Holm-adjusted pairwise comparison,Developed economies,Developing economies,53,68.0,1282.0,0.006648365915898694,0.019945097747696084
+Mann-Whitney U; Holm-adjusted pairwise comparison,Developed economies,LDCs,53,34.0,236.0,7.4470256208401425e-09,4.4682153725040855e-08
+Mann-Whitney U; Holm-adjusted pairwise comparison,Developed economies,SIDS,53,49.0,1215.0,0.5782596461126226,0.5782596461126226
+Mann-Whitney U; Holm-adjusted pairwise comparison,Developing economies,LDCs,68,34.0,588.0,5.6132546159341986e-05,0.00022453018463736794
+Mann-Whitney U; Holm-adjusted pairwise comparison,Developing economies,SIDS,68,49.0,2040.0,0.03907233229433976,0.07814466458867952
+Mann-Whitney U; Holm-adjusted pairwise comparison,LDCs,SIDS,34,49.0,1300.0,1.561441490198291e-05,7.807207450991456e-05

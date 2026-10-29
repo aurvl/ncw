@@ -59,6 +59,7 @@ def build_gcw(territories: pd.DataFrame, forest: dict, faostat: pd.DataFrame, gs
     draws = {
         "iso3": np.array(countries),
         "gcw_usd2015_yr": gcw_main,
+        "uptake_tco2_yr": forest["documented_overlap_removed"].astype(np.float32),
         "gcw_spatial_sd_low_usd2015_yr": gcw_spatial_low,
         "gcw_spatial_sd_high_usd2015_yr": gcw_spatial_high,
         "gcw_no_overlap_removed_usd2015_yr": gcw_no_overlap_removed,

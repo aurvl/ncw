@@ -128,20 +128,55 @@ def global_checks(forest_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict)
 
     add("GSCC mean (US$2015/tCO2)", round(float(gcw["gscc"].mean()), 2), "559.57", abs(gcw["gscc"].mean() - 559.57) < 0.1)
 
-    alignment = pd.read_csv(SUMMARY / "bcw_draw_alignment.csv")["alignment"]
-    add("BCW draw rows not aligned", int((alignment == "unmatched").sum()), "0", int((alignment == "unmatched").sum()) == 0)
-
-    bcw_units_world = np.nansum(ncw["bcw_usd2015_yr"], axis=0)
-    bcw_rows_world = (
-        np.nansum(ncw["bcw_published_rows_usd2015_yr"], axis=0)
-        + np.nansum(ncw["bcw_mangrove_gapfill_usd2015_yr"], axis=0)
-        + np.nansum(ncw["bcw_gmw_mangrove_adjustment_usd2015_yr"], axis=0)
+    alignment = pd.read_csv(SUMMARY / "bcw_draw_alignment.csv")
+    unmatched = int(alignment["alignment"].eq("unmatched").sum())
+    add("BCW draw rows not aligned", unmatched, "0", unmatched == 0)
+    source_formula_error = float(alignment["area_rate_formula_max_relative_error"].max())
+    add(
+        "Hilmi et al. (2026) BCW reproduced from ecosystem areas × rates + BCP, valued with 44/12 and GSCC",
+        source_formula_error,
+        "< 1e-5",
+        source_formula_error < 1e-5,
     )
-    gap = float(np.max(np.abs(bcw_units_world - bcw_rows_world) / np.abs(bcw_rows_world)))
-    add("world BCW = published rows + GMW mangrove area adjustment (draw by draw)", gap, "< 1e-5", gap < 1e-5)
-    gapfill = pd.read_csv(SUMMARY / "bcw_mangrove_gapfill.csv")
-    add("units with FRA mangroves but no BCW mangroves, gap-filled",
-        f"{len(gapfill)} units, {gapfill['fra_mangroves_km2'].sum():,.0f} km2", "documented", True)
+    bcw_formula = ncw["bcw_sequestration_tco2_yr"] * gcw["gscc"][None, :]
+    bcw_updated = ncw["bcw_usd2015_yr"]
+    formula_cells = np.isfinite(bcw_formula) & np.isfinite(bcw_updated)
+    relative_errors = np.abs(bcw_formula[formula_cells] - bcw_updated[formula_cells]) / np.maximum(
+        np.abs(bcw_updated[formula_cells]), 1.0
+    )
+    selected_formula_error = float(relative_errors.max()) if relative_errors.size else 0.0
+    add(
+        "updated BCW equals total sequestration from selected mangrove area and other Hilmi inputs × GSCC (draw by draw)",
+        selected_formula_error,
+        "< 1e-5",
+        selected_formula_error < 1e-5,
+    )
+    area_audit = pd.read_csv(SUMMARY / "bcw_mangrove_gmw_area_replacement.csv")
+    source_counts = area_audit["mangrove_area_source"].value_counts().to_dict()
+    fra_unreported_selection = int(
+        (
+            area_audit["mangrove_area_source"].eq("FRA_2025")
+            & ~area_audit["fra_2025_mangroves_reported"].fillna(False).astype(bool)
+        ).sum()
+    )
+    add(
+        "FRA zero is selected only when the 2025 mangrove area was reported",
+        fra_unreported_selection,
+        "0",
+        fra_unreported_selection == 0,
+    )
+    source_updated = int(area_audit["mangrove_area_source_updated_from_hilmi"].fillna(False).sum())
+    area_changed = int(area_audit["mangrove_area_changed_from_hilmi"].fillna(False).sum())
+    area_new_without_hilmi = int(area_audit["mangrove_area_new_where_hilmi_missing"].fillna(False).sum())
+    comparable = int(area_audit["mangrove_area_comparable_to_hilmi"].fillna(False).sum())
+    source_summary = "; ".join(f"{source}={count}" for source, count in sorted(source_counts.items()))
+    add(
+        "mangrove area-source selection and comparison with area reported by Hilmi et al. (2026)",
+        f"{source_summary}; selected from a different source={source_updated}; changed area among units with both values={area_changed}/{comparable}; selected where Hilmi area was unavailable={area_new_without_hilmi}",
+        "documented",
+        True,
+        status="documented",
+    )
 
     mapping = pd.read_csv(SUMMARY / "bcw_territory_mapping.csv")
     add("BCW rows mapped to exactly one unit", int(mapping["bcw_code"].duplicated().sum()), "0",
@@ -154,12 +189,13 @@ def global_checks(forest_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict)
     has_gcw = ~np.isnan(ncw["gcw_usd2015_yr"]).all(axis=1)
     has_bcw = ~np.isnan(ncw["bcw_usd2015_yr"]).all(axis=1)
     complete = has_gcw & has_bcw
-    incomplete_with_ncw = int((~complete & ~np.isnan(ncw["ncw_usd2015_yr"]).all(axis=1)).sum())
+    any_component = has_gcw | has_bcw
+    mismatch = int((any_component != ~np.isnan(ncw["ncw_usd2015_yr"]).all(axis=1)).sum())
     add(
-        "national NCW is missing when either ecosystem account is unavailable",
-        incomplete_with_ncw,
+        "national NCW sums available components and remains missing only when both are unavailable",
+        mismatch,
         "0",
-        incomplete_with_ncw == 0,
+        mismatch == 0,
     )
     missing_bcw_with_value = int((~has_bcw & ~np.isnan(ncw["bcw_usd2015_yr"]).all(axis=1)).sum())
     add(
@@ -186,12 +222,12 @@ def global_checks(forest_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict)
     global_gcw = np.nansum(np.asarray(ncw["gcw_usd2015_yr"], dtype=np.float64), axis=0)
     global_bcw = np.nansum(np.asarray(ncw["bcw_usd2015_yr"], dtype=np.float64), axis=0)
     global_ncw_additive = global_gcw + global_bcw
-    global_additive_gap = float(
-        np.max(np.abs(global_ncw_additive - (global_gcw + global_bcw)))
-        / max(float(np.max(np.abs(global_ncw_additive))), 1.0)
-    )
-    global_ncw_complete_case = np.nansum(
+    global_ncw_from_archive = np.nansum(
         np.asarray(ncw["ncw_usd2015_yr"], dtype=np.float64), axis=0
+    )
+    global_additive_gap = float(
+        np.max(np.abs(global_ncw_from_archive - global_ncw_additive)
+               / np.maximum(np.abs(global_ncw_additive), 1.0))
     )
     add(
         "global additive NCW equals global available GCW + BCW draw by draw",
@@ -200,10 +236,10 @@ def global_checks(forest_draws: dict, rates: pd.DataFrame, gcw: dict, ncw: dict)
             "GCW_mean_trillion": float(global_gcw.mean() / 1e12),
             "BCW_mean_trillion": float(global_bcw.mean() / 1e12),
             "additive_NCW_mean_trillion": float(global_ncw_additive.mean() / 1e12),
-            "complete_case_NCW_mean_trillion": float(global_ncw_complete_case.mean() / 1e12),
+            "archive_NCW_mean_trillion": float(global_ncw_from_archive.mean() / 1e12),
         },
-        "relative gap < 1e-12; complete-case sum is separately scoped",
-        global_additive_gap < 1e-12,
+        "relative gap < 1e-5; all available components on both sides",
+        global_additive_gap < 1e-5,
     )
     return pd.DataFrame(checks)
 
@@ -215,4 +251,7 @@ def run(territories, gcw_table, ncw_table, forest_draws, rates, gcw, ncw) -> pd.
     write_table(table, VALIDATION / "global_checks.csv")
     for _, row in table.iterrows():
         print(f"  [{row['status']:>6}] {row['check']}: {row['value']} (expected {row['expected']})")
+    failures = table.loc[table["status"].eq("REVIEW"), "check"].tolist()
+    if failures:
+        raise ValueError(f"Pipeline validation failed: {failures}")
     return table

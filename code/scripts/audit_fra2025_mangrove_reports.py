@@ -130,7 +130,7 @@ def make_excerpts(text: str, max_items: int = 8) -> tuple[str, str, int]:
     return "\n---\n".join(hits), "\n---\n".join(explicit), len(list(KEY_RE.finditer(text)))
 
 
-def forest_owl_table_evidence(text: str) -> str:
+def forest_owl_table_evidence(text: str, max_items: int = 100) -> str:
     """Extract national-class crosswalk snippets that allocate classes to FRA Forest/OWL."""
     lines = [line.strip() for line in text.replace("\x00", " ").replace("\r", "\n").splitlines() if line.strip()]
     snippets: list[str] = []
@@ -146,12 +146,12 @@ def forest_owl_table_evidence(text: str) -> str:
         for index in range(start + 1, end):
             if re.search(r"\bmangrove", lines[index], re.I):
                 snippets.append(" | ".join(lines[max(start, index - 2) : min(end, index + 5)])[:1600])
-        if len(snippets) >= 12:
+        if len(snippets) >= max_items:
             break
     if not snippets:
         for match in re.finditer(r"(?is)(class area.{0,700}?mangrove.{0,900})", text):
             snippets.append(" ".join(match.group(1).split())[:1600])
-            if len(snippets) >= 12:
+            if len(snippets) >= max_items:
                 break
     return "\n---\n".join(dict.fromkeys(snippets))
 
@@ -191,7 +191,7 @@ def main() -> None:
                 "iso3": str(row["iso3"]), "report_name": entry["name"], "report_handle": handle,
                 "report_title": title, "report_text_url": text_url, "report_status": f"text retrieved; {count} keyword hits",
                 "excerpts": excerpts, "explicit_classification_excerpts": explicit,
-                "forest_owl_table_evidence": forest_owl_table_evidence(text),
+                "forest_owl_table_evidence": forest_owl_table_evidence(text, max_items=100),
             }
         except Exception as exc:  # noqa: BLE001 - retain per-report errors for audit
             return {
@@ -209,7 +209,7 @@ def main() -> None:
                 print(f"Processed public FRA 2025 reports: {index}/{len(futures)}", flush=True)
     report_data = pd.DataFrame(results)
     output = records.merge(report_data, on="iso3", how="left")
-    output.to_csv(OUT, index=False, quoting=csv.QUOTE_MINIMAL)
+    output.to_csv(OUT, index=False, quoting=csv.QUOTE_MINIMAL, lineterminator="\n")
     print(f"Wrote {len(output)} mangrove-positive country rows to {OUT}")
     print(output["report_status"].fillna("no report result").value_counts().to_string())
 

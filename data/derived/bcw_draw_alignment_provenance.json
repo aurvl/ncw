@@ -1,0 +1,6 @@
+{
+  "source_draws_sha256": "0c32d3d254e50ec4fde34b045e552b25975073a3d4a2973356a127ebf69ded81",
+  "source_country_csv_sha256": "2c8e458e11f446ef05df5a837fba58468262bde0d807e2b49fd85a65379dfb3e",
+  "matching_method": "published total mean and Monte Carlo standard error; ambiguous matches require identical draws",
+  "matched_rows": 190
+}

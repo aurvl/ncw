@@ -25,13 +25,27 @@ check_checksums.csv
 build/
 dist/
 results/figures/*
+!results/figures/Candidate_Figure*.png
+!results/figures/Candidate_Figure*.pdf
+!results/figures/Alternative_original_Figure*.png
+!results/figures/Alternative_original_Figure*.pdf
 !results/figures/paper_v2/
 results/figures/paper_v2/*
 !results/figures/paper_v2/**
+
+# External Busch Stata source package is not redistributed; download locally if needed.
+/data/raw/economic/busch_2024/12_stata_code.zip
+/data/raw/economic/busch_2024/stata_code/
+
+# Local render/export artefacts and interactive notebook history.
+/tmp/
+/NotebookSites/
+/code/notebooks/.Rhistory
 data/raw/environmental/marine/gmw/*.gpkg
 data/raw/environmental/marine/gmw/*.gpkg.gz
 data/raw/environmental/forest/gfw_gibbs_2025/gross_removals/*.tif
 data/raw/environmental/forest/gfw_gibbs_2025/forest_type/*.tif
+/data/raw/environmental/forest/umd_gfc_2025/
 data/raw/economic/busch_2024/stata_code/__MACOSX/
 data/logs/*.log
 results/local_renders/

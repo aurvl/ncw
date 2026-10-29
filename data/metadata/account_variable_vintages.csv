@@ -1,0 +1,13 @@
+variable,source_id,observation_or_model_period,role_in_pipeline
+forest_area_ha,fra_2025,2025,GCW forest area
+fra_mangrove_category_ha,fra_2025,2025,Documented forest overlap and reporting audit
+gmw_mangrove_area_ha,gmw_2025_corrected_stats,2025,BCW mangrove area update
+forest_gross_removal_rate,gfw_gibbs_gross_removals,2001-2023 mean annual rate,GCW living-biomass addition rate
+faostat_net_forest_flux,faostat_forest_flux,2015-2024 mean annual flux,Separate Route A comparator
+bcw_source_components,bcw_country,BCW release at commit 29ede5b,BCW saltmarsh seagrass and open-ocean components
+gscc_draws,bcw_draws,BCW release at commit 29ede5b,Common social-cost valuation draws
+deforestation_area_loss,fra_2025,2010-2015 and 2015-2020 reporting intervals,Annualized forest-capacity loss scenario
+fossil_industrial_emissions,gcb_2025_national_fossil,2024 observations in GCB 2025 release,2024 accounting balance and ratios
+population_2024,wb_wdi_population_2024,2024,2024 socioeconomic denominator
+gdp_2015usd_2024,wb_wdi_gdp_2024,2024,2024 socioeconomic denominator
+busch_action_cost_grid,busch_2024_mac,30-year modeled action horizon in source release,Separate provisional reforestation comparison

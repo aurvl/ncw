@@ -9,6 +9,9 @@ allocation at the exact published country/territory level.
 
 from __future__ import annotations
 
+import hashlib
+import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -18,9 +21,10 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
 VALIDATION = ROOT / "results/validation"
-RAW_GMW = DATA / "raw/gmw"
+RAW_GMW = DATA / "raw/environmental/marine/gmw"
 STATS_XLSX = RAW_GMW / "gmw_v4_timeseries_4112_gmw_country_stats_corr_area_formatted.xlsx"
-MAIN_OUTPUT = DATA / "summary/gmw_2025_mangrove_area_by_unit.csv"
+MAIN_OUTPUT = DATA / "derived/gmw_2025_mangrove_area_by_unit.csv"
+PROVENANCE_OUTPUT = DATA / "derived/gmw_2025_mangrove_area_provenance.json"
 UNIT_AUDIT = VALIDATION / "gmw_2025_corrected_spatial_area_by_unit.csv"
 SOURCE_AUDIT = VALIDATION / "gmw_2025_corrected_area_audit_by_source.csv"
 SUMMARY_AUDIT = VALIDATION / "gmw_2025_corrected_area_summary.csv"
@@ -134,6 +138,21 @@ def main() -> None:
     MAIN_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     VALIDATION.mkdir(parents=True, exist_ok=True)
     main.to_csv(MAIN_OUTPUT, index=False)
+    provenance_files = [
+        STATS_XLSX,
+        VALIDATION / "gmw_2025_eez_overlay_by_source_unit.csv",
+        VALIDATION / "gmw_2025_eez_residual_reassignment.csv",
+        MAIN_OUTPUT,
+    ]
+    provenance = {
+        "generated_utc": datetime.now(timezone.utc).isoformat(),
+        "source_version": "GMW v4.1.12, corrected 2025 country areas",
+        "files_sha256": {
+            str(path.relative_to(ROOT)).replace("\\", "/"): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in provenance_files
+        },
+    }
+    PROVENANCE_OUTPUT.write_text(json.dumps(provenance, indent=2) + "\n", encoding="utf-8")
     units.to_csv(UNIT_AUDIT, index=False)
     source[[
         "gmw_iso3", "cnty_name", "raw_ha", "official_corrected_2025_ha",

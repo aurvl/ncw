@@ -1,4 +1,4 @@
-"""Compare Ibrahim's fixed-share finance proxy with published forest-action costs.
+"""Compare our fixed-share GCW allocation scenario with published forest-action costs.
 
 This is a scenario comparison, not an estimate of a national climate-finance
 entitlement or of the cost of replacing the forest ecosystem service.
@@ -21,7 +21,7 @@ OUT = ROOT / "results" / "validation"
 PRICE_PREFIX = "MAC_mi_whrv_sGr_bu_ad_"
 DISCOUNT_RATE = 0.05
 HORIZON = 30
-IBRAHIM_SHARE = 0.02
+OUR_ALLOCATION_RATE = 0.02
 PLEDGE_USD_PER_YEAR = 100e9
 CPI_2015 = 237.017
 CPI_2020 = 258.811
@@ -73,7 +73,7 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     annuity = annuity_factor()
     cpi_factor = CPI_2015 / CPI_2020
 
-    # Ibrahim's proportional allocation applies to every unit with an estimated
+    # Our proportional allocation applies to every unit with an estimated
     # GCW, independently of whether FRA reported deforestation for that unit.
     # Keep the loss table's missing reports as missing; use only reported,
     # positive-loss rows when matching targets to Busch action curves below.
@@ -86,7 +86,7 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame, dict]:
         validate="one_to_one",
     )
     total_gcw = float(gcw["gcw_usd2015_yr_mean"].sum(skipna=True))
-    merged["ibrahim_2pct_usd2015_yr"] = IBRAHIM_SHARE * merged["gcw_usd2015_yr_mean"]
+    merged["our_2pct_gcw_allocation_usd2015_yr"] = OUR_ALLOCATION_RATE * merged["gcw_usd2015_yr_mean"]
     merged["gcw_share_global_pct"] = 100 * merged["gcw_usd2015_yr_mean"] / total_gcw
     merged["share_of_30yr_100bn_pledge_usd_cumulative"] = (
         merged["gcw_usd2015_yr_mean"] / total_gcw * PLEDGE_USD_PER_YEAR * HORIZON
@@ -147,9 +147,9 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     )
     statuses.to_csv(OUT / "busch_action_curve_status_summary.csv", index=False)
 
-    # The original Ibrahim allocation table is retained in properly labelled
+    # The original allocation table is retained with clearly named
     # annual and cumulative units. No annual-minus-cumulative "gap" is formed.
-    merged.to_csv(OUT / "ibrahim_2pct_and_pledge_allocations.csv", index=False)
+    merged.to_csv(OUT / "our_2pct_gcw_allocation_and_pledge.csv", index=False)
 
     positive = action.loc[action["status"].eq("target_within_positive_price_curve")]
     covered_status = action["status"].isin([
@@ -160,10 +160,10 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     matched = action["busch_curve_available"]
     summary = {
         "gibbs_gmw_gcw_usd2015_yr": total_gcw,
-        "ibrahim_fixed_share": IBRAHIM_SHARE,
-        "ibrahim_2pct_proxy_usd2015_yr": total_gcw * IBRAHIM_SHARE,
-        "ibrahim_100bn_30yr_pledge_usd_cumulative": PLEDGE_USD_PER_YEAR * HORIZON,
-        "ibrahim_published_country_unit_mismatch": "annual GCW minus 30-year cumulative allocation has incompatible units; no such gap is calculated",
+        "our_allocation_rate": OUR_ALLOCATION_RATE,
+        "our_2pct_gcw_allocation_usd2015_yr": total_gcw * OUR_ALLOCATION_RATE,
+        "global_100bn_30yr_pledge_usd_cumulative": PLEDGE_USD_PER_YEAR * HORIZON,
+        "annual_allocation_pledge_unit_mismatch": "annual GCW minus 30-year cumulative allocation has incompatible units; no such gap is calculated",
         "busch_article": "Busch et al. (2024), 30-year marginal abatement curves, 5% annual discounting, 2020 USD/tCO2",
         "busch_cost_curve": "least-cost of natural regeneration vs plantation with harvest, suitability screen, buffer, additionality",
         "discount_factor_years_1_to_30": annuity,
@@ -183,7 +183,7 @@ def build() -> tuple[pd.DataFrame, pd.DataFrame, dict]:
         "positive_price_payment_proxy_usd2015_yr_partial_hi": float(positive["annualized_uniform_price_payment_upper_usd2015_yr_partial"].sum()),
         "positive_price_median_bracket_usd2020_tco2": [float(positive["marginal_price_lower_usd2020_tco2"].median()), float(positive["marginal_price_upper_usd2020_tco2"].median())],
         "austin_2025_published_action_cost_range_usd_yr_2030": [20e9, 72e9],
-        "austin_to_ibrahim_proxy_ratio_pct": [100 * 20e9 / (total_gcw * IBRAHIM_SHARE), 100 * 72e9 / (total_gcw * IBRAHIM_SHARE)],
+        "austin_to_our_allocation_ratio_pct": [100 * 20e9 / (total_gcw * OUR_ALLOCATION_RATE), 100 * 72e9 / (total_gcw * OUR_ALLOCATION_RATE)],
         "cpi_conversion_2020_to_2015": cpi_factor,
         "limits": [
             "Busch curves cover suitable/additional restoration locations in low- and middle-income countries, not all forest-loss reporters.",

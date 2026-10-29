@@ -293,7 +293,7 @@ def test_gcw_keeps_spatial_sensitivity_separate_from_draw_uncertainty() -> None:
     assert np.isclose(draws["gcw_usd2015_yr"].std(), 500.0)
 
 
-def test_missing_bcw_stays_missing_and_bcw_only_has_zero_forest_share() -> None:
+def test_ncw_sums_available_accounts_and_bcw_only_has_zero_forest_share() -> None:
     gcw = np.array([[10.0, 12.0], [np.nan, np.nan], [5.0, 5.0]])
     bcw = np.array([[2.0, 2.0], [7.0, 7.0], [np.nan, np.nan]])
     ncw, has_gcw, has_bcw, complete = combine_complete_accounts(gcw, bcw)
@@ -305,7 +305,8 @@ def test_missing_bcw_stays_missing_and_bcw_only_has_zero_forest_share() -> None:
     )
 
     assert np.allclose(ncw[0], [12.0, 14.0])
-    assert np.isnan(ncw[1:]).all()
+    assert np.allclose(ncw[1], [7.0, 7.0])
+    assert np.allclose(ncw[2], [5.0, 5.0])
     assert complete.tolist() == [True, False, False]
     assert has_gcw.tolist() == [True, False, True]
     assert has_bcw.tolist() == [True, True, False]

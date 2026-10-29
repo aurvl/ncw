@@ -1,4 +1,4 @@
-"""Extract and harmonise 2024 emissions, population and GDP for the paper units.
+"""Extract 2024 emissions and latest available World Bank values through 2024.
 
 The script keeps source observations separate from the older BCW 2023 series.
 Missing country or territory values are never filled with zeros or parent-country
@@ -87,6 +87,22 @@ def _read_wdi(filename: str) -> tuple[dict[str, float], dict]:
     return values, metadata
 
 
+def _latest_wdi_observation(
+    unit_codes: pd.Series,
+    values_by_year: dict[int, dict[str, float]],
+) -> tuple[pd.Series, pd.Series]:
+    """Select each unit's latest non-missing WDI value through 2024."""
+    index = pd.Index(unit_codes.astype(str), name="iso3")
+    selected = pd.Series(index=index, dtype="float64")
+    source_year = pd.Series(pd.NA, index=index, dtype="Int64")
+    for year in (2024, 2023, 2022):
+        values = pd.Series(values_by_year[year], dtype="float64").reindex(index)
+        use = selected.isna() & values.notna()
+        selected.loc[use] = values.loc[use]
+        source_year.loc[use] = year
+    return selected, source_year
+
+
 def extract_gcb() -> tuple[pd.DataFrame, pd.DataFrame]:
     path = RAW / "national_fossil_carbon_emissions_GCB2025.xlsx"
     sheet = pd.read_excel(path, sheet_name="Territorial Emissions", header=None)
@@ -136,8 +152,17 @@ def build() -> tuple[pd.DataFrame, dict]:
     OUT.mkdir(parents=True, exist_ok=True)
     units = pd.read_csv(ROOT / "results" / "country_level_gcw.csv")
     gcb_all, gcb = extract_gcb()
-    population, pop_meta = _read_wdi("wb_population_2024.json")
-    gdp, gdp_meta = _read_wdi("wb_gdp_constant_2015_2024.json")
+    population_by_year = {}
+    population_metadata = {}
+    gdp_by_year = {}
+    gdp_metadata = {}
+    for year in (2024, 2023, 2022):
+        population_by_year[year], population_metadata[year] = _read_wdi(
+            f"wb_population_{year}.json"
+        )
+        gdp_by_year[year], gdp_metadata[year] = _read_wdi(
+            f"wb_gdp_constant_2015_{year}.json"
+        )
 
     gcb_all["mapped_to_study_unit"] = gcb_all["iso3"].isin(set(units["iso3"]))
     gcb_all.to_csv(SUMMARY / "gcb2025_national_fossil_emissions_2023_2024_by_entity.csv", index=False)
@@ -149,14 +174,23 @@ def build() -> tuple[pd.DataFrame, dict]:
     if gcb_unit["iso3"].duplicated().any():
         raise AssertionError("Duplicate GCB emissions after country-to-unit mapping")
 
-    socio = units[["iso3", "name", "population", "gdp", "gcw_usd2015_yr_mean", "uptake_tco2_yr_mean"]].copy()
+    # This file contains source covariates only. GCW and physical additions are
+    # read from the canonical account so a standalone socioeconomic rebuild
+    # cannot leave duplicate, outdated account values here.
+    socio = units[["iso3", "name", "population", "gdp"]].copy()
     socio = socio.rename(columns={
         "population": "population_bcw_reference",
         "gdp": "gdp_2015usd_bcw_reference",
     })
     socio = socio.merge(gcb_unit, on="iso3", how="left", validate="one_to_one")
-    socio["population_2024"] = socio["iso3"].map(population)
-    socio["gdp_2015usd_2024"] = socio["iso3"].map(gdp)
+    population_values, population_source_year = _latest_wdi_observation(
+        socio["iso3"], population_by_year
+    )
+    gdp_values, gdp_source_year = _latest_wdi_observation(socio["iso3"], gdp_by_year)
+    socio["population_2024"] = population_values.to_numpy()
+    socio["population_source_year"] = population_source_year.to_numpy()
+    socio["gdp_2015usd_2024"] = gdp_values.to_numpy()
+    socio["gdp_source_year"] = gdp_source_year.to_numpy()
     socio["co2_emissions_tco2_2024"] = socio["gcb_2024_mtco2_yr"] * 1_000_000
     socio["co2_emissions_tco2_2023_gcb2025"] = socio["gcb_2023_mtco2_yr"] * 1_000_000
     socio["gdp_per_capita_2024"] = socio["gdp_2015usd_2024"] / socio["population_2024"]
@@ -197,8 +231,16 @@ def build() -> tuple[pd.DataFrame, dict]:
         "population_2024_nonmissing": int(socio["population_2024"].notna().sum()),
         "gdp_2024_nonmissing": int(socio["gdp_2015usd_2024"].notna().sum()),
         "common_emissions_population_gdp_2024": int(common.sum()),
-        "population_wdi_lastupdated": pop_meta.get("lastupdated"),
-        "gdp_wdi_lastupdated": gdp_meta.get("lastupdated"),
+        "population_source_year_counts": {
+            str(int(year)): int(count)
+            for year, count in socio["population_source_year"].value_counts().sort_index().items()
+        },
+        "gdp_source_year_counts": {
+            str(int(year)): int(count)
+            for year, count in socio["gdp_source_year"].value_counts().sort_index().items()
+        },
+        "population_wdi_lastupdated": population_metadata[2024].get("lastupdated"),
+        "gdp_wdi_lastupdated": gdp_metadata[2024].get("lastupdated"),
         "gcb_conversion_factor_mtco2_per_mtc": GCB_C_TO_CO2,
         "gcb_country_rows_unmapped_to_study": gcb_all.loc[(~gcb_all["is_aggregate"]) & (~gcb_all["mapped_to_study_unit"]), "gcb_name"].tolist(),
         "study_units_without_gcb_emissions": socio.loc[socio["co2_emissions_tco2_2024"].isna(), ["iso3", "name"]].to_dict("records"),
@@ -211,6 +253,7 @@ def build() -> tuple[pd.DataFrame, dict]:
             "GCB fossil and industrial-process CO2 is national territorial emissions; land-use change is not included in this series.",
             "GCB source rows use MtC/year. Conversion uses the 3.664 factor printed in the GCB 2025 workbook.",
             "World Bank WDI population is a midyear estimate; GDP is constant 2015 US dollars.",
+            "For population and GDP independently, select 2024 when available, else 2023, else 2022; source years are retained per unit.",
             "No country/territory emissions are imputed from a sovereign parent or filled with zero.",
             "Debt is not downloaded or used for this spatial analysis.",
         ],
