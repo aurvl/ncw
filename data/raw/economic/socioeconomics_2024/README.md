@@ -16,4 +16,4 @@ The World Bank API payloads record `lastupdated` as 2026-10-08. Population is a 
 - World Bank, [Population, total (SP.POP.TOTL)](https://data.worldbank.org/indicator/SP.POP.TOTL), CC BY 4.0.
 - World Bank, [GDP (constant 2015 US$) (NY.GDP.MKTP.KD)](https://data.worldbank.org/indicator/NY.GDP.MKTP.KD), CC BY 4.0.
 
-Extraction and ISO3 crosswalk: `code/scripts/build_socioeconomic_2024.py`. The derived unit-level table is `data/derived/socioeconomic_2024_by_unit.csv`; coverage and cross-source checks are in `results/validation/socioeconomic_2024_coverage_audit.json` and the adjacent CSV audit files.
+Extraction and ISO3 crosswalk: `code/scripts/build_socioeconomic_2024.py`. The derived unit-level table is `data/derived/socioeconomic_2024_by_unit.csv`; coverage and cross-source checks are in `data/outputs/validation/socioeconomic_2024_coverage_audit.json` and the adjacent CSV audit files.

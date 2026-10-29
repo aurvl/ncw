@@ -5,7 +5,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .config import AREA_YEAR, BIOMES, CARBON_TO_CO2, SUMMARY
+from .config import AREA_YEAR, BIOMES, CARBON_TO_CO2, FOREST_OUTPUT, SUMMARY
 from .validation import summarise_draws, write_table
 
 VARIANTS = ["documented_overlap_removed", "no_overlap_removed"]
@@ -135,10 +135,10 @@ def run(forest_areas: pd.DataFrame, shares: pd.DataFrame, rates: pd.DataFrame, n
     if set(rates["biome"]) != set(BIOMES):
         raise ValueError(f"Expected one Gibbs/GFW rate for each biome {BIOMES}; got {rates['biome'].tolist()}")
     areas = area_by_biome(forest_areas, shares)
-    write_table(areas, SUMMARY / "forest_area_by_biome.csv")
+    write_table(areas, FOREST_OUTPUT / "forest_area_by_biome.csv")
 
     sensitivity = sensitivity_uptake(areas, rates)
-    write_table(sensitivity, SUMMARY / "forest_uptake_spatial_sensitivity.csv")
+    write_table(sensitivity, FOREST_OUTPUT / "forest_uptake_spatial_sensitivity.csv")
     countries, central_tco2 = uptake_for_rates(areas, rates, "documented_overlap_removed")
     _, including_tco2 = uptake_for_rates(areas, rates, "no_overlap_removed")
     sensitivity_by_country = {
@@ -158,8 +158,8 @@ def run(forest_areas: pd.DataFrame, shares: pd.DataFrame, rates: pd.DataFrame, n
     }
     table = pd.DataFrame({"iso3": countries})
     table = pd.concat([table, summarise_draws(draws["documented_overlap_removed"], "uptake_tco2_yr")], axis=1)
-    write_table(table, SUMMARY / "forest_uptake_gfw.csv")
-    path = SUMMARY / "draws" / "forest_uptake_gfw.npz"
+    write_table(table, FOREST_OUTPUT / "forest_uptake_gfw.csv")
+    path = FOREST_OUTPUT / "draws" / "forest_uptake_gfw.npz"
     path.parent.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(path, biomes=np.array(rates["biome"]), **draws)
     return table, draws

@@ -13,7 +13,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VALIDATION = ROOT / "results" / "validation"
+VALIDATION = ROOT / "data" / "outputs" / "validation"
 CASE_KEYS = ["specification", "outcome", "weight"]
 
 
@@ -162,7 +162,7 @@ def write_note(table: pd.DataFrame) -> None:
     note = [
         "# Aide de lecture pour la sélection des modèles spatiaux 2024",
         "",
-        "Fichier de comparaison : `../repo/results/validation/spatial_emissions_2024_model_selection_evidence.csv`.",
+        "Fichier de comparaison : `../repo/data/outputs/validation/spatial_emissions_2024_model_selection_evidence.csv`.",
         "Sorties sources : étapes 1 (Moran), 2 (LM), 3 (LR emboîtés) et ajustements OLS/SAR/SEM/SDM/SDEM/GNS.",
         "",
         "## Ce qui est comparé",

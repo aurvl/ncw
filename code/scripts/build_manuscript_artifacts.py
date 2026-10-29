@@ -87,7 +87,7 @@ def with_unit_identifiers(frame: pd.DataFrame, master: pd.DataFrame) -> pd.DataF
 def load_inputs(root: Path) -> dict[str, pd.DataFrame | np.ndarray]:
     """Read only current canonical accounts and 2024 analysis outputs."""
     results = root / "results"
-    validation = results / "validation"
+    validation = root / "data" / "outputs" / "validation"
     derived = root / "data" / "derived"
 
     master = pd.read_csv(validation / "country_level_results_master.csv", low_memory=False)
@@ -106,17 +106,17 @@ def load_inputs(root: Path) -> dict[str, pd.DataFrame | np.ndarray]:
     master["has_bcw"] = as_bool(master["has_bcw"])
     master["reported_deforestation"] = as_bool(master["reported_deforestation"])
 
-    rates = pd.read_csv(derived / "gfw_gibbs_biome_rates_non_mangrove.csv")
-    area = pd.read_csv(derived / "forest_area_by_biome.csv")
-    pan = pd.read_csv(derived / "biome_rates.csv")
+    rates = pd.read_csv(root / "data" / "outputs" / "gibbs_gfw" / "gfw_gibbs_biome_rates_non_mangrove.csv")
+    area = pd.read_csv(root / "data" / "outputs" / "forest_account" / "forest_area_by_biome.csv")
+    pan = pd.read_csv(root / "data" / "outputs" / "forest_account" / "pan" / "biome_rates.csv")
     balance = pd.read_csv(validation / "emissions_2024_accounting_balance_by_unit.csv")
     busch_status = pd.read_csv(validation / "busch_action_curve_status_summary.csv")
     busch_units = pd.read_csv(validation / "busch_action_curve_country_scenarios.csv")
     spatial_evidence = pd.read_csv(validation / "spatial_emissions_2024_model_selection_evidence.csv")
     spatial_coefficients = pd.read_csv(validation / "spatial_emissions_2024_model_coefficients.csv")
 
-    gcw_archive = np.load(results / "draws" / "gcw_draws.npz", allow_pickle=True)
-    ncw_archive = np.load(results / "draws" / "ncw_draws.npz", allow_pickle=True)
+    gcw_archive = np.load(root / "data" / "outputs" / "draws" / "gcw_draws.npz", allow_pickle=True)
+    ncw_archive = np.load(root / "data" / "outputs" / "draws" / "ncw_draws.npz", allow_pickle=True)
     inputs: dict[str, pd.DataFrame | np.ndarray] = {
         "master": master,
         "rates": rates,
@@ -1130,7 +1130,7 @@ def build_figures(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> l
     outputs.append(fig3)
 
     # Figure 4 is generated only from the researcher's completed decision file.
-    selection_file = root / "results" / "validation" / "manuscript_spatial_model_selection.csv"
+    selection_file = root / "data" / "outputs" / "validation" / "manuscript_spatial_model_selection.csv"
     status_path = figures_dir / "Figure4_spatial_associations_status.json"
     evidence = inputs["spatial_evidence"]
     selected_count = int(as_bool(evidence["final_model_selected"]).sum())
@@ -1249,8 +1249,8 @@ def build_figures(root: Path, inputs: dict[str, pd.DataFrame | np.ndarray]) -> l
                 "generated_file": figure4.name if figure4 else None,
                 "candidate_contexts": int(len(evidence)),
                 "contexts_flagged_selected_in_source": selected_count,
-                "selection_manifest_expected": "results/validation/manuscript_spatial_model_selection.csv",
-                "decision_template": "results/validation/spatial_model_decision_template.csv",
+                "selection_manifest_expected": "data/outputs/validation/manuscript_spatial_model_selection.csv",
+                "decision_template": "data/outputs/validation/spatial_model_decision_template.csv",
                 "reason": reason,
             },
             indent=2,
@@ -1283,7 +1283,7 @@ def main() -> None:
             print(f"  {path.name}")
         status = json.loads((root / "results" / "figures" / "manuscript" / "Figure4_spatial_associations_status.json").read_text(encoding="utf-8"))
         if status["status"] != "ready_after_researcher_model_selection":
-            print("Figure 4 awaits the human model/weight choices in results/validation/spatial_model_decision_template.csv.")
+            print("Figure 4 awaits the human model/weight choices in data/outputs/validation/spatial_model_decision_template.csv.")
     print("Validated samples:", json.dumps(counts, sort_keys=True))
 
 

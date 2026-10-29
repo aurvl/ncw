@@ -15,7 +15,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VALIDATION = ROOT / "results" / "validation"
+VALIDATION = ROOT / "data" / "outputs" / "validation"
 TABLES = ROOT / "results" / "tables" / "manuscript"
 CURVES = ROOT / "data" / "raw" / "economic" / "busch_2024" / "11_MAC_curves_consolidated.xlsx"
 CURVE_PREFIX = "MAC_mi_whrv_sGr_bu_ad_"

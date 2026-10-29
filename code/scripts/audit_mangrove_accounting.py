@@ -14,7 +14,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw"
 SUMMARY = ROOT / "data" / "derived"
-OUT = ROOT / "results" / "validation"
+OUT = ROOT / "data" / "outputs" / "validation"
 GMW_FILE = RAW / "environmental" / "marine" / "gmw" / "gmw_v4_timeseries_4112_gmw_country_stats_corr_area_formatted.xlsx"
 MANGROVE_BURIAL_TC_KM2_YR = 183.6  # Hilmi supplement table 3; Alongi 2022
 GSCC_USD_PER_TCO2 = 559.6  # Hilmi 2026 published global mean, illustrative only
@@ -55,7 +55,7 @@ def build_comparison() -> pd.DataFrame:
     selected = pd.read_csv(SUMMARY / "bcw_mangrove_gmw_area_replacement.csv")
     selected = selected[["iso3", "selected_mangrove_area_ha", "mangrove_area_source"]]
 
-    areas = pd.read_csv(SUMMARY / "forest_area_by_biome.csv")
+    areas = pd.read_csv(ROOT / "data" / "outputs" / "forest_account" / "forest_area_by_biome.csv")
     tropical = areas.loc[
         (areas["variant"] == "no_overlap_removed") & (areas["biome"] == "tropical"),
         ["iso3", "area_ha"],

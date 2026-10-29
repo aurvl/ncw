@@ -30,7 +30,7 @@ if str(SCRIPTS) not in sys.path:
 import run_spatial_full_sequence as spatial  # noqa: E402
 
 
-OUT = ROOT / "results" / "validation"
+OUT = ROOT / "data" / "outputs" / "validation"
 DATE = "2026-10-23"
 
 
@@ -173,7 +173,7 @@ def _predictor_diagnostics(
 
 def _accounting_balance_2024(socio: pd.DataFrame) -> dict:
     """Compare stored physical carbon-uptake draws directly with 2024 emissions."""
-    ncw_archive = np.load(ROOT / "results" / "draws" / "ncw_draws.npz", allow_pickle=True)
+    ncw_archive = np.load(ROOT / "data" / "outputs" / "draws" / "ncw_draws.npz", allow_pickle=True)
     # The combined archive stores physical GCW and blue-carbon fluxes aligned
     # to the same accounting units and draw index.
     units = ncw_archive["iso3"].astype(str)
@@ -193,8 +193,8 @@ def _accounting_balance_2024(socio: pd.DataFrame) -> dict:
     no_account = np.isnan(gcw_uptake).all(axis=1) & np.isnan(blue_uptake).all(axis=1)
     ncw_uptake[no_account] = np.nan
     ncw_balance = ncw_uptake[covered] - emissions[covered, None]
-    base = pd.read_csv(ROOT / "results" / "country_level_gcw.csv").set_index("iso3")
-    ncw_base = pd.read_csv(ROOT / "results" / "country_level_ncw_accounts.csv").set_index("iso3")
+    base = pd.read_csv(ROOT / "data" / "outputs" / "accounts" / "country_level_gcw.csv").set_index("iso3")
+    ncw_base = pd.read_csv(ROOT / "data" / "outputs" / "accounts" / "country_level_ncw_accounts.csv").set_index("iso3")
     details = pd.DataFrame({
         "iso3": units[covered],
         "co2_emissions_tco2_2024": emissions[covered],
@@ -530,18 +530,18 @@ def run() -> dict:
             "Queen isolates are retained as zero-neighbour rows; kNN-5 links units to nearest representative points, sometimes across water.",
         ],
         "outputs": [
-            "results/validation/spatial_emissions_2024_step1_moran.csv",
-            "results/validation/spatial_emissions_2024_step2_lm_tests.csv",
-            "results/validation/spatial_emissions_2024_step3_nested_tests.csv",
-            "results/validation/spatial_emissions_2024_model_fit.csv",
-            "results/validation/spatial_emissions_2024_model_coefficients.csv",
-            "results/validation/spatial_emissions_2024_sample_audit.csv",
-            "results/validation/spatial_emissions_2024_predictor_block_tests.csv",
-            "results/validation/spatial_emissions_2024_predictor_correlations.csv",
-            "results/validation/spatial_emissions_2024_predictor_vif.csv",
-            "results/validation/emissions_2024_accounting_balance_by_unit.csv",
-            "results/validation/emissions_2024_accounting_balance_groups.csv",
-            "results/validation/emissions_2024_accounting_balance_summary.json",
+            "data/outputs/validation/spatial_emissions_2024_step1_moran.csv",
+            "data/outputs/validation/spatial_emissions_2024_step2_lm_tests.csv",
+            "data/outputs/validation/spatial_emissions_2024_step3_nested_tests.csv",
+            "data/outputs/validation/spatial_emissions_2024_model_fit.csv",
+            "data/outputs/validation/spatial_emissions_2024_model_coefficients.csv",
+            "data/outputs/validation/spatial_emissions_2024_sample_audit.csv",
+            "data/outputs/validation/spatial_emissions_2024_predictor_block_tests.csv",
+            "data/outputs/validation/spatial_emissions_2024_predictor_correlations.csv",
+            "data/outputs/validation/spatial_emissions_2024_predictor_vif.csv",
+            "data/outputs/validation/emissions_2024_accounting_balance_by_unit.csv",
+            "data/outputs/validation/emissions_2024_accounting_balance_groups.csv",
+            "data/outputs/validation/emissions_2024_accounting_balance_summary.json",
         ],
         "accounting_balance_summary": balance_summary,
     }

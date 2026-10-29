@@ -29,7 +29,7 @@ from .config import (
     GFW_GIBBS_STRIPE_ROWS,
     GEZ_DOMAIN_TO_BIOME,
     GEZ_SHP,
-    SUMMARY,
+    GIBBS_OUTPUT,
 )
 from .validation import write_table
 
@@ -274,6 +274,6 @@ def run(max_workers: int = 8, forest_type_dir: str | Path | None = None) -> pd.D
     summaries = [summary for summary in summaries_by_index if summary is not None]
     rates = combine_tile_summaries(summaries)
     suffix = "_non_mangrove" if forest_type_dir is not None else ""
-    write_table(rates, SUMMARY / f"gfw_gibbs_biome_rates{suffix}.csv")
-    write_table(pd.concat(summaries, ignore_index=True), SUMMARY / f"gfw_gibbs_tile_rates{suffix}.csv")
+    write_table(rates, GIBBS_OUTPUT / f"gfw_gibbs_biome_rates{suffix}.csv")
+    write_table(pd.concat(summaries, ignore_index=True), GIBBS_OUTPUT / f"gfw_gibbs_tile_rates{suffix}.csv")
     return rates

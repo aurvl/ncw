@@ -14,7 +14,7 @@ import zipfile
 import pandas as pd
 
 from .config import (
-    FAOSTAT_ELEMENT, FAOSTAT_FOREST_CSV, FAOSTAT_FOREST_ZIP, FAOSTAT_ITEM, FAOSTAT_PERIOD, FAOSTAT_SOURCE, SUMMARY,
+    FAOSTAT_ELEMENT, FAOSTAT_FOREST_CSV, FAOSTAT_FOREST_ZIP, FAOSTAT_ITEM, FAOSTAT_PERIOD, FAOSTAT_SOURCE, FOREST_OUTPUT,
 )
 from .validation import assert_unique, write_table
 
@@ -55,7 +55,7 @@ def period_mean(annual: pd.DataFrame) -> pd.DataFrame:
 
 def run(territories: pd.DataFrame) -> pd.DataFrame:
     annual = read_annual(territories)
-    write_table(annual, SUMMARY / "faostat_forest_flux_annual.csv")
+    write_table(annual, FOREST_OUTPUT / "faostat_forest_flux_annual.csv")
     mean = period_mean(annual)
-    write_table(mean, SUMMARY / "forest_uptake_faostat.csv")
+    write_table(mean, FOREST_OUTPUT / "forest_uptake_faostat.csv")
     return mean

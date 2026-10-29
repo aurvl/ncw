@@ -16,15 +16,15 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SUMMARY = ROOT / "data/summary"
+GIBBS_OUTPUT = ROOT / "data" / "outputs" / "gibbs_gfw"
 
 
 def main() -> None:
-    old_path = SUMMARY / "gfw_gibbs_tile_rates_with_mangroves.csv"
+    old_path = GIBBS_OUTPUT / "gfw_gibbs_tile_rates_with_mangroves.csv"
     if not old_path.is_file():
-        old_path = SUMMARY / "gfw_gibbs_tile_rates.csv"
+        old_path = GIBBS_OUTPUT / "gfw_gibbs_tile_rates.csv"
     old = pd.read_csv(old_path)
-    clean_path = SUMMARY / "gfw_gibbs_tile_rates_non_mangrove.csv"
+    clean_path = GIBBS_OUTPUT / "gfw_gibbs_tile_rates_non_mangrove.csv"
     clean = pd.read_csv(clean_path)
     keys = ["source_tile", "biome"]
     baseline = old.set_index(keys)
@@ -67,7 +67,7 @@ def main() -> None:
     clean = clean.sort_values(keys).reset_index(drop=True)
     clean.to_csv(clean_path, index=False)
 
-    rates_path = SUMMARY / "gfw_gibbs_biome_rates_non_mangrove.csv"
+    rates_path = GIBBS_OUTPUT / "gfw_gibbs_biome_rates_non_mangrove.csv"
     rates = pd.read_csv(rates_path)
     excluded = clean.groupby("biome")[
         ["excluded_mangrove_pixel_count", "excluded_mangrove_area_ha"]

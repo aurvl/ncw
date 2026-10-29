@@ -22,8 +22,8 @@ python code/scripts/build_gfw_rates.py --workers 8 \
   --forest-type-dir data/raw/environmental/forest/gfw_gibbs_2025/forest_type \
   > data/logs/gfw_non_mangrove_aggregation.log 2>&1
 
-sha256sum data/derived/gfw_gibbs_biome_rates_non_mangrove.csv \
-  data/derived/gfw_gibbs_tile_rates_non_mangrove.csv \
+sha256sum data/outputs/gibbs_gfw/gfw_gibbs_biome_rates_non_mangrove.csv \
+  data/outputs/gibbs_gfw/gfw_gibbs_tile_rates_non_mangrove.csv \
   data/raw/environmental/forest/gfw_gibbs_2025/gfw_dataverse_manifest.json \
   data/raw/environmental/forest/gfw_gibbs_2025/gfw_forest_type_manifest.json \
   > data/logs/gfw_non_mangrove_output_sha256.txt

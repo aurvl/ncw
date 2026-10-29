@@ -1,7 +1,7 @@
 """Build an additive, auditable inventory of the climate-finance analysis.
 
 Reads existing canonical and Busch reconstruction outputs. Writes only the
-CLIMATE_FINANCE_* inventory files under results/validation; it never rebuilds
+CLIMATE_FINANCE_* inventory files under data/outputs/validation; it never rebuilds
 or changes the manuscript, canonical results, or figures.
 """
 
@@ -16,7 +16,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VAL = ROOT / "results/validation"
+VAL = ROOT / "data/outputs/validation"
 REC = VAL / "busch_reconstruction"
 CURRENT_BUSCH_RUN = "mangrove_refresh_20261023"
 OUT = VAL / "CLIMATE_FINANCE_COMPLETE_RESULTS_INVENTORY.md"
@@ -62,7 +62,7 @@ def verify_reconstruction_inputs(summary: dict) -> None:
     for relative in (
         "data/raw/economic/busch_2024/11_MAC_curves_consolidated.xlsx",
         "data/raw/economic/busch_2024/stata_code/10_stata_code/1. Model loop all data.do",
-        "results/validation/our_2pct_gcw_allocation_and_pledge.csv",
+        "data/outputs/validation/our_2pct_gcw_allocation_and_pledge.csv",
     ):
         matches = [digest for name, digest in expected.items()
                    if name.replace("\\", "/").endswith(relative)]
@@ -78,7 +78,7 @@ def verify_reconstruction_inputs(summary: dict) -> None:
 
 def main() -> None:
     a = pd.read_csv(VAL / "our_2pct_gcw_allocation_and_pledge.csv")
-    gcw = pd.read_csv(ROOT / "results/country_level_gcw.csv")
+    gcw = pd.read_csv(ROOT / "data/outputs/accounts/country_level_gcw.csv")
     b = pd.read_csv(REC / f"busch_{CURRENT_BUSCH_RUN}_coverage_105.csv")
     curves = pd.read_csv(REC / f"busch_{CURRENT_BUSCH_RUN}_25_price_curves.csv")
     summary = json.loads((REC / f"busch_{CURRENT_BUSCH_RUN}_summary.json").read_text(encoding="utf-8"))
@@ -235,7 +235,7 @@ def main() -> None:
     add("1. How is a hypothetical annual allocation equal to 2% of estimated GCW distributed across 236 forest-account units? 2. Among the 105 units with positive reported annual forest-capacity loss, which have published Busch country curves and enough reconstructed 30-year mitigation supply for an equal-tonnage scenario? 3. For the matched units, how do annual-equivalent modeled resource costs and theoretical uniform carbon payments compare with the stipulated allocation? None of these comparisons identifies an actual funding need, an observed transfer, or ecological equivalence.\n")
     add("## 2. Data sources, samples, definitions, and methodology\n")
     add(markdown([
-        ["GCW allocation", "236", "GCW from `results/country_level_gcw.csv`; allocation `0.02 × GCW_mean`", "US$2015 yr⁻¹", "stipulated / modeled valuation"],
+        ["GCW allocation", "236", "GCW from `data/outputs/accounts/country_level_gcw.csv`; allocation `0.02 × GCW_mean`", "US$2015 yr⁻¹", "stipulated / modeled valuation"],
         ["Positive capacity loss", "105 of 139 deforestation reporters", "`lost_capacity_tco2_yr > 0`; area loss × four biome rates", "tCO₂ yr⁻¹", "modeled from reported forest loss"],
         ["Busch source country curves", f"138 source curves (115 Core, 23 Other); {n_source_curves} match positive-loss units", "25 grid prices from −20 to 100, step 5", "source workbook labels quantities tCO₂; audit finds tC-like numerics", "published / audited"],
         ["Derived cost comparison", f"{n_matched} target-within-supply units", "Cell outputs; tC→tCO₂ ×(44/12); natural soil term counted once", "30-year discounted tCO₂, US$2015 PV", "derived / provisional"],
@@ -437,25 +437,25 @@ def main() -> None:
     add("**Supplementary tables:** full 236-unit country inventory; four-group distribution and sample selection table; all 71 × 25 published/reconstructed/corrected curve points; 25-price aggregate correction table; 100-point effective-cost curve per 64 nonzero-supply units; country-level validation errors and source hashes. **Supplementary figures:** Lorenz and ranked allocation curves; group-specific coverage flow; correction-stage supply curves at all 25 prices; marginal-price and payment distribution with explicit missing and zero cases. These are proposals only; no figure is produced here.\n")
     add("## 11. Complete source and output file references\n")
     add(markdown([
-        ["Current GCW", "`results/country_level_gcw.csv`", "`gcw_usd2015_yr_mean`, P05/P50/P95; 236 rows"],
-        ["National 2%, pledge and loss", "`results/validation/our_2pct_gcw_allocation_and_pledge.csv`", "`our_2pct_gcw_allocation_usd2015_yr`, `share_of_30yr_100bn_pledge_usd_cumulative`, `lost_capacity_tco2_yr`, group, 236 rows"],
+        ["Current GCW", "`data/outputs/accounts/country_level_gcw.csv`", "`gcw_usd2015_yr_mean`, P05/P50/P95; 236 rows"],
+        ["National 2%, pledge and loss", "`data/outputs/validation/our_2pct_gcw_allocation_and_pledge.csv`", "`our_2pct_gcw_allocation_usd2015_yr`, `share_of_30yr_100bn_pledge_usd_cumulative`, `lost_capacity_tco2_yr`, group, 236 rows"],
         ["Global valuation draws", "`results/tables/manuscript/Table1_global_carbon_wealth.csv`", "Green carbon wealth mean/P05/P50/P95"],
         ["Allocation and legacy Busch script", "`code/scripts/compare_finance_and_action_costs.py`", "2% and 105-unit positive-loss sample; old conventional target"],
         ["Latest Busch reconstruction script", "`code/scripts/rebuild_busch_sample_finance.py`", "source reconstruction, carbon/soil correction, effective-price selection, annualization"],
-        ["Latest sample coverage", f"`results/validation/busch_reconstruction/busch_{CURRENT_BUSCH_RUN}_coverage_105.csv`", "105 rows; current loss, target and finance status"],
-        ["Latest national finance", f"`results/validation/busch_reconstruction/busch_{CURRENT_BUSCH_RUN}_country_finance.csv`", f"{n_source_curves} source curves, of which {n_matched} have target costs"],
-        ["All source-price curves", f"`results/validation/busch_reconstruction/busch_{CURRENT_BUSCH_RUN}_25_price_curves.csv`", f"{len(curves)} price-point records, four versioned series"],
-        ["Derived detailed curves", "`results/validation/busch_reconstruction/busch_full_effective_cost_curves.csv`", "64 × 100 = 6,400 supply-percentile records; source reconstruction independent of target, re-targeted by current run"],
-        ["Validation and input hashes", f"`results/validation/busch_reconstruction/busch_{CURRENT_BUSCH_RUN}_summary.json`", "current sample, coverage, correction stages, source hashes"],
+        ["Latest sample coverage", f"`data/outputs/busch_reconstruction/busch_{CURRENT_BUSCH_RUN}_coverage_105.csv`", "105 rows; current loss, target and finance status"],
+        ["Latest national finance", f"`data/outputs/busch_reconstruction/busch_{CURRENT_BUSCH_RUN}_country_finance.csv`", f"{n_source_curves} source curves, of which {n_matched} have target costs"],
+        ["All source-price curves", f"`data/outputs/busch_reconstruction/busch_{CURRENT_BUSCH_RUN}_25_price_curves.csv`", f"{len(curves)} price-point records, four versioned series"],
+        ["Derived detailed curves", "`data/outputs/busch_reconstruction/busch_full_effective_cost_curves.csv`", "64 × 100 = 6,400 supply-percentile records; source reconstruction independent of target, re-targeted by current run"],
+        ["Validation and input hashes", f"`data/outputs/busch_reconstruction/busch_{CURRENT_BUSCH_RUN}_summary.json`", "current sample, coverage, correction stages, source hashes"],
         ["Published source workbook/code", "`data/raw/economic/busch_2024/11_MAC_curves_consolidated.xlsx`; `data/raw/economic/busch_2024/stata_code/10_stata_code/1. Model loop all data.do`", "115 Core + 23 Other country columns; cell model code"],
         ["Public cell outputs", "[Busch et al. Zenodo record 19239386](https://zenodo.org/records/19239386)", "`09_output_dtas.zip`, MD5 as above"],
         ["Currency conversion", "[BLS annual CPI-U](https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexannualandsemiannual_table.htm)", "2015 = 237.017; 2020 = 258.811"],
         ["Published article", "[Busch et al. (2024)](https://doi.org/10.1038/s41558-024-02068-1)", "published study; derived corrections are ours"],
-        ["Workbook-grid Figure 4 outputs", "`results/validation/finance_figure4_summary.json`; `docs/FINANCE_FIGURE4_METHODS_AND_RESULTS.md`", "published-grid test; distinct from current cell-level reconstruction"],
+        ["Workbook-grid Figure 4 outputs", "`data/outputs/validation/finance_figure4_summary.json`; `docs/FINANCE_FIGURE4_METHODS_AND_RESULTS.md`", "published-grid test; distinct from current cell-level reconstruction"],
         ["Inventory builder", "`code/scripts/build_climate_finance_results_inventory.py`", "reads only inputs above; writes four new CLIMATE_FINANCE files"],
-        ["Complete national inventory", "`results/validation/CLIMATE_FINANCE_country_inventory_236.csv`", "all 236 units with matching/undefined finance fields"],
-        ["Group inventory", "`results/validation/CLIMATE_FINANCE_group_inventory.csv`", "group quantiles, totals, sample composition"],
-        ["25-price aggregate", "`results/validation/CLIMATE_FINANCE_price_grid_aggregate_71.csv`", "price-by-price carbon and soil correction effects"],
+        ["Complete national inventory", "`data/outputs/validation/CLIMATE_FINANCE_country_inventory_236.csv`", "all 236 units with matching/undefined finance fields"],
+        ["Group inventory", "`data/outputs/validation/CLIMATE_FINANCE_group_inventory.csv`", "group quantiles, totals, sample composition"],
+        ["25-price aggregate", "`data/outputs/validation/CLIMATE_FINANCE_price_grid_aggregate_71.csv`", "price-by-price carbon and soil correction effects"],
     ], ["Role", "File / source", "Relevant columns / status"]))
     add("\n**Reproduce this inventory:** from the repository root run `python code/scripts/build_climate_finance_results_inventory.py`. This uses the latest existing files and writes only the four inventory artifacts. It does not rerun the 2.94 GB cell reconstruction, modify canonical tables, or export a figure. Source values should be re-audited before any manuscript claim because the Busch interpretations remain provisional.\n")
     OUT.write_text("\n".join(sections) + "\n", encoding="utf-8")

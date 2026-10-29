@@ -16,12 +16,13 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 DERIVED = ROOT / "data" / "derived"
-VALIDATION = ROOT / "results" / "validation"
+OUTPUTS = ROOT / "data" / "outputs"
+VALIDATION = ROOT / "data" / "outputs" / "validation"
 CO2_PER_C = 44.0 / 12.0
 
 
 def build() -> tuple[pd.DataFrame, dict]:
-    areas = pd.read_csv(DERIVED / "forest_area_by_biome.csv")
+    areas = pd.read_csv(OUTPUTS / "forest_account" / "forest_area_by_biome.csv")
     tropical_rows = areas.loc[
         areas["variant"].eq("documented_overlap_removed") & areas["biome"].eq("tropical"),
         ["iso3", "area_ha"],
@@ -34,13 +35,13 @@ def build() -> tuple[pd.DataFrame, dict]:
     ].drop_duplicates("iso3")
     source = pd.read_csv(DERIVED / "forest_areas.csv")
     reported = source.loc[source["year"].astype(str).eq("2025"), ["iso3", "mangroves_reported"]]
-    uptake = pd.read_csv(DERIVED / "forest_uptake_gfw.csv")[["iso3", "uptake_tco2_yr_mean"]]
+    uptake = pd.read_csv(OUTPUTS / "forest_account" / "forest_uptake_gfw.csv")[["iso3", "uptake_tco2_yr_mean"]]
     table = uptake.merge(unknown_by_unit, on="iso3", how="left", validate="one_to_one")
     table = table.merge(tropical_rows, on="iso3", how="left", validate="one_to_one")
     table["has_tropical_forest_row"] = table["area_ha"].notna()
     table["area_ha"] = table["area_ha"].fillna(0.0)
     table = table.merge(reported, on="iso3", how="left", validate="one_to_one")
-    rates = pd.read_csv(DERIVED / "gfw_gibbs_biome_rates_non_mangrove.csv").set_index("biome")
+    rates = pd.read_csv(OUTPUTS / "gibbs_gfw" / "gfw_gibbs_biome_rates_non_mangrove.csv").set_index("biome")
     tropical_rate = float(rates.loc["tropical", "rate_tc_ha_yr_mean"])
     unknown = table["unresolved_fra_mangrove_category_ha"].fillna(0.0).clip(lower=0.0)
     available = table["area_ha"].clip(lower=0.0)

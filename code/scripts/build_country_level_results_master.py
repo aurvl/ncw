@@ -1,6 +1,6 @@
 """Build a joined country-level dataset for the Results drafting workflow.
 
-The table preserves every row in ``results/country_level_ncw_accounts.csv``. It joins
+The table preserves every row in ``data/outputs/accounts/country_level_ncw_accounts.csv``. It joins
 the current forest and marine accounts, source-area data, socioeconomic values
 available through 2024, deforestation outcomes, climate-finance scenarios, and 2024 emissions
 accounting comparison. It keeps component fluxes separate because the forest,
@@ -21,9 +21,11 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "code" / "src"))
 from gcw.config import BCW_ECOSYSTEM_RATE_ROWS
 
-OUTPUT = ROOT / "results"
+OUTPUT = ROOT / "data" / "outputs"
+RESULTS = ROOT / "results"
 VALIDATION = OUTPUT / "validation"
 SUMMARY = ROOT / "data" / "derived"
+FOREST_OUTPUT = OUTPUT / "forest_account"
 DATE = "2026-10-20"
 CARBON_TO_CO2 = 44.0 / 12.0
 BIOMES = ("tropical", "subtropical", "temperate", "boreal")
@@ -98,7 +100,7 @@ def build_bcw_source_by_unit() -> pd.DataFrame:
 
 def build_forest_area_and_rates() -> pd.DataFrame:
     """Pivot FRA/GEZ forest areas and attach Gibbs/GFW non-mangrove rates."""
-    area_path = SUMMARY / "forest_area_by_biome.csv"
+    area_path = FOREST_OUTPUT / "forest_area_by_biome.csv"
     area = pd.read_csv(area_path)
     area = area.loc[area["variant"].eq("documented_overlap_removed")].copy()
     if area.duplicated(["iso3", "biome"]).any():
@@ -113,7 +115,7 @@ def build_forest_area_and_rates() -> pd.DataFrame:
     wide_share = wide_share.reindex(columns=BIOMES).add_prefix("forest_biome_share_").reset_index()
     result = wide_area.merge(wide_share, on="iso3", validate="one_to_one")
 
-    source = pd.read_csv(SUMMARY / "gfw_gibbs_biome_rates_non_mangrove.csv")
+    source = pd.read_csv(OUTPUT / "gibbs_gfw" / "gfw_gibbs_biome_rates_non_mangrove.csv")
     if source["biome"].duplicated().any() or set(source["biome"]) != set(BIOMES):
         raise ValueError("Expected one Gibbs/GFW non-mangrove rate for each of four biomes")
     for biome in BIOMES:
@@ -193,7 +195,7 @@ def build_fra_mangrove_audit() -> pd.DataFrame:
 
 def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
     """Join available country and territory data while preserving all NCW rows."""
-    ncw = read_unique_csv(OUTPUT / "country_level_ncw_accounts.csv")
+    ncw = read_unique_csv(OUTPUT / "accounts" / "country_level_ncw_accounts.csv")
     territories = read_unique_csv(SUMMARY / "territories.csv")
     identity_columns = [
         "iso3",
@@ -217,7 +219,7 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
     master["region"] = master["region"].fillna(master["continent"])
     master["group_source"] = master["group_source"].fillna("unclassified")
 
-    master = merge_one_to_one(master, read_unique_csv(OUTPUT / "country_level_gcw.csv").drop(
+    master = merge_one_to_one(master, read_unique_csv(OUTPUT / "accounts" / "country_level_gcw.csv").drop(
         columns=["name", "continent", "fra_region", "groups", "population", "gdp", "gcw_usd2015_yr_mean",
                  "gcw_usd2015_yr_sd", "gcw_usd2015_yr_p05", "gcw_usd2015_yr_p50", "gcw_usd2015_yr_p95",
                  "gcw_per_capita_usd2015", "gcw_share_of_gdp"]), "GCW physical flux and FAOSTAT comparator")
@@ -253,7 +255,7 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
     ]
     master = merge_one_to_one(master, socio[socio_columns], "GCB 2024 emissions and WDI values through 2024")
 
-    erosion = read_unique_csv(OUTPUT / "tables" / "manuscript" / "Supplementary_country_level_erosion.csv")
+    erosion = read_unique_csv(RESULTS / "tables" / "manuscript" / "Supplementary_country_level_erosion.csv")
     erosion_columns = [
         "iso3", "loss_tco2_mean", "loss_usd_mean", "loss_usd_p05", "loss_usd_p95",
         "loss_spatial_sd_low_tco2_yr", "loss_spatial_sd_high_tco2_yr",
@@ -404,7 +406,7 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
 
     audit = {
         "created_on": DATE,
-        "source_key_table": "results/country_level_ncw_accounts.csv",
+        "source_key_table": "data/outputs/accounts/country_level_ncw_accounts.csv",
         "rows": int(len(master)),
         "columns": int(len(master.columns)),
         "unique_unit_codes": int(master["iso3"].nunique()),
@@ -434,13 +436,13 @@ def write_data_dictionary(audit: dict[str, object]) -> None:
     body = [
         "# Table pays et territoires pour la rédaction des Results",
         "",
-        "Fichier : `results/validation/country_level_results_master.csv`.",
+        "Fichier : `data/outputs/validation/country_level_results_master.csv`.",
         f"Table : {audit['rows']} lignes, {audit['columns']} colonnes, une ligne par unité de `country_level_ncw_accounts.csv`.",
         "",
         "## Contenu et sources",
         "",
         "- Identifiants et groupes : `data/derived/territories.csv`; les lignes `BCW-JR` et `BCW-OC` sont des agrégats BCW conservés pour traçabilité et marqués `exclude_from_country_sum=true`.",
-        "- GCW et flux forestier : `results/country_level_gcw.csv`, surfaces FRA/GEZ dans `data/derived/forest_area_by_biome.csv`, taux non-mangrove dans `gfw_gibbs_biome_rates_non_mangrove.csv`.",
+        "- GCW et flux forestier : `data/outputs/accounts/country_level_gcw.csv`, surfaces FRA/GEZ dans `data/outputs/forest_account/forest_area_by_biome.csv`, taux non-mangrove dans `gfw_gibbs_biome_rates_non_mangrove.csv`.",
         "- Écosystèmes et EEZ : `data/raw/environmental/marine/bcw/output/country_level_bcw.csv`, agrégé avec `bcw_territory_mapping.csv`. Les superficies côtières de Hilmi et al. (2026) sont en km²; le croisement direct GMW 2025 fournit une aire brute et corrigée en ha. La surface retenue suit la priorité GMW 2025 > FRA 2025 > aire rapportée par Hilmi et al. (2026).",
         "- Mangroves : la surface retenue suit GMW 2025 > FRA 2025 > aire rapportée par Hilmi et al. (2026). Le compte BCW est recalculé directement à partir de l'aire mangrove sélectionnée, des aires d'herbiers et de marais salés rapportées par Hilmi, de leurs taux, du flux BCP, de 44/12 et des tirages GSCC. Le flux mangrove correspond à l'enfouissement dans les sédiments, pas à la biomasse des arbres.",
         "- FRA mangroves : `fra_mangrove_forest_overlap_2025.csv`; le statut et le rapport source sont gardés séparément de l’aire GMW.",

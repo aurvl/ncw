@@ -10,9 +10,9 @@ Mangroves, counted in BCW, are removed from the tropical area (they only occur i
 subtropical zones); a variant keeps them for the alternative specification.
 
 Outputs:
-- data/derived/forest_area_by_biome.csv    : ha per country x Pan biome x variant (FRA AREA_YEAR)
-- data/derived/forest_uptake_pan.csv       : tCO2/yr per country (mean, sd, percentiles)
-- data/derived/draws/forest_uptake_pan.npz : (N, B) tCO2/yr draws, with and without mangroves
+- data/outputs/forest_account/pan/forest_area_by_biome.csv    : ha per country x Pan biome x variant (FRA AREA_YEAR)
+- data/outputs/forest_account/pan/forest_uptake_pan.csv       : tCO2/yr per country (mean, sd, percentiles)
+- data/outputs/forest_account/pan/draws/forest_uptake_pan.npz : (N, B) tCO2/yr draws, with and without mangroves
 
 Each rate is drawn once per draw from a normal distribution truncated at zero and shared by
 all countries, so countries in the same biome are perfectly correlated.
@@ -23,7 +23,7 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from .config import AREA_YEAR, CARBON_TO_CO2, PAN_BIOME_MEMBERS, SEED, SUMMARY
+from .config import AREA_YEAR, CARBON_TO_CO2, FOREST_OUTPUT, PAN_BIOME_MEMBERS, SEED
 from .validation import summarise_draws, write_table
 
 VARIANTS = ["excl_mangroves", "incl_mangroves"]
@@ -75,7 +75,7 @@ def uptake_draws(areas: pd.DataFrame, biomes: list[str], rate_draws: np.ndarray,
 
 def run(forest_areas: pd.DataFrame, shares: pd.DataFrame, rates: pd.DataFrame, n_draws: int) -> tuple[pd.DataFrame, dict]:
     areas = area_by_biome(forest_areas, shares)
-    write_table(areas, SUMMARY / "forest_area_by_biome.csv")
+    write_table(areas, FOREST_OUTPUT / "pan" / "forest_area_by_biome.csv")
 
     countries = sorted(areas["iso3"].unique())
     biomes, rate_draws = draw_rates(rates, n_draws)
@@ -84,9 +84,9 @@ def run(forest_areas: pd.DataFrame, shares: pd.DataFrame, rates: pd.DataFrame, n
     table = pd.DataFrame({"iso3": countries})
     for variant, matrix in draws.items():
         table = pd.concat([table, summarise_draws(matrix, f"uptake_tco2_yr_{variant}")], axis=1)
-    write_table(table, SUMMARY / "forest_uptake_pan.csv")
+    write_table(table, FOREST_OUTPUT / "pan" / "forest_uptake_pan.csv")
 
-    path = SUMMARY / "draws" / "forest_uptake_pan.npz"
+    path = FOREST_OUTPUT / "pan" / "draws" / "forest_uptake_pan.npz"
     path.parent.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(path, iso3=np.array(countries), pan_biomes=np.array(biomes), **draws)
     return table, {"iso3": countries, **draws}

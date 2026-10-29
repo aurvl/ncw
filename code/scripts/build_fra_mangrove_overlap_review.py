@@ -19,10 +19,10 @@ import requests
 
 
 ROOT = Path(__file__).resolve().parents[2]
-REPORT_AUDIT = ROOT / "results/validation/fra_2025_mangrove_report_audit.csv"
+REPORT_AUDIT = ROOT / "data/outputs/validation/fra_2025_mangrove_report_audit.csv"
 OVERLAP = ROOT / "data/derived/fra_mangrove_forest_overlap_2025.csv"
-OUTPUT = ROOT / "results/validation/fra_mangrove_overlap_review.csv"
-SUMMARY = ROOT / "results/validation/fra_mangrove_overlap_review.md"
+OUTPUT = ROOT / "data/outputs/validation/fra_mangrove_overlap_review.csv"
+SUMMARY = ROOT / "data/outputs/validation/fra_mangrove_overlap_review.md"
 
 MANGROVE_RE = re.compile(r"mangrove|manguez|manglar|mangal", re.IGNORECASE)
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "text/plain"}

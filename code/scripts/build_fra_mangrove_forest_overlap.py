@@ -15,7 +15,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-AUDIT = ROOT / "results/validation/fra_2025_mangrove_report_audit.csv"
+AUDIT = ROOT / "data/outputs/validation/fra_2025_mangrove_report_audit.csv"
 OUTPUT = ROOT / "data/derived/fra_mangrove_forest_overlap_2025.csv"
 
 # In each case below, the FRA 2025 country report contains the same national

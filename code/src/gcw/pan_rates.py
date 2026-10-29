@@ -18,7 +18,7 @@ import re
 
 import pandas as pd
 
-from .config import PAN_AREA_YEARS, PAN_BIOME_AREAS_CSV, PAN_BIOME_ROWS, PAN_PERIOD, PAN_TABLE1_HTML, SUMMARY
+from .config import FOREST_OUTPUT, PAN_AREA_YEARS, PAN_BIOME_AREAS_CSV, PAN_BIOME_ROWS, PAN_PERIOD, PAN_TABLE1_HTML
 from .validation import write_table
 
 PG_TO_T = 1e9
@@ -98,12 +98,13 @@ def rate_checks(flux: pd.DataFrame, areas: pd.DataFrame, rates: pd.DataFrame) ->
 
 def run() -> pd.DataFrame:
     flux = read_pan_table1()
-    write_table(flux, SUMMARY / "pan_biome_flux.csv")
+    output_dir = FOREST_OUTPUT / "pan"
+    write_table(flux, output_dir / "pan_biome_flux.csv")
     areas = pan_areas()
     rates = build_rates(flux, areas)
-    write_table(rates, SUMMARY / "biome_rates.csv")
+    write_table(rates, output_dir / "biome_rates.csv")
     checks = rate_checks(flux, areas, rates)
-    write_table(checks, SUMMARY / "pan_rate_checks.csv")
+    write_table(checks, output_dir / "pan_rate_checks.csv")
     if not checks["ok"].all():
         raise ValueError(f"Pan rate checks failed:\n{checks.loc[~checks['ok']].to_string(index=False)}")
     return rates
