@@ -121,12 +121,14 @@ For a full rebuild of the current paper outputs, run:
 python code/scripts/main.py
 ```
 
-The command directly intersects GMW 2025 mangrove polygons with EEZ `UNION` units and retains the GMW source-country code for each intersection. For each account it selects mangrove area in priority order: corrected GMW 2025, reported FRA 2025 (including zero), prior-account area, then missing. It then validates GCW/NCW, regenerates deforestation and 2024 socioeconomic outputs, reruns the spatial analysis, and exports the machine-readable tables. It does not execute notebooks, build the manuscript workbook, or export paper figures. When the complete Gibbs/GFW source tiles are absent, it validates and uses the four-biome rate cache and prints that limitation. Use `--accounts-only` for the central account tables and checks, `--skip-busch-reconstruction` to keep the existing cell-level restoration outputs without downloading the 12.4 GB input archive, `--recompute-gfw-rates` to require and process all raw tiles, or `--rasters` to recompute GEZ x country x JRC forest-mask allocation. Without `--rasters`, the pipeline uses the cached allocation in `data/derived/`. Full table generation requires the `dev` and `spatial` dependencies, plus the documented Busch and map inputs unless the existing Busch outputs are retained.
+By default, the command reuses the prepared intermediate outputs versioned under `data/outputs/` and `data/derived/`; it does not download or recompute large source datasets. It updates the accounts, validation outputs, deforestation and socioeconomic analyses, spatial results, and manuscript-facing CSV tables. It does not execute notebooks, build the manuscript workbook, or export paper figures. Use `--accounts-only` for the central accounts and checks. To download and rebuild the full set of large source-derived intermediates before updating the accounts and tables, run `python code/scripts/main.py --rebuild-heavy-intermediates`. This option rebuilds the GMW 2025 polygon-to-EEZ overlay, Gibbs/GFW rates and forest raster allocation, and the Busch cell reconstruction. These source stages are available as separate commands: `rebuild_gmw_2025_pipeline.py`, `rebuild_gibbs_gfw_pipeline.py`, `rebuild_forest_raster_allocation.py`, and `rebuild_busch_pipeline.py`. `--recompute-gfw-rates` recalculates Gibbs/GFW rates from tiles that are already present locally; `--rasters` rebuilds only the GEZ x country x JRC forest-mask allocation.
 
 ### Large source files
 
 > [!IMPORTANT]
 > Recomputing the Gibbs/GFW biome rates requires both raster tile sets, about 46 GB compressed in total. The source rasters are not stored in Git. The compact generated rate table is versioned under `data/outputs/gibbs_gfw/`, so an account rebuild can reuse it without processing the rasters again.
+
+The reusable Monte Carlo draw arrays in `data/outputs/` are tracked with Git LFS. Install Git LFS before cloning, or run `git lfs install` followed by `git lfs pull` in the repository after cloning.
 
 The 272 Gibbs/GFW gross-removal GeoTIFF tiles and 272 matching forest-type tiles are large downloads and are not stored in Git. The rate-building workflow downloads and verifies them with `code/scripts/download_gfw_dataverse.py` and `code/scripts/download_gfw_forest_types.py`. The compressed gross-removal set is about 37 GB; the forest-type set is about 9 GB. Place them under:
 
@@ -138,15 +140,13 @@ data/raw/environmental/forest/gfw_gibbs_2025/forest_type/
 From the repository root, download, verify, aggregate, then reuse the four-biome CSV:
 
 ```bash
-python code/scripts/download_gfw_dataverse.py --destination data/raw/environmental/forest/gfw_gibbs_2025/gross_removals --workers 8
-python code/scripts/download_gfw_forest_types.py --removals-manifest data/raw/environmental/forest/gfw_gibbs_2025/gfw_dataverse_manifest.json --destination data/raw/environmental/forest/gfw_gibbs_2025/forest_type --workers 8
-python code/scripts/build_gfw_rates.py --forest-type-dir data/raw/environmental/forest/gfw_gibbs_2025/forest_type --workers 2
+python code/scripts/rebuild_gibbs_gfw_pipeline.py --download-workers 8 --processing-workers 2
 python code/scripts/main.py --reuse-gfw-rates
 ```
 
-The download scripts write verification manifests. The rate builder writes its compact biome-rate table and tile-level audit rows to `data/outputs/gibbs_gfw/`; `main.py` reads that table when `--reuse-gfw-rates` is set. These compact outputs are versioned; the raw raster tiles are not. Increase the rate-builder worker count only when memory permits. The GMW polygon archive is also large and is excluded from Git; download, checksum, and overlay instructions are in [`docs/GMW_GCW_VALUATION_AND_ABATEMENT_SCENARIOS.md`](docs/GMW_GCW_VALUATION_AND_ABATEMENT_SCENARIOS.md).
+The dedicated Gibbs/GFW pipeline downloads the two 272-tile source collections, verifies them, computes biome rates, and writes compact rate tables plus a source/output manifest under `data/outputs/gibbs_gfw/`. The source GeoTIFFs remain outside Git. Use `python code/scripts/rebuild_gibbs_gfw_pipeline.py` to run this stage independently. The GMW archive is also excluded from Git; `python code/scripts/rebuild_gmw_2025_pipeline.py` downloads and verifies it before overlaying it with the EEZ units. Increase the Gibbs/GFW worker count only when memory permits.
 
-The optional Busch cell-level reconstruction uses the study's public cell-level input data and the published price grid. Country parameters and model constants copied from the study's Stata program are transcribed in `code/scripts/busch_stata_parameters.py` and in documented constants in the reconstruction script; the Stata file itself is not parsed or required at runtime. When the Busch reconstruction is needed, the pipeline downloads the public `08_input_dtas.zip` archive (about 12.4 GB) to `.tmp/busch_08_reconstruction/` outside Git, verifies its size and MD5, and reads the cell values from those DTA files. The published price grid is read from `11_MAC_curves_consolidated.xlsx`. The archive and extracted files are not stored in the repository.
+The Busch cell-level reconstruction uses the public input data and published price grid. Country parameters and model constants transcribed from the Stata program are in `code/scripts/busch_stata_parameters.py` and the reconstruction script. `python code/scripts/rebuild_busch_pipeline.py` downloads the 12.4 GB `08_input_dtas.zip` archive to `.tmp/busch_08_reconstruction/` outside Git, verifies its size and MD5, and rebuilds the cell-level outputs under `data/outputs/busch_reconstruction/`. The current 2% GCW allocation must exist before launching this standalone stage; `main.py --rebuild-heavy-intermediates` creates it before rebuilding Busch.
 
 ## Results and manuscript material
 

@@ -29,7 +29,7 @@ from gcw.config import (  # noqa: E402
 )
 
 
-def build_summaries(recompute_rasters: bool = False, reuse_gfw_rates: bool | None = None) -> dict:
+def build_summaries(recompute_rasters: bool = False, reuse_gfw_rates: bool = True) -> dict:
     cached_rates = GIBBS_OUTPUT / "gfw_gibbs_biome_rates_non_mangrove.csv"
     source_root = GFW_GIBBS_REMOVALS_DIR.parent
     manifests = (
@@ -49,8 +49,6 @@ def build_summaries(recompute_rasters: bool = False, reuse_gfw_rates: bool | Non
         ):
             raw_available = False
             break
-    if reuse_gfw_rates is None:
-        reuse_gfw_rates = not raw_available
     if reuse_gfw_rates and not cached_rates.is_file():
         raise FileNotFoundError(f"Cached Gibbs/GFW rates requested but missing: {cached_rates}")
     if not reuse_gfw_rates and not raw_available:
@@ -108,7 +106,7 @@ def main() -> None:
     )
     mode.add_argument("--recompute-gfw-rates", action="store_true", help="require raw Gibbs/GFW tiles and recompute rates")
     args = parser.parse_args()
-    use_cache = True if args.reuse_gfw_rates else False if args.recompute_gfw_rates else None
+    use_cache = True if args.reuse_gfw_rates or not args.recompute_gfw_rates else False
     build_summaries(recompute_rasters=args.rasters, reuse_gfw_rates=use_cache)
 
 

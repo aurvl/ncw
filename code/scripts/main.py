@@ -1,9 +1,10 @@
 """Build the paper accounts, analyses, and machine-readable tables.
 
-The standard run uses complete raw Gibbs/GFW tiles when available, otherwise
-validates and uses the four-rate cache. ``--recompute-gfw-rates`` requires all
-source-version tiles. ``--accounts-only`` stops after the central accounts.
-Exploratory and presentation notebooks run independently after this pipeline.
+The standard run reuses the versioned intermediate outputs and does not fetch
+large source datasets. ``--rebuild-heavy-intermediates`` downloads and rebuilds
+the GMW, Gibbs/GFW, raster-allocation, and Busch stages before final tables.
+Source-specific stages can also be run independently. ``--accounts-only``
+stops after the central accounts. Notebooks run separately after this pipeline.
 """
 
 from __future__ import annotations
@@ -32,32 +33,22 @@ def run_script(name: str, *args: str) -> None:
     subprocess.run([sys.executable, str(ROOT / "code" / "scripts" / name), *args], cwd=ROOT, check=True)
 
 
-def prepare_gmw() -> None:
-    """Build mangrove areas from the direct GMW polygon x EEZ overlay."""
-    sources = [
-        ROOT / "data" / "raw" / "environmental" / "marine" / "gmw"
-        / "gmw_v4112_2025_mng_ext_cntry_info_vec.gpkg",
-        ROOT / "data" / "raw" / "geospatial" / "boundaries"
-        / "EEZ_land_union_v4_202410.shp",
-    ]
-    overlay_outputs = [
-        ROOT / "data" / "outputs" / "validation" / "gmw_2025_direct_overlay_summary.json",
-        ROOT / "data" / "outputs" / "validation" / "gmw_2025_direct_overlay_by_eez_unit_and_source.csv",
-        ROOT / "data" / "outputs" / "validation" / "gmw_2025_direct_overlay_area_by_eez_unit.csv",
-    ]
-    if all(path.is_file() for path in sources):
-        if not all(path.is_file() for path in overlay_outputs):
-            run_script("overlay_gmw_2025_direct_eez.py")
-        run_script("build_gmw_2025_direct_area_table.py")
-        return
+def prepare_gmw(rebuild: bool = False) -> None:
+    """Use the committed GMW area table or explicitly rebuild it from source polygons."""
     cached = ROOT / "data" / "derived" / "gmw_2025_mangrove_area_by_unit.csv"
-    if not cached.is_file():
-        raise FileNotFoundError("GMW/EEZ sources and the prepared direct-overlay area table are missing")
-    print("== GMW area cache ==\n  Spatial sources are absent; NCW will validate the prepared direct-overlay area table against its audit.", flush=True)
+    if rebuild:
+        run_script("rebuild_gmw_2025_pipeline.py")
+    elif cached.is_file():
+        print(f"== GMW area cache ==\n  Reusing {cached.relative_to(ROOT)}; run rebuild_gmw_2025_pipeline.py to refresh it.", flush=True)
+    else:
+        raise FileNotFoundError(
+            f"Prepared GMW area table is missing: {cached}. "
+            "Run code/scripts/rebuild_gmw_2025_pipeline.py to download and rebuild it."
+        )
 
 
-def prepare_busch_reconstruction() -> None:
-    """Refresh cell-level restoration results when inputs or code change."""
+def prepare_busch_reconstruction(rebuild: bool = False) -> None:
+    """Use the committed Busch reconstruction or explicitly download and rebuild it."""
     output_dir = ROOT / "data" / "outputs" / "busch_reconstruction"
     prefix = f"busch_{BUSCH_RECON_LABEL}"
     summary_path = output_dir / f"{prefix}_summary.json"
@@ -70,6 +61,18 @@ def prepare_busch_reconstruction() -> None:
         output_dir / f"{prefix}_soil_sensitivity_price_curves.csv",
         output_dir / f"{prefix}_soil_sensitivity_effective_cost_curves.csv",
     ]
+    if rebuild:
+        run_script("rebuild_busch_pipeline.py", "--label", BUSCH_RECON_LABEL)
+        return
+    missing = [path.relative_to(ROOT).as_posix() for path in [summary_path, *required] if not path.is_file() or not path.stat().st_size]
+    if missing:
+        raise FileNotFoundError(
+            "Prepared Busch outputs are missing: " + ", ".join(missing) + ". "
+            "Run code/scripts/rebuild_busch_pipeline.py or pass --rebuild-heavy-intermediates to main.py."
+        )
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    if summary.get("processed_units", 0) <= 0 or summary.get("missing_country_input_dtas", 1) != 0:
+        raise ValueError("The prepared Busch reconstruction is incomplete; run its dedicated rebuild pipeline.")
     inputs = [
         ROOT / "data" / "raw" / "economic" / "busch_2024" / "11_MAC_curves_consolidated.xlsx",
         ROOT / "data" / "outputs" / "validation" / "our_2pct_gcw_allocation_and_pledge.csv",
@@ -77,23 +80,18 @@ def prepare_busch_reconstruction() -> None:
         ROOT / "code" / "scripts" / "busch_stata_parameters.py",
         ROOT / "code" / "scripts" / "rebuild_busch_sample_finance.py",
     ]
-    if summary_path.is_file() and all(path.is_file() and path.stat().st_size for path in required):
-        summary = json.loads(summary_path.read_text(encoding="utf-8"))
-        stored_hashes = summary.get("input_sha256", {})
-        current_hashes = {}
-        for path in inputs:
-            with path.open("rb") as source:
-                current_hashes[str(path)] = hashlib.file_digest(source, "sha256").hexdigest()
-        processed = summary.get("processed_units", 0)
-        expected = summary.get("covered_positive_loss_units", None)
-        missing_inputs = summary.get("missing_country_input_dtas", 1)
-        if (current_hashes == stored_hashes and processed > 0
-                and missing_inputs == 0
-                and (expected is None or processed == expected)):
-            print("== Busch cell reconstruction cache ==\n  Inputs and direct-reconstruction outputs are current.", flush=True)
-            return
-    run_script("download_busch_inputs.py")
-    run_script("rebuild_busch_sample_finance.py", "--label", BUSCH_RECON_LABEL)
+    current_hashes = {}
+    for path in inputs:
+        if not path.is_file():
+            raise FileNotFoundError(f"Busch cache provenance input is missing: {path.relative_to(ROOT)}")
+        with path.open("rb") as source:
+            current_hashes[path.relative_to(ROOT).as_posix()] = hashlib.file_digest(source, "sha256").hexdigest()
+    if summary.get("input_sha256") != current_hashes:
+        raise RuntimeError(
+            "Prepared Busch outputs do not match the current code/data/account allocation. "
+            "Run code/scripts/rebuild_busch_pipeline.py or pass --rebuild-heavy-intermediates to main.py."
+        )
+    print("== Busch cell reconstruction cache ==\n  Reusing the verified cell-level outputs in data/outputs/busch_reconstruction.", flush=True)
 
 
 def verify_outputs(started_at: float) -> None:
@@ -120,22 +118,31 @@ def verify_outputs(started_at: float) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--rasters", action="store_true", help="recompute the GEZ x boundaries x forest mask table")
+    parser.add_argument(
+        "--rebuild-heavy-intermediates",
+        action="store_true",
+        help="download and rebuild the large GMW, Gibbs/GFW and Busch inputs before producing final tables",
+    )
     rate_mode = parser.add_mutually_exclusive_group()
     rate_mode.add_argument("--reuse-gfw-rates", action="store_true", help="use the validated four-biome rate cache")
     rate_mode.add_argument("--recompute-gfw-rates", action="store_true", help="require complete raw tiles and recompute rates")
     parser.add_argument("--accounts-only", action="store_true", help="stop after central account tables and validation")
-    parser.add_argument(
-        "--skip-busch-reconstruction",
-        action="store_true",
-        help="keep the existing Busch cell-reconstruction outputs without downloading its large input archive",
-    )
     args = parser.parse_args()
+    if args.rebuild_heavy_intermediates and (args.accounts_only or args.reuse_gfw_rates or args.recompute_gfw_rates):
+        parser.error("--rebuild-heavy-intermediates runs the full workflow; do not combine it with account-only or Gibbs rate mode flags")
     start = time.time()
 
-    cache_mode = True if args.reuse_gfw_rates else False if args.recompute_gfw_rates else None
-    prepare_gmw()
+    if args.rebuild_heavy_intermediates:
+        prepare_gmw(rebuild=True)
+        run_script("rebuild_gibbs_gfw_pipeline.py")
+    else:
+        prepare_gmw()
+    cache_mode = True if args.reuse_gfw_rates or args.rebuild_heavy_intermediates else False if args.recompute_gfw_rates else True
     print("== Source summaries ==", flush=True)
-    inputs = build_summaries(recompute_rasters=args.rasters, reuse_gfw_rates=cache_mode)
+    inputs = build_summaries(
+        recompute_rasters=args.rasters or args.rebuild_heavy_intermediates,
+        reuse_gfw_rates=cache_mode,
+    )
 
     print("== GCW ==")
     gcw_table, gcw_draws = gcw.run(inputs["territories"], inputs["forest_draws"], inputs["faostat"], inputs["gscc"])
@@ -158,11 +165,15 @@ def main() -> None:
         run_script("run_spatial_full_sequence.py")
         run_script("run_spatial_emissions_extension.py")
         run_script("build_country_level_results_master.py")
+        # This first export refreshes Table 3 and the current GCW allocation,
+        # which are prerequisites for the independent cell-level Busch rebuild.
+        run_script("compare_finance_and_action_costs.py")
         run_script("build_manuscript_artifacts.py", "--tables-only")
-        if args.skip_busch_reconstruction:
-            print("== Busch cell reconstruction ==\n  Skipped by request; existing reconstruction outputs are retained.", flush=True)
-        else:
-            prepare_busch_reconstruction()
+        prepare_busch_reconstruction(rebuild=args.rebuild_heavy_intermediates)
+        # The finance comparison and final manuscript tables must use the
+        # freshly rebuilt deforestation and restoration outputs.
+        run_script("compare_finance_and_action_costs.py")
+        run_script("build_manuscript_artifacts.py", "--tables-only")
         verify_outputs(start)
 
     print(f"Done in {time.time() - start:.0f} s")
