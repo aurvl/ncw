@@ -4,7 +4,9 @@ The standard run reuses the versioned derived intermediates and does not fetch
 large source datasets. ``--rebuild-derived`` downloads and rebuilds
 the GMW, Gibbs/GFW, raster-allocation, and Busch stages before final tables.
 Source-specific stages can also be run independently. ``--accounts-only``
-stops after the central accounts. Notebooks run separately after this pipeline.
+stops after the central accounts. The full run ends by refreshing the web explorer
+data in web/public/data (``--skip-web`` leaves it unchanged). Notebooks run
+separately after this pipeline.
 """
 
 from __future__ import annotations
@@ -181,6 +183,7 @@ def main() -> None:
     rate_mode.add_argument("--reuse-gfw-rates", action="store_true", help="use the validated four-biome rate cache")
     rate_mode.add_argument("--recompute-gfw-rates", action="store_true", help="require complete raw tiles and recompute rates")
     parser.add_argument("--accounts-only", action="store_true", help="stop after central account tables and validation")
+    parser.add_argument("--skip-web", action="store_true", help="do not refresh the web explorer data in web/public/data")
     args = parser.parse_args()
     if args.rebuild_derived and (args.accounts_only or args.reuse_gfw_rates or args.recompute_gfw_rates):
         parser.error("--rebuild-derived runs the full workflow; do not combine it with account-only or Gibbs rate mode flags")
@@ -227,6 +230,10 @@ def main() -> None:
         run_script("build_manuscript_artifacts.py", "--tables-only")
         run_script("build_study_tables.py")
         verify_outputs(start)
+        if not args.skip_web:
+            # Static data of the web explorer (web/public/data), read from the tables above.
+            print("== Web explorer data ==", flush=True)
+            subprocess.run([sys.executable, str(ROOT / "web" / "scripts" / "build_web_data.py")], cwd=ROOT, check=True)
 
     print(f"Done in {time.time() - start:.0f} s")
 

@@ -1,4 +1,8 @@
-"""Resume the public Busch et al. output archive download into scratch space."""
+"""Download (with resume) the public Busch et al. output archive, used only for audits.
+
+The archive is raw source data: it is stored under data/raw/economic/busch_2024/ and excluded
+from Git.
+"""
 
 from __future__ import annotations
 
@@ -10,7 +14,7 @@ import requests
 
 
 URL = "https://zenodo.org/records/19239386/files/09_output_dtas.zip?download=1"
-TARGET = Path(__file__).resolve().parents[3] / ".tmp/busch_09_audit/09_output_dtas.zip"
+TARGET = Path(__file__).resolve().parents[2] / "data/raw/economic/busch_2024/09_output_dtas.zip"
 EXPECTED_SIZE = 2_942_216_015
 EXPECTED_MD5 = "af26192c9349150071e4e4f40ba1f456"
 

@@ -16,6 +16,14 @@ __pycache__/
 /rendered_article_gcw_results/
 /rendered_revision/
 
+# Local research notes; public method and source documentation is maintained separately.
+/docs/DATA_AUDIT.md
+/docs/FINANCE_FIGURE4_METHODS_AND_RESULTS.md
+/docs/GMW_GCW_VALUATION_AND_ABATEMENT_SCENARIOS.md
+/docs/METHODS.md
+/docs/PIPELINE_AUDIT_FIXES_2026-10-26.md
+/docs/RESULTS_REWRITE_PLAN_2026-10-19.md
+
 # Raw source tiles are excluded below. Compact generated products, draw arrays,
 # and derived raster intermediates under data/derived/ are versioned.
 check_checksums.csv
@@ -34,6 +42,11 @@ results/figures/paper_v2/*
 # External Busch Stata source package is not redistributed; download locally if needed.
 /data/raw/economic/busch_2024/12_stata_code.zip
 /data/raw/economic/busch_2024/stata_code/
+# Busch cell-level archives (12.4 GB and 2.9 GB), downloaded by code/scripts/download_busch_*.py.
+/data/raw/economic/busch_2024/08_input_dtas.zip
+/data/raw/economic/busch_2024/09_output_dtas.zip
+# Staging folders of a running Busch rebuild, removed when the run ends.
+/data/derived/busch_reconstruction/busch_*/
 
 # Local render/export artefacts and interactive notebook history.
 /tmp/

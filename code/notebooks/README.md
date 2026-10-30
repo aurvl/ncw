@@ -2,6 +2,9 @@
 
 The notebooks are independent analytical deep dives into the pipeline. Run `code/scripts/main.py` first to refresh the canonical accounts, analysis outputs and machine-readable tables. Then open or execute the notebooks separately. They may read these generated outputs and source/reference files needed for a specific analysis or map; they do not call `main.py` themselves.
 
+> **Spatial econometrics, published version:** the rendered HTML of notebook 07 can be read without installing anything at
+> <https://aurvl.github.io/NotebookSites/gcw-spatial-econometrics/07_spatial_econometrics.html>.
+
 ## Analytical deep dives
 
 | Notebook | Focus |

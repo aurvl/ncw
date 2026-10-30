@@ -9,14 +9,12 @@ export type Unit = {
   sovereign: string | null
   unit_class: string | null
   overlap_status: string | null
-  busch_scenario_status: string | null
   emissions_2024_match_status: string | null
   mangrove_area_source: string | null
   has_gcw: boolean | null
   has_bcw: boolean | null
   desk_study: boolean | null
   reported_deforestation: boolean | null
-  busch_curve_available: boolean | null
 } & Record<string, number | string | boolean | null>
 
 export type GlobalTotals = {
@@ -46,8 +44,26 @@ export type Aggregates = { regions: AggregateProfile[]; groups: AggregateProfile
 
 export type FeatureCollection = {
   type: 'FeatureCollection'
-  features: { type: 'Feature'; properties: { code: string }; geometry: { type: string; coordinates: unknown } }[]
+  features: { type: 'Feature'; properties: { code: string; unit?: string }; geometry: { type: string; coordinates: unknown } }[]
 }
+
+// BCW source record of Hilmi et al. (public/data/bcw_sources.json). Each record is counted in one
+// accounting unit: e.g. Trindade (BR-ES) in Brazil (BRA). EEZ polygons are keyed by record code.
+export type BcwSource = { code: string; unit: string; role: 'unit_row' | 'main_part' | 'part'; name: string | null; territory: string | null }
+
+// Forest-restoration soil scenarios shown on the site; the first is the default.
+export const SOIL_SCENARIOS = ['busch_reference', 'zero_soil_change'] as const
+export type Soil = (typeof SOIL_SCENARIOS)[number]
+
+// public/data/restoration.json: results by unit and soil scenario, and the units with curve files.
+export type Restoration = {
+  scenarios: Soil[]
+  units: Record<string, Partial<Record<Soil, Record<string, number | string>>>>
+  curves: string[]
+}
+
+// public/data/curves/<ISO3>.json: points are [cumulative discounted 30-year tCO2, US$2015 per tCO2].
+export type Curves = Partial<Record<Soil, { price_supply?: [number, number][]; effective_cost?: [number, number][] }>>
 
 export type Lang = 'en' | 'fr'
 export type Theme = 'light' | 'dark'

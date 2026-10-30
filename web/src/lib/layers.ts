@@ -1,4 +1,4 @@
-import type { Unit } from './types'
+import type { Soil, Unit } from './types'
 
 // Map layers. Bounds and palettes reuse the paper figures (notebook 08) where one exists:
 // GCW/BCW classes from the land/EEZ illustration, GCW/GDP from Figure 1, erosion from
@@ -10,9 +10,10 @@ export type LayerKey =
   | 'forest_additions' | 'forest_area' | 'biome'
   | 'mangrove_area' | 'seagrass_area' | 'saltmarsh_area' | 'coastal_uptake' | 'ocean_bcp'
   | 'emissions' | 'additions_ratio'
+  | 'restoration'
   | 'by_region' | 'by_group'
 
-export type ValueFormat = 'money' | 'pct' | 'tco2Yr' | 'ha' | 'km2' | 'ratio' | 'tco2'
+export type ValueFormat = 'money' | 'pct' | 'tco2Yr' | 'ha' | 'km2' | 'ratio' | 'tco2' | 'moneyPerT'
 
 type Common = {
   key: LayerKey
@@ -28,6 +29,9 @@ export type ClassLayer = Common & {
   colors: string[]          // breaks.length + 1 colours
   format: ValueFormat       // tooltip formatting of the raw value
   isZero: (u: Unit) => boolean
+  signed?: boolean          // negative values are coloured too (otherwise only values > 0)
+  statusField?: string      // shown in the tooltip when the unit has no value
+  special?: { labelKey: string; color: string; test: (u: Unit) => boolean }  // status coloured apart from the scale
 }
 
 export type CategoryLayer = Common & {
@@ -52,6 +56,8 @@ const TEAL6 = ['#E0F3F0', '#B2E2DA', '#7FCDBB', '#41B6C4', '#1D91C0', '#0C5E8A']
 const BLUE6 = ['#EFF3FF', '#C6DBEF', '#9ECAE1', '#6BAED6', '#3182BD', '#08519C']
 const BLUE5 = ['#EFF3FF', '#BDD7E7', '#6BAED6', '#3182BD', '#08519C']
 const PURPLE6 = ['#F2F0F7', '#DADAEB', '#BCBDDC', '#9E9AC8', '#756BB1', '#54278F']
+// Restoration marginal cost: teal below zero (net gain at the target), orange to red above.
+const COST7 = ['#01665E', '#35978F', '#80CDC1', '#C7EAE5', '#FDDBC7', '#F4A582', '#B2182B']
 // Brown below 1 (emissions exceed forest additions), teal above 1.
 const BRBG6 = ['#8C510A', '#D8B365', '#F6E8C3', '#C7EAE5', '#5AB4AC', '#01665E']
 
@@ -124,6 +130,11 @@ export const LAYERS: Record<LayerKey, LayerDef> = {
   additions_ratio: classes({ key: 'additions_ratio', field: 'gcw_additions_to_emissions_ratio', target: 'land', scale: 1, unitKey: 'units.ratio', format: 'ratio',
     breaks: [0.1, 0.5, 1, 2, 10], colors: BRBG6 }),
 
+  // Marginal cost at the restoration target, for the soil scenario chosen on the site (see resolveLayer).
+  restoration: classes({ key: 'restoration', field: 'restoration_marginal_cost_usd2015_tco2', target: 'land', scale: 1,
+    unitKey: 'units.usdPerTco2', format: 'moneyPerT', breaks: [-30, -20, -10, 0, 10, 25], colors: COST7, isZero: () => false,
+    signed: true }),
+
   by_region: {
     kind: 'categories', key: 'by_region', target: 'land', unitKey: 'units.region', aggregate: 'regions',
     categories: Object.entries(REGION_COLORS).map(([value, color]) => ({ value, color, labelKey: `regions.${value}` })),
@@ -136,13 +147,26 @@ export const LAYERS: Record<LayerKey, LayerDef> = {
   },
 }
 
-export const MAIN_LAYERS: LayerKey[] = ['ncw', 'gcw', 'bcw', 'gcw_gdp', 'bcw_gdp', 'erosion']
+export const MAIN_LAYERS: LayerKey[] = ['ncw', 'gcw', 'bcw', 'gcw_gdp', 'bcw_gdp', 'erosion', 'restoration']
 export const MORE_LAYERS: { group: string; layers: LayerKey[] }[] = [
   { group: 'forests', layers: ['forest_additions', 'forest_area', 'biome'] },
   { group: 'marine', layers: ['mangrove_area', 'seagrass_area', 'saltmarsh_area', 'coastal_uptake', 'ocean_bcp'] },
   { group: 'climate', layers: ['emissions', 'additions_ratio'] },
   { group: 'aggregates', layers: ['by_region', 'by_group'] },
 ]
+
+// Restoration values are stored per soil scenario as `<field>@<scenario>` (see data.ts).
+export function resolveLayer(key: LayerKey, soil: Soil): LayerDef {
+  const def = LAYERS[key]
+  if (key !== 'restoration' || def.kind !== 'classes') return def
+  const status = `restoration_status@${soil}`
+  return {
+    ...def,
+    field: `${def.field}@${soil}`,
+    statusField: status,
+    special: { labelKey: 'legend.outsideSupply', color: '#5E3C99', test: (u) => u[status] === 'target_outside_cell_supply' },
+  }
+}
 
 export function swatchColor(def: LayerDef) {
   return def.kind === 'classes' ? def.colors[def.colors.length - 2] : def.categories[0].color
@@ -157,9 +181,10 @@ export function paintFor(u: Unit | undefined, layer: LayerDef): Paint {
     const cat = layer.categories.find((k) => k.value === c)
     return cat ? { kind: 'class', color: cat.color } : { kind: 'missing' }
   }
+  if (layer.special?.test(u)) return { kind: 'class', color: layer.special.color }
   if (layer.isZero(u)) return { kind: 'zero' }
   const v = num(u, layer.field)
-  if (v !== null && v > 0) {
+  if (v !== null && (v > 0 || layer.signed)) {
     const x = v / layer.scale
     let i = 0
     while (i < layer.breaks.length && x > layer.breaks[i]) i++
@@ -174,7 +199,7 @@ const isPowerOfTen = (b: number) => Math.abs(Math.log10(b) - Math.round(Math.log
 // mixed scales such as 0.1 / 0.25 / 0.5 stay decimal.
 export function breakLabels(breaks: number[], lang: string) {
   const nf = new Intl.NumberFormat(lang === 'fr' ? 'fr-FR' : 'en-US')
-  const powers = breaks.every(isPowerOfTen)
+  const powers = breaks.every((b) => b > 0 && isPowerOfTen(b))
   return breaks.map((b) => (b < 1 && powers ? `10${toSuperscript(Math.round(Math.log10(b)))}` : nf.format(b)))
 }
 

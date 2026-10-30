@@ -337,13 +337,14 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
         & seagrass_all_rows_reported
         & bcp_all_rows_reported
     )
-    bcw_updated = bcw_published.copy()
+    # Updated BCW values are recomputed from float64 physical fluxes and GSCC
+    # draws; keep the destination array in float64 so assignment does not
+    # quantize those results back to the source archive's float32 precision.
+    bcw_updated = np.asarray(bcw_published, dtype=np.float64).copy()
     # A retained mangrove area allows an updated BCW calculation even where
     # Hilmi did not publish a BCW total; the reported source columns stay intact.
     recalculate = selected_area.notna().to_numpy()
-    bcw_updated[recalculate] = (
-        bcw_sequestration_tco2[recalculate].astype(np.float64) * gscc
-    ).astype(np.float32)
+    bcw_updated[recalculate] = bcw_sequestration_tco2[recalculate] * gscc
     no_area_but_published = selected_area.isna().to_numpy() & has_published_bcw
     if not np.array_equal(
         bcw_updated[no_area_but_published],

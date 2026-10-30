@@ -12,7 +12,7 @@ import Search from './components/Search'
 import Tooltip from './components/Tooltip'
 import { loadDataset, type Dataset } from './lib/data'
 import { LAYERS, type LayerKey } from './lib/layers'
-import type { Theme } from './lib/types'
+import { SOIL_SCENARIOS, type Soil, type Theme } from './lib/types'
 import Landing from './pages/Landing'
 
 function initialTheme(): Theme {
@@ -26,9 +26,10 @@ export default function App() {
   const [page, setPage] = useState<'landing' | 'explorer'>('landing')
   const [theme, setTheme] = useState<Theme>(initialTheme)
   const [layer, setLayer] = useState<LayerKey>('ncw')
+  const [soil, setSoil] = useState<Soil>(SOIL_SCENARIOS[0])
   const [selected, setSelected] = useState<string | null>(null)
   const [aggregate, setAggregate] = useState<{ kind: 'regions' | 'groups'; key: string } | null>(null)
-  const [hover, setHover] = useState<{ code: string; x: number; y: number } | null>(null)
+  const [hover, setHover] = useState<{ code: string; source?: string; x: number; y: number } | null>(null)
   const [methodsOpen, setMethodsOpen] = useState(false)
 
   useEffect(() => {
@@ -77,6 +78,7 @@ export default function App() {
         <Globe
           data={data}
           layer={layer}
+          soil={soil}
           theme={theme}
           interactive={explore}
           selected={selected}
@@ -108,12 +110,12 @@ export default function App() {
             <Search data={data} onSelect={(code) => select(code, false)} />
           </div>
           <LayerSwitch layer={layer} onChange={changeLayer} />
-          <Legend layer={layer} data={data} />
+          <Legend layer={layer} soil={soil} onSoil={setSoil} data={data} />
           {!selected && !aggregate && <p className="hint">{t(aggregateKind ? 'explorer.hintAggregate' : 'explorer.hint')}</p>}
-          {hover && hover.code !== selected && <Tooltip data={data} layer={layer} hover={hover} />}
+          {hover && hover.code !== selected && <Tooltip data={data} layer={layer} soil={soil} hover={hover} />}
           <AnimatePresence>
             {selected && data.units[selected] && (
-              <CountryPanel key={selected} data={data} code={selected} onClose={() => setSelected(null)} />
+              <CountryPanel key={selected} data={data} code={selected} soil={soil} onSoil={setSoil} onClose={() => setSelected(null)} />
             )}
             {aggregate && (
               <AggregatePanel key={`${aggregate.kind}-${aggregate.key}`} data={data} kind={aggregate.kind} name={aggregate.key}

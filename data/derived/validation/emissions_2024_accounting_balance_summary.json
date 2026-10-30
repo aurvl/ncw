@@ -7,7 +7,7 @@
   "gcw_accounting_balance_positive_units": 79,
   "ncw_accounting_balance_positive_units": 114,
   "gcw_accounting_balance_world_sum_tco2_yr": -22370349989.197678,
-  "ncw_accounting_balance_world_sum_tco2_yr": -18239582815.449173,
+  "ncw_accounting_balance_world_sum_tco2_yr": -18239582816.049576,
   "uncertainty_scope": "Percentiles propagate the existing GSCC/wealth draws only; 2024 emissions are held fixed.",
   "interpretation_note": "This is a country-boundary accounting comparison, not a national climate-neutrality test or an estimate of total net ecosystem emissions."
 }

@@ -24,7 +24,8 @@
     "global": "Monde",
     "moreLayers": "Plus de couches",
     "fewerLayers": "Moins de couches",
-    "hintAggregate": "Cliquez sur un pays pour ouvrir les totaux de sa région ou de son groupe"
+    "hintAggregate": "Cliquez sur un pays pour ouvrir les totaux de sa région ou de son groupe",
+    "countedIn": "Compté dans {{unit}}"
   },
   "layers": {
     "ncw": "Richesse carbone naturelle",
@@ -44,11 +45,14 @@
     "emissions": "Émissions fossiles de CO₂ (2024)",
     "additions_ratio": "Ajouts forestiers / émissions",
     "by_region": "Totaux par région",
-    "by_group": "Totaux par groupe économique"
+    "by_group": "Totaux par groupe économique",
+    "restoration": "Restauration forestière : coût marginal"
   },
   "legend": {
     "noData": "Pas de données",
-    "zero": "Zéro déclaré"
+    "zero": "Zéro déclaré",
+    "outsideSupply": "Cible au-delà de l'offre disponible",
+    "noRestoration": "Pas de cible ou pas de données pays"
   },
   "units": {
     "bnUsdYr": "milliards US$2015 par an",
@@ -63,7 +67,8 @@
     "ratio": "ratio",
     "biome": "plus grande part de la surface forestière",
     "region": "cliquez sur un pays pour les totaux de sa région",
-    "group": "cliquez sur un pays pour les totaux de son groupe"
+    "group": "cliquez sur un pays pour les totaux de son groupe",
+    "usdPerTco2": "US$2015 par tCO₂"
   },
   "panel": {
     "close": "Fermer",
@@ -84,7 +89,8 @@
       "climate": "Émissions et balance comptable",
       "deforestation": "Déforestation",
       "finance": "Scénarios de finance climat",
-      "quality": "Couverture et notes sur les données"
+      "quality": "Couverture et notes sur les données",
+      "restoration": "Restauration forestière"
     },
     "fields": {
       "ncw_usd2015_yr_mean": "Richesse carbone naturelle (NCW)",
@@ -96,7 +102,6 @@
       "fra_total_forest_area_2025_ha": "Surface forestière (FRA 2025)",
       "fra_primary_forest_2025_ha": "Forêt primaire",
       "fra_planted_forest_2025_ha": "Forêt plantée",
-      "fra_other_wooded_land_2025_ha": "Autres terres boisées",
       "fra_mangroves_2025_ha": "Mangroves déclarées dans FRA 2025",
       "documented_forest_mangrove_area_ha": "Mangroves documentées comme Forêt (retirées)",
       "overlap_status": "Classement FRA des mangroves",
@@ -124,13 +129,22 @@
       "erosion_pct_of_gcw": "Capacité perdue (% de la GCW)",
       "loss_pct_of_gdp": "Valeur de la capacité perdue (% du PIB)",
       "our_2pct_gcw_allocation_usd2015_yr": "Notre allocation de 2 % de la GCW",
-      "busch_scenario_status": "Coût d'action de reboisement (Busch et al.)",
       "has_gcw": "Compte vert disponible",
       "has_bcw": "Compte bleu disponible",
       "desk_study": "Étude documentaire FRA",
       "emissions_2024_match_status": "Correspondance de la source d'émissions",
       "unit_class": "Type d'unité comptable",
-      "bcw_gdp_2024_pct": "BCW en part du PIB"
+      "bcw_gdp_2024_pct": "BCW en part du PIB",
+      "restoration_status": "Résultat",
+      "restoration_target_discounted_30yr_tco2": "Cible (tCO₂ actualisées sur 30 ans)",
+      "available_discounted_30yr_tco2": "Offre disponible (tCO₂ actualisées sur 30 ans)",
+      "target_coverage_pct": "Part de la cible couverte",
+      "restoration_marginal_cost_usd2015_tco2": "Coût marginal à la cible",
+      "restoration_cost_net_pv_usd2015": "Coût net (valeur actuelle)",
+      "restoration_cost_net_annual_usd2015": "Coût net (équivalent annuel)",
+      "restoration_cost_positive_annual_usd2015": "Coût des projets à coût positif (annuel)",
+      "restoration_cost_uniform_annual_usd2015": "Paiement uniforme au coût marginal (annuel)",
+      "nr_soil_rate_tC_ha_yr": "Gain de carbone du sol, régénération naturelle"
     },
     "biomes": {
       "tropical": "Tropical",
@@ -145,7 +159,8 @@
       "seagrass": "Herbiers",
       "saltmarsh": "Prés salés",
       "bcp": "Pompe biologique de l'océan ouvert"
-    }
+    },
+    "bcwSources": "Le compte bleu additionne ces territoires sources : {{names}}."
   },
   "status": {
     "no_exact_forest_split_verified": "Pas de partage Forêt/ATB exact vérifié",
@@ -154,17 +169,16 @@
     "unresolved_split": "Partage non résolu",
     "documented_fractional_forest": "Partage fractionnaire documenté",
     "documented_all_other_wooded_land": "Entièrement documentée comme Autres terres boisées",
-    "no_country_curve_in_published_table": "Pas de courbe pays dans la table publiée",
-    "target_within_supply_at_nonpositive_price": "Cible couverte à un prix non positif",
-    "target_within_supply_at_or_below_minus20": "Cible couverte à −20 US$/tCO₂ ou moins",
-    "target_exceeds_published_supply_at_100": "Cible au-delà de l'offre publiée à 100 US$/tCO₂",
-    "target_within_positive_price_curve": "Cible dans la partie à prix positif de la courbe",
     "direct GCB country/territory": "Correspondance directe Global Carbon Budget",
     "no directly matched GCB row": "Pas de correspondance directe Global Carbon Budget",
     "FRA country or territory": "Pays ou territoire FRA",
     "BCW-only accounting unit": "Unité comptable uniquement marine",
     "BCW aggregate / non-country row": "Agrégat marin (hors pays)",
-    "other accounting unit": "Autre unité comptable"
+    "other accounting unit": "Autre unité comptable",
+    "target_within_cell_supply": "Cible atteinte avec l'offre disponible",
+    "target_outside_cell_supply": "Cible au-delà de l'offre disponible",
+    "no_country_input_dta": "Pas de données pays de restauration",
+    "no_restoration_target": "Pas de cible de restauration (aucune perte de forêt déclarée à FRA)"
   },
   "groups": {
     "Developed economies": "Économies développées",
@@ -182,11 +196,11 @@
   },
   "methods": {
     "title": "Méthodes en bref",
-    "intro": "Résumé des comptes de l'étude, tel que décrit dans le README du dépôt. Les définitions, sources et contrôles complets sont dans docs/METHODS.md, docs/DATA_SOURCES.md et docs/DATA_AUDIT.md.",
+    "intro": "Résumé des comptes de l'étude, tel que décrit dans le README du dépôt. Les définitions des calculs et la provenance des sources sont dans docs/PIPELINE_FR.md et docs/DATA_SOURCES.md.",
     "forest": "Compte forestier. Les ajouts annuels de carbone à la biomasse forestière vivante aérienne et souterraine sont estimés à partir des pixels d'absorption brute Gibbs/GFW pour 2001-2023. Quatre taux moyens hors mangroves sont calculés pour les domaines FAO GEZ tropical, subtropical, tempéré et boréal, puis appliqués à la surface forestière FRA 2025 répartie par biome. Cette mesure n'inclut ni les sols forestiers, ni le bois mort, ni le bilan carbone net de l'écosystème.",
     "marine": "Compte marin. Les composantes publiées de la richesse carbone bleue (BCW) sont combinées avec une mise à jour spatiale de la surface de mangroves issue de Global Mangrove Watch 2025. La mise à jour modifie la surface de mangroves ; les autres composantes BCW et les taux propres à chaque source sont conservés.",
     "national": "Compte national. La richesse carbone verte (GCW) et la richesse carbone bleue (BCW) sont réunies en richesse carbone naturelle (NCW). Si un seul compte est disponible pour une unité, sa valeur constitue la NCW et la composante manquante est traitée comme zéro. Les tirages d'incertitude principaux propagent les tirages du GSCC. La variation spatiale des pixels Gibbs/GFW est présentée comme une sensibilité séparée, et non comme un intervalle de confiance des taux par biome.",
-    "note": "GCW, BCW et NCW partagent un cadre de valorisation monétaire, mais leurs données physiques suivent des définitions propres à chaque source. Lisez le périmètre de chaque compte dans les Méthodes avant de comparer des quantités de carbone : une monnaie commune ne rend pas les flux sous-jacents physiquement identiques.",
+    "note": "GCW, BCW et NCW partagent un cadre de valorisation monétaire, mais leurs données physiques suivent des définitions propres à chaque source. Lisez le périmètre de chaque compte dans la documentation du pipeline avant de comparer des quantités de carbone : une monnaie commune ne rend pas les flux sous-jacents physiquement identiques.",
     "data": "Toutes les valeurs affichées proviennent des résultats du dépôt ; aucune donnée externe n'est utilisée. Contours : Natural Earth (domaine public) et Marine Regions EEZ–land union v4.",
     "repo": "Dépôt du code et des données",
     "close": "Fermer"
@@ -226,5 +240,24 @@
       "mixed_units": "Unités mixtes",
       "blue_dominant_units": "Unités à dominante bleue"
     }
+  },
+  "soil": {
+    "label": "Carbone du sol",
+    "busch_reference": "Référence",
+    "zero_soil_change": "Sans gain du sol",
+    "hint": {
+      "busch_reference": "Gains de carbone du sol de la méthode de référence",
+      "zero_soil_change": "Aucun gain de carbone du sol en régénération naturelle"
+    }
+  },
+  "restoration": {
+    "curveTitle": "Courbes d'offre de restauration",
+    "axisX": "Offre cumulée (tCO₂ actualisées sur 30 ans)",
+    "axisY": "US$2015 / tCO₂",
+    "target": "Cible",
+    "targetLegend": "Cible et son coût marginal",
+    "effective": "Coût effectif marginal",
+    "supply": "Offre à chaque prix",
+    "curveError": "Les courbes de restauration n'ont pas pu être chargées."
   }
 }

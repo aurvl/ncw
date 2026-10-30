@@ -1,16 +1,19 @@
 import { useTranslation } from 'react-i18next'
 import type { Dataset } from '../lib/data'
-import { breakLabels, LAYERS, type LayerKey } from '../lib/layers'
+import { breakLabels, resolveLayer, type LayerKey } from '../lib/layers'
+import type { Soil } from '../lib/types'
+import SoilSwitch from './SoilSwitch'
 
 // One continuous bar with labels at class breaks, then status boxes of the same size,
 // mirroring the legend of the paper's GCW/BCW map. Category layers list their classes.
-export default function Legend({ layer, data }: { layer: LayerKey; data: Dataset }) {
+export default function Legend({ layer, soil, onSoil, data }: { layer: LayerKey; soil: Soil; onSoil: (s: Soil) => void; data: Dataset }) {
   const { t, i18n } = useTranslation()
-  const def = LAYERS[layer]
+  const def = resolveLayer(layer, soil)
   const hasZeros = def.kind === 'classes' && data.list.some((u) => def.isZero(u))
   return (
     <div className="card legend" aria-label={t(`layers.${layer}`)}>
       <p className="legend-title">{t(`layers.${layer}`)} <span>({t(def.unitKey)})</span></p>
+      {layer === 'restoration' && <SoilSwitch soil={soil} onChange={onSoil} />}
       <div className="legend-row">
         {def.kind === 'classes' ? (
           <div className="legend-bar">
@@ -27,7 +30,10 @@ export default function Legend({ layer, data }: { layer: LayerKey; data: Dataset
           </div>
         )}
         <div className="legend-status">
-          <span><i className="legend-box missing" />{t('legend.noData')}</span>
+          {def.kind === 'classes' && def.special && (
+            <span><i className="legend-box" style={{ background: def.special.color }} />{t(def.special.labelKey)}</span>
+          )}
+          <span><i className="legend-box missing" />{t(layer === 'restoration' ? 'legend.noRestoration' : 'legend.noData')}</span>
           {hasZeros && <span><i className="legend-box zero" />{t('legend.zero')}</span>}
         </div>
       </div>

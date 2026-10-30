@@ -311,7 +311,7 @@ Additional unpropagated uncertainties: four biome-rate uncertainty, FRA/GEZ fore
 | Public cell outputs | [Busch et al. Zenodo record 19239386](https://zenodo.org/records/19239386) | `09_output_dtas.zip`, MD5 as above |
 | Currency conversion | [BLS annual CPI-U](https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexannualandsemiannual_table.htm) | 2015 = 237.017; 2020 = 258.811 |
 | Published article | [Busch et al. (2024)](https://doi.org/10.1038/s41558-024-02068-1) | published study; derived corrections are ours |
-| Workbook-grid Figure 4 outputs | `results/validation/finance_figure4_summary.json`; `docs/FINANCE_FIGURE4_METHODS_AND_RESULTS.md` | published-grid test; distinct from current cell-level reconstruction |
+| Workbook-grid Figure 4 outputs | `results/validation/finance_figure4_summary.json` | historical published-grid comparison; distinct from current cell-level reconstruction |
 | Inventory builder | `code/scripts/build_climate_finance_results_inventory.py` | reads only inputs above; writes four new CLIMATE_FINANCE files |
 | Complete national inventory | `results/validation/CLIMATE_FINANCE_country_inventory_236.csv` | all 236 units with matching/undefined finance fields |
 | Group inventory | `results/validation/CLIMATE_FINANCE_group_inventory.csv` | group quantiles, totals, sample composition |
