@@ -4,7 +4,7 @@ GCW_i (US$2015/yr) = forest CO2 uptake_i (tCO2/yr) x GSCC (US$2015/tCO2), comput
 - Main estimate: FRA biome area x Gibbs/GFW gross living-biomass rate, mangroves excluded.
 - Route A (complementary): FAOSTAT net flux; only the GSCC is uncertain.
 
-Outputs: data/outputs/accounts/country_level_gcw.csv, data/outputs/draws/gcw_draws.npz
+Outputs: data/derived/accounts/country_level_gcw.csv, data/derived/draws/gcw_draws.npz
 """
 
 from __future__ import annotations

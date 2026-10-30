@@ -10,9 +10,9 @@ Mangroves, counted in BCW, are removed from the tropical area (they only occur i
 subtropical zones); a variant keeps them for the alternative specification.
 
 Outputs:
-- data/outputs/forest_account/pan/forest_area_by_biome.csv    : ha per country x Pan biome x variant (FRA AREA_YEAR)
-- data/outputs/forest_account/pan/forest_uptake_pan.csv       : tCO2/yr per country (mean, sd, percentiles)
-- data/outputs/forest_account/pan/draws/forest_uptake_pan.npz : (N, B) tCO2/yr draws, with and without mangroves
+- data/derived/forest_account/pan/forest_area_by_biome.csv    : ha per country x Pan biome x variant (FRA AREA_YEAR)
+- data/derived/forest_account/pan/forest_uptake_pan.csv       : tCO2/yr per country (mean, sd, percentiles)
+- data/derived/forest_account/pan/draws/forest_uptake_pan.npz : (N, B) tCO2/yr draws, with and without mangroves
 
 Each rate is drawn once per draw from a normal distribution truncated at zero and shared by
 all countries, so countries in the same biome are perfectly correlated.

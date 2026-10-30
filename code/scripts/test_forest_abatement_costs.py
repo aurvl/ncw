@@ -19,7 +19,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 LOSS_FILE = ROOT / "results/tables/manuscript/Supplementary_country_level_erosion.csv"
-OUT = ROOT / "data/outputs/validation"
+OUT = ROOT / "data/derived/validation"
 SOURCE_COMMIT = "61e17605919e19c1da83e282cafc8940d6edf3b8"
 SOURCE_URL = (
     "https://raw.githubusercontent.com/wilmwilmsen/OceanValue/"

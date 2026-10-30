@@ -10,15 +10,15 @@ The reusable calculations live in `code/src/gcw/`. Scripts are command-line entr
 | Gibbs/GFW rates and forest additions | `code/src/gcw/gfw_rates.py`, `forest_uptake_gfw.py` | `code/scripts/build_gfw_rates.py` |
 | FAOSTAT comparator | `code/src/gcw/faostat_flux.py`, `forest_uptake_pan.py`, `pan_rates.py` | `code/scripts/main.py` |
 | National accounts | `code/src/gcw/gcw.py`, `ncw.py`, `tables.py` | `code/scripts/main.py` |
-| Marine-area update and audits | scripts named `gmw`, `mangrove`, and `bcw` | `data/derived/` and `data/outputs/validation/` |
-| Socioeconomic and emissions inputs | scripts named `socioeconomic` and `spatial` | `data/derived/` and `data/outputs/validation/` |
-| Climate-finance comparisons | `code/scripts/compare_finance_and_action_costs.py` | `data/outputs/validation/` |
+| Marine-area update and audits | scripts named `gmw`, `mangrove`, and `bcw` | `data/derived/` and `data/derived/validation/` |
+| Socioeconomic and emissions inputs | scripts named `socioeconomic` and `spatial` | `data/derived/` and `data/derived/validation/` |
+| Climate-finance comparisons | `code/scripts/compare_finance_and_action_costs.py` | `data/derived/validation/` |
 
 ## Command-line scripts
 
-Run commands from the repository root. By default, `python code/scripts/main.py` reuses the versioned analytical intermediates under `data/outputs/`; it does not download or recompute the large source datasets. To rebuild all large source-derived intermediates before the accounts and tables, run `python code/scripts/main.py --rebuild-heavy-intermediates`. The source stages can also be launched separately with `python code/scripts/rebuild_gmw_2025_pipeline.py`, `python code/scripts/rebuild_gibbs_gfw_pipeline.py`, `python code/scripts/rebuild_forest_raster_allocation.py`, and `python code/scripts/rebuild_busch_pipeline.py`.
+Run commands from the repository root. By default, `python code/scripts/main.py` reuses the versioned derived data under `data/derived/`; it does not download or recompute the large source datasets. To rebuild the derived data from the large sources before the accounts and tables, run `python code/scripts/main.py --rebuild-derived`. This option is off by default. The source stages can also be launched separately with `python code/scripts/rebuild_gmw_2025_pipeline.py`, `python code/scripts/rebuild_gibbs_gfw_pipeline.py`, `python code/scripts/rebuild_forest_raster_allocation.py`, and `python code/scripts/rebuild_busch_pipeline.py`.
 
-The script directory includes reproducible pipeline steps, source downloads, validation, spatial analyses, and manuscript utilities. Harmonised calculation inputs go to `data/derived/`; generated analytical artifacts go to `data/outputs/`; manuscript-facing tables and figures go to `results/`. Source inputs under `data/raw/` are not modified.
+The script directory includes reproducible pipeline steps, source downloads, validation, spatial analyses, and manuscript utilities. Prepared inputs and all intermediate analytical data go to `data/derived/`; manuscript-facing tables and figures go to `results/`. Source inputs under `data/raw/` are not modified.
 
 ## Notebooks
 

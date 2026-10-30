@@ -1,7 +1,7 @@
 """Prepare reusable inputs and build forest-analysis outputs.
 
 Harmonised source inputs are stored under data/derived/. Calculated rates,
-forest uptake tables and analysis draws are written under data/outputs/.
+forest uptake tables and analysis draws are written under data/derived/.
 
 Usage:
     python code/scripts/build_summaries.py               # reuse cached raster table if present
@@ -102,7 +102,7 @@ def main() -> None:
     mode.add_argument(
         "--reuse-gfw-rates",
         action="store_true",
-        help="reuse data/outputs/gibbs_gfw/gfw_gibbs_biome_rates_non_mangrove.csv",
+        help="reuse data/derived/gibbs_gfw/gfw_gibbs_biome_rates_non_mangrove.csv",
     )
     mode.add_argument("--recompute-gfw-rates", action="store_true", help="require raw Gibbs/GFW tiles and recompute rates")
     args = parser.parse_args()

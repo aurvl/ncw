@@ -1,0 +1,46 @@
+{
+  "positive_loss_units": 100,
+  "source_workbook_countries": 138,
+  "covered_positive_loss_units": 69,
+  "processed_units": 69,
+  "missing_country_input_dtas": 0,
+  "validated_source_curves": 24,
+  "finance_target_within_supply": 58,
+  "discount_factor_source": 15.707224721141241,
+  "discount_factor_conventional_sensitivity": 15.372451026882828,
+  "nr_soil_sensitivity_scenarios_tC_ha_yr": {
+    "busch_reference": 0.415107735,
+    "zero_soil_change": 0.0,
+    "post_kwon_2000": 0.338
+  },
+  "bau_weights_by_period": {
+    "bau_2020_2030": 0.510928,
+    "bau_2030_2040": 0.305911,
+    "bau_2040_2050": 0.183161
+  },
+  "bau_default_when_source_value_missing": 0.0571795,
+  "plantation_soil_rate_fixed_tC_ha_yr": 0.092749069,
+  "analysis_cost_currency": "USD2015",
+  "published_curve_validation_currency": "USD2020",
+  "usd2020_to_usd2015_conversion_applied_before_cost_calculation": true,
+  "implementation_cost_conversion": "Direct analysis treats input DTA implementation costs as USD2020/ha, as documented in the dataset README, and deflates once to USD2015. The separate source-curve reproduction path retains Stata's 1.1577 adjustment.",
+  "soil_sensitivity_country_rows": 207,
+  "usd2020_to_usd2015_factor": 0.9157918326500806,
+  "input_sha256": {
+    "data/raw/economic/busch_2024/11_MAC_curves_consolidated.xlsx": "b46061dcafaf40b16b87cf1626a1d07f213eaf4c4cea2aafa214390e21346a87",
+    "data/derived/validation/our_2pct_gcw_allocation_and_pledge.csv": "28bd4f55cdd637932af8495a1a1853fa8d84aa37401dc124367a9d9d44fe202e",
+    "code/scripts/download_busch_inputs.py": "1d082967173637a024261ccc319471dc8a32981e52b204c48d297fac01535da0",
+    "code/scripts/rebuild_busch_sample_finance.py": "6e38d3729d0f012e35e17b0e5d0d58025cb5a66e37ec7db7ff32d71238764812",
+    "code/scripts/busch_stata_parameters.py": "040723ce0d9d7ab4695256fd76284c2973e36f8f00ddf68a40fefc0b3dc1dcb4"
+  },
+  "source_archive_zenodo": "https://zenodo.org/records/19239386/files/08_input_dtas.zip?download=1",
+  "source_archive_md5": "0fb5708381b11a9d173219f55bca5e81",
+  "source_code_parameters": "Transcribed from Busch et al., `1. Model loop all data.do`; see code/scripts/busch_stata_parameters.py.",
+  "method_status": "direct reconstruction from public cell-level input data",
+  "grid_100_coverage_stages": {
+    "core_only_published_numeric": 46,
+    "both_sheets_published_numeric": 53,
+    "both_sheets_verified_carbon_conversion": 58,
+    "both_sheets_conversion_and_soil_once": 58
+  }
+}

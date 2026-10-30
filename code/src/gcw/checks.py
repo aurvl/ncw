@@ -1,6 +1,6 @@
 """Q: Are the intermediate and final tables internally consistent?
 
-Outputs (data/outputs/validation/):
+Outputs (data/derived/validation/):
 - coverage.csv                  : which inputs each territory has
 - biome_share_comparison.csv    : GEZ x forest mask shares versus FRA-reported shares
 - global_checks.csv             : named checks with value, expectation and status

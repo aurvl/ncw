@@ -1,0 +1,205 @@
+eez_union,eez_iso3,eez_sovereign_iso3,eez_polygon_type,eez_territory_name,eez_sovereign_name,gmw_cntry_iso3,gmw_cntry_name,gmw_code_matches_eez_iso3,intersected_area_ha,intersecting_gmw_polygon_count
+American Samoa,ASM,USA,Union EEZ and country,American Samoa,United States,ASM,American Samoa,True,34.440942892783234,19
+Andaman and Nicobar,,IND,Union EEZ and country,Andaman and Nicobar,India,IND,India,False,58225.90889462364,7528
+Angola,AGO,AGO,Union EEZ and country,Angola,Angola,AGO,Angola,True,29406.491634054928,2697
+Angola,AGO,AGO,Union EEZ and country,Angola,Angola,COD,Democratic Republic of the Congo,False,1.0738820399356823,6
+Angola,AGO,AGO,Union EEZ and country,Angola,Angola,COG,Congo-Brazzaville,False,17.497561879899095,9
+Anguilla,AIA,GBR,Union EEZ and country,Anguilla,United Kingdom,AIA,Anguilla,True,8.291808439839802,10
+Antigua and Barbuda,ATG,ATG,Union EEZ and country,Antigua and Barbuda,Antigua and Barbuda,ATG,Antigua and Barbuda,True,980.0054784417379,551
+Aruba,ABW,NLD,Union EEZ and country,Aruba,Netherlands,ABW,Aruba,True,116.31819323907052,58
+Australia,AUS,AUS,Union EEZ and country,Australia,Australia,AUS,Australia,True,1099834.5455382892,132147
+Bahamas,BHS,BHS,Union EEZ and country,Bahamas,Bahamas,BHS,Bahamas,True,55124.61411846398,51687
+Bahrain,BHR,BHR,Union EEZ and country,Bahrain,Bahrain,BHR,Bahrain,True,34.08161872779285,19
+Bangladesh,BGD,BGD,Union EEZ and country,Bangladesh,Bangladesh,BGD,Bangladesh,True,440026.33103186777,6771
+Bangladesh,BGD,BGD,Union EEZ and country,Bangladesh,Bangladesh,MMR,Myanmar,False,6.360343547846948,22
+Barbados,BRB,BRB,Union EEZ and country,Barbados,Barbados,BRB,Barbados,True,19.721560139813374,10
+Belize,BLZ,BLZ,Union EEZ and country,Belize,Belize,BLZ,Belize,True,55296.82420905512,7844
+Belize,BLZ,BLZ,Union EEZ and country,Belize,Belize,MEX,Mexico,False,31.81494108292236,32
+Benin,BEN,BEN,Union EEZ and country,Benin,Benin,BEN,Benin,True,1972.3848764181187,1353
+Benin,BEN,BEN,Union EEZ and country,Benin,Benin,TGO,Togo,False,15.648574786747051,69
+Bermuda,BMU,GBR,Union EEZ and country,Bermuda,United Kingdom,BMU,Bermuda,True,22.132716789125944,57
+Bonaire,BES,NLD,Union EEZ and country,Bonaire,Netherlands,BES_B,Bonaire,True,245.3821962950274,19
+Brazil,BRA,BRA,Union EEZ and country,Brazil,Brazil,BRA,Brazil,True,1108876.0892848214,55989
+British Virgin Islands,VGB,GBR,Union EEZ and country,British Virgin Islands,United Kingdom,VGB,British Virgin Islands,True,130.59682639493818,132
+Brunei,BRN,BRN,Union EEZ and country,Brunei,Brunei,BRN,Brunei,True,13475.546649436263,731
+Brunei,BRN,BRN,Union EEZ and country,Brunei,Brunei,MYS,Malaysia,False,40.06480719617974,71
+Cambodia,KHM,KHM,Union EEZ and country,Cambodia,Cambodia,KHM,Cambodia,True,35712.234489855946,8593
+Cambodia,KHM,KHM,Union EEZ and country,Cambodia,Cambodia,VNM,Viet Nam,False,60.28932167197693,143
+Cameroon,CMR,CMR,Union EEZ and country,Cameroon,Cameroon,CMR,Cameroon,True,209138.52192450408,6940
+Cameroon,CMR,CMR,Union EEZ and country,Cameroon,Cameroon,NGA,Nigeria,False,2.7544168916086735,27
+Cayman Islands,CYM,GBR,Union EEZ and country,Cayman Islands,United Kingdom,CYM,Cayman Islands,True,7050.298679199339,770
+Chagos Archipelago,,MUS,Union EEZ and country,Chagos Archipelago,Republic of Mauritius,MUS_CA,Chagos Archipelago,False,2.419398812292009,7
+China,CHN,CHN,Union EEZ and country,China,China,CHN,China,True,25977.41011861543,10537
+Cocos Islands,CCK,AUS,Union EEZ and country,Cocos Islands,Australia,CCK,Cocos (Keeling) Islands,True,8.18524304535149,11
+Collectivity of Saint Martin,MAF,FRA,Union EEZ and country,Collectivity of Saint Martin,France,MAF,Saint Martin (France),True,25.405292425646614,48
+Collectivity of Saint Martin,MAF,FRA,Union EEZ and country,Collectivity of Saint Martin,France,SXM,Sint Maarten,False,2.4812536211648935,2
+Colombia,COL,COL,Union EEZ and country,Colombia,Colombia,COL,Colombia,True,301475.33044991206,31645
+Colombia,COL,COL,Union EEZ and country,Colombia,Colombia,ECU,Ecuador,False,2.7109596940961267,8
+Colombia,COL,COL,Union EEZ and country,Colombia,Colombia,VEN,Venezuela,False,6.830910589277393,11
+Comores,COM,COM,Union EEZ and country,Comores,Comores,COM,Comoros,True,123.74687620388028,57
+Cook Islands,COK,NZL,Union EEZ and country,Cook Islands,New Zealand,COK,Cook Islands,True,0.5935524312921217,5
+Costa Rica,CRI,CRI,Union EEZ and country,Costa Rica,Costa Rica,CRI,Costa Rica,True,40442.65777037298,2413
+Cuba,CUB,CUB,Union EEZ and country,Cuba,Cuba,CUB,Cuba,True,393581.38916987245,47805
+Curaçao,CUW,NLD,Union EEZ and country,Curaçao,Netherlands,CUW,Curaçao,True,113.8260121626526,129
+Democratic Republic of the Congo,COD,COD,Union EEZ and country,Democratic Republic of the Congo,Democratic Republic of the Congo,COD,Democratic Republic of the Congo,True,19480.40160648491,1569
+Djibouti,DJI,DJI,Union EEZ and country,Djibouti,Djibouti,DJI,Djibouti,True,551.7231174791327,88
+Dominica,DMA,DMA,Union EEZ and country,Dominica,Dominica,DMA,Dominica,True,19.676042346986666,24
+Dominican Republic,DOM,DOM,Union EEZ and country,Dominican Republic,Dominican Republic,DOM,Dominican Republic,True,21586.085674002752,2186
+Dominican Republic,DOM,DOM,Union EEZ and country,Dominican Republic,Dominican Republic,HTI,Haiti,False,4.3579276498937825,9
+East Timor,TLS,TLS,Union EEZ and country,East Timor,East Timor,IDN,Indonesia,False,0.17751866424554888,1
+East Timor,TLS,TLS,Union EEZ and country,East Timor,East Timor,TLS,East Timor,True,1567.7285851331567,389
+Ecuador,ECU,ECU,Union EEZ and country,Ecuador,Ecuador,COL,Colombia,False,7.115249223385338,7
+Ecuador,ECU,ECU,Union EEZ and country,Ecuador,Ecuador,ECU,Ecuador,True,156279.47374880014,6690
+Ecuador,ECU,ECU,Union EEZ and country,Ecuador,Ecuador,PER,Peru,False,0.19286112529222543,1
+Egypt,EGY,EGY,Union EEZ and country,Egypt,Egypt,EGY,Egypt,True,226.89485418228895,101
+El Salvador,SLV,SLV,Union EEZ and country,El Salvador,El Salvador,GTM,Guatemala,False,2.964213695371748,7
+El Salvador,SLV,SLV,Union EEZ and country,El Salvador,El Salvador,HND,Honduras,False,0.6434635230695959,2
+El Salvador,SLV,SLV,Union EEZ and country,El Salvador,El Salvador,SLV,El Salvador,True,36797.02217738862,1154
+Equatorial Guinea,GNQ,GNQ,Union EEZ and country,Equatorial Guinea,Equatorial Guinea,CMR,Cameroon,False,2.0833558529201106,17
+Equatorial Guinea,GNQ,GNQ,Union EEZ and country,Equatorial Guinea,Equatorial Guinea,GNQ,Equatorial Guinea,True,25220.709194506682,2574
+Eritrea,ERI,ERI,Union EEZ and country,Eritrea,Eritrea,ERI,Eritrea,True,7362.304920390709,1351
+Europa Island,ATF,FRA,Union EEZ and country,Europa Island,France,ATF_EI,Europa Island,True,683.0053909169415,27
+Federal Republic of Somalia,SOM,SOM,Union EEZ and country,Federal Republic of Somalia,Federal Republic of Somalia,SOM,Somalia,True,3769.642886598274,675
+Fiji,FJI,FJI,Union EEZ and country,Fiji,Fiji,FJI,Fiji,True,55058.02260368474,5703
+French Guiana,GUF,FRA,Union EEZ and country,French Guiana,France,BRA,Brazil,False,108.71319909674489,97
+French Guiana,GUF,FRA,Union EEZ and country,French Guiana,France,GUF,French Guiana,True,53180.59653152494,7249
+French Guiana,GUF,FRA,Union EEZ and country,French Guiana,France,SUR,Suriname,False,48.89736357889373,17
+French Polynesia,PYF,FRA,Union EEZ and country,French Polynesia,France,PYF,French Polynesia,True,80.75215322256692,251
+Gabon,GAB,GAB,Union EEZ and country,Gabon,Gabon,COG,Congo-Brazzaville,False,0.1275182659995041,1
+Gabon,GAB,GAB,Union EEZ and country,Gabon,Gabon,GAB,Gabon,True,194902.15029333733,8322
+Galapagos,,ECU,Union EEZ and country,Galapagos,Ecuador,ECU,Ecuador,False,3554.6361323595415,1533
+Gambia,GMB,GMB,Union EEZ and country,Gambia,Gambia,GMB,The Gambia,True,71654.0254543054,3254
+Gambia,GMB,GMB,Union EEZ and country,Gambia,Gambia,SEN,Senegal,False,28.078747682859785,23
+Ghana,GHA,GHA,Union EEZ and country,Ghana,Ghana,GHA,Ghana,True,8018.569435575226,3535
+Gilbert Islands,KIR,KIR,Union EEZ and country,Gilbert Islands,Kiribati,KIR,Kiribati,True,278.9224575402553,215
+Glorioso Islands,,MDG,Overlapping claim,Glorioso Islands,Madagascar,ATF_GI,Glorioso Islands,False,0.4407708507956912,3
+Grenada,GRD,GRD,Union EEZ and country,Grenada,Grenada,GRD,Grenada,True,217.0235199667208,287
+Guadeloupe,GLP,FRA,Union EEZ and country,Guadeloupe,France,GLP,Guadeloupe,True,3540.9011229034236,233
+Guam,GUM,USA,Union EEZ and country,Guam,United States,GUM,Guam,True,65.47047990202509,37
+Guatemala,GTM,GTM,Union EEZ and country,Guatemala,Guatemala,BLZ,Belize,False,0.3169833198932933,1
+Guatemala,GTM,GTM,Union EEZ and country,Guatemala,Guatemala,GTM,Guatemala,True,22385.107321957417,2618
+Guatemala,GTM,GTM,Union EEZ and country,Guatemala,Guatemala,SLV,El Salvador,False,0.9577137413040627,7
+Guinea,GIN,GIN,Union EEZ and country,Guinea,Guinea,GIN,Guinea,True,224804.74952828375,14135
+Guinea,GIN,GIN,Union EEZ and country,Guinea,Guinea,GNB,Guinea-Bissau,False,99.3291573320173,16
+Guinea,GIN,GIN,Union EEZ and country,Guinea,Guinea,SLE,Sierra Leone,False,0.37339490534058856,2
+Guinea-Bissau,GNB,GNB,Union EEZ and country,Guinea-Bissau,Guinea-Bissau,GIN,Guinea,False,127.89870113231254,8
+Guinea-Bissau,GNB,GNB,Union EEZ and country,Guinea-Bissau,Guinea-Bissau,GNB,Guinea-Bissau,True,296839.1062786735,15265
+Guinea-Bissau,GNB,GNB,Union EEZ and country,Guinea-Bissau,Guinea-Bissau,SEN,Senegal,False,10.777799118455299,10
+Guyana,GUY,GUY,Union EEZ and country,Guyana,Guyana,GUY,Guyana,True,28177.78772113667,4652
+Guyana,GUY,GUY,Union EEZ and country,Guyana,Guyana,SUR,Suriname,False,0.39211586941177484,4
+Haiti,HTI,HTI,Union EEZ and country,Haiti,Haiti,DOM,Dominican Republic,False,4.9404320016143775,4
+Haiti,HTI,HTI,Union EEZ and country,Haiti,Haiti,HTI,Haiti,True,17188.963876755217,2569
+Hala'ib Triangle,,SDN,Overlapping claim,Halaib Triangle,Sudan,SDN,Sudan,False,27.361032606818778,33
+Hawaii,,USA,Union EEZ and country,Hawaii,United States,USA,United States of America,False,859.2711659795668,388
+Honduras,HND,HND,Union EEZ and country,Honduras,Honduras,GTM,Guatemala,False,0.6063120379949639,3
+Honduras,HND,HND,Union EEZ and country,Honduras,Honduras,HND,Honduras,True,52867.92901452142,7809
+Honduras,HND,HND,Union EEZ and country,Honduras,Honduras,NIC,Nicaragua,False,38.015469907791385,23
+Honduras,HND,HND,Union EEZ and country,Honduras,Honduras,SLV,El Salvador,False,27.110608605329098,7
+India,IND,IND,Union EEZ and country,India,India,BGD,Bangladesh,False,44.92224045426697,1
+India,IND,IND,Union EEZ and country,India,India,IND,India,True,422054.84481758176,40157
+India,IND,IND,Union EEZ and country,India,India,PAK,Pakistan,False,22.781299602785452,41
+Indonesia,IDN,IDN,Union EEZ and country,Indonesia,Indonesia,IDN,Indonesia,True,3240418.114922436,288685
+Indonesia,IDN,IDN,Union EEZ and country,Indonesia,Indonesia,MYS,Malaysia,False,130.671871987013,16
+Indonesia,IDN,IDN,Union EEZ and country,Indonesia,Indonesia,PNG,Papua New Guinea,False,0.09553253512232508,1
+Indonesia,IDN,IDN,Union EEZ and country,Indonesia,Indonesia,TLS,East Timor,False,0.11255519345999379,3
+Iran,IRN,IRN,Union EEZ and country,Iran,Iran,IRN,"Iran,  Islamic Republic of",True,10994.757452210391,2676
+Ivory Coast,CIV,CIV,Union EEZ and country,Ivory Coast,Ivory Coast,CIV,Côte d'Ivoire,True,7820.0878854150715,4978
+Jamaica,JAM,JAM,Union EEZ and country,Jamaica,Jamaica,JAM,Jamaica,True,10788.082156895425,1986
+Japan,JPN,JPN,Union EEZ and country,Japan,Japan,JPN,Japan,True,972.6327149308403,333
+Kenya,KEN,KEN,Union EEZ and country,Kenya,Kenya,KEN,Kenya,True,53525.718042880035,2706
+Kenya,KEN,KEN,Union EEZ and country,Kenya,Kenya,TZA,United Republic of Tanzania,False,5.5586311491059925,1
+Kuwait,KWT,KWT,Union EEZ and country,Kuwait,Kuwait,KWT,Kuwait,True,0.5491044188554323,2
+Liberia,LBR,LBR,Union EEZ and country,Liberia,Liberia,LBR,Liberia,True,19482.96795378315,5594
+Madagascar,MDG,MDG,Union EEZ and country,Madagascar,Madagascar,MDG,Madagascar,True,269017.3593506814,31144
+Malaysia,MYS,MYS,Union EEZ and country,Malaysia,Malaysia,BRN,Brunei,False,15.914824051255799,49
+Malaysia,MYS,MYS,Union EEZ and country,Malaysia,Malaysia,IDN,Indonesia,False,21.78394177870587,1
+Malaysia,MYS,MYS,Union EEZ and country,Malaysia,Malaysia,MYS,Malaysia,True,576256.4042234595,40631
+Malaysia,MYS,MYS,Union EEZ and country,Malaysia,Malaysia,THA,Thailand,False,0.09900583531120005,1
+Maldives,MDV,MDV,Union EEZ and country,Maldives,Maldives,MDV,Maldives,True,198.06501154324164,262
+Marshall Islands,MHL,MHL,Union EEZ and country,Marshall Islands,Marshall Islands,MHL,Marshall Islands,True,21.937127109792343,17
+Martinique,MTQ,FRA,Union EEZ and country,Martinique,France,MTQ,Martinique,True,2375.750935817741,435
+Mauritania,MRT,MRT,Union EEZ and country,Mauritania,Mauritania,MRT,Mauritania,True,156.35508415754333,72
+Mauritania,MRT,MRT,Union EEZ and country,Mauritania,Mauritania,SEN,Senegal,False,23.954023961008655,4
+Mayotte,MYT,FRA,Overlapping claim,Mayotte,France,MYT,Mayotte,True,539.4836809543897,140
+Mexico,MEX,MEX,Union EEZ and country,Mexico,Mexico,BLZ,Belize,False,39.242193208194095,75
+Mexico,MEX,MEX,Union EEZ and country,Mexico,Mexico,MEX,Mexico,True,812427.1927074969,115212
+Mexico,MEX,MEX,Union EEZ and country,Mexico,Mexico,USA,United States of America,False,0.0007377522081447883,1
+Micronesia,FSM,FSM,Union EEZ and country,Micronesia,Micronesia,FSM,"Micronesia,  Federated States of",True,9920.407429725194,847
+Mozambique,MOZ,MOZ,Union EEZ and country,Mozambique,Mozambique,MOZ,Mozambique,True,312922.8109752017,30661
+Myanmar,MMR,MMR,Union EEZ and country,Myanmar,Myanmar,BGD,Bangladesh,False,6.068942814546461,38
+Myanmar,MMR,MMR,Union EEZ and country,Myanmar,Myanmar,MMR,Myanmar,True,574513.9970526941,99351
+Myanmar,MMR,MMR,Union EEZ and country,Myanmar,Myanmar,THA,Thailand,False,1.1918773448288822,11
+Nauru,NRU,NRU,Union EEZ and country,Nauru,Nauru,NRU,Nauru,True,0.5398760785736659,2
+New Caledonia,NCL,FRA,Union EEZ and country,New Caledonia,France,NCL,New Caledonia,True,30459.82598553807,6766
+New Zealand,NZL,NZL,Union EEZ and country,New Zealand,New Zealand,NZL,New Zealand,True,28163.199561798603,5846
+Nicaragua,NIC,NIC,Union EEZ and country,Nicaragua,Nicaragua,NIC,Nicaragua,True,68348.40696407594,10086
+Nigeria,NGA,NGA,Union EEZ and country,Nigeria,Nigeria,CMR,Cameroon,False,1.5187032167389063,15
+Nigeria,NGA,NGA,Union EEZ and country,Nigeria,Nigeria,NGA,Nigeria,True,816171.5867428749,53958
+Northern Mariana Islands,MNP,USA,Union EEZ and country,Northern Mariana Islands,United States,MNP,Northern Mariana Islands,True,3.2994449461252953,10
+Oecusse,,TLS,Union EEZ and country,Oecusse,East Timor,TLS,East Timor,False,92.23267344370248,23
+Oman,OMN,OMN,Union EEZ and country,Oman,Oman,ARE,United Arab Emirates,False,0.5193197679607496,2
+Oman,OMN,OMN,Union EEZ and country,Oman,Oman,OMN,Oman,True,492.6714481757783,182
+Pakistan,PAK,PAK,Union EEZ and country,Pakistan,Pakistan,IND,India,False,1.9421876780813334,13
+Pakistan,PAK,PAK,Union EEZ and country,Pakistan,Pakistan,PAK,Pakistan,True,85114.16216227377,15465
+Palau,PLW,PLW,Union EEZ and country,Palau,Palau,PLW,Palau,True,5367.937752053457,525
+Panama,PAN,PAN,Union EEZ and country,Panama,Panama,PAN,Panama,True,178555.85957144314,9950
+Papua New Guinea,PNG,PNG,Union EEZ and country,Papua New Guinea,Papua New Guinea,IDN,Indonesia,False,1.636174925607583,4
+Papua New Guinea,PNG,PNG,Union EEZ and country,Papua New Guinea,Papua New Guinea,PNG,Papua New Guinea,True,502227.0741546893,43988
+Peru,PER,PER,Union EEZ and country,Peru,Peru,ECU,Ecuador,False,3.8958489240507923,9
+Peru,PER,PER,Union EEZ and country,Peru,Peru,PER,Peru,True,5229.9196618176975,240
+Philippines,PHL,PHL,Union EEZ and country,Philippines,Philippines,PHL,Philippines,True,312730.1576365557,62687
+Puerto Rico,PRI,USA,Union EEZ and country,Puerto Rico,United States,PRI,Puerto Rico,True,9101.542378819744,2083
+Qatar,QAT,QAT,Union EEZ and country,Qatar,Qatar,QAT,Qatar,True,1041.5591352063934,237
+Republic of Mauritius,MUS,MUS,Union EEZ and country,Republic of Mauritius,Republic of Mauritius,MUS,Mauritius,True,447.2527281728503,513
+Republic of the Congo,COG,COG,Union EEZ and country,Republic of the Congo,Republic of the Congo,COG,Congo-Brazzaville,True,3086.7980501739667,998
+Saint Kitts and Nevis,KNA,KNA,Union EEZ and country,Saint Kitts and Nevis,Saint Kitts and Nevis,KNA,Saint Kitts and Nevis,True,33.508452188323865,30
+Saint Lucia,LCA,LCA,Union EEZ and country,Saint Lucia,Saint Lucia,LCA,Saint Lucia,True,245.66557214429668,103
+Saint Vincent and the Grenadines,VCT,VCT,Union EEZ and country,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,VCT,Saint Vincent and the Grenadines,True,35.96546509276777,40
+Saint-Barthélemy,BLM,FRA,Union EEZ and country,Saint-Barthélemy,France,BLM,Saint Barthélemy,True,3.596250124175526,13
+Samoa,WSM,WSM,Union EEZ and country,Samoa,Samoa,WSM,Samoa,True,315.9404580656088,197
+Sao Tome and Principe,STP,STP,Union EEZ and country,Sao Tome and Principe,Sao Tome and Principe,STP,São Tomé and Príncipe,True,64.9676955076149,11
+Sapodilla Cayes,BLZ,BLZ,Overlapping claim,Belize,Belize,BLZ,Belize,True,6.310343631369624,18
+Saudi Arabia,SAU,SAU,Union EEZ and country,Saudi Arabia,Saudi Arabia,SAU,Saudi Arabia,True,6687.243964869064,2739
+Saudi Arabia,SAU,SAU,Union EEZ and country,Saudi Arabia,Saudi Arabia,YEM,Yemen,False,0.03665965033750072,1
+Senegal,SEN,SEN,Union EEZ and country,Senegal,Senegal,GMB,The Gambia,False,10.064147000110998,10
+Senegal,SEN,SEN,Union EEZ and country,Senegal,Senegal,GNB,Guinea-Bissau,False,0.0697593062232188,2
+Senegal,SEN,SEN,Union EEZ and country,Senegal,Senegal,MRT,Mauritania,False,75.20860606922102,14
+Senegal,SEN,SEN,Union EEZ and country,Senegal,Senegal,SEN,Senegal,True,162992.30523587382,10328
+Serrana Bank,,COL,Union EEZ and country,Serrana Bank,Colombia,COL,Colombia,False,19.707232593093817,1
+Seychelles,SYC,SYC,Union EEZ and country,Seychelles,Seychelles,SYC,Seychelles,True,1702.1571803997049,721
+Sierra Leone,SLE,SLE,Union EEZ and country,Sierra Leone,Sierra Leone,GIN,Guinea,False,70.09182449822879,7
+Sierra Leone,SLE,SLE,Union EEZ and country,Sierra Leone,Sierra Leone,SLE,Sierra Leone,True,142997.0918345262,13043
+Singapore,SGP,SGP,Union EEZ and country,Singapore,Singapore,SGP,Singapore,True,592.6348627945707,276
+Sint-Maarten,SXM,NLD,Union EEZ and country,Sint-Maarten,Netherlands,SXM,Sint Maarten,True,15.82888522675534,27
+Solomon Islands,SLB,SLB,Union EEZ and country,Solomon Islands,Solomon Islands,SLB,Solomon Islands,True,61904.71824436813,14102
+South Africa,ZAF,ZAF,Union EEZ and country,South Africa,South Africa,ZAF,South Africa,True,2079.0698166915727,477
+Sri Lanka,LKA,LKA,Union EEZ and country,Sri Lanka,Sri Lanka,LKA,Sri Lanka,True,13882.795937436651,5632
+Sudan,SDN,SDN,Union EEZ and country,Sudan,Sudan,SDN,Sudan,True,547.5393574182422,228
+Suriname,SUR,SUR,Union EEZ and country,Suriname,Suriname,GUY,Guyana,False,0.11062757876163376,3
+Suriname,SUR,SUR,Union EEZ and country,Suriname,Suriname,SUR,Suriname,True,75705.51183149905,8123
+Taiwan,TWN,TWN,Union EEZ and country,Taiwan,Taiwan,TWN,"Taiwan,  Province of China",True,620.7400170821893,373
+Tanzania,TZA,TZA,Union EEZ and country,Tanzania,Tanzania,KEN,Kenya,False,5.000479850705139,9
+Tanzania,TZA,TZA,Union EEZ and country,Tanzania,Tanzania,MOZ,Mozambique,False,39.19658442791013,32
+Tanzania,TZA,TZA,Union EEZ and country,Tanzania,Tanzania,TZA,United Republic of Tanzania,True,113965.96800530177,10455
+Thailand,THA,THA,Union EEZ and country,Thailand,Thailand,MMR,Myanmar,False,0.7970525941793417,4
+Thailand,THA,THA,Union EEZ and country,Thailand,Thailand,THA,Thailand,True,268540.5949930919,23607
+Togo,TGO,TGO,Union EEZ and country,Togo,Togo,BEN,Benin,False,0.3144228796358531,6
+Togo,TGO,TGO,Union EEZ and country,Togo,Togo,TGO,Togo,True,12.4377158500364,66
+Tonga,TON,TON,Union EEZ and country,Tonga,Tonga,TON,Tonga,True,1689.7902712535356,418
+Trinidad and Tobago,TTO,TTO,Union EEZ and country,Trinidad and Tobago,Trinidad and Tobago,TTO,Trinidad and Tobago,True,7905.030699520694,592
+Turks and Caicos Islands,TCA,GBR,Union EEZ and country,Turks and Caicos Islands,United Kingdom,TCA,Turks and Caicos Islands,True,9257.785515170432,4718
+Tuvalu,TUV,TUV,Union EEZ and country,Tuvalu,Tuvalu,TUV,Tuvalu,True,38.96713566436508,8
+United Arab Emirates,ARE,ARE,Union EEZ and country,United Arab Emirates,United Arab Emirates,ARE,United Arab Emirates,True,9923.922230427503,2069
+United States,USA,USA,Union EEZ and country,United States,United States,MEX,Mexico,False,0.008549415054092372,1
+United States,USA,USA,Union EEZ and country,United States,United States,USA,United States of America,True,258583.4052135343,34120
+United States Virgin Islands,VIR,USA,Union EEZ and country,United States Virgin Islands,United States,VIR,United States Virgin Islands,True,310.4762329639851,279
+Vanuatu,VUT,VUT,Union EEZ and country,Vanuatu,Vanuatu,VUT,Vanuatu,True,2249.6747383306115,578
+Venezuela,VEN,VEN,Union EEZ and country,Venezuela,Venezuela,COL,Colombia,False,0.08897765899911093,2
+Venezuela,VEN,VEN,Union EEZ and country,Venezuela,Venezuela,GUY,Guyana,False,2763.042837440451,61
+Venezuela,VEN,VEN,Union EEZ and country,Venezuela,Venezuela,VEN,Venezuela,True,287302.2792355985,20022
+Vietnam,VNM,VNM,Union EEZ and country,Vietnam,Vietnam,CHN,China,False,15.856216435335778,2
+Vietnam,VNM,VNM,Union EEZ and country,Vietnam,Vietnam,KHM,Cambodia,False,5.974137671542211,11
+Vietnam,VNM,VNM,Union EEZ and country,Vietnam,Vietnam,VNM,Viet Nam,True,165039.55287409245,45466
+Wallis and Futuna,WLF,FRA,Union EEZ and country,Wallis and Futuna,France,WLF,Wallis and Futuna,True,55.781765678806565,71
+Yemen,YEM,YEM,Union EEZ and country,Yemen,Yemen,SAU,Saudi Arabia,False,0.024807785887228588,1
+Yemen,YEM,YEM,Union EEZ and country,Yemen,Yemen,YEM,Yemen,True,1704.5867043460237,351

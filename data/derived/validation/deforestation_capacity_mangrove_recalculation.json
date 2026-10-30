@@ -1,0 +1,25 @@
+{
+  "source": "fra2025_bulk_WO.zip:Intervals_variables/1d_deforestation_2026-09-16.csv",
+  "area_source": "data\\derived\\forest_area_by_biome.csv",
+  "area_variant": "documented_overlap_removed",
+  "rate_source": "data\\derived\\gfw_gibbs_biome_rates_non_mangrove.csv",
+  "area_period_columns": [
+    "2010-2015",
+    "2015-2020"
+  ],
+  "area_conversion": "FRA thousand ha/year × 1000 = ha/year; mean of available periods",
+  "formula": "loss area × sum(current post-overlap forest-area biome share × non-mangrove rate) × 44/12",
+  "monetary_draws": "fixed physical loss × current aligned 20,000 GSCC draws",
+  "spatial_sensitivity": "biome rates mean ± spatial SD, lower bound floored at zero; not a confidence interval",
+  "units": 236,
+  "reporters": 139,
+  "positive_loss_units": 105,
+  "reported_zero_loss_units": 34,
+  "unreported_units": 97,
+  "annual_area_loss_reporters_ha": 9703270.0,
+  "annual_lost_addition_capacity_tco2": 35266134.80883667,
+  "annual_lost_gcw_value_usd2015": 19733973015.98133,
+  "gscc_draws": 20000,
+  "gscc_mean_usd2015_tco2": 559.5728911872864,
+  "previous_annual_lost_addition_capacity_tco2": 35266134.80699417
+}

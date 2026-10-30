@@ -17,7 +17,7 @@ __pycache__/
 /rendered_revision/
 
 # Raw source tiles are excluded below. Compact generated products, draw arrays,
-# and derived raster intermediates under data/outputs/ are versioned.
+# and derived raster intermediates under data/derived/ are versioned.
 check_checksums.csv
 *.egg-info/
 build/

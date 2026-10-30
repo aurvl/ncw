@@ -19,7 +19,7 @@ import pycountry
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw" / "economic" / "socioeconomics_2024"
 SUMMARY = ROOT / "data" / "derived"
-OUT = ROOT / "data" / "outputs" / "validation"
+OUT = ROOT / "data" / "derived" / "validation"
 GCB_C_TO_CO2 = 3.664  # conversion explicitly stated in the GCB 2025 workbook
 
 AGGREGATES = {
@@ -150,7 +150,7 @@ def extract_gcb() -> tuple[pd.DataFrame, pd.DataFrame]:
 def build() -> tuple[pd.DataFrame, dict]:
     SUMMARY.mkdir(parents=True, exist_ok=True)
     OUT.mkdir(parents=True, exist_ok=True)
-    units = pd.read_csv(ROOT / "data" / "outputs" / "accounts" / "country_level_gcw.csv")
+    units = pd.read_csv(ROOT / "data" / "derived" / "accounts" / "country_level_gcw.csv")
     gcb_all, gcb = extract_gcb()
     population_by_year = {}
     population_metadata = {}

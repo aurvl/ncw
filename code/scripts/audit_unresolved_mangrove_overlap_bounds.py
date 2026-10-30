@@ -16,8 +16,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 DERIVED = ROOT / "data" / "derived"
-OUTPUTS = ROOT / "data" / "outputs"
-VALIDATION = ROOT / "data" / "outputs" / "validation"
+OUTPUTS = ROOT / "data" / "derived"
+VALIDATION = ROOT / "data" / "derived" / "validation"
 CO2_PER_C = 44.0 / 12.0
 
 

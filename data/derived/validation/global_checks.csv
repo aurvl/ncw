@@ -1,0 +1,27 @@
+check,value,expected,status
+biome shares sum to 1,2.220446049250313e-16,< 1e-6,ok
+Gibbs/GFW rates cover four biomes exactly,True,"['boreal', 'subtropical', 'temperate', 'tropical']",ok
+Gibbs/GFW mean rates and spatial SD are non-negative,True,True,ok
+"countries where primary forest exceeds NRF (2025, descriptive)",0,0,ok
+FRA mangrove category exceeds GEZ tropical allocation (2025; overlap unverified),1,audit only; do not subtract unverified category area,documented
+report-documented Forest mangrove overlap exceeds tropical allocation,0,0,ok
+country areas by biome sum to FRA forest minus documented Forest mangrove overlap (ha),4136262800,4136262800,ok
+FRA documented Forest/OWL/remaining fractions are between 0 and 1,0,0,ok
+"FRA mangrove category decomposes into Forest, OWL, remaining-land and unknown parts",0.0,< 1e-6,ok
+FRA mangrove area removed only for documented Forest overlap (ha),4180910,derived from evidence table,documented
+FRA mangrove area documented as Other wooded land (ha),72478,derived from evidence table,documented
+FRA mangrove area documented as Remaining land (ha),42,derived from evidence table,documented
+FRA mangrove area with unknown Forest/OWL classification (ha),11613440,reported for transparent scope,documented
+country-level forest flow reproduces area x biome-rate sum,5.344910447302043e-07,< 1e-6,ok
+GSCC mean (US$2015/tCO2),559.57,559.57,ok
+BCW draw rows not aligned,0,0,ok
+"Hilmi et al. (2026) BCW reproduced from ecosystem areas × rates + BCP, valued with 44/12 and GSCC",2.4409266235712167e-07,< 1e-5,ok
+updated BCW equals total sequestration from selected mangrove area and other Hilmi inputs × GSCC (draw by draw),2.4913256879699475e-07,< 1e-5,ok
+FRA zero is selected only when the 2025 mangrove area was reported,0,0,ok
+mangrove area-source selection and comparison with area reported by Hilmi et al. (2026),FRA_2025=109; GMW_2025=126; Hilmi_2026=1; no_source_available=30; selected from a different source=235; changed area among units with both values=118/119; selected where Hilmi area was unavailable=117,documented,documented
+BCW rows mapped to exactly one unit,0,0,ok
+world population: units vs published BCW rows (duplicated parts removed),8.0821e+09 vs 8.1019e+09,units <= published,ok
+national NCW sums available components and remains missing only when both are unavailable,0,0,ok
+units without BCW data do not receive a numeric BCW account value,0,0,ok
+complete-case national NCW equals GCW + BCW draw by draw,7.258927867283746e-07,< 1e-5,ok
+global additive NCW equals global available GCW + BCW draw by draw,"{'relative_gap': 4.2739009433051757e-16, 'GCW_mean_trillion': 8.26144300914215, 'BCW_mean_trillion': 2.3293101316895064, 'additive_NCW_mean_trillion': 10.590753140831659, 'archive_NCW_mean_trillion': 10.590753140831659}",relative gap < 1e-5; all available components on both sides,ok

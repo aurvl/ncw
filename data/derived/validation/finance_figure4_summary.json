@@ -1,0 +1,31 @@
+{
+  "national_units": 236,
+  "allocation_total_billion_usd2015_yr": 165.22886018284302,
+  "top10_allocation_share_pct": 64.05607391250304,
+  "top50_allocation_share_pct": 90.63034453711406,
+  "allocation_uncertainty": {
+    "allocation_rule_fraction": 0.02,
+    "mean_billion_usd2015_yr": 165.228860182843,
+    "p05_billion_usd2015_yr": 64.53011962980938,
+    "p95_billion_usd2015_yr": 299.98397558257784,
+    "uncertainty_scope": "GCW monetary draws conditional on fixed forest inputs; not full uncertainty in rates, areas or the 2% rule"
+  },
+  "busch_positive_loss_units": 105,
+  "busch_status_counts": {
+    "target_within_supply_at_or_below_minus20": 16,
+    "target_within_supply_at_nonpositive_price": 18,
+    "target_within_positive_price_curve": 12,
+    "target_exceeds_published_supply_at_100": 14,
+    "no_country_curve_in_published_table": 45
+  },
+  "busch_supply_sufficient_by_100_units": 46,
+  "busch_supply_sufficient_by_100_loss_share_pct": 48.820926521821946,
+  "busch_interpolated_marginal_price_units": 30,
+  "busch_interpolated_marginal_price_min_usd2020_tco2": -18.747326459809788,
+  "busch_interpolated_marginal_price_median_usd2020_tco2": -8.007858813761189,
+  "busch_interpolated_marginal_price_max_usd2020_tco2": 21.778603940312127,
+  "busch_positive_price_units": 12,
+  "busch_positive_price_partial_integral_pv_usd2020": 21563047.093875438,
+  "busch_positive_price_partial_integral_annual_usd2015": 1284587.759042903,
+  "partial_integral_scope": "Only Q(0) to the target for 12 positive-price units; excludes other costs, negative-price supply and all units without an estimable positive-price target"
+}

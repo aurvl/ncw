@@ -1,0 +1,12 @@
+{
+  "scenario": "all unclassified FRA mangrove area in tropical Forest, capped by available tropical Forest area",
+  "status": "algebraic sensitivity bound; canonical FRA-first account unchanged",
+  "units_with_unclassified_area": 90,
+  "unclassified_mangrove_area_all_units_ha": 11613440.0,
+  "unclassified_mangrove_area_with_tropical_forest_row_ha": 11306730.0,
+  "additional_overlap_upper_bound_ha": 11293650.0,
+  "forest_additions_reduction_upper_bound_tco2_yr": 38693492.388931885,
+  "current_forest_additions_global_tco2_yr": 14763837092.751923,
+  "current_forest_additions_tropical_row_units_tco2_yr": 8568660334.588852,
+  "reduction_upper_bound_pct_of_current_forest_additions": 0.26208289989821043
+}

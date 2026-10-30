@@ -8,7 +8,7 @@ Outputs (data/derived/):
 - biome_shares_map_first.csv : map-first allocation retained as a sensitivity
 
 Polygons are burnt part by part and rasters read in stripes so that memory use stays low.
-Intermediate rasters: data/outputs/rasters/{countries,gez}.tif
+Intermediate rasters: data/derived/rasters/{countries,gez}.tif
 """
 
 from __future__ import annotations

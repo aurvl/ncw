@@ -1,4 +1,8 @@
-"""Build auditable data for the proposed three-panel finance figure.
+"""Build historical Figure 4 tables from the earlier published-curve comparison.
+
+This script predates the current all-country cell reconstruction and is not part
+of the current Busch calculation pipeline. Its published-curve comparison must
+not be reported as a result of the current analysis.
 
 The 2% allocation is a stipulated scenario. Busch's curves describe modeled
 reforestation mitigation opportunities; the matching exercise does not price
@@ -15,7 +19,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VALIDATION = ROOT / "data" / "outputs" / "validation"
+VALIDATION = ROOT / "data" / "derived" / "validation"
 TABLES = ROOT / "results" / "tables" / "manuscript"
 CURVES = ROOT / "data" / "raw" / "economic" / "busch_2024" / "11_MAC_curves_consolidated.xlsx"
 CURVE_PREFIX = "MAC_mi_whrv_sGr_bu_ad_"

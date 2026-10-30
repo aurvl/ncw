@@ -21,7 +21,7 @@ GMW = ROOT / "data/raw/environmental/marine/gmw/gmw_v4112_2025_mng_ext_cntry_inf
 JRC = ROOT / "data/raw/environmental/forest/forest_mask/JRC_GFC2020_V4_overview_x256.tif"
 OVERLAP = ROOT / "data/derived/fra_mangrove_forest_overlap_2025.csv"
 GMW_AREA = ROOT / "data/derived/gmw_2025_mangrove_area_by_unit.csv"
-OUTPUT = ROOT / "data/outputs/validation/gmw_jrc_forest_overlap_proxy.csv"
+OUTPUT = ROOT / "data/derived/validation/gmw_jrc_forest_overlap_proxy.csv"
 
 
 def main() -> None:

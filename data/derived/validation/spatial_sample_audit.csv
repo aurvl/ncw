@@ -1,0 +1,4 @@
+outcome,n,geometry_units,nonreporting_as_missing,zero_values,y_transform,predictors
+lost_capacity_mtco2_yr,124,235,True,23,log1p,ln_gdp_per_capita;ln_forest_area_mha;warm_biome_share
+erosion_pct_of_gcw,124,235,True,23,log1p,ln_gdp_per_capita;ln_forest_area_mha;warm_biome_share
+gcw_gdp_pct,200,235,False,0,log1p,ln_gdp_per_capita;ln_forest_area_mha;warm_biome_share

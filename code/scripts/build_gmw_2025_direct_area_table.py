@@ -21,7 +21,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
-VALIDATION = ROOT / "data/outputs/validation"
+VALIDATION = ROOT / "data/derived/validation"
 UNIT_OVERLAY = VALIDATION / "gmw_2025_direct_overlay_area_by_eez_unit.csv"
 PAIR_OVERLAY = VALIDATION / "gmw_2025_direct_overlay_by_eez_unit_and_source.csv"
 OVERLAY_SUMMARY = VALIDATION / "gmw_2025_direct_overlay_summary.json"

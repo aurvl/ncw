@@ -11,10 +11,10 @@
   "files_sha256": {
     "data/raw/environmental/marine/gmw/gmw_v4112_2025_mng_ext_cntry_info_vec.gpkg": "872485534391ae15e70a6a2932e611a8dda6a3ed91253c5c72c2578f29b56282",
     "data/raw/geospatial/boundaries/EEZ_land_union_v4_202410.shp": "75aefbf949733235a2eda9d3b4d223c0898945005b8ed10f83d44ba3a58f6cdf",
-    "data/outputs/validation/gmw_2025_direct_overlay_by_eez_unit_and_source.csv": "f07e5d58ea609b4635acb913c2b240dac9db1578e3f34d682c3dd3f8c0790b63",
-    "data/outputs/validation/gmw_2025_direct_overlay_area_by_eez_unit.csv": "931935b2cdbe1855dd30f74b1ce8681b90362daa046bf92df92536127ea4d10e",
+    "data/derived/validation/gmw_2025_direct_overlay_by_eez_unit_and_source.csv": "f07e5d58ea609b4635acb913c2b240dac9db1578e3f34d682c3dd3f8c0790b63",
+    "data/derived/validation/gmw_2025_direct_overlay_area_by_eez_unit.csv": "931935b2cdbe1855dd30f74b1ce8681b90362daa046bf92df92536127ea4d10e",
     "data/derived/gmw_2025_mangrove_area_by_unit.csv": "324303bacd8512dd53454844db53504c365463cd533156a8fd80f55fffaa194b",
-    "data/outputs/validation/gmw_2025_direct_area_by_account_iso3.csv": "2deb36570e24ef1a4c0cdf1a586cc3c66aed18047b5c3fef19c307e25db47261",
-    "data/outputs/validation/gmw_2025_direct_area_eez_crosswalk.csv": "a7f259e873bf900aad30eb06379c0802ade4c69d16e2811e8b85c6f306a72f7f"
+    "data/derived/validation/gmw_2025_direct_area_by_account_iso3.csv": "2deb36570e24ef1a4c0cdf1a586cc3c66aed18047b5c3fef19c307e25db47261",
+    "data/derived/validation/gmw_2025_direct_area_eez_crosswalk.csv": "a7f259e873bf900aad30eb06379c0802ade4c69d16e2811e8b85c6f306a72f7f"
   }
 }

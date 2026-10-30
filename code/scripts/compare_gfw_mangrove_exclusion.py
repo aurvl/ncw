@@ -9,8 +9,8 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-GIBBS_OUTPUT = ROOT / "data" / "outputs" / "gibbs_gfw"
-VALIDATION = ROOT / "data/outputs/validation"
+GIBBS_OUTPUT = ROOT / "data" / "derived" / "gibbs_gfw"
+VALIDATION = ROOT / "data/derived/validation"
 BIOMES = ["tropical", "subtropical", "temperate", "boreal"]
 
 

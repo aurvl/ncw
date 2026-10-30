@@ -1,6 +1,6 @@
 # Results
 
-This folder contains outputs prepared for the manuscript and its supplementary material. Reusable analytical intermediates, country-level working accounts, model draws, audit files, Gibbs/GFW products, and Busch reconstruction outputs are written under [`../data/outputs/`](../data/outputs/README.md).
+This folder contains outputs prepared for the manuscript and its supplementary material. Reusable analytical intermediates, country-level working accounts, model draws, audit files, Gibbs/GFW products, and Busch reconstruction outputs are written under [`../data/derived/`](../data/derived/README.md).
 
 ```text
 results/

@@ -1,6 +1,6 @@
 # Data
 
-This directory separates downloaded inputs, prepared analysis inputs, and generated outputs.
+This directory separates source data, derived data used by the calculations, references, and processing logs.
 
 ```text
 data/
@@ -11,12 +11,11 @@ data/
     geospatial/            country and EEZ boundaries
   reference/               transcribed published values and territory crosswalks
   metadata/                source registry and checksums
-  derived/                 harmonised tables reused as inputs by later calculations
-  outputs/                 generated accounts, Gibbs/GFW and Busch results, draws, rasters, and diagnostics
+  derived/                 prepared data, account calculations, restoration results, draws, rasters, and diagnostics
   logs/                    processing logs where retained
 ```
 
-Generated analytical artifacts belong in `outputs/`, not in the manuscript-facing `results/` folder. Calculated tables, provenance, Monte Carlo draws, and the small derived raster intermediates are versioned with the code. Large source rasters and source archives are excluded and downloaded by their dedicated pipelines when a full rebuild is requested.
+All intermediate data produced by the analyses are kept under `derived/`. This includes the prepared inputs reused by later calculations, account calculations, restoration results, Monte Carlo draws, raster intermediates, and diagnostics. Manuscript-facing tables and figures are kept separately under `../results/`.
 
 Raw files are not edited in place. Their source, release, access date, licence, and use are recorded in [`metadata/source_registry.csv`](metadata/source_registry.csv). Checksums for versioned raw files are in [`metadata/raw_checksums.csv`](metadata/raw_checksums.csv). Source-specific citation and licence requirements are described in [`../docs/DATA_SOURCES.md`](../docs/DATA_SOURCES.md).
 

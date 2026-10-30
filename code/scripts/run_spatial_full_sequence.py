@@ -28,7 +28,7 @@ from statsmodels.tools.numdiff import approx_hess3
 
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "data" / "outputs" / "validation"
+OUT = ROOT / "data" / "derived" / "validation"
 SEED = 20261019
 PERMUTATIONS = 9_999
 K_NEIGHBOURS = 5
@@ -51,7 +51,7 @@ def _unit_geometries() -> tuple[gpd.GeoDataFrame, list[str]]:
     """Map Natural Earth 50m polygons to the study's territorial units."""
     path = ROOT / "data" / "raw" / "geospatial" / "boundaries" / "ne_50m_admin_0_countries.zip"
     ne = gpd.read_file(f"zip://{path}")
-    gcw = pd.read_csv(ROOT / "data" / "outputs" / "accounts" / "country_level_gcw.csv")
+    gcw = pd.read_csv(ROOT / "data" / "derived" / "accounts" / "country_level_gcw.csv")
     wanted = set(gcw["iso3"].astype(str))
 
     by_code: dict[str, list] = {}
@@ -379,9 +379,9 @@ def _lr_test(restricted: dict, unrestricted: dict) -> dict[str, float | str | in
 
 def _prepare_data() -> tuple[pd.DataFrame, gpd.GeoDataFrame, list[str]]:
     gdf, missing_geometry = _unit_geometries()
-    gcf = pd.read_csv(ROOT / "data" / "outputs" / "accounts" / "country_level_gcw.csv")
+    gcf = pd.read_csv(ROOT / "data" / "derived" / "accounts" / "country_level_gcw.csv")
     erosion = pd.read_csv(ROOT / "results" / "tables" / "manuscript" / "Supplementary_country_level_erosion.csv")
-    area = pd.read_csv(ROOT / "data" / "outputs" / "forest_account" / "forest_area_by_biome.csv")
+    area = pd.read_csv(ROOT / "data" / "derived" / "forest_account" / "forest_area_by_biome.csv")
     area = area.loc[area["variant"].eq("documented_overlap_removed")].copy()
     area_table = area.pivot_table(index="iso3", columns="biome", values="area_ha", aggfunc="sum", fill_value=0)
     area_table["forest_area_ha"] = area_table.sum(axis=1)

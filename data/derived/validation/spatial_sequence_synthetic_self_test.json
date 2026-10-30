@@ -1,0 +1,61 @@
+{
+  "SDM": {
+    "target_comparison": {
+      "lr_statistic": 28.579029281285614,
+      "df": 3,
+      "p_value": 2.745207358955969e-06,
+      "test_status": "ok"
+    },
+    "expected_unrestricted_model": "SDM",
+    "all_models_finite": true,
+    "all_spatial_fit_converged": true
+  },
+  "SDEM": {
+    "target_comparison": {
+      "lr_statistic": 36.76499824773089,
+      "df": 3,
+      "p_value": 5.159457246334379e-08,
+      "test_status": "ok"
+    },
+    "expected_unrestricted_model": "SDEM",
+    "all_models_finite": true,
+    "all_spatial_fit_converged": true
+  },
+  "GNS": {
+    "target_comparison": {
+      "lr_statistic": 4.233952113128339,
+      "df": 1,
+      "p_value": 0.03962307589575939,
+      "test_status": "ok"
+    },
+    "expected_unrestricted_model": "GNS",
+    "all_models_finite": true,
+    "all_spatial_fit_converged": true
+  },
+  "restricted_model_reference_validation": {
+    "reference": "PySAL spreg ML_Lag / ML_Error, method=ord",
+    "models": [
+      {
+        "model": "SAR",
+        "abs_loglik_difference": 2.842170943040401e-14,
+        "abs_spatial_parameter_difference": 1.631320634132294e-10
+      },
+      {
+        "model": "SDM",
+        "abs_loglik_difference": 0.0,
+        "abs_spatial_parameter_difference": 1.0470359246284033e-08
+      },
+      {
+        "model": "SEM",
+        "abs_loglik_difference": 2.842170943040401e-14,
+        "abs_spatial_parameter_difference": 1.1700910240719509e-09
+      },
+      {
+        "model": "SDEM",
+        "abs_loglik_difference": 2.842170943040401e-14,
+        "abs_spatial_parameter_difference": 6.760386805915175e-09
+      }
+    ],
+    "passed_tolerance": 1e-05
+  }
+}

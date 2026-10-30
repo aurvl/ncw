@@ -5,7 +5,7 @@ Hilmi-reported seagrass and saltmarsh areas, the three ecosystem rates, the Hilm
 reported biological-carbon-pump flux, and the shared GSCC draws. NCW is the draw-by-
 draw sum of the available GCW and BCW account values.
 
-Outputs: data/outputs/accounts/country_level_ncw_accounts.csv, data/outputs/draws/ncw_draws.npz,
+Outputs: data/derived/accounts/country_level_ncw_accounts.csv, data/derived/draws/ncw_draws.npz,
          data/derived/bcw_draw_alignment.csv,
          data/derived/bcw_mangrove_gmw_area_replacement.csv
 """

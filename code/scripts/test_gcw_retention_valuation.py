@@ -14,8 +14,8 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DRAW_FILE = ROOT / "data" / "outputs" / "draws" / "gcw_draws.npz"
-OUT = ROOT / "data" / "outputs" / "validation"
+DRAW_FILE = ROOT / "data" / "derived" / "draws" / "gcw_draws.npz"
+OUT = ROOT / "data" / "derived" / "validation"
 FRACTIONS = (0.25, 0.33, 0.50, 0.75, 1.00)
 
 
