@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT / "code" / "src"))
 sys.path.insert(0, str(ROOT / "code" / "scripts"))
 
 from build_summaries import build_summaries  # noqa: E402
-from gcw import checks, gcw, ncw, tables  # noqa: E402
+from gcw import checks, gcw, ncw  # noqa: E402
 
 BUSCH_RECON_LABEL = "all_dta"
 
@@ -139,24 +139,34 @@ def prepare_busch_reconstruction(rebuild: bool = False) -> None:
 
 
 def verify_outputs(started_at: float) -> None:
-    """Fail if a core account or manuscript CSV table was not refreshed."""
+    """Fail if core accounts and the documented study tables were not refreshed."""
     expected = [
         ROOT / "data" / "derived" / "accounts" / "country_level_gcw.csv",
         ROOT / "data" / "derived" / "accounts" / "country_level_ncw_accounts.csv",
         ROOT / "data" / "derived" / "validation" / "global_checks.csv",
         ROOT / "data" / "derived" / "validation" / "country_level_results_master.csv",
-        ROOT / "results" / "tables" / "manuscript" / "Table1_global_carbon_wealth.csv",
-        ROOT / "results" / "tables" / "manuscript" / "Table2_geographic_economic_profiles.csv",
-        ROOT / "results" / "tables" / "manuscript" / "Table3_forest_capacity_erosion.csv",
-        ROOT / "results" / "tables" / "manuscript" / "Table4_our_2pct_gcw_allocation.csv",
-        ROOT / "results" / "tables" / "manuscript" / "TableS1_forest_biome_additions.csv",
+        ROOT / "results" / "tables" / "01_bcw_hilmi_updated.csv",
+        ROOT / "results" / "tables" / "02_gcw_by_entity.csv",
+        ROOT / "results" / "tables" / "03_country_level_ncw.csv",
+        ROOT / "results" / "tables" / "04_deforestation_by_entity.csv",
+        ROOT / "results" / "tables" / "05_restoration_costs_by_entity.csv",
+        ROOT / "results" / "tables" / "06_restoration_supply_curves.csv",
+        ROOT / "results" / "tables" / "07_geographic_economic_profiles.xlsx",
+        ROOT / "results" / "tables" / "08_global_accounts_summary.csv",
+        ROOT / "results" / "tables" / "09_spatial_model_results.csv",
+        ROOT / "results" / "tables" / "10_results_coverage.csv",
+        ROOT / "results" / "tables" / "submitted" / "Supplementary_Table.csv",
     ]
     missing = [
         str(path.relative_to(ROOT)) for path in expected
         if not path.is_file() or path.stat().st_size == 0 or path.stat().st_mtime < started_at - 2
     ]
     if missing:
-        raise FileNotFoundError(f"The paper export is missing or stale: {missing}")
+        raise FileNotFoundError(f"The study-table export is missing or stale: {missing}")
+    account_table = ROOT / "results" / "tables" / "03_country_level_ncw.csv"
+    submitted_copy = ROOT / "results" / "tables" / "submitted" / "Supplementary_Table.csv"
+    if hashlib.sha256(account_table.read_bytes()).digest() != hashlib.sha256(submitted_copy.read_bytes()).digest():
+        raise ValueError("Supplementary_Table.csv is not an exact copy of 03_country_level_ncw.csv.")
 
 
 def main() -> None:
@@ -194,9 +204,6 @@ def main() -> None:
     print("== BCW and NCW ==", flush=True)
     ncw_table, ncw_draws = ncw.run(inputs["territories"], gcw_draws)
 
-    print("== Central paper tables ==", flush=True)
-    tables.run(inputs["forest_draws"], inputs["faostat"], gcw_table, gcw_draws, ncw_table, ncw_draws)
-
     print("== Validation ==")
     checks.run(inputs["territories"], gcw_table, ncw_table, inputs["forest_draws"], inputs["rates"], gcw_draws, ncw_draws)
 
@@ -218,6 +225,7 @@ def main() -> None:
         # freshly rebuilt deforestation and restoration outputs.
         run_script("compare_finance_and_action_costs.py")
         run_script("build_manuscript_artifacts.py", "--tables-only")
+        run_script("build_study_tables.py")
         verify_outputs(start)
 
     print(f"Done in {time.time() - start:.0f} s")

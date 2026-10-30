@@ -1,0 +1,13 @@
+table_id,variable_group,source,expected_records,records_with_data,records_missing,coverage_pct,status
+01,mapped BCW source records,source BCW records,296,296,0,100.0,complete
+02,forest account,FRA 2025 and Gibbs/GFW,266,236,30,88.7218045112782,partial
+03,NCW account,BCW and GCW accounts,266,242,24,90.97744360902256,partial
+03,population,World Bank,266,213,53,80.07518796992481,partial
+03,GDP,World Bank,266,204,62,76.69172932330827,partial
+04,reported forest loss,FRA 2025,266,139,127,52.255639097744364,partial
+05,restoration cost,Busch cell-level reconstruction,798,173,625,21.67919799498747,partial
+09,spatial model results,Spatial analysis outputs,2816,2816,0,100.0,complete
+06,price-based supply curve points,Busch cell-level reconstruction,10350,10350,0,100.0,complete
+06,effective-cost curve points,Busch cell-level reconstruction,31800,31800,0,100.0,complete
+07,region profiles,Entity identifiers,7,7,0,100.0,complete
+07,economic-group profiles,Economic-group identifiers,5,5,0,100.0,complete

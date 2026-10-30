@@ -305,16 +305,18 @@ def build_ncw(territories: pd.DataFrame, gcw_draws: dict) -> tuple[pd.DataFrame,
     selected_mangrove_tco2 = (
         selected_area.to_numpy(dtype=np.float64)[:, None] / 100.0
         * rates[2][None, :] * CARBON_TO_CO2
-    ).astype(np.float32)
+    )
     saltmarsh_tco2 = (
         saltmarsh_area[:, None] * rates[0][None, :] * CARBON_TO_CO2
-    ).astype(np.float32)
+    )
     seagrass_tco2 = (
         seagrass_area[:, None] * rates[1][None, :] * CARBON_TO_CO2
-    ).astype(np.float32)
+    )
+    # Keep all physical components in float64 while summing. This preserves
+    # small variable BCE fluxes when they are added to the much larger BCP.
     bcp_tco2 = np.broadcast_to(
         bcp_tc[:, None] * CARBON_TO_CO2, non_mangrove_sequestration_tc.shape
-    ).astype(np.float32)
+    )
     non_mangrove_tco2 = saltmarsh_tco2 + seagrass_tco2 + bcp_tco2
     # Keep missing source components missing in source tables. In the sum, use
     # the reported components; an unknown mangrove area contributes no number

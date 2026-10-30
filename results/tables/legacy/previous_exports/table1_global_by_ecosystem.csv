@@ -1,0 +1,16 @@
+item,unit,value_mean,value_sd,value_p05,value_p50,value_p95,note
+Forests after documented FRA mangrove-overlap removal (Gibbs/GFW gross living-biomass additions),tCO2/yr,14763830272.0,0.0,14763830272.0,14763830272.0,14763830272.0,
+Forests after documented FRA mangrove-overlap removal (Gibbs/GFW gross living-biomass additions),US$2015/yr,8261439190301.421,3965482673231.2256,3226504489661.547,7481155126830.719,14999191894848.125,
+Mangroves,tCO2/yr,100659762.89938125,124870297.0108944,12681858.0,62270160.0,314768127.9999998,"Selected mangrove area under the per-unit hierarchy (GMW 2025, FRA 2025, then the area reported by Hilmi et al. (2026)) × Hilmi/Alongi mangrove-rate draws"
+Mangroves,US$2015/yr,56046032599.01087,79471685285.66269,5476848504.547175,31691980864.812622,186382452690.0015,"Selected mangrove area under the per-unit hierarchy (GMW 2025, FRA 2025, then the area reported by Hilmi et al. (2026)) × Hilmi/Alongi mangrove-rate draws"
+Seagrasses,tCO2/yr,303645568.11995,271765128.7393553,67931528.4,229493072.0,783270732.7999998,
+Seagrasses,US$2015/yr,170098993316.24588,185565451303.04068,27714313146.878212,116725596016.81763,483424993079.2662,
+Saltmarshes,tCO2/yr,33724456.0,0.0,33724456.0,33724456.0,33724456.0,
+Saltmarshes,US$2015/yr,18871291347.638424,9058201257.28338,7370181496.989868,17088918136.810791,34262083603.9209,
+Open ocean biological carbon pump,tCO2/yr,3729554906.292968,9.536981591582671e-07,3729554906.292967,3729554906.292967,3729554906.292967,"BCW point estimate, no physical uncertainty"
+Open ocean biological carbon pump,US$2015/yr,2086957821756.0845,1001737698638.945,815061229226.8912,1889846895688.4448,3789010621989.6626,"BCW point estimate, no physical uncertainty"
+GCW (Gibbs/GFW; documented FRA mangrove overlap removed),US$2015/yr,8261442883616.768,3965484506778.36,3226507411456.0,7481158270976.0,14999199154176.0,
+BCW (published coastal and ocean components + selected mangrove areas),US$2015/yr,2329310106402.816,1133241940182.1833,909102278246.4,2113418362880.0,4297954820095.9995,
+NCW = GCW + BCW,US$2015/yr,10590752987047.527,5087452761583.63,4163877037670.4,9600823197696.0,19204478179737.594,Sum of available GCW and BCW components; a missing component is counted as zero. BCW includes the source Joint Regimes residual.
+"Forests net flux (Route A, FAOSTAT)",tCO2/yr,3779400192.1766663,0.0,3779400192.1766663,3779400192.1766663,3779400192.1766663,complementary analysis
+"Forests net flux (Route A, FAOSTAT)",US$2015/yr,2114849892490.0828,1015125865115.5626,825954475473.2417,1915104590281.7239,3839650530079.17,complementary analysis
