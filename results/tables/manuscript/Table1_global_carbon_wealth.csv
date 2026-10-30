@@ -1,4 +1,4 @@
 component,value_mean_trillion_usd2015_yr,value_p05_trillion_usd2015_yr,value_p50_trillion_usd2015_yr,value_p95_trillion_usd2015_yr,share_of_ncw_pct,gcw_records,bcw_records_including_source_aggregate,bcw_country_or_territory_records,units_with_both_accounts,records_with_either_account,aggregation_scope
-Green carbon wealth,8.26144300914215,3.226505981490469,7.4811585480365395,14.999198779128891,78.00618992138462,236,238,237,232,242,Available component total across all GCW units.
-Blue carbon wealth,2.3293101316895064,0.909102600629813,2.113418574211998,4.297955198005621,21.99381007861536,236,238,237,232,242,Available component total; BCW includes the source Joint Regimes residual.
-Natural carbon wealth,10.590753140831659,4.163876647727437,9.600823329914212,19.204478509781023,100.0,236,238,237,232,242,Global and unit-level NCW sum available components; missing components are counted as zero.
+Green carbon wealth,8.26144300914215,3.226505981490469,7.4811585480365395,14.999198779128891,78.00618992138463,236,238,237,232,242,Available component total across all GCW units.
+Blue carbon wealth,2.329310131689506,0.909102600629813,2.113418574211998,4.297955198005621,21.993810078615365,236,238,237,232,242,Available component total; BCW includes the source Joint Regimes residual.
+Natural carbon wealth,10.590753140831657,4.163876647727437,9.600823329914212,19.204478509781023,100.0,236,238,237,232,242,Global and unit-level NCW sum available components; missing components are counted as zero.

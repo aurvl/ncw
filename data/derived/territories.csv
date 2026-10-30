@@ -5,10 +5,10 @@ AFG,AFG,AFG,4,Afghanistan,True,True,1,AFG,Afghanistan,Afghanistan,Afghanistan,As
 AGO,AGO,AGO,24,Angola,True,True,1,AGO,Angola,Angola,Angola,Africa,Eastern and Southern Africa,Africa,Africa,LDCs,published_unit,36749906.0,85610610955.54346
 AIA,AIA,AIA,660,Anguilla,True,True,1,AIA,Anguilla,Anguilla,United Kingdom,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,14410.0,
 ALB,ALB,ALB,8,Albania,True,True,1,ALB,Albania,Albania,Albania,Europe,,Europe,Europe,Developed economies,published_unit,2811655.0,14812273860.771984
-AND,AND,AND,20,Andorra,True,True,1,AND,Andorra,Andorra,Andorra,Europe,,Europe,Europe,Developed economies,published_unit,80856.0,3216475797.7424917
-ARE,ARE,ARE,784,United Arab Emirates,True,True,1,ARE,United Arab Emirates,United Arab Emirates,United Arab Emirates,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,10642081.0,446126441632.29236
+AND,AND,AND,20,Andorra,True,True,1,AND,Andorra,Andorra,Andorra,Europe,,Europe,Europe,Developed economies,published_unit,80856.0,3216475797.742492
+ARE,ARE,ARE,784,United Arab Emirates,True,True,1,ARE,United Arab Emirates,United Arab Emirates,United Arab Emirates,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,10642081.0,446126441632.2924
 ARG,ARG,ARG,32,Argentina,True,True,1,ARG,Argentina,Argentina,Argentina,South America,,Americas,Americas,Developing economies,published_unit,45538401.0,589035991825.9438
-ARM,ARM,ARM,51,Armenia,True,True,1,ARM,Armenia,Armenia,Armenia,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,2943393.0,15463065783.758963
+ARM,ARM,ARM,51,Armenia,True,True,1,ARM,Armenia,Armenia,Armenia,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,2943393.0,15463065783.758965
 ASM,ASM,ASM,16,American Samoa,True,True,1,ASM,American Samoa,American Samoa,United States,Oceania,,Oceania,Oceania,SIDS,published_unit,47521.0,662725190.8396946
 ATA,ATA,ATA,,Antarctica,False,True,1,ATA,,Antarctica,,,,,,,unclassified,,
 ATF-1,ATF-1,,,Amsterdam and Saint Paul Islands,False,True,1,ATF-1,,Amsterdam and Saint Paul Islands,France,,,Africa,Africa,Developing economies,published_unit,,
@@ -38,7 +38,7 @@ BLR,BLR,BLR,112,Belarus,True,True,1,BLR,Belarus,Belarus,Belarus,Europe,,Europe,E
 BLZ,BLZ,BLZ,84,Belize,True,True,2,BLZ-1;BLZ-2,Belize,Belize,Belize,North and Central America,Central America,Americas,Americas,SIDS,published_unit,411106.0,2623271102.7779083
 BMU,BMU,BMU,60,Bermuda,True,True,1,BMU,Bermuda,Bermuda,United Kingdom,North and Central America,Caribbean,Americas,Americas,SIDS,published_unit,64697.99999999999,7150073873.987644
 BOL,BOL,BOL,68,Bolivia (Plurinational State of),True,True,1,BOL,Bolivia (Plurinational State of),Bolivia,Bolivia,South America,,Americas,Americas,Developing economies,published_unit,12244159.0,39256060138.67176
-BRA,BRA,BRA,76,Brazil,True,True,2,BR-ES;BRA,Brazil,Brazil,Brazil,South America,,Americas,Americas,Developing economies,published_unit,211140729.0,1954752120905.4956
+BRA,BRA,BRA,76,Brazil,True,True,2,BR-ES;BRA,Brazil,Brazil,Brazil,South America,,Americas,Americas,Developing economies,published_unit,211140729.0,1954752120905.496
 BRB,BRB,BRB,52,Barbados,True,True,1,BRB,Barbados,Barbados,Barbados,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,282336.0,4988546956.990095
 BRN,BRN,BRN,96,Brunei Darussalam,True,True,1,BRN,Brunei Darussalam,Brunei,Brunei,Asia,South and Southeast Asia,Asia,Asia,Developing economies,published_unit,458949.0,13183357642.33033
 BTN,BTN,BTN,64,Bhutan,True,True,1,BTN,Bhutan,Bhutan,Bhutan,Asia,South and Southeast Asia,Asia,Asia,Developing economies,published_unit,786385.0,2610564317.156727
@@ -49,7 +49,7 @@ CAN,CAN,CAN,124,Canada,True,True,1,CAN,Canada,Canada,Canada,North and Central Am
 CCK,CCK,CCK,,Cocos Islands,False,True,1,CCK,,Cocos Islands,Australia,,,Oceania,Oceania,Developed economies,published_unit,,
 CHE,CHE,CHE,756,Switzerland,True,True,1,CHE,Switzerland,Switzerland,Switzerland,Europe,,Europe,Europe,Developed economies,published_unit,8870561.0,795978145781.8705
 CHL,CHL,CHL,152,Chile,True,True,3,CHL-1;CHL-2;CL-EI,Chile,Chile,Chile,South America,,Americas,Americas,Developing economies,published_unit,19658835.0,279676771459.2289
-CHN,CHN,CHN,159,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",True,True,2,CHN;TWN,China,China,China,Asia,East Asia,Asia,Asia,Developing economies,published_unit,1445902078.0,17173989334581.701
+CHN,CHN,CHN,159,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",True,True,2,CHN;TWN,China,China,China,Asia,East Asia,Asia,Asia,Developing economies,published_unit,1445902078.0,17173989334581.7
 CIV,CIV,CIV,384,Côte d'Ivoire,True,True,1,CIV,Côte d'Ivoire,Ivory Coast,Ivory Coast,Africa,Western and Central Africa,Africa,Africa,Developing economies,published_unit,31165654.0,71993628609.49347
 CMR,CMR,CMR,120,Cameroon,True,True,1,CMR,Cameroon,Cameroon,Cameroon,Africa,Western and Central Africa,Africa,Africa,Developing economies,published_unit,28372687.0,41854256684.235855
 COD,COD,COD,180,Democratic Republic of the Congo,True,True,1,COD,Democratic Republic of the Congo,Democratic Republic of the Congo,Democratic Republic of the Congo,Africa,Western and Central Africa,Africa,Africa,LDCs,published_unit,105789731.0,56837576516.86883
@@ -64,15 +64,15 @@ CUB,CUB,CUB,192,Cuba,True,True,1,CUB,Cuba,Cuba,Cuba,North and Central America,Ca
 CUW,CUW,CUW,531,Curaçao,True,True,1,CUW,Curaçao,Curaçao,Netherlands,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,185427.0,2608672800.245662
 CXR,CXR,CXR,,Christmas Island,False,True,1,CXR,,Christmas Island,Australia,,,Oceania,Oceania,Developed economies,published_unit,,
 CYM,CYM,CYM,136,Cayman Islands,True,True,1,CYM,Cayman Islands,Cayman Islands,United Kingdom,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,73038.0,5697740746.843133
-CYP,CYP,CYP,196,Cyprus,True,True,1,CYP,Cyprus,Cyprus,Cyprus,Asia,Western and Central Asia,Asia,Asia,Developed economies,published_unit,1344976.0,28577218405.253716
+CYP,CYP,CYP,196,Cyprus,True,True,1,CYP,Cyprus,Cyprus,Cyprus,Asia,Western and Central Asia,Asia,Asia,Developed economies,published_unit,1344976.0,28577218405.25372
 CZE,CZE,CZE,203,Czechia,True,True,1,CZE,Czechia,Czech Republic,Czech Republic,Europe,,Europe,Europe,Developed economies,published_unit,10809716.0,215302078357.6402
 DEU,DEU,DEU,276,Germany,True,True,1,DEU,Germany,Germany,Germany,Europe,,Europe,Europe,Developed economies,published_unit,84548231.0,3622499230389.373
 DJ,DJ,,,Doumeira Islands,False,True,1,DJ,,Doumeira Islands,Eritrea,,,Africa,Africa,LDCs,sovereign_fallback,,
-DJI,DJI,DJI,262,Djibouti,True,True,1,DJI,Djibouti,Djibouti,Djibouti,Africa,Eastern and Southern Africa,Africa,Africa,LDCs,published_unit,1152944.0,3549091358.5237513
+DJI,DJI,DJI,262,Djibouti,True,True,1,DJI,Djibouti,Djibouti,Djibouti,Africa,Eastern and Southern Africa,Africa,Africa,LDCs,published_unit,1152944.0,3549091358.5237517
 DMA,DMA,DMA,212,Dominica,True,True,1,DMA,Dominica,Dominica,Dominica,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,66510.0,558681739.5701864
 DNK,DNK,DNK,208,Denmark,True,True,1,DNK,Denmark,Denmark,Denmark,Europe,,Europe,Europe,Developed economies,published_unit,5948136.0,362953266629.8091
 DOM,DOM,DOM,214,Dominican Republic,True,True,1,DOM,Dominican Republic,Dominican Republic,Dominican Republic,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,11331265.0,100365578190.53175
-DZA,DZA,DZA,12,Algeria,True,True,1,DZA,Algeria,Algeria,Algeria,Africa,Northern Africa,Africa,Africa,Developing economies,published_unit,46164219.0,215143978140.21393
+DZA,DZA,DZA,12,Algeria,True,True,1,DZA,Algeria,Algeria,Algeria,Africa,Northern Africa,Africa,Africa,Developing economies,published_unit,46164219.0,215143978140.21396
 ECU,ECU,ECU,218,Ecuador,True,True,2,EC-W;ECU,Ecuador,Ecuador,Ecuador,South America,,Americas,Americas,Developing economies,published_unit,17980083.0,112162610913.16594
 EGY,EGY,EGY,818,Egypt,True,True,1,EGY,Egypt,Egypt,Egypt,Africa,Northern Africa,Africa,Africa,Developing economies,published_unit,114535772.0,470886489666.42615
 ERI,ERI,ERI,232,Eritrea,True,True,1,ERI,Eritrea,Eritrea,Eritrea,Africa,Eastern and Southern Africa,Africa,Africa,LDCs,published_unit,3470390.0,
@@ -98,7 +98,7 @@ GIN,GIN,GIN,324,Guinea,True,True,1,GIN,Guinea,Guinea,Guinea,Africa,Western and C
 GLP,GLP,GLP,312,Guadeloupe,True,True,1,GLP,Guadeloupe,Guadeloupe,France,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,376517.0,
 GMB,GMB,GMB,270,Gambia,True,True,1,GMB,Gambia,Gambia,Gambia,Africa,Western and Central Africa,Africa,Africa,LDCs,published_unit,2697845.0,1962179256.1582973
 GNB,GNB,GNB,624,Guinea-Bissau,True,True,1,GNB,Guinea-Bissau,Guinea-Bissau,Guinea-Bissau,Africa,Western and Central Africa,Africa,Africa,SIDS,published_unit,2153339.0,1617578278.9288015
-GNQ,GNQ,GNQ,226,Equatorial Guinea,True,True,1,GNQ,Equatorial Guinea,Equatorial Guinea,Equatorial Guinea,Africa,Western and Central Africa,Africa,Africa,Developing economies,published_unit,1847549.0,9440987169.357283
+GNQ,GNQ,GNQ,226,Equatorial Guinea,True,True,1,GNQ,Equatorial Guinea,Equatorial Guinea,Equatorial Guinea,Africa,Western and Central Africa,Africa,Africa,Developing economies,published_unit,1847549.0,9440987169.357285
 GRC,GRC,GRC,300,Greece,True,True,1,GRC,Greece,Greece,Greece,Europe,,Europe,Europe,Developed economies,published_unit,10242908.0,215793609025.3217
 GRD,GRD,GRD,308,Grenada,True,True,1,GRD,Grenada,Grenada,Grenada,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,117081.0,1152594316.5676591
 GRL,GRL,GRL,304,Greenland,True,True,1,GRL,Greenland,Greenland,Denmark,North and Central America,North America,Americas,Americas,Developed economies,published_unit,55922.0,2713483852.1753616
@@ -117,25 +117,25 @@ IND,IND,IND,356,India,True,True,2,IN-AN;IND,India,India,India,Asia,South and Sou
 IO,IO,,,Chagos Archipelago,False,True,1,IO,,Chagos Archipelago,Republic of Mauritius,,,Africa,Africa,SIDS,sovereign_fallback,,
 IRL,IRL,IRL,372,Ireland,True,True,1,IRL,Ireland,Ireland,Ireland,Europe,,Europe,Europe,Developed economies,published_unit,5196630.0,482999506836.7123
 IRN,IRN,IRN,364,Iran (Islamic Republic of),True,True,1,IRN,Iran (Islamic Republic of),Iran,Iran,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,90608707.0,511846684554.5944
-IRQ,IRQ,IRQ,368,Iraq,True,True,1,IRQ,Iraq,Iraq,Iraq,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,45074049.0,188215848693.25772
+IRQ,IRQ,IRQ,368,Iraq,True,True,1,IRQ,Iraq,Iraq,Iraq,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,45074049.0,188215848693.2577
 ISL,ISL,ISL,352,Iceland,True,True,1,ISL,Iceland,Iceland,Iceland,Europe,,Europe,Europe,Developed economies,published_unit,387558.0,22983555206.469723
-ISR,ISR,ISR,376,Israel,True,True,1,ISR,Israel,Israel,Israel,Asia,Western and Central Asia,Asia,Asia,Developed economies,published_unit,9256314.0,416360345096.69434
+ISR,ISR,ISR,376,Israel,True,True,1,ISR,Israel,Israel,Israel,Asia,Western and Central Asia,Asia,Asia,Developed economies,published_unit,9256314.0,416360345096.6944
 ITA,ITA,ITA,380,Italy,True,True,1,ITA,Italy,Italy,Italy,Europe,,Europe,Europe,Developed economies,published_unit,59499453.0,1984600131128.5137
-JAM,JAM,JAM,388,Jamaica,True,True,1,JAM,Jamaica,Jamaica,Jamaica,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,2839786.0,15132129758.476301
+JAM,JAM,JAM,388,Jamaica,True,True,1,JAM,Jamaica,Jamaica,Jamaica,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,2839786.0,15132129758.4763
 JEY,JEY,JEY,832,Jersey,True,True,1,JEY,Jersey,Jersey,United Kingdom,Europe,,Europe,Europe,Developed economies,published_unit,103674.0,
 JOR,JOR,JOR,400,Jordan,True,True,1,JOR,Jordan,Jordan,Jordan,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,11439213.0,45064321343.93934
 JP,JP,,,Senkaku Islands,False,True,1,JP,,Senkaku Islands,Taiwan,,,Asia,Asia,Developing economies,sovereign_fallback,,
 JPN,JPN,JPN,392,Japan,True,True,1,JPN,Japan,Japan,Japan,Asia,East Asia,Asia,Asia,Developed economies,published_unit,124370947.0,4616966465093.54
-KAZ,KAZ,KAZ,398,Kazakhstan,True,True,1,KAZ,Kazakhstan,Kazakhstan,Kazakhstan,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,20330104.0,232848717043.77054
+KAZ,KAZ,KAZ,398,Kazakhstan,True,True,1,KAZ,Kazakhstan,Kazakhstan,Kazakhstan,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,20330104.0,232848717043.7705
 KEN,KEN,KEN,404,Kenya,True,True,1,KEN,Kenya,Kenya,Kenya,Africa,Eastern and Southern Africa,Africa,Africa,Developing economies,published_unit,55339003.0,99939292457.50002
 KGZ,KGZ,KGZ,417,Kyrgyzstan,True,True,1,KGZ,Kyrgyzstan,Kyrgyzstan,Kyrgyzstan,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,7073516.0,8975322159.940475
-KHM,KHM,KHM,116,Cambodia,True,True,1,KHM,Cambodia,Cambodia,Cambodia,Asia,South and Southeast Asia,Asia,Asia,LDCs,published_unit,17423880.0,26312274342.205734
+KHM,KHM,KHM,116,Cambodia,True,True,1,KHM,Cambodia,Cambodia,Cambodia,Asia,South and Southeast Asia,Asia,Asia,LDCs,published_unit,17423880.0,26312274342.20573
 KIR,KIR,KIR,296,Kiribati,True,True,1,KIR,Kiribati,Kiribati,Kiribati,Oceania,,Oceania,Oceania,SIDS,published_unit,397590.0,797610991.900717
 KNA,KNA,KNA,659,Saint Kitts and Nevis,True,True,1,KNA,Saint Kitts and Nevis,Saint Kitts and Nevis,Saint Kitts and Nevis,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,46758.0,1016833010.7978816
 KOR,KOR,KOR,410,Republic of Korea,True,True,1,KOR,Republic of Korea,South Korea,South Korea,Asia,East Asia,Asia,Asia,Developed economies,published_unit,51748739.0,1764487367948.6982
 KWT,KWT,KWT,414,Kuwait,True,True,1,KWT,Kuwait,Kuwait,Kuwait,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,4838782.0,116668101996.92186
 LAO,LAO,LAO,418,Lao People's Democratic Republic,True,True,1,LAO,Lao People's Democratic Republic,Laos,Laos,Asia,South and Southeast Asia,Asia,Asia,LDCs,published_unit,7664993.0,20303702352.29504
-LBN,LBN,LBN,422,Lebanon,True,True,1,LBN,Lebanon,Lebanon,Lebanon,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,5773493.0,33944395264.176895
+LBN,LBN,LBN,422,Lebanon,True,True,1,LBN,Lebanon,Lebanon,Lebanon,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,5773493.0,33944395264.17689
 LBR,LBR,LBR,430,Liberia,True,True,1,LBR,Liberia,Liberia,Liberia,Africa,Western and Central Africa,Africa,Africa,LDCs,published_unit,5493031.0,3589692300.477075
 LBY,LBY,LBY,434,Libya,True,True,1,LBY,Libya,Libya,Libya,Africa,Northern Africa,Africa,Africa,Developing economies,published_unit,7305659.0,67926705038.72879
 LCA,LCA,LCA,662,Saint Lucia,True,True,1,LCA,Saint Lucia,Saint Lucia,Saint Lucia,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,179285.0,2039492177.33218
@@ -152,15 +152,15 @@ MDA,MDA,MDA,498,Republic of Moldova,True,True,1,MDA,Republic of Moldova,Moldova,
 MDG,MDG,MDG,450,Madagascar,True,True,1,MDG,Madagascar,Madagascar,Madagascar,Africa,Eastern and Southern Africa,Africa,Africa,LDCs,published_unit,31195932.0,13975132286.380466
 MDV,MDV,MDV,462,Maldives,True,True,1,MDV,Maldives,Maldives,Maldives,Asia,South and Southeast Asia,Asia,Asia,SIDS,published_unit,525994.0,6009933940.437218
 MEX,MEX,MEX,484,Mexico,True,True,1,MEX,Mexico,Mexico,Mexico,North and Central America,North America,Americas,Americas,Developing economies,published_unit,129739759.0,1326554712608.3315
-MHL,MHL,MHL,584,Marshall Islands,True,True,1,MHL,Marshall Islands,Marshall Islands,Marshall Islands,Oceania,,Oceania,Oceania,SIDS,published_unit,38827.0,227999999.99999994
-MKD,MKD,MKD,807,North Macedonia,True,True,1,MKD,North Macedonia,Macedonia,Macedonia,Europe,,Europe,Europe,Developed economies,published_unit,1831802.0,11506514048.907011
+MHL,MHL,MHL,584,Marshall Islands,True,True,1,MHL,Marshall Islands,Marshall Islands,Marshall Islands,Oceania,,Oceania,Oceania,SIDS,published_unit,38827.0,227999999.99999997
+MKD,MKD,MKD,807,North Macedonia,True,True,1,MKD,North Macedonia,Macedonia,Macedonia,Europe,,Europe,Europe,Developed economies,published_unit,1831802.0,11506514048.907013
 MLI,MLI,MLI,466,Mali,True,True,1,MLI,Mali,Mali,Mali,Africa,Western and Central Africa,Africa,Africa,LDCs,published_unit,23769127.0,17764846569.98078
 MLT,MLT,MLT,470,Malta,True,True,1,MLT,Malta,Malta,Malta,Europe,,Europe,Europe,Developed economies,published_unit,532956.0,17254541747.15687
 MMR,MMR,MMR,104,Myanmar,True,True,1,MMR,Myanmar,Myanmar,Myanmar,Asia,South and Southeast Asia,Asia,Asia,LDCs,published_unit,54133798.0,63784628823.77949
 MNE,MNE,MNE,499,Montenegro,True,True,1,MNE,Montenegro,Montenegro,Montenegro,Europe,,Europe,Europe,Developed economies,published_unit,633552.0,5160619234.927781
 MNG,MNG,MNG,496,Mongolia,True,True,1,MNG,Mongolia,Mongolia,Mongolia,Asia,East Asia,Asia,Asia,Developing economies,published_unit,3431932.0,15456208129.696028
 MNP,MNP,MNP,580,Northern Mariana Islands,True,True,1,MNP,Northern Mariana Islands,Northern Mariana Islands,United States,Oceania,,Oceania,Oceania,SIDS,published_unit,45143.0,729103030.3030304
-MOZ,MOZ,MOZ,508,Mozambique,True,True,1,MOZ,Mozambique,Mozambique,Mozambique,Africa,Eastern and Southern Africa,Africa,Africa,LDCs,published_unit,33635160.0,20437391974.129997
+MOZ,MOZ,MOZ,508,Mozambique,True,True,1,MOZ,Mozambique,Mozambique,Mozambique,Africa,Eastern and Southern Africa,Africa,Africa,LDCs,published_unit,33635160.0,20437391974.13
 MRT,MRT,MRT,478,Mauritania,True,True,1,MRT,Mauritania,Mauritania,Mauritania,Africa,Northern Africa,Africa,Africa,LDCs,published_unit,5022441.0,7917371715.89145
 MSR,MSR,MSR,500,Montserrat,True,True,1,MSR,Montserrat,Montserrat,United Kingdom,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,4420.0,
 MTQ,MTQ,MTQ,474,Martinique,True,True,1,MTQ,Martinique,Martinique,France,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,346002.0,
@@ -177,21 +177,21 @@ NIC,NIC,NIC,558,Nicaragua,True,True,1,NIC,Nicaragua,Nicaragua,Nicaragua,North an
 NIU,NIU,NIU,570,Niue,True,True,1,NIU,Niue,Niue,New Zealand,Oceania,,Oceania,Oceania,SIDS,published_unit,1817.0,
 NLD,NLD,NLD,528,Netherlands (Kingdom of the),True,True,1,NLD,Netherlands (Kingdom of the),Netherlands,Netherlands,Europe,,Europe,Europe,Developed economies,published_unit,18092524.0,895765770359.8453
 NOR,NOR,NOR,578,Norway,True,True,1,NOR,Norway,Norway,Norway,Europe,,Europe,Europe,Developed economies,published_unit,5519167.0,435713464916.813
-NPL,NPL,NPL,524,Nepal,True,True,1,NPL,Nepal,Nepal,Nepal,Asia,South and Southeast Asia,Asia,Asia,LDCs,published_unit,29694614.0,33735853500.290012
+NPL,NPL,NPL,524,Nepal,True,True,1,NPL,Nepal,Nepal,Nepal,Asia,South and Southeast Asia,Asia,Asia,LDCs,published_unit,29694614.0,33735853500.29001
 NRU,NRU,NRU,520,Naoero,True,True,1,NRU,Naoero,Nauru,Nauru,Oceania,,Oceania,Oceania,SIDS,published_unit,11875.0,100293157.0493269
-NZL,NZL,NZL,554,New Zealand,True,True,1,NZL,New Zealand,New Zealand,New Zealand,Oceania,,Oceania,Oceania,Developed economies,published_unit,5172836.0,217933683113.80746
+NZL,NZL,NZL,554,New Zealand,True,True,1,NZL,New Zealand,New Zealand,New Zealand,Oceania,,Oceania,Oceania,Developed economies,published_unit,5172836.0,217933683113.80743
 OMN,OMN,OMN,512,Oman,True,True,1,OMN,Oman,Oman,Oman,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,5049269.0,87416511280.57806
 PAK,PAK,PAK,586,Pakistan,True,True,1,PAK,Pakistan,Pakistan,Pakistan,Asia,South and Southeast Asia,Asia,Asia,Developing economies,published_unit,247504495.0,400165100120.7807
 PAN,PAN,PAN,591,Panama,True,True,1,PAN,Panama,Panama,Panama,North and Central America,Central America,Americas,Americas,Developing economies,published_unit,4458759.0,72803155248.87743
 PCN,PCN,PCN,612,Pitcairn,True,True,1,PCN,Pitcairn,Pitcairn,United Kingdom,Oceania,,Oceania,Oceania,Developing economies,published_unit,,
-PER,PER,PER,604,Peru,True,True,1,PER,Peru,Peru,Peru,South America,,Americas,Americas,Developing economies,published_unit,33845617.0,221775234260.73746
+PER,PER,PER,604,Peru,True,True,1,PER,Peru,Peru,Peru,South America,,Americas,Americas,Developing economies,published_unit,33845617.0,221775234260.73743
 PHL,PHL,PHL,608,Philippines,True,True,1,PHL,Philippines,Philippines,Philippines,Asia,South and Southeast Asia,Asia,Asia,Developing economies,published_unit,114891199.0,430342487096.5727
 PLW,PLW,PLW,585,Palau,True,True,1,PLW,Palau,Palau,Palau,Oceania,,Oceania,Oceania,SIDS,published_unit,17727.0,225375185.65177235
 PNG,PNG,PNG,598,Papua New Guinea,True,True,1,PNG,Papua New Guinea,Papua New Guinea,Papua New Guinea,Oceania,,Oceania,Oceania,SIDS,published_unit,10389635.0,25646325074.996456
 POL,POL,POL,616,Poland,True,True,1,POL,Poland,Poland,Poland,Europe,,Europe,Europe,Developed economies,published_unit,38762844.0,633564398461.3344
 PRI,PRI,PRI,630,Puerto Rico,True,True,1,PRI,Puerto Rico,Puerto Rico,United States,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,3242023.0,96564521010.4364
 PRK,PRK,PRK,408,Democratic People's Republic of Korea,True,True,1,PRK,Democratic People's Republic of Korea,North Korea,North Korea,Asia,East Asia,Asia,Asia,Developing economies,published_unit,26418204.0,
-PRT,PRT,PRT,620,Portugal,True,True,3,PRT;PT-20;PT-30,Portugal,Portugal,Portugal,Europe,,Europe,Europe,Developed economies,published_unit,10430738.0,235532701003.00494
+PRT,PRT,PRT,620,Portugal,True,True,3,PRT;PT-20;PT-30,Portugal,Portugal,Portugal,Europe,,Europe,Europe,Developed economies,published_unit,10430738.0,235532701003.0049
 PRY,PRY,PRY,600,Paraguay,True,True,1,PRY,Paraguay,Paraguay,Paraguay,South America,,Americas,Americas,Developing economies,published_unit,6844146.0,44019622007.03595
 PSE,PSE,PSE,275,Palestine,True,True,1,PSE,Palestine,Palestine,Palestine,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,5409202.0,14773700000.0
 PYF,PYF,PYF,258,French Polynesia,True,True,1,PYF,French Polynesia,French Polynesia,France,Oceania,,Oceania,Oceania,SIDS,published_unit,281118.0,5899733908.231991
@@ -205,7 +205,7 @@ SAU,SAU,SAU,682,Saudi Arabia,True,True,1,SAU,Saudi Arabia,Saudi Arabia,Saudi Ara
 SD,SD,,,Hala'ib Triangle,False,True,1,SD,,Hala'ib Triangle,Sudan,,,Africa,Africa,LDCs,sovereign_fallback,,
 SDN,SDN,SDN,729,Sudan,True,True,1,SDN,Sudan,Sudan,Sudan,Africa,Northern Africa,Africa,Africa,LDCs,published_unit,50042791.0,42271302948.33769
 SEN,SEN,SEN,686,Senegal,True,True,1,SEN,Senegal,Senegal,Senegal,Africa,Western and Central Africa,Africa,Africa,LDCs,published_unit,18077573.0,26226336251.16682
-SGP,SGP,SGP,702,Singapore,True,True,1,SGP,Singapore,Singapore,Singapore,Asia,South and Southeast Asia,Asia,Asia,SIDS,published_unit,5789090.0,387147091448.00244
+SGP,SGP,SGP,702,Singapore,True,True,1,SGP,Singapore,Singapore,Singapore,Asia,South and Southeast Asia,Asia,Asia,SIDS,published_unit,5789090.0,387147091448.0024
 SGS,SGS,SGS,,South Georgia and the South Sandwich Islands,False,True,1,SGS,,South Georgia and the South Sandwich Islands,United Kingdom,,,Americas,Americas,Developing economies,published_unit,,
 SHN,SHN,SHN,654,"Ascension, Saint Helena and Tristan da Cunha",True,True,3,SHN-1;SHN-2;SHN-3,"Ascension, Saint Helena and Tristan da Cunha",Saint Helena,United Kingdom,Africa,Western and Central Africa,Africa,Africa,Developing economies,published_unit,5289.0,
 SJM,SJM,SJM,744,Svalbard and Jan Mayen Islands,True,True,2,SJM-1;SJM-2,Svalbard and Jan Mayen Islands,Svalbard,Norway,Europe,,Europe,Europe,Developed economies,published_unit,,
@@ -213,18 +213,18 @@ SLB,SLB,SLB,90,Solomon Islands,True,True,1,SLB,Solomon Islands,Solomon Islands,S
 SLE,SLE,SLE,694,Sierra Leone,True,True,1,SLE,Sierra Leone,Sierra Leone,Sierra Leone,Africa,Western and Central Africa,Africa,Africa,LDCs,published_unit,8460512.0,5580033029.221105
 SLV,SLV,SLV,222,El Salvador,True,True,1,SLV,El Salvador,El Salvador,El Salvador,North and Central America,Central America,Americas,Americas,Developing economies,published_unit,6309624.0,28274665875.30024
 SMR,SMR,SMR,674,San Marino,True,True,1,SMR,San Marino,San Marino,San Marino,Europe,,Europe,Europe,Developed economies,published_unit,33733.0,1408422586.4216962
-SOM,SOM,SOM,706,Somalia,True,True,1,SOM,Somalia,Federal Republic of Somalia,Federal Republic of Somalia,Africa,Eastern and Southern Africa,Africa,Africa,LDCs,published_unit,18358615.0,9236430682.686113
+SOM,SOM,SOM,706,Somalia,True,True,1,SOM,Somalia,Federal Republic of Somalia,Federal Republic of Somalia,Africa,Eastern and Southern Africa,Africa,Africa,LDCs,published_unit,18358615.0,9236430682.686111
 SPM,SPM,SPM,666,Saint Pierre and Miquelon,True,True,1,SPM,Saint Pierre and Miquelon,Saint-Pierre and Miquelon,France,North and Central America,North America,Americas,Americas,Developed economies,published_unit,5681.0,
 SRB,SRB,SRB,688,Serbia,True,True,1,SRB,Serbia,Serbia,Serbia,Europe,,Europe,Europe,Developed economies,published_unit,6773201.0,51200118921.335686
 SSD,SSD,SSD,728,South Sudan,True,True,1,SSD,South Sudan,South Sudan,South Sudan,Africa,Northern Africa,Africa,Africa,LDCs,published_unit,11483374.0,
 STP,STP,STP,678,Sao Tome and Principe,True,True,1,STP,Sao Tome and Principe,Sao Tome and Principe,Sao Tome and Principe,Africa,Western and Central Africa,Africa,Africa,SIDS,published_unit,230871.0,315725838.98856896
-SUR,SUR,SUR,740,Suriname,True,True,1,SUR,Suriname,Suriname,Suriname,South America,,Americas,Americas,SIDS,published_unit,628886.0,4505628350.6704035
+SUR,SUR,SUR,740,Suriname,True,True,1,SUR,Suriname,Suriname,Suriname,South America,,Americas,Americas,SIDS,published_unit,628886.0,4505628350.670404
 SVK,SVK,SVK,703,Slovakia,True,True,1,SVK,Slovakia,Slovakia,Slovakia,Europe,,Europe,Europe,Developed economies,published_unit,5518055.0,104288234772.80817
 SVN,SVN,SVN,705,Slovenia,True,True,1,SVN,Slovenia,Slovenia,Slovenia,Europe,,Europe,Europe,Developed economies,published_unit,2118396.0,54387934678.43866
 SWE,SWE,SWE,752,Sweden,True,True,1,SWE,Sweden,Sweden,Sweden,Europe,,Europe,Europe,Developed economies,published_unit,10551494.0,585008905028.7357
 SWZ,SWZ,SWZ,748,Eswatini,True,True,1,SWZ,Eswatini,Swaziland,Swaziland,Africa,Eastern and Southern Africa,Africa,Africa,Developing economies,published_unit,1230506.0,5055738006.206263
 SXM,SXM,SXM,534,Sint Maarten (Dutch part),True,True,1,SXM,Sint Maarten (Dutch part),Sint-Maarten,Netherlands,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,42749.0,1408101898.58837
-SYC,SYC,SYC,690,Seychelles,True,True,1,SYC,Seychelles,Seychelles,Seychelles,Africa,Eastern and Southern Africa,Africa,Africa,SIDS,published_unit,127951.0,2002037445.9106932
+SYC,SYC,SYC,690,Seychelles,True,True,1,SYC,Seychelles,Seychelles,Seychelles,Africa,Eastern and Southern Africa,Africa,Africa,SIDS,published_unit,127951.0,2002037445.9106927
 SYR,SYR,SYR,760,Syrian Arab Republic,True,True,1,SYR,Syrian Arab Republic,Syria,Syria,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,23594623.0,15674500383.098156
 TCA,TCA,TCA,796,Turks and Caicos Islands,True,True,1,TCA,Turks and Caicos Islands,Turks and Caicos Islands,United Kingdom,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,46198.0,939974780.1068252
 TCD,TCD,TCD,148,Chad,True,True,1,TCD,Chad,Chad,Chad,Africa,Western and Central Africa,Africa,Africa,LDCs,published_unit,19319064.0,10957423661.064392
@@ -233,7 +233,7 @@ THA,THA,THA,764,Thailand,True,True,1,THA,Thailand,Thailand,Thailand,Asia,South a
 TJK,TJK,TJK,762,Tajikistan,True,True,1,TJK,Tajikistan,Tajikistan,Tajikistan,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,10389799.0,14619564549.61737
 TKL,TKL,TKL,772,Tokelau,True,True,1,TKL,Tokelau,Tokelau,New Zealand,Oceania,,Oceania,Oceania,Developing economies,published_unit,2397.0,
 TKM,TKM,TKM,795,Turkmenistan,True,True,1,TKM,Turkmenistan,Turkmenistan,Turkmenistan,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,7364438.0,58034964683.20005
-TLS,TLS,TLS,626,Timor-Leste,True,True,2,TL-OE;TLS,Timor-Leste,East Timor,East Timor,Asia,South and Southeast Asia,Asia,Asia,SIDS,published_unit,1384286.0,1851106829.1772978
+TLS,TLS,TLS,626,Timor-Leste,True,True,2,TL-OE;TLS,Timor-Leste,East Timor,East Timor,Asia,South and Southeast Asia,Asia,Asia,SIDS,published_unit,1384286.0,1851106829.1772976
 TON,TON,TON,776,Tonga,True,True,1,TON,Tonga,Tonga,Tonga,Oceania,,Oceania,Oceania,SIDS,published_unit,104597.0,465555896.912722
 TTO,TTO,TTO,780,Trinidad and Tobago,True,True,1,TTO,Trinidad and Tobago,Trinidad and Tobago,Trinidad and Tobago,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,1502932.0,22128014027.032578
 TUN,TUN,TUN,788,Tunisia,True,True,1,TUN,Tunisia,Tunisia,Tunisia,Africa,Northern Africa,Africa,Africa,Developing economies,published_unit,12200431.0,48611794724.78902
@@ -250,9 +250,9 @@ UMI-4,UMI-4,,,Palmyra Atoll,False,True,1,UMI-4,,Palmyra Atoll,United States,,,Oc
 UMI-5,UMI-5,,,Wake Island,False,True,1,UMI-5,,Wake Island,United States,,,Oceania,Oceania,Developed economies,published_unit,,
 URY,URY,URY,858,Uruguay,True,True,1,URY,Uruguay,Uruguay,Uruguay,South America,,Americas,Americas,Developing economies,published_unit,3388081.0,61988013788.33545
 USA,USA,USA,840,United States of America,True,True,3,US-AK;US-HI;USA,United States of America,United States,United States,North and Central America,North America,Americas,Americas,Developed economies,published_unit,343477335.0,21776284673936.2
-UZB,UZB,UZB,860,Uzbekistan,True,True,1,UZB,Uzbekistan,Uzbekistan,Uzbekistan,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,35652307.0,131234217776.52875
+UZB,UZB,UZB,860,Uzbekistan,True,True,1,UZB,Uzbekistan,Uzbekistan,Uzbekistan,Asia,Western and Central Asia,Asia,Asia,Developing economies,published_unit,35652307.0,131234217776.52876
 VAT,VAT,VAT,336,Holy See,True,True,1,VAT,Holy See,Vatican City,Vatican City,Europe,,Europe,Europe,Developed economies,researcher_convention,496.0,
-VCT,VCT,VCT,670,Saint Vincent and the Grenadines,True,True,1,VCT,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,101323.0,950988378.2629379
+VCT,VCT,VCT,670,Saint Vincent and the Grenadines,True,True,1,VCT,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,101323.0,950988378.262938
 VEN,VEN,VEN,862,Venezuela (Bolivarian Republic of),True,True,1,VEN,Venezuela (Bolivarian Republic of),Venezuela,Venezuela,South America,,Americas,Americas,Developing economies,published_unit,28300854.0,
 VGB,VGB,VGB,92,British Virgin Islands,True,True,1,VGB,British Virgin Islands,British Virgin Islands,United Kingdom,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,38985.0,
 VIR,VIR,VIR,850,United States Virgin Islands,True,True,1,VIR,United States Virgin Islands,United States Virgin Islands,United States,North and Central America,Caribbean,Caribbean,Caribbean,SIDS,published_unit,85701.0,3800802294.557097

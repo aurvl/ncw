@@ -7,7 +7,7 @@ SJM,boreal,1.0,gez_land,0.0,,1.0
 CCK,tropical,1.0,gez_land,0.0,,1.0
 GRL,boreal,1.0,gez_land,0.0,,1.0
 ATF,boreal,0.9965486225010262,gez_land,0.0,,0.9965486225010262
-ATF,tropical,0.0034513774989738365,gez_land,0.0,,0.0034513774989738365
+ATF,tropical,0.0034513774989738,gez_land,0.0,,0.0034513774989738
 NOR,subtropical,0.0,,0.0,fra_reported,0.0
 NOR,boreal,0.93,fra_reported,0.93,fra_reported,0.0
 NLD,tropical,0.0,,0.0,fra_reported,0.0
@@ -508,7 +508,7 @@ CHE,tropical,0.0,,0.0,fra_reported,0.0
 CHE,temperate,1.0,fra_reported,1.0,fra_reported,0.0
 CHE,subtropical,0.0,,0.0,fra_reported,0.0
 CHE,boreal,0.0,,0.0,fra_reported,0.0
-BRA,tropical,0.9790000000000001,fra_reported,0.9790000000000001,fra_reported,0.0
+BRA,tropical,0.979,fra_reported,0.979,fra_reported,0.0
 BRB,boreal,0.0,,0.0,fra_reported,0.0
 BRB,subtropical,0.0,,0.0,fra_reported,0.0
 BRB,temperate,0.0,,0.0,fra_reported,0.0
@@ -830,7 +830,7 @@ GUY,subtropical,0.0,,0.0,fra_reported,0.0
 GUM,tropical,1.0,fra_reported,1.0,fra_reported,0.0
 ECU,boreal,0.0,,0.0,fra_reported,0.0
 FRA,temperate,1.0,fra_reported,1.0,fra_reported,0.0
-FIN,temperate,0.026000000000000002,fra_reported,0.026000000000000002,fra_reported,0.0
+FIN,temperate,0.026,fra_reported,0.026,fra_reported,0.0
 FIN,tropical,0.0,,0.0,fra_reported,0.0
 FJI,boreal,0.0,,0.0,fra_reported,0.0
 FJI,subtropical,0.0,,0.0,fra_reported,0.0
@@ -857,7 +857,7 @@ GAB,subtropical,0.0,,0.0,fra_reported,0.0
 GAB,temperate,0.0,,0.0,fra_reported,0.0
 GAB,tropical,1.0,fra_reported,1.0,fra_reported,0.0
 FIN,subtropical,0.0,,0.0,fra_reported,0.0
-FIN,boreal,0.9740000000000001,fra_reported,0.9740000000000001,fra_reported,0.0
+FIN,boreal,0.974,fra_reported,0.974,fra_reported,0.0
 ETH,tropical,1.0,fra_reported,1.0,fra_reported,0.0
 ETH,temperate,0.0,,0.0,fra_reported,0.0
 ECU,subtropical,0.0,,0.0,fra_reported,0.0
