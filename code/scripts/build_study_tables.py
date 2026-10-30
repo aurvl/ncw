@@ -37,9 +37,17 @@ def summarize(values: np.ndarray) -> dict[str, float]:
     if finite.size == 0:
         return {stat: np.nan for stat in STATS}
     percentiles = np.percentile(finite, [5, 50, 95])
+    # Avoid a tiny positive SD from floating-point reduction when every draw is
+    # exactly the same; a deterministic component has zero draw dispersion.
+    if finite.size < 2:
+        sd = np.nan
+    elif np.all(finite == finite[0]):
+        sd = 0.0
+    else:
+        sd = float(np.std(finite, ddof=1))
     return {
         "mean": float(np.mean(finite)),
-        "sd": float(np.std(finite, ddof=1)) if finite.size > 1 else 0.0,
+        "sd": sd,
         "p05": float(percentiles[0]),
         "p50": float(percentiles[1]),
         "p95": float(percentiles[2]),

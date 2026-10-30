@@ -14,4 +14,4 @@ results/
 
 Run `python code/scripts/main.py` from the repository root to rebuild the accounts, analyses, checks, and machine-readable manuscript tables. Notebook 09 runs separately to preview the tables and create `tables/manuscript/Manuscript_tables.xlsx`; Notebook 08 runs separately to create manuscript figure files. The pipeline does not store its intermediate accounts or diagnostics in this folder.
 
-Units and calculation scope are described in [`../docs/METHODS.md`](../docs/METHODS.md) and [`../docs/DATA_SOURCES.md`](../docs/DATA_SOURCES.md).
+Units and calculation scope are described in [`../docs/PIPELINE.md`](../docs/PIPELINE.md) and [`../docs/DATA_SOURCES.md`](../docs/DATA_SOURCES.md).

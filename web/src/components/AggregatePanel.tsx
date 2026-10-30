@@ -23,7 +23,7 @@ const SECTIONS: { key: string; tone: string; items: Item[] }[] = [
     { label: 'forestArea', field: 'forest_area_2025_ha', fmt: 'ha', counted: true },
   ] },
   { key: 'blue', tone: 'blue', items: [
-    { label: 'mangroveArea', field: 'mangrove_area_gmw_2025_ha', fmt: 'ha', counted: true },
+    { label: 'mangroveArea', field: 'mangrove_area_selected_ha', fmt: 'ha', counted: true },
   ] },
   { key: 'economy', tone: 'neutral', items: [
     { label: 'medianGcwGdp', field: 'median_gcw_gdp_2024_pct', fmt: 'pct' },

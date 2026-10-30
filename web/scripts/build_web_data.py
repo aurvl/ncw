@@ -1,24 +1,36 @@
 """Build the static data files used by the web explorer.
 
+Called at the end of code/scripts/main.py (skip with --skip-web) and runnable on its own.
 Inputs are repository outputs only (no external data):
-- results/validation/country_level_results_master.csv  (unit-level accounts)
+- data/derived/validation/country_level_results_master.csv  (unit-level accounts)
 - results/tables/manuscript/Supplementary_country_level_accounts_2024.csv  (GCW/GDP 2024)
 - results/tables/manuscript/Table1_global_carbon_wealth.csv  (global totals)
+- results/tables/01_bcw_hilmi_updated.csv  (BCW source records and their accounting unit)
+- results/tables/05_restoration_costs_by_entity.csv, 06_restoration_supply_curves.csv  (forest restoration)
 - data/raw/geospatial/boundaries/ne_10m_admin_0_map_units.zip  (land polygons)
 - data/raw/geospatial/boundaries/EEZ_land_union_v4_202410.shp  (EEZ polygons)
 
-Outputs, written to web/public/data/:
-- units.json   one record per accounting unit; values are copied from the current master,
-               plus bcw_gdp_2024_pct (BCW / GDP 2024)
-- global.json  Table 1 totals
-- aggregates.json  totals by region and economic group, checked against the paper tables
-- land.geojson, eez.geojson  simplified geometries keyed by unit code
+The accounts do not share one entity list. GCW and NCW use the 266 accounting units, drawn on
+land polygons. BCW starts from the 296 source records of Hilmi et al., each counted in one
+accounting unit (e.g. Trindade in Brazil), so the EEZ geometry is keyed by source record and
+carries its unit. Forest restoration is national (ISO3) and only covers countries with inputs.
 
-Run from the repository root:  python web/scripts/build_web_data.py
+Outputs, written to web/public/data/:
+- units.json        one record per accounting unit, copied from the master, plus bcw_gdp_2024_pct
+- global.json       Table 1 totals
+- aggregates.json   totals by region and economic group, checked against the paper tables
+- bcw_sources.json  BCW source records: code, territory, role and accounting unit
+- restoration.json  forest-restoration results by unit for the soil scenarios shown on the site
+- curves/<ISO3>.json  restoration supply and effective-cost curves, loaded when a card opens
+- land.geojson, eez.geojson  simplified geometries (rebuilt only when missing or with --geometry)
+
+Run from the repository root:  python web/scripts/build_web_data.py [--geometry]
 """
 
+import argparse
 import json
 import math
+import shutil
 from pathlib import Path
 
 import geopandas as gpd
@@ -29,6 +41,11 @@ from shapely.geometry import mapping
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "web" / "public" / "data"
 BOUNDARIES = ROOT / "data" / "raw" / "geospatial" / "boundaries"
+TABLES = ROOT / "results" / "tables"
+MASTER = ROOT / "data" / "derived" / "validation" / "country_level_results_master.csv"
+
+# Soil scenarios offered by the restoration switch on the site; the first is the default.
+SOIL_SCENARIOS = ["busch_reference", "zero_soil_change"]
 
 # Same Natural Earth to study-unit aliases as notebook 08.
 NE_TO_UNIT = {"SDS": "SSD", "SAH": "ESH", "PSX": "PSE", "HKG": "CHN", "MAC": "CHN", "TWN": "CHN",
@@ -36,10 +53,9 @@ NE_TO_UNIT = {"SDS": "SSD", "SAH": "ESH", "PSX": "PSE", "HKG": "CHN", "MAC": "CH
 
 TEXT_FIELDS = [
     "UNIT_CODE", "name", "continent", "region", "groups", "sovereign", "unit_class",
-    "overlap_status", "busch_scenario_status", "emissions_2024_match_status", "mangrove_area_source",
+    "overlap_status", "emissions_2024_match_status", "mangrove_area_source",
 ]
-BOOL_FIELDS = ["has_gcw", "has_bcw", "desk_study", "reported_deforestation",
-               "busch_curve_available"]
+BOOL_FIELDS = ["has_gcw", "has_bcw", "desk_study", "reported_deforestation"]
 NUMERIC_FIELDS = [
     # Wealth accounts (US$2015 per year)
     "ncw_usd2015_yr_mean", "ncw_usd2015_yr_p05", "ncw_usd2015_yr_p95",
@@ -49,7 +65,6 @@ NUMERIC_FIELDS = [
     # Forest account
     "uptake_tco2_yr_mean", "uptake_tco2_yr_p05", "uptake_tco2_yr_p95",
     "fra_total_forest_area_2025_ha", "fra_primary_forest_2025_ha", "fra_planted_forest_2025_ha",
-    "fra_other_wooded_land_2025_ha",
     "forest_area_allocated_tropical_ha", "forest_area_allocated_subtropical_ha",
     "forest_area_allocated_temperate_ha", "forest_area_allocated_boreal_ha",
     "forest_rate_tropical_tC_ha_yr", "forest_rate_subtropical_tC_ha_yr",
@@ -73,6 +88,13 @@ NUMERIC_FIELDS = [
     "our_2pct_gcw_allocation_usd2015_yr",
 ]
 
+RESTORATION_FIELDS = [
+    "restoration_status", "restoration_target_discounted_30yr_tco2", "available_discounted_30yr_tco2",
+    "target_coverage_pct", "restoration_marginal_cost_usd2015_tco2", "restoration_cost_net_pv_usd2015",
+    "restoration_cost_net_annual_usd2015", "restoration_cost_positive_annual_usd2015",
+    "restoration_cost_uniform_annual_usd2015", "nr_soil_rate_tC_ha_yr", "plantation_soil_rate_tC_ha_yr",
+]
+
 
 def clean(value):
     if value is None or (isinstance(value, float) and math.isnan(value)):
@@ -80,13 +102,18 @@ def clean(value):
     return value
 
 
+def rounded(value):
+    value = clean(value)
+    return float(f"{value:.6g}") if isinstance(value, float) else value
+
+
 def build_units():
-    master = pd.read_csv(ROOT / "results/validation/country_level_results_master.csv", low_memory=False)
-    accounts = pd.read_csv(ROOT / "results/tables/manuscript/Supplementary_country_level_accounts_2024.csv",
-                           low_memory=False)
+    master = pd.read_csv(MASTER, low_memory=False)
+    accounts = pd.read_csv(TABLES / "manuscript" / "Supplementary_country_level_accounts_2024.csv", low_memory=False)
     master = master.merge(accounts[["UNIT_CODE", "gcw_gdp_2024_pct"]], on="UNIT_CODE", how="left")
-    if "fra_other_wooded_land_2025_ha" not in master.columns:
-        master["fra_other_wooded_land_2025_ha"] = np.nan
+    missing = [c for c in TEXT_FIELDS + BOOL_FIELDS + NUMERIC_FIELDS if c not in master.columns and c != "bcw_gdp_2024_pct"]
+    if missing:
+        raise ValueError(f"The master table lacks fields used by the web explorer: {missing}")
     if master["UNIT_CODE"].duplicated().any():
         raise ValueError("UNIT_CODE must be unique")
     has_account = master["has_gcw"].fillna(False).astype(bool) | master["has_bcw"].fillna(False).astype(bool)
@@ -114,7 +141,7 @@ def build_units():
 
 
 def build_global(master):
-    table1 = pd.read_csv(ROOT / "results/tables/manuscript/Table1_global_carbon_wealth.csv")
+    table1 = pd.read_csv(TABLES / "manuscript" / "Table1_global_carbon_wealth.csv")
     keys = {"Green carbon wealth": "gcw", "Blue carbon wealth": "bcw", "Natural carbon wealth": "ncw"}
     out = {}
     for row in table1.itertuples(index=False):
@@ -143,7 +170,7 @@ def build_aggregates(master):
     Supplementary_region_profiles_2024.csv. Each sum is checked against the paper table that
     reports it; counts say how many units contribute to each total.
     """
-    tables = ROOT / "results/tables/manuscript"
+    tables = TABLES / "manuscript"
     regions = pd.read_csv(tables / "Supplementary_region_profiles_2024.csv").set_index("region")
     table2 = pd.read_csv(tables / "Table2_geographic_economic_profiles.csv").set_index("group")
     finance = pd.read_csv(tables / "Supplementary_Figure4_finance_allocations_by_group.csv").set_index("group_display")
@@ -192,46 +219,133 @@ def build_aggregates(master):
     return out
 
 
-def write_geojson(frame, path, tolerance, precision=3):
+def build_bcw_sources(units):
+    """BCW source records of Hilmi et al. with the accounting unit each one is counted in."""
+    bcw = pd.read_csv(TABLES / "01_bcw_hilmi_updated.csv")
+    if bcw["iso"].duplicated().any():
+        raise ValueError("BCW source codes must be unique")
+    unknown = set(bcw["account_unit_code"]) - units
+    if unknown:
+        raise ValueError(f"BCW source records point to unknown units: {sorted(unknown)}")
+    return [{"code": row.iso, "unit": row.account_unit_code, "role": row.mapping_role,
+             "name": clean(row.country_name), "territory": clean(row.territory1)}
+            for row in bcw.itertuples(index=False)]
+
+
+def build_restoration(units):
+    """Restoration results by unit and soil scenario, plus one curve file per country."""
+    costs = pd.read_csv(TABLES / "05_restoration_costs_by_entity.csv")
+    costs = costs.loc[costs["soil_scenario"].isin(SOIL_SCENARIOS)]
+    if costs.duplicated(["unit_code", "soil_scenario"]).any() or not set(costs["unit_code"]) <= units:
+        raise ValueError("Restoration costs must hold one row per known unit and soil scenario")
+    results = {}
+    for row in costs.itertuples(index=False):
+        # Units without a restoration target have no values; missing fields are left out.
+        record = {f: rounded(getattr(row, f)) for f in RESTORATION_FIELDS}
+        record = {f: v for f, v in record.items() if v is not None}
+        if record:
+            results.setdefault(row.unit_code, {})[row.soil_scenario] = record
+
+    curves = pd.read_csv(TABLES / "06_restoration_supply_curves.csv")
+    curves = curves.loc[curves["soil_scenario"].isin(SOIL_SCENARIOS)]
+    folder = OUT / "curves"
+    shutil.rmtree(folder, ignore_errors=True)
+    folder.mkdir(parents=True)
+    price = {"price_supply": "price_usd2015_per_tco2", "effective_cost": "marginal_effective_cost_usd2015_per_tco2"}
+    with_curves = []
+    for iso3, rows in curves.groupby("iso3"):
+        if iso3 not in units:
+            raise ValueError(f"Restoration curve for unknown unit {iso3}")
+        data = {}
+        for (scenario, kind), part in rows.groupby(["soil_scenario", "curve_type"]):
+            part = part.sort_values("quantity_cumulative_discounted_30yr_tco2")
+            # Points are [cumulative discounted 30-year tCO2, US$2015 per tCO2].
+            data.setdefault(scenario, {})[kind] = [[float(f"{q:.5g}"), float(f"{p:.5g}")] for q, p in
+                                                   zip(part["quantity_cumulative_discounted_30yr_tco2"], part[price[kind]])]
+        (folder / f"{iso3}.json").write_text(json.dumps(data, separators=(",", ":")), encoding="utf-8")
+        with_curves.append(iso3)
+    return {"scenarios": SOIL_SCENARIOS, "units": results, "curves": sorted(with_curves)}
+
+
+def write_geojson(frame, path, tolerance, precision=3, props=("code",)):
     frame = frame.copy()
     frame["geometry"] = frame.geometry.make_valid().simplify(tolerance, preserve_topology=True)
     frame = frame.loc[~frame.geometry.is_empty]
     features = []
-    for code, geom in zip(frame["code"], frame.geometry):
-        geo = json.loads(json.dumps(mapping(geom)), parse_float=lambda x: round(float(x), precision))
-        features.append({"type": "Feature", "properties": {"code": code}, "geometry": geo})
+    for row in frame.itertuples(index=False):
+        geo = json.loads(json.dumps(mapping(row.geometry)), parse_float=lambda x: round(float(x), precision))
+        features.append({"type": "Feature", "properties": {p: getattr(row, p) for p in props}, "geometry": geo})
     path.write_text(json.dumps({"type": "FeatureCollection", "features": features}, separators=(",", ":")),
                     encoding="utf-8")
     return path.stat().st_size / 1e6
 
 
-def build_geometries(units):
+def eez_source_code(row, codes, by_name, by_territory):
+    """BCW source record of one EEZ polygon, following how Hilmi et al. built their records.
+
+    Multi-party overlapping claims and joint regimes are pooled records; a named disputed
+    territory (Falklands, Western Sahara, Kuril Islands...) is its own record; parts without
+    an ISO code (Trindade, Galapagos, Hawaii...) are matched by name.
+    """
+    if row.POL_TYPE == "Joint regime (EEZ)":
+        return "BCW-JR"
+    if str(row.UNION).startswith("Overlapping claim"):
+        return "BCW-OC"
+    if row.ISO_TER1 in codes:
+        return row.ISO_TER1
+    return by_name.get(row.UNION) or by_territory.get(row.TERRITORY1)
+
+
+def build_geometries(units, sources):
     land = gpd.read_file("/vsizip/" + (BOUNDARIES / "ne_10m_admin_0_map_units.zip").as_posix()
                          + "/ne_10m_admin_0_map_units.shp")
     land["code"] = [gu if gu in units else iso if iso in units else NE_TO_UNIT.get(adm, adm)
                     for gu, iso, adm in zip(land["GU_A3"], land["ISO_A3"], land["ADM0_A3"])]
     land = land.loc[land["code"] != "ATA"].dissolve("code", as_index=False)[["code", "geometry"]].to_crs("EPSG:4326")
+
     eez = gpd.read_file(BOUNDARIES / "EEZ_land_union_v4_202410.shp")
     eez = eez.set_crs("EPSG:4326") if eez.crs is None else eez.to_crs("EPSG:4326")
-    eez = eez.rename(columns={"ISO_TER1": "code"})
-    eez = eez.loc[eez["code"].isin(units)].dissolve("code", as_index=False)[["code", "geometry"]]
+    codes = {s["code"] for s in sources}
+    by_name = {s["name"]: s["code"] for s in sources if s["name"]}
+    territories = pd.Series([s["territory"] for s in sources if s["territory"]]).value_counts()
+    by_territory = {s["territory"]: s["code"] for s in sources if s["territory"] and territories[s["territory"]] == 1}
+    eez["code"] = [eez_source_code(r, codes, by_name, by_territory) for r in eez.itertuples(index=False)]
+    eez = eez.loc[eez["code"].notna()].dissolve("code", as_index=False)[["code", "geometry"]]
+    eez["unit"] = eez["code"].map({s["code"]: s["unit"] for s in sources})
     return (write_geojson(land, OUT / "land.geojson", 0.02),
-            write_geojson(eez, OUT / "eez.geojson", 0.05, precision=2),
-            sorted(set(land["code"]) & units), sorted(set(eez["code"])))
+            write_geojson(eez, OUT / "eez.geojson", 0.05, precision=2, props=("code", "unit")))
+
+
+def geometry_codes(path):
+    return {f["properties"]["code"] for f in json.loads(path.read_text(encoding="utf-8"))["features"]}
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--geometry", action="store_true", help="rebuild land.geojson and eez.geojson from the raw boundaries")
+    args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     master, records = build_units()
     units = {r["UNIT_CODE"] for r in records}
+    sources = build_bcw_sources(units)
+    restoration = build_restoration(units)
     (OUT / "units.json").write_text(json.dumps(records, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")
     (OUT / "global.json").write_text(json.dumps(build_global(master), indent=1), encoding="utf-8")
     (OUT / "aggregates.json").write_text(json.dumps(build_aggregates(master), indent=1), encoding="utf-8")
-    land_mb, eez_mb, land_codes, eez_codes = build_geometries(units)
+    (OUT / "bcw_sources.json").write_text(json.dumps(sources, separators=(",", ":"), ensure_ascii=False), encoding="utf-8")
+    (OUT / "restoration.json").write_text(json.dumps(restoration, separators=(",", ":")), encoding="utf-8")
+
+    land_path, eez_path = OUT / "land.geojson", OUT / "eez.geojson"
+    # Geometries change only with the raw boundaries; an EEZ file still keyed by unit is rebuilt.
+    stale_eez = eez_path.is_file() and "unit" not in json.loads(eez_path.read_text(encoding="utf-8"))["features"][0]["properties"]
+    if args.geometry or not land_path.is_file() or not eez_path.is_file() or stale_eez:
+        land_mb, eez_mb = build_geometries(units, sources)
+        print(f"land.geojson {land_mb:.1f} MB | eez.geojson {eez_mb:.1f} MB")
+    print(f"units.json: {len(records)} units | bcw_sources.json: {len(sources)} records | "
+          f"restoration curves: {len(restoration['curves'])} countries")
     gcw_units = {r["UNIT_CODE"] for r in records if r["has_gcw"]}
-    print(f"units.json: {len(records)} units | land.geojson {land_mb:.1f} MB | eez.geojson {eez_mb:.1f} MB")
-    print(f"GCW units without land polygon: {sorted(gcw_units - set(land_codes))}")
-    print(f"BCW units without EEZ polygon: {sorted({r['UNIT_CODE'] for r in records if r['has_bcw']} - set(eez_codes))}")
+    print(f"GCW units without land polygon: {sorted(gcw_units - geometry_codes(land_path))}")
+    print(f"BCW source records without EEZ polygon: {sorted({s['code'] for s in sources} - geometry_codes(eez_path))}")
 
 
 if __name__ == "__main__":

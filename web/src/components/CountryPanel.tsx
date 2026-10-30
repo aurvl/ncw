@@ -1,12 +1,14 @@
 import { motion } from 'motion/react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { Dataset } from '../lib/data'
-import { BIOME_COLORS, BIOMES, SECTIONS, type Field } from '../lib/fields'
+import { sourceLabel, type Dataset } from '../lib/data'
+import { BIOME_COLORS, BIOMES, restorationFields, SECTIONS, type Field } from '../lib/fields'
 import { count, hectares, km2, money, pct, plain, range, tonnes } from '../lib/format'
-import type { Lang, Unit } from '../lib/types'
+import type { Lang, Soil, Unit } from '../lib/types'
+import RestorationCurve from './RestorationCurve'
+import SoilSwitch from './SoilSwitch'
 
-type Props = { data: Dataset; code: string; onClose: () => void }
+type Props = { data: Dataset; code: string; soil: Soil; onSoil: (s: Soil) => void; onClose: () => void }
 
 function useFormat() {
   const { t, i18n } = useTranslation()
@@ -22,6 +24,8 @@ function useFormat() {
     switch (field.fmt) {
       case 'moneyYr': return money(v, lang) + perYear
       case 'money': return money(v, lang)
+      case 'moneyPerT': return money(v, lang) + ' / tCO₂'
+      case 'tcHaYr': return t('panel.rate', { rate: plain(v, lang, 3) })
       case 'moneyPerCapita': return money(v, lang)
       case 'tco2Yr': return tonnes(v, lang, 'CO2') + perYear
       case 'tco2': return tonnes(v, lang, 'CO2')
@@ -50,7 +54,7 @@ function Row({ unit, field, data }: { unit: Unit; field: Field; data: Dataset })
   const rank = field.rank ? data.ranks[field.rank][unit.UNIT_CODE] : undefined
   return (
     <div className="row">
-      <dt>{t(`panel.fields.${field.key}`)}</dt>
+      <dt>{t(`panel.fields.${field.label ?? field.key}`)}</dt>
       <dd>
         {value === null ? <span className="nodata">{t('panel.noData')}</span> : <span className="value">{value}</span>}
         {value !== null && interval && <span className="range">{interval}</span>}
@@ -141,7 +145,38 @@ function BlueEcosystems({ unit }: { unit: Unit }) {
   return <Composition title={t('panel.blueSplit')} parts={parts} />
 }
 
-export default function CountryPanel({ data, code, onClose }: Props) {
+// BCW source records counted in this unit when there is more than one (e.g. Brazil and Trindade).
+function BcwSources({ data, code }: { data: Dataset; code: string }) {
+  const { t } = useTranslation()
+  const codes = data.eezByUnit[code] ?? []
+  if (codes.length < 2) return null
+  // The unit's own or main record first, then its parts.
+  const order = (c: string) => (data.sources[c]?.role === 'part' ? 1 : 0)
+  const names = [...codes].sort((a, b) => order(a) - order(b)).map((c) => sourceLabel(data, c))
+  return <p className="muted small">{t('panel.bcwSources', { names: names.join(', ') })}</p>
+}
+
+// Forest restoration for the chosen soil scenario: target, supply, costs and curves.
+function RestorationSection({ data, unit, soil, onSoil }: { data: Dataset; unit: Unit; soil: Soil; onSoil: (s: Soil) => void }) {
+  const { t } = useTranslation()
+  const status = unit[`restoration_status@${soil}`]
+  const hasCurve = data.restoration.curves.includes(unit.UNIT_CODE)
+  const num = (k: string) => (typeof unit[`${k}@${soil}`] === 'number' ? (unit[`${k}@${soil}`] as number) : null)
+  return (
+    <>
+      <SoilSwitch soil={soil} onChange={onSoil} />
+      {status
+        ? <dl>{restorationFields(soil).map((f) => <Row key={f.key} unit={unit} field={f} data={data} />)}</dl>
+        : <p className="muted small">{t('status.no_restoration_target')}</p>}
+      {hasCurve && (
+        <RestorationCurve code={unit.UNIT_CODE} soil={soil} target={num('restoration_target_discounted_30yr_tco2')}
+                          marginal={num('restoration_marginal_cost_usd2015_tco2')} />
+      )}
+    </>
+  )
+}
+
+export default function CountryPanel({ data, code, soil, onSoil, onClose }: Props) {
   const { t } = useTranslation()
   const unit = data.units[code]
   useEffect(() => {
@@ -168,12 +203,15 @@ export default function CountryPanel({ data, code, onClose }: Props) {
       </header>
       <div className="panel-body">
         <p className="muted small">{t('panel.valuesNote')}</p>
-        {SECTIONS.map((s, i) => (
+        {[...SECTIONS.slice(0, -2), { key: 'restoration', tone: 'restoration', fields: [] }, ...SECTIONS.slice(-2)].map((s, i) => (
           <motion.section key={s.key} className="panel-section" data-tone={s.tone}
                           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 + i * 0.05 }}>
             <h3>{t(`panel.sections.${s.key}`)}</h3>
             {s.chart === 'wealthSplit' && <WealthSplit unit={unit} />}
-            <dl>{s.fields.map((f) => <Row key={f.key} unit={unit} field={f} data={data} />)}</dl>
+            {s.key === 'blue' && <BcwSources data={data} code={code} />}
+            {s.key === 'restoration'
+              ? <RestorationSection data={data} unit={unit} soil={soil} onSoil={onSoil} />
+              : <dl>{s.fields.map((f) => <Row key={f.key} unit={unit} field={f} data={data} />)}</dl>}
             {s.chart === 'biomes' && <Biomes unit={unit} />}
             {s.chart === 'blueEcosystems' && <BlueEcosystems unit={unit} />}
           </motion.section>

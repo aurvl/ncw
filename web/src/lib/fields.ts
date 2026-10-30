@@ -2,9 +2,10 @@
 // they are formatted. Values are displayed as stored; only units are scaled.
 
 export type Fmt = 'moneyYr' | 'money' | 'moneyPerCapita' | 'tco2Yr' | 'tco2' | 'tcYr' | 'ha' | 'km2' | 'pct' | 'fraction'
-  | 'ratio' | 'people' | 'bool' | 'status'
+  | 'ratio' | 'people' | 'bool' | 'status' | 'moneyPerT' | 'tcHaYr'
 
-export type Field = { key: string; fmt: Fmt; p05?: string; p95?: string; rank?: 'ncw' | 'gcw' | 'bcw' }
+// `label` is the i18n key under panel.fields when it differs from `key` (restoration fields carry a scenario suffix).
+export type Field = { key: string; fmt: Fmt; p05?: string; p95?: string; rank?: 'ncw' | 'gcw' | 'bcw'; label?: string }
 
 export type Section = { key: string; tone: string; fields: Field[]; chart?: 'wealthSplit' | 'biomes' | 'blueEcosystems' }
 
@@ -26,7 +27,6 @@ export const SECTIONS: Section[] = [
       { key: 'fra_total_forest_area_2025_ha', fmt: 'ha' },
       { key: 'fra_primary_forest_2025_ha', fmt: 'ha' },
       { key: 'fra_planted_forest_2025_ha', fmt: 'ha' },
-      { key: 'fra_other_wooded_land_2025_ha', fmt: 'ha' },
       { key: 'fra_mangroves_2025_ha', fmt: 'ha' },
       { key: 'documented_forest_mangrove_area_ha', fmt: 'ha' },
       { key: 'overlap_status', fmt: 'status' },
@@ -80,7 +80,6 @@ export const SECTIONS: Section[] = [
     key: 'finance', tone: 'amber',
     fields: [
       { key: 'our_2pct_gcw_allocation_usd2015_yr', fmt: 'moneyYr' },
-      { key: 'busch_scenario_status', fmt: 'status' },
     ],
   },
   {
@@ -94,5 +93,22 @@ export const SECTIONS: Section[] = [
     ],
   },
 ]
+
+// Forest restoration, read for the chosen soil scenario (fields stored as `<field>@<scenario>`).
+const RESTORATION_FIELDS: Omit<Field, 'label'>[] = [
+  { key: 'restoration_status', fmt: 'status' },
+  { key: 'restoration_target_discounted_30yr_tco2', fmt: 'tco2' },
+  { key: 'available_discounted_30yr_tco2', fmt: 'tco2' },
+  { key: 'target_coverage_pct', fmt: 'pct' },
+  { key: 'restoration_marginal_cost_usd2015_tco2', fmt: 'moneyPerT' },
+  { key: 'restoration_cost_net_pv_usd2015', fmt: 'money' },
+  { key: 'restoration_cost_net_annual_usd2015', fmt: 'moneyYr' },
+  { key: 'restoration_cost_positive_annual_usd2015', fmt: 'moneyYr' },
+  { key: 'restoration_cost_uniform_annual_usd2015', fmt: 'moneyYr' },
+  { key: 'nr_soil_rate_tC_ha_yr', fmt: 'tcHaYr' },
+]
+
+export const restorationFields = (soil: string): Field[] =>
+  RESTORATION_FIELDS.map((f) => ({ ...f, key: `${f.key}@${soil}`, label: f.key }))
 
 export { BIOME_COLORS, BIOMES } from './layers'

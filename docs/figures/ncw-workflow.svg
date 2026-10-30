@@ -1,81 +1,103 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1010" viewBox="0 0 1440 1010" role="img" aria-labelledby="title desc">
-  <title id="title">Natural Carbon Wealth research workflow</title>
-  <desc id="desc">Source data are harmonised into forest and marine physical accounts, valued and combined into national accounts, then used for research analyses and paper outputs.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1240" viewBox="0 0 1400 1240" role="img" aria-labelledby="title desc">
+  <title id="title">Natural carbon wealth workflow</title>
+  <desc id="desc">Forest, marine and country data are harmonised, converted into physical flows, valued with social-cost-of-carbon draws, combined into national accounts, and used in downstream analyses.</desc>
   <defs>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L10,6 L1,11 Z" fill="#527064"/></marker>
-    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#16352B" flood-opacity="0.10"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L9,5 L1,9 Z" fill="#000000"/>
+    </marker>
     <style>
-      text { font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Arial, sans-serif; fill: #18332B; }
-      .title { font-size: 34px; font-weight: 750; letter-spacing: -0.5px; }
-      .subtitle { font-size: 16px; fill: #526B61; }
-      .stage { font-size: 13px; font-weight: 700; letter-spacing: 1.4px; fill: #65796F; }
-      .card-title { font-size: 20px; font-weight: 700; }
-      .body { font-size: 15px; fill: #425B51; }
-      .small { font-size: 13px; fill: #526B61; }
-      .tag { font-size: 12px; font-weight: 700; letter-spacing: .7px; }
-      .forest { fill: #2F6F4F; }
-      .marine { fill: #177E89; }
-      .gold { fill: #A97828; }
-      .white { fill: #FFFFFF; }
-      .pale { fill: #D9E8DD; }
+      text { font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Arial, sans-serif; fill: #000000; }
+      .title { font-size: 32px; font-weight: 700; fill: #000000; }
+      .subtitle { font-size: 16px; fill: #000000; }
+      .node-title { font-size: 20px; font-weight: 650; fill: #000000; }
+      .body { font-size: 15px; fill: #000000; }
+      .note { font-size: 14px; fill: #000000; }
+      .forest-box { fill: #4CAF50; stroke: #A5D6A7; }
+      .marine-box { fill: #42A5F5; stroke: #90CAF9; }
+      .context-box { fill: #D9D9D9; stroke: #A6A6A6; }
+      .shared-box { fill: #D9D9D9; stroke: #A6A6A6; }
+      .account-box { fill: #FFFFFF; stroke: #000000; }
+      .analysis-box { fill: #D9D9D9; stroke: #A6A6A6; }
+      .out-box { fill: #D9D9D9; stroke: #A6A6A6; }
+      .edge { fill: none; stroke: #000000; stroke-width: 2.2; stroke-linecap: square; stroke-linejoin: miter; }
     </style>
   </defs>
-  <rect width="1440" height="1010" rx="8" fill="#F4F7F1"/>
-  <text x="72" y="68" class="title">From source data to national carbon wealth</text>
-  <text x="72" y="98" class="subtitle">A reproducible workflow for forest and marine accounts, valuation, and country-level analysis</text>
 
-  <text x="72" y="145" class="stage">01  SOURCE DATA</text>
-  <g filter="url(#shadow)">
-    <rect x="72" y="166" width="400" height="158" rx="6" fill="#FFFFFF" stroke="#D8E3D9"/>
-    <rect x="72" y="166" width="8" height="158" rx="2" fill="#2F6F4F"/>
-    <rect x="520" y="166" width="400" height="158" rx="6" fill="#FFFFFF" stroke="#D8E3D9"/>
-    <rect x="520" y="166" width="8" height="158" rx="2" fill="#177E89"/>
-    <rect x="968" y="166" width="400" height="158" rx="6" fill="#FFFFFF" stroke="#D8E3D9"/>
-    <rect x="968" y="166" width="8" height="158" rx="2" fill="#A97828"/>
-  </g>
-  <text x="102" y="202" class="tag forest">FOREST SOURCES</text>
-  <text x="102" y="235" class="card-title">Area and annual biomass rates</text>
-  <text x="102" y="266" class="body">FRA, FAO GEZ, JRC forest mask</text>
-  <text x="102" y="291" class="body">Gibbs/GFW pixels and Pan comparison</text>
-  <text x="550" y="202" class="tag marine">MARINE SOURCES</text>
-  <text x="550" y="235" class="card-title">Coastal and ocean components</text>
-  <text x="550" y="266" class="body">Published BCW inputs and ecosystem areas</text>
-  <text x="550" y="291" class="body">GMW 2025 mangrove spatial update</text>
-  <text x="998" y="202" class="tag gold">COUNTRY CONTEXT</text>
-  <text x="998" y="235" class="card-title">Economic and policy data</text>
-  <text x="998" y="266" class="body">Population, GDP, and emissions</text>
-  <text x="998" y="291" class="body">Deforestation and action-cost sources</text>
+  <rect width="1400" height="1240" fill="#FFFFFF"/>
+  <text x="70" y="62" class="title">Natural carbon wealth: data to analysis</text>
+  <text x="70" y="92" class="subtitle">Forest and marine carbon flows, their valuation, and country-level analyses</text>
 
-  <path d="M272 324 V402 M720 324 V402 M1168 324 V402" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <text x="72" y="389" class="stage">02  HARMONISE INPUTS</text>
-  <g filter="url(#shadow)"><rect x="72" y="408" width="1296" height="108" rx="6" fill="#E7EFE7" stroke="#C8D8CB"/></g>
-  <text x="108" y="450" class="card-title">Align source definitions, country units, and time periods</text>
-  <text x="108" y="482" class="body">Country crosswalks  •  forest area by biome  •  marine boundaries  •  matched socioeconomic and emissions series</text>
+  <!-- Source data -->
+  <rect x="70" y="140" width="370" height="140" rx="5" class="forest-box" stroke-width="1.7"/>
+  <text x="98" y="178" class="node-title">Forest data</text>
+  <text x="98" y="212" class="body">FRA forest area and loss</text>
+  <text x="98" y="238" class="body">Gibbs/GFW biomass rates</text>
+  <text x="98" y="264" class="body">FAO GEZ and JRC layers</text>
 
-  <path d="M720 516 V548 M720 548 H382 V574 M720 548 H1058 V574" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <text x="72" y="563" class="stage">03  ESTIMATE ANNUAL PHYSICAL FLOWS</text>
-  <g filter="url(#shadow)">
-    <rect x="72" y="584" width="620" height="158" rx="6" fill="#FFFFFF" stroke="#D8E3D9"/>
-    <rect x="748" y="584" width="620" height="158" rx="6" fill="#FFFFFF" stroke="#D8E3D9"/>
-  </g>
-  <text x="108" y="624" class="tag forest">FOREST ACCOUNT</text>
-  <text x="108" y="659" class="card-title">Living-biomass additions</text>
-  <text x="108" y="690" class="body">Allocated forest area × annual rate for each of four biomes</text>
-  <text x="108" y="716" class="small">Gibbs/GFW above- and below-ground living biomass</text>
-  <text x="784" y="624" class="tag marine">MARINE ACCOUNT</text>
-  <text x="784" y="659" class="card-title">Coastal and ocean carbon measures</text>
-  <text x="784" y="690" class="body">Source-specific physical measures are kept identifiable</text>
-  <text x="784" y="716" class="small">Area harmonisation and BCW components are documented separately</text>
+  <rect x="515" y="140" width="370" height="140" rx="5" class="marine-box" stroke-width="1.7"/>
+  <text x="543" y="178" class="node-title">Marine data</text>
+  <text x="543" y="212" class="body">GMW mangrove areas</text>
+  <text x="543" y="238" class="body">Seagrass and saltmarsh inputs</text>
+  <text x="543" y="264" class="body">Marine rates and carbon pump</text>
 
-  <path d="M382 742 V775 H720 M1058 742 V775 H720 V790" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <text x="72" y="775" class="stage">04  VALUE AND AGGREGATE</text>
-  <g filter="url(#shadow)"><rect x="250" y="802" width="940" height="96" rx="6" fill="#173F35"/></g>
-  <text x="292" y="843" class="card-title white">Apply GSCC draws and build country-level wealth accounts</text>
-  <text x="292" y="874" class="body pale">Green Carbon Wealth (GCW) + Blue Carbon Wealth (BCW) = Natural Carbon Wealth (NCW)</text>
+  <rect x="960" y="140" width="370" height="140" rx="5" class="context-box" stroke-width="1.7"/>
+  <text x="988" y="178" class="node-title">Country and finance data</text>
+  <text x="988" y="212" class="body">GDP, population and emissions</text>
+  <text x="988" y="238" class="body">Forest loss and social cost of carbon</text>
+  <text x="988" y="264" class="body">Restoration costs and eligibility</text>
 
-  <path d="M720 898 V925 M720 925 H390 V942 M720 925 H1050 V942" fill="none" stroke="#527064" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <rect x="72" y="944" width="620" height="50" rx="5" fill="#E8E2D3"/>
-  <rect x="748" y="944" width="620" height="50" rx="5" fill="#DDE9E4"/>
-  <text x="102" y="975" class="body" font-weight="700">Analyses: deforestation, finance, and spatial models</text>
-  <text x="778" y="975" class="body" font-weight="700">Release: country tables, paper figures, and supplement</text>
+  <!-- Harmonisation -->
+  <path d="M255 280 V318 M700 280 V318 M1145 280 V318" class="edge" marker-end="url(#arrow)"/>
+  <rect x="100" y="340" width="1200" height="100" rx="5" class="shared-box" stroke-width="1.7"/>
+  <text x="700" y="378" text-anchor="middle" class="node-title">Harmonise inputs to the study entities</text>
+  <text x="700" y="410" text-anchor="middle" class="body">Match country and territory codes · align units and periods · retain source-specific missing values</text>
+
+  <!-- Physical flows -->
+  <path d="M420 440 V478 H380 V510 M980 440 V478 H1020 V510" class="edge" marker-end="url(#arrow)"/>
+  <rect x="120" y="510" width="520" height="180" rx="5" class="forest-box" stroke-width="1.7"/>
+  <text x="154" y="552" class="node-title">Green Carbon Wealth (GCW)</text>
+  <text x="154" y="592" class="body">Forest area allocated across four biomes</text>
+  <text x="154" y="622" class="body">× the Gibbs/GFW rate for each biome</text>
+  <text x="154" y="660" class="note">Annual gross additions to living forest biomass</text>
+
+  <rect x="760" y="510" width="520" height="180" rx="5" class="marine-box" stroke-width="1.7"/>
+  <text x="794" y="552" class="node-title">Blue Carbon Wealth (BCW)</text>
+  <text x="794" y="592" class="body">Updated coastal ecosystem areas × marine rates</text>
+  <text x="794" y="622" class="body">+ the oceanic biological carbon pump</text>
+  <text x="794" y="660" class="note">Annual blue-carbon flows, by component</text>
+
+  <!-- Valuation and accounts -->
+  <path d="M380 690 V720 H700 V750 M1020 690 V720 H700 V750" class="edge" marker-end="url(#arrow)"/>
+  <rect x="240" y="750" width="920" height="145" rx="5" class="account-box" stroke-width="1.9"/>
+  <text x="700" y="793" text-anchor="middle" class="node-title">Value annual physical flows with shared GSCC draws</text>
+  <text x="700" y="831" text-anchor="middle" class="body">GCW: forest account  ·  BCW: marine account</text>
+  <text x="700" y="865" text-anchor="middle" class="node-title">Natural Carbon Wealth (NCW) = GCW + BCW</text>
+
+  <!-- Analyses -->
+  <path d="M700 895 V930 H235 V960 M700 930 H545 V960 M700 930 H855 V960 M700 930 H1165 V960" class="edge" marker-end="url(#arrow)"/>
+  <rect x="70" y="960" width="330" height="120" rx="5" class="analysis-box" stroke-width="1.6"/>
+  <text x="98" y="1002" class="node-title">Forest loss</text>
+  <text x="98" y="1034" class="body">Latest FRA loss rate</text>
+  <text x="98" y="1058" class="body">and annual capacity associated</text>
+
+  <rect x="380" y="960" width="330" height="120" rx="5" class="analysis-box" stroke-width="1.6"/>
+  <text x="408" y="1002" class="node-title">Climate finance</text>
+  <text x="408" y="1034" class="body">2% GCW allocation</text>
+  <text x="408" y="1058" class="body">and restoration cost curves</text>
+
+  <rect x="690" y="960" width="330" height="120" rx="5" class="analysis-box" stroke-width="1.6"/>
+  <text x="718" y="1002" class="node-title">Country comparisons</text>
+  <text x="718" y="1034" class="body">Emissions, incomes</text>
+  <text x="718" y="1058" class="body">and account ratios</text>
+
+  <rect x="1000" y="960" width="330" height="120" rx="5" class="analysis-box" stroke-width="1.6"/>
+  <text x="1028" y="1002" class="node-title">Spatial analysis</text>
+  <text x="1028" y="1034" class="body">Country-level relationships</text>
+  <text x="1028" y="1058" class="body">and model diagnostics</text>
+
+  <!-- Outputs -->
+  <path d="M235 1080 V1105 H700 M545 1080 V1105 M855 1080 V1105 M1165 1080 V1105 H700 V1130" class="edge" marker-end="url(#arrow)"/>
+  <rect x="240" y="1130" width="920" height="80" rx="5" class="out-box" stroke-width="1.9"/>
+  <text x="700" y="1164" text-anchor="middle" class="node-title">Tables, manuscript figures, and notebook analyses</text>
+  <text x="700" y="1192" text-anchor="middle" class="note">Machine-readable results · manuscript workbook · exploratory figures in notebooks</text>
 </svg>

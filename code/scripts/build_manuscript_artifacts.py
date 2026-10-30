@@ -1,9 +1,9 @@
 """Build the current manuscript figures and tables from canonical project outputs.
 
-The script updates the four main tables and the first three figures described in
-``docs/RESULTS_REWRITE_PLAN_2026-10-19.md``. Figure 4 is generated only after an
-author-supplied spatial-model selection file exists; competing specifications are
-never selected automatically.
+The script updates the four main tables and the first three figures from the
+canonical pipeline outputs. Figure 4 is generated only after an author-supplied
+spatial-model selection file exists; competing specifications are never selected
+automatically.
 """
 
 from __future__ import annotations

@@ -392,13 +392,13 @@ This section explains how the data of Busch et al. (2024) are used to estimate, 
 
 The calculation first processes every country-level `.dta` file in the Busch input archive, independently of FRA losses and of whether that country is included in the study's entity table. It writes country costs and supply curves for the full archive. Only after those calculations are complete are the results joined by ISO3 to study entities with a positive FRA loss, so the loss target can be compared with the modelled supply. This second step does not restrict or remove the all-country cost outputs. The published country curves are not used to select, calibrate or validate our calculations.
 
-![Forest-restoration supply curve for a fictional entity λ](courbe_offre_lambda.png)
+![Forest-restoration supply curve for a fictional entity λ](figures/courbe_offre_lambda.png)
 
 *Fictional example: at a price ceiling of 35.72 USD 2015/tCO$_2$, the first three cells are selected and offer a combined 4,100 tCO$_2$ weighted over 30 years. These values illustrate how to read the curve; they are not results.*
 
 The global forest-restoration opportunity map of Busch et al. (2024) contains cells of about 1 km in 138 low- and middle-income countries. Each cell $c$ in this map has an eligible restoration area, growth parameters, a plantation type and costs. $\mathcal C_i$ denotes the set of cells assigned to entity $i$ (country or territory). The calculation retains only cells with the required parameters that pass the eligibility criteria; deserts, xeric areas and mangroves are excluded ([Busch et al. (2024)](https://www.nature.com/articles/s41558-024-02068-1)).
 
-A fictional two-cell example walks through the calculation ([see ILLUSTRATION_COR.md](ILLUSTRATION_COR.md)).
+A fictional two-cell example walks through the calculation ([see the French worked example](ILLUSTRATION-FRSC.md)).
 
 #### 9.2.1 From tree stock to carbon per hectare
 
@@ -629,7 +629,7 @@ $$
 
 Dividing by $D_{30}$ spreads each present value across the 30 weighted years. The CPI ratio is therefore not applied a second time at this stage.
 
-For a detailed worked example, see [ILLUSTRATION_COR.md](ILLUSTRATION_COR.md).
+For a detailed worked example, see the [French worked example](ILLUSTRATION-FRSC.md).
 
 ## 10. Descriptive and spatial analyses
 
@@ -700,5 +700,7 @@ Dimensional consistency and account identities rely in particular on the followi
 These identities check dimensional consistency and account closure. They do not resolve scientific choices, including the classification of mangroves without a breakdown or the interpretation of parameters published by another study.
 
 The calculation follows this sequence: Gibbs/GFW raster data and forest mask → annual rates by biome → FRA forest areas distributed across biomes and corrected for mangrove overlap → physical flows and GCW valuation. In parallel, the selected mangrove area follows the GMW 2025/FRA 2025/area reported by Hilmi et al. (2026) hierarchy → the total blue flux is calculated directly from coastal areas, their rates and the reported BCP flux → it is valued as BCW. GCW and BCW are then added to form NCW, followed by comparisons with deforestation, emissions and GDP, and finance scenarios. Tables and figures summarize these steps and their scopes.
+
+The full run of `main.py` ends by exporting these results for the web explorer (`web/scripts/build_web_data.py`, writing `web/public/data/`; `--skip-web` leaves it unchanged). The export copies stored values and recalculates nothing; it fails if unit-level GCW or NCW no longer sum to Table 1. Each account keeps its own entities: GCW and NCW the 266 accounting units on land boundaries; BCW the 296 source records of Hilmi et al. (2026), each drawn on its own EEZ polygon and counted in one accounting unit (e.g. Trindade in Brazil); forest restoration the countries with cell inputs, for the reference and zero-soil-gain soil scenarios.
 
 Primary sources: [Gibbs et al. (2025) methods article](https://essd.copernicus.org/articles/17/1217/2025/), [FRA definition of deforestation](https://fra-data.fao.org/definitions/fra/2020/en/tad), [FAO Global Ecological Zones 2010](https://www.fao.org/4/ap861e/ap861e00.pdf), [Marine Regions EEZ-land union](https://www.marineregions.org/downloads.php), [IPCC 2006 Guidelines, Chapter 4](https://www.ipcc-nggip.iges.or.jp/public/2006gl//pdf/4_Volume4/V4_04_Ch4_Forest_Land.pdf), [FAO net forest-flux estimates (Tubiello et al., 2026)](https://essd.copernicus.org/articles/18/6799/2026/), [Gibbs/GFW dataset](https://doi.org/10.7910/DVN/V2ISRH), [GMW dataset](https://zenodo.org/records/21346457), [BLS annual CPI-U](https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexannualandsemiannual_table.htm), [Busch et al. (2024) article](https://doi.org/10.1038/s41558-024-02068-1), and [Busch cell-level input data and Stata program](https://zenodo.org/records/19239386).

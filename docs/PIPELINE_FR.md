@@ -393,13 +393,13 @@ Cette section décrit comment les données de Busch et al. (2024) servent à est
 
 Le calcul traite d’abord chaque fichier pays `.dta` de l’archive Busch, sans filtrer selon les pertes FRA ni selon la présence du pays dans la table des entités étudiées. Il produit les coûts et les courbes d’offre pour tous les fichiers de l’archive. Une fois ces calculs terminés, les résultats sont joints par code ISO3 aux entités étudiées dont la perte FRA est positive, afin de comparer leur cible à l’offre modélisée. Cette seconde étape ne restreint ni ne supprime les sorties calculées pour tous les pays de l’archive. Les courbes nationales publiées ne servent ni à sélectionner, ni à calibrer, ni à valider nos calculs.
 
-![Courbe d’offre de restauration forestière pour une entité fictive λ](courbe_offre_lambda.png)
+![Courbe d’offre de restauration forestière pour une entité fictive λ](figures/courbe_offre_lambda.png)
 
 *Exemple fictif : à un prix plafond de 35,72 USD 2015/tCO$_2$, les trois premières cellules sont retenues et offrent ensemble 4 100 tCO$_2$ pondérées sur 30 ans. Ces valeurs illustrent la lecture de la courbe; elles ne sont pas des résultats.*
 
 La carte mondiale des possibilités de restauration forestière de Busch et al. (2024) comprend des cellules d’environ 1 km dans 138 pays à revenu faible ou intermédiaire. Pour chaque cellule $c$ de cette carte sont fournis une surface admissible à la restauration, des paramètres de croissance, un type de plantation et des coûts. $\mathcal C_i$ désigne l’ensemble des cellules rattachées à l’entité $i$ (pays ou territoire). Le calcul ne retient que les cellules qui ont les paramètres nécessaires et qui passent les critères d’admissibilité; les zones désertiques ou xériques et les mangroves sont exclues ([Busch et al. (2024)](https://www.nature.com/articles/s41558-024-02068-1)).
 
-Un exemple fictif à deux cellules détaille le calcul ([voir ILLUSTRATION_COR.md](ILLUSTRATION_COR.md)).
+Un exemple fictif à deux cellules détaille le calcul ([voir l’exemple détaillé](ILLUSTRATION-FRSC.md)).
 
 #### 9.2.1 Du stock d’arbres au carbone par hectare
 
@@ -631,7 +631,7 @@ $$
 
 La division par $D_{30}$ répartit chaque valeur actualisée sur les 30 années pondérées. Le rapport CPI n’est donc pas appliqué une seconde fois à ce stade.
 
-Pour un exemple chiffré détaillé, voir [ILLUSTRATION_COR.md](ILLUSTRATION_COR.md).
+Pour un exemple chiffré détaillé, voir [l’exemple détaillé](ILLUSTRATION-FRSC.md).
 ## 10. Analyses descriptives et spatiales
 
 Les statistiques descriptives résument les valeurs nationales disponibles. La médiane partage l'échantillon en deux; la part des dix premières entités est leur somme divisée par la somme totale; le coefficient de Gini résume l'inégalité de la distribution (0 correspond à l'égalité parfaite et 1 à la concentration maximale). Le test de Kruskal-Wallis compare les rangs entre plusieurs groupes; les tests de Mann-Whitney comparent les rangs deux groupes à la fois; la correction de Holm ajuste les valeurs $p$ de plusieurs tests pour contrôler le risque de faux positifs dans la famille de comparaisons. La corrélation de rang de Spearman mesure l'association monotone entre les rangs de GCW et d'érosion relative. Ces résumés et tests sont descriptifs; ils ne démontrent pas un lien causal.
@@ -699,6 +699,8 @@ La cohérence dimensionnelle et les identités de compte reposent notamment sur 
 Ces identités vérifient la cohérence dimensionnelle et la fermeture des comptes. Elles ne tranchent pas les choix scientifiques, notamment le classement des mangroves non ventilées ou l’interprétation des paramètres publiés par une autre étude.
 
 Le calcul suit donc cette chaîne : données raster Gibbs/GFW et masque forestier → taux annuels par biome → surfaces forestières FRA corrigées et ventilées → flux physiques et valorisation du GCW; en parallèle, aire de mangrove retenue selon la hiérarchie GMW 2025/FRA 2025/aire rapportée par Hilmi et al. (2026) → calcul direct du flux bleu total avec les aires côtières, leurs taux et le BCP → valorisation BCW; enfin, addition de GCW et BCW → NCW, puis comparaisons de déforestation, d'émissions, de PIB et scénarios de financement. Les tableaux et figures résument ces étapes et leurs périmètres.
+
+L'exécution complète de `main.py` se termine par l'export de ces résultats pour l'explorateur web (`web/scripts/build_web_data.py`, qui écrit `web/public/data/` ; `--skip-web` le laisse inchangé). L'export copie les valeurs stockées sans rien recalculer ; il échoue si le GCW ou le NCW des unités ne somment plus au Tableau 1. Chaque compte garde ses propres entités : GCW et NCW les 266 unités comptables, sur les frontières terrestres ; BCW les 296 lignes sources de Hilmi et al. (2026), chacune dessinée sur son polygone de ZEE et comptée dans une unité comptable (par exemple Trindade dans le Brésil) ; la restauration forestière les pays dotés de données par cellule, pour les scénarios de sol de référence et sans gain du sol.
 
 Sources primaires : [article méthodologique Gibbs et al. (2025)](https://essd.copernicus.org/articles/17/1217/2025/), [définition FRA de la déforestation](https://fra-data.fao.org/definitions/fra/2020/en/tad), [zones écologiques mondiales FAO 2010](https://www.fao.org/4/ap861e/ap861e00.pdf), [union terre-EEZ de Marine Regions](https://www.marineregions.org/downloads.php), [lignes directrices GIEC 2006, chapitre 4](https://www.ipcc-nggip.iges.or.jp/public/2006gl//pdf/4_Volume4/V4_04_Ch4_Forest_Land.pdf), [estimation FAO des flux forestiers nets (Tubiello et al., 2026)](https://essd.copernicus.org/articles/18/6799/2026/), [jeu Gibbs/GFW](https://doi.org/10.7910/DVN/V2ISRH), [jeu GMW](https://zenodo.org/records/21346457), [CPI-U annuel du BLS](https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexannualandsemiannual_table.htm), [article Busch et al. (2024)](https://doi.org/10.1038/s41558-024-02068-1) et [données d’entrée par cellule et programme Stata Busch](https://zenodo.org/records/19239386).
 

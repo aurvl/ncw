@@ -3,19 +3,21 @@ import type { ExpressionSpecification, MapLayerMouseEvent, Map as MLMap, StyleSp
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import { useEffect, useRef, useState } from 'react'
 import { zoomFor, type Dataset } from '../lib/data'
-import { LAYERS, paintFor, type LayerKey } from '../lib/layers'
-import type { Theme } from '../lib/types'
+import { paintFor, resolveLayer, type LayerKey } from '../lib/layers'
+import type { Soil, Theme } from '../lib/types'
 
 type Props = {
   data: Dataset
   layer: LayerKey
+  soil: Soil
   theme: Theme
   interactive: boolean
   selected: string | null
   panelOpen: boolean
   focus: string[] | null
   onSelect: (code: string) => void
-  onHover: (hover: { code: string; x: number; y: number } | null) => void
+  // `code` is the accounting unit; `source` is the BCW source record under the pointer on marine layers.
+  onHover: (hover: { code: string; source?: string; x: number; y: number } | null) => void
   labels: { group: string; recentre: string; zoomIn: string; zoomOut: string }
 }
 
@@ -53,7 +55,7 @@ const fillFromState = (fallback: string) => ['coalesce', ['feature-state', 'fill
 const showWhen = (key: string) => ['case', state(key), 1, 0] as ExpressionSpecification
 const dimmed = ['case', state('dim'), 0.22, 1] as ExpressionSpecification
 
-export default function Globe({ data, layer, theme, interactive, selected, panelOpen, focus, onSelect, onHover, labels }: Props) {
+export default function Globe({ data, layer, soil, theme, interactive, selected, panelOpen, focus, onSelect, onHover, labels }: Props) {
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<MLMap | null>(null)
   const [ready, setReady] = useState(false)
@@ -104,16 +106,21 @@ export default function Globe({ data, layer, theme, interactive, selected, panel
       if (code) map.setFeatureState({ source: 'land', id: code }, { hover: true })
       hovered = code
     }
+    // EEZ polygons are BCW source records; a click or hover resolves to their accounting unit.
+    const unitOf = (e: MapLayerMouseEvent) => {
+      const p = e.features?.[0]?.properties
+      return p ? { code: (p.unit ?? p.code) as string, source: p.unit ? (p.code as string) : undefined } : null
+    }
     for (const id of ['land-fill', 'eez-fill']) {
       map.on('click', id, (e: MapLayerMouseEvent) => {
-        const code = e.features?.[0]?.properties?.code
-        if (code) callbacks.current.onSelect(code)
+        const hit = unitOf(e)
+        if (hit) callbacks.current.onSelect(hit.code)
       })
       map.on('mousemove', id, (e: MapLayerMouseEvent) => {
-        const code = e.features?.[0]?.properties?.code ?? null
-        map.getCanvas().style.cursor = code ? 'pointer' : ''
-        setHovered(code)
-        if (code) callbacks.current.onHover({ code, x: e.point.x, y: e.point.y })
+        const hit = unitOf(e)
+        map.getCanvas().style.cursor = hit ? 'pointer' : ''
+        setHovered(hit?.code ?? null)
+        if (hit) callbacks.current.onHover({ ...hit, x: e.point.x, y: e.point.y })
       })
       map.on('mouseleave', id, () => {
         map.getCanvas().style.cursor = ''
@@ -133,7 +140,7 @@ export default function Globe({ data, layer, theme, interactive, selected, panel
   useEffect(() => {
     const map = mapRef.current
     if (!map || !ready) return
-    const def = LAYERS[layer]
+    const def = resolveLayer(layer, soil)
     const marine = def.target === 'eez'
     const missing = css('--missing')
     map.setPaintProperty('ocean', 'background-color', css('--ocean'))
@@ -151,13 +158,15 @@ export default function Globe({ data, layer, theme, interactive, selected, panel
     for (const u of data.list) {
       const paint = paintFor(u, def)
       const fill = paint.kind === 'class' ? paint.color : null
-      map.setFeatureState({ source: 'land', id: u.UNIT_CODE }, { fill: marine ? null : fill })
-      if (marine) map.setFeatureState({ source: 'eez', id: u.UNIT_CODE }, { fill })
-      map.setFeatureState({ source: 'land', id: u.UNIT_CODE }, { zero: !marine && paint.kind === 'zero' })
-      map.setFeatureState({ source: 'eez', id: u.UNIT_CODE }, { zero: marine && paint.kind === 'zero' })
+      map.setFeatureState({ source: 'land', id: u.UNIT_CODE }, { fill: marine ? null : fill, zero: !marine && paint.kind === 'zero' })
+      // Every source record counted in the unit takes the unit's value.
+      for (const id of data.eezByUnit[u.UNIT_CODE] ?? []) {
+        if (marine) map.setFeatureState({ source: 'eez', id }, { fill })
+        map.setFeatureState({ source: 'eez', id }, { zero: marine && paint.kind === 'zero' })
+      }
     }
     if (map.hasImage('hatch')) map.updateImage('hatch', hatchImage(missing, css('--zero-edge')))
-  }, [data, layer, theme, ready])
+  }, [data, layer, soil, theme, ready])
 
   // Aggregate focus: units outside the selected region or group are dimmed.
   useEffect(() => {
@@ -167,7 +176,7 @@ export default function Globe({ data, layer, theme, interactive, selected, panel
     for (const u of data.list) {
       const dim = !!members && !members.has(u.UNIT_CODE)
       map.setFeatureState({ source: 'land', id: u.UNIT_CODE }, { dim })
-      map.setFeatureState({ source: 'eez', id: u.UNIT_CODE }, { dim })
+      for (const id of data.eezByUnit[u.UNIT_CODE] ?? []) map.setFeatureState({ source: 'eez', id }, { dim })
     }
   }, [focus, ready, data])
 
@@ -199,7 +208,11 @@ export default function Globe({ data, layer, theme, interactive, selected, panel
       return
     }
     hadSelection.current = true
-    for (const source of ['land', 'eez']) map.setFeatureState({ source, id: selected }, { selected: true })
+    const setSelected = (value: boolean) => {
+      map.setFeatureState({ source: 'land', id: selected }, { selected: value })
+      for (const id of data.eezByUnit[selected] ?? []) map.setFeatureState({ source: 'eez', id }, { selected: value })
+    }
+    setSelected(true)
     const b = data.bounds[selected]
     if (b) {
       const wide = window.innerWidth > 860
@@ -214,7 +227,7 @@ export default function Globe({ data, layer, theme, interactive, selected, panel
     }
     return () => {
       if (!mapRef.current) return
-      for (const source of ['land', 'eez']) map.setFeatureState({ source, id: selected }, { selected: false })
+      setSelected(false)
     }
   }, [selected, ready, data, panelOpen, interactive])
 

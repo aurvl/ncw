@@ -470,7 +470,7 @@ def write_data_dictionary(audit: dict[str, object]) -> None:
         "- `population_bcw_reference`, `gdp_2015usd_bcw_reference`, `ncw_per_capita_usd2015_bcw_reference` et `ncw_share_of_gdp_bcw_reference` viennent de la table de référence BCW; les champs WDI `_2024` sont des valeurs retenues au plus tard en 2024, avec `population_source_year` et `gdp_source_year` indiquant l’année de chaque observation.",
         "- Les champs sans valeur restent vides dans le CSV, sauf les indicateurs booléens d’appartenance au périmètre. Un zéro observé reste distinct d’une valeur manquante.",
         "",
-        "La table est un fichier analytique large, pas une table prête à publier. Les limites de définition et de couverture sont détaillées dans `docs/METHODS.md` et `docs/DATA_AUDIT.md`.",
+        "La table est un fichier analytique large, pas une table prête à publier. Les définitions et limites de couverture sont décrites dans `docs/PIPELINE.md`; les références des sources figurent dans `docs/DATA_SOURCES.md`.",
         "",
     ]
     body = [

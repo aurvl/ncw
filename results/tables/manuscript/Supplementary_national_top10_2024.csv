@@ -9,25 +9,25 @@ COD,COD,Democratic Republic of the Congo,Africa,GCW,7,COD,LDCs,266848852300.0,US
 IDN,IDN,Indonesia,Asia,GCW,8,IDN,Developing economies,183989321300.0,US$2015/yr
 IND,IND,India,Asia,GCW,9,IND,Developing economies,152516130700.0,US$2015/yr
 MEX,MEX,Mexico,Americas,GCW,10,MEX,Developing economies,152433564600.0,US$2015/yr
-USA,USA,United States of America,Americas,BCW,1,USA,Developed economies,171182497000.0,US$2015/yr
-AUS,AUS,Australia,Oceania,BCW,2,AUS,Developed economies,140470382200.0,US$2015/yr
-CHL,CHL,Chile,Americas,BCW,3,CHL,Developing economies,129476992800.0,US$2015/yr
-RUS,RUS,Russian Federation,Europe,BCW,4,RUS,Developed economies,98057083220.0,US$2015/yr
-PER,PER,Peru,Americas,BCW,5,PER,Developing economies,93017589570.0,US$2015/yr
-FRA,FRA,France,Europe,BCW,6,FRA,Developed economies,92521804650.0,US$2015/yr
-IDN,IDN,Indonesia,Asia,BCW,7,IDN,Developing economies,83257304940.0,US$2015/yr
-NZL,NZL,New Zealand,Oceania,BCW,8,NZL,Developed economies,73517062310.0,US$2015/yr
-ECU,ECU,Ecuador,Americas,BCW,9,ECU,Developing economies,72293508800.0,US$2015/yr
-IND,IND,India,Asia,BCW,10,IND,Developing economies,71979988010.0,US$2015/yr
-RUS,RUS,Russian Federation,Europe,NCW,1,RUS,Developed economies,1293529397000.0,US$2015/yr
-USA,USA,United States of America,Americas,NCW,2,USA,Developed economies,990614879800.0,US$2015/yr
-BRA,BRA,Brazil,Americas,NCW,3,BRA,Developing economies,968593038400.0,US$2015/yr
-CAN,CAN,Canada,Americas,NCW,4,CAN,Developed economies,644557526100.0,US$2015/yr
-CHN,CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",Asia,NCW,5,CHN,Developing economies,632035246400.0,US$2015/yr
-AUS,AUS,Australia,Oceania,NCW,6,AUS,Developed economies,503858342400.0,US$2015/yr
-IDN,IDN,Indonesia,Asia,NCW,7,IDN,Developing economies,267246626300.0,US$2015/yr
+USA,USA,United States of America,Americas,BCW,1,USA,Developed economies,171182503200.0,US$2015/yr
+AUS,AUS,Australia,Oceania,BCW,2,AUS,Developed economies,140470380400.0,US$2015/yr
+CHL,CHL,Chile,Americas,BCW,3,CHL,Developing economies,129476985800.0,US$2015/yr
+RUS,RUS,Russian Federation,Europe,BCW,4,RUS,Developed economies,98057082300.0,US$2015/yr
+PER,PER,Peru,Americas,BCW,5,PER,Developing economies,93017586460.0,US$2015/yr
+FRA,FRA,France,Europe,BCW,6,FRA,Developed economies,92521808180.0,US$2015/yr
+IDN,IDN,Indonesia,Asia,BCW,7,IDN,Developing economies,83257305290.0,US$2015/yr
+NZL,NZL,New Zealand,Oceania,BCW,8,NZL,Developed economies,73517062180.0,US$2015/yr
+ECU,ECU,Ecuador,Americas,BCW,9,ECU,Developing economies,72293508210.0,US$2015/yr
+IND,IND,India,Asia,BCW,10,IND,Developing economies,71979989910.0,US$2015/yr
+RUS,RUS,Russian Federation,Europe,NCW,1,RUS,Developed economies,1293529396000.0,US$2015/yr
+USA,USA,United States of America,Americas,NCW,2,USA,Developed economies,990614885900.0,US$2015/yr
+BRA,BRA,Brazil,Americas,NCW,3,BRA,Developing economies,968593037400.0,US$2015/yr
+CAN,CAN,Canada,Americas,NCW,4,CAN,Developed economies,644557525700.0,US$2015/yr
+CHN,CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",Asia,NCW,5,CHN,Developing economies,632035246300.0,US$2015/yr
+AUS,AUS,Australia,Oceania,NCW,6,AUS,Developed economies,503858340600.0,US$2015/yr
+IDN,IDN,Indonesia,Asia,NCW,7,IDN,Developing economies,267246626600.0,US$2015/yr
 COD,COD,Democratic Republic of the Congo,Africa,NCW,8,COD,LDCs,266920875400.0,US$2015/yr
-IND,IND,India,Asia,NCW,9,IND,Developing economies,224496118700.0,US$2015/yr
+IND,IND,India,Asia,NCW,9,IND,Developing economies,224496120600.0,US$2015/yr
 MEX,MEX,Mexico,Americas,NCW,10,MEX,Developing economies,223930374800.0,US$2015/yr
 CAF,CAF,Central African Republic,Africa,GCW / GDP 2024,1,CAF,LDCs,4159.183379495811,%
 SUR,SUR,Suriname,Americas,GCW / GDP 2024,2,SUR,SIDS,611.950818017072,%
@@ -79,15 +79,15 @@ PER,PER,Peru,Americas,GCW accounting balance 2024,7,PER,Developing economies,159
 BOL,BOL,Bolivia (Plurinational State of),Americas,GCW accounting balance 2024,8,BOL,Developing economies,157570857.4,tCO2/yr
 CAF,CAF,Central African Republic,Africa,GCW accounting balance 2024,9,CAF,LDCs,154106118.8,tCO2/yr
 ZMB,ZMB,Zambia,Africa,GCW accounting balance 2024,10,ZMB,LDCs,141701773.0,tCO2/yr
-BRA,BRA,Brazil,Americas,NCW accounting balance 2024,1,BRA,Developing economies,1247975333.0,tCO2/yr
-CAN,CAN,Canada,Americas,NCW accounting balance 2024,2,CAN,Developed economies,618533721.2,tCO2/yr
-RUS,RUS,Russian Federation,Europe,NCW accounting balance 2024,3,RUS,Developed economies,531112008.7,tCO2/yr
-AUS,AUS,Australia,Oceania,NCW accounting balance 2024,4,AUS,Developed economies,513701489.6,tCO2/yr
+BRA,BRA,Brazil,Americas,NCW accounting balance 2024,1,BRA,Developing economies,1247975332.0,tCO2/yr
+CAN,CAN,Canada,Americas,NCW accounting balance 2024,2,CAN,Developed economies,618533720.5,tCO2/yr
+RUS,RUS,Russian Federation,Europe,NCW accounting balance 2024,3,RUS,Developed economies,531112007.0,tCO2/yr
+AUS,AUS,Australia,Oceania,NCW accounting balance 2024,4,AUS,Developed economies,513701486.4,tCO2/yr
 COD,COD,Democratic Republic of the Congo,Africa,NCW accounting balance 2024,5,COD,LDCs,471104424.0,tCO2/yr
-PER,PER,Peru,Americas,NCW accounting balance 2024,6,PER,Developing economies,326081091.9,tCO2/yr
-CHL,CHL,Chile,Americas,NCW accounting balance 2024,7,CHL,Developing economies,246357376.5,tCO2/yr
+PER,PER,Peru,Americas,NCW accounting balance 2024,6,PER,Developing economies,326081086.4,tCO2/yr
+CHL,CHL,Chile,Americas,NCW accounting balance 2024,7,CHL,Developing economies,246357363.9,tCO2/yr
 AGO,AGO,Angola,Africa,NCW accounting balance 2024,8,AGO,LDCs,239082201.8,tCO2/yr
-PNG,PNG,Papua New Guinea,Oceania,NCW accounting balance 2024,9,PNG,SIDS,162718661.1,tCO2/yr
+PNG,PNG,Papua New Guinea,Oceania,NCW accounting balance 2024,9,PNG,SIDS,162718662.8,tCO2/yr
 BOL,BOL,Bolivia (Plurinational State of),Americas,NCW accounting balance 2024,10,BOL,Developing economies,157570857.4,tCO2/yr
 BRA,BRA,Brazil,Americas,Lost annual forest addition capacity,1,BRA,Developing economies,11265356.42,tCO2/yr
 IND,IND,India,Asia,Lost annual forest addition capacity,2,IND,Developing economies,2218649.821,tCO2/yr

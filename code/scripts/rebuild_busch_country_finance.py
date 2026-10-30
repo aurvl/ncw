@@ -39,8 +39,8 @@ from busch_stata_parameters import (
 
 REPO = Path(__file__).resolve().parents[2]
 HERE = REPO / "data/derived/busch_reconstruction"
-CACHE = REPO.parent / ".tmp/busch_08_reconstruction"
-INPUT_ZIP = CACHE / "08_input_dtas.zip"
+# Raw archive downloaded by download_busch_inputs.py; excluded from Git.
+INPUT_ZIP = REPO / "data/raw/economic/busch_2024/08_input_dtas.zip"
 INPUT_ARCHIVE_URL = "https://zenodo.org/records/19239386/files/08_input_dtas.zip?download=1"
 # Published archive integrity metadata, not model inputs.
 INPUT_ARCHIVE_MD5 = "0fb5708381b11a9d173219f55bca5e81"
@@ -626,7 +626,6 @@ def main() -> None:
             f"expected {INPUT_ARCHIVE_SIZE} bytes"
         )
     HERE.mkdir(parents=True, exist_ok=True)
-    CACHE.mkdir(parents=True, exist_ok=True)
     initial_hashes = input_hashes()
     if ALLOCATIONS.is_file():
         allocations = pd.read_csv(ALLOCATIONS)
@@ -715,7 +714,7 @@ def main() -> None:
                 raise ValueError(f"Requested country DTA files are absent from the archive: {unknown}")
             selected_iso3 = sorted(requested)
         run_complete = len(selected_iso3) == len(members)
-        with tempfile.TemporaryDirectory(prefix=f"busch_{args.label}_", dir=CACHE) as temp_name:
+        with tempfile.TemporaryDirectory(prefix=f"busch_{args.label}_", dir=HERE) as temp_name:
             staging = Path(temp_name)
             table_paths = {
                 table: staging / f"{table}.csv.partial"

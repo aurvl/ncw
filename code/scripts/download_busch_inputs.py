@@ -1,4 +1,8 @@
-"""Resume and verify the public Busch cell-level input archive in scratch space."""
+"""Download (with resume) and verify the public Busch cell-level input archive.
+
+The 12.4 GB archive is raw source data: it is stored under data/raw/economic/busch_2024/
+and excluded from Git.
+"""
 
 from __future__ import annotations
 
@@ -10,7 +14,7 @@ import requests
 
 
 URL = "https://zenodo.org/records/19239386/files/08_input_dtas.zip?download=1"
-TARGET = Path(__file__).resolve().parents[3] / ".tmp/busch_08_reconstruction/08_input_dtas.zip"
+TARGET = Path(__file__).resolve().parents[2] / "data/raw/economic/busch_2024/08_input_dtas.zip"
 EXPECTED_SIZE = 12_384_216_498
 EXPECTED_MD5 = "0fb5708381b11a9d173219f55bca5e81"
 
