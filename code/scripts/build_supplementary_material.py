@@ -118,21 +118,21 @@ def configure_document(document: Document) -> None:
 
 def build_document() -> Document:
     """Build the new supplementary material in the order used by the paper."""
-    rates = pd.read_csv(REPO / "data" / "outputs" / "gibbs_gfw" / "gfw_gibbs_biome_rates.csv")
+    rates = pd.read_csv(REPO / "data" / "derived" / "gibbs_gfw" / "gfw_gibbs_biome_rates.csv")
     rates_with_mangroves = pd.read_csv(
-        REPO / "data" / "outputs" / "gibbs_gfw" / "gfw_gibbs_biome_rates_with_mangroves.csv"
+        REPO / "data" / "derived" / "gibbs_gfw" / "gfw_gibbs_biome_rates_with_mangroves.csv"
     )[["biome", "rate_tc_ha_yr_mean"]].rename(
         columns={"rate_tc_ha_yr_mean": "rate_with_mangroves"}
     )
     rates = rates.merge(rates_with_mangroves, on="biome", validate="one_to_one")
     valuation_fractions = pd.read_csv(
-        REPO / "data" / "outputs" / "validation" / "gcw_valuation_fraction_sensitivity_world.csv"
+        REPO / "data" / "derived" / "validation" / "gcw_valuation_fraction_sensitivity_world.csv"
     )
     finance = json.loads(
-        (REPO / "data" / "outputs" / "validation" / "finance_action_cost_comparison.json").read_text(encoding="utf-8")
+        (REPO / "data" / "derived" / "validation" / "finance_action_cost_comparison.json").read_text(encoding="utf-8")
     )
     busch_status = pd.read_csv(
-        REPO / "data" / "outputs" / "validation" / "busch_action_curve_status_summary.csv"
+        REPO / "data" / "derived" / "validation" / "busch_action_curve_status_summary.csv"
     )
     busch_status_labels = {
         "no_country_curve_in_published_table": "No national curve available",
@@ -142,14 +142,14 @@ def build_document() -> Document:
         "target_within_supply_at_or_below_minus20": "At/below −$20/tCO2 (subset)",
     }
     allocation = pd.read_csv(
-        REPO / "data" / "outputs" / "validation" / "our_2pct_gcw_allocation_and_pledge.csv"
+        REPO / "data" / "derived" / "validation" / "our_2pct_gcw_allocation_and_pledge.csv"
     )
     allocation_column = "our_2pct_gcw_allocation_usd2015_yr"
     allocation_ranked = allocation.sort_values("gcw_usd2015_yr_mean", ascending=False)
     allocation_total = float(allocation[allocation_column].sum())
     top10_share = float(allocation_ranked.head(10)[allocation_column].sum() / allocation_total * 100)
     top50_share = float(allocation_ranked.head(50)[allocation_column].sum() / allocation_total * 100)
-    cell_reconstruction_dir = REPO / "data" / "outputs" / "busch_reconstruction"
+    cell_reconstruction_dir = REPO / "data" / "derived" / "busch_reconstruction"
     cell_reconstruction = json.loads(
         (cell_reconstruction_dir / "busch_mangrove_refresh_20261023_summary.json").read_text(encoding="utf-8")
     )
@@ -162,12 +162,12 @@ def build_document() -> Document:
     ]
     cell_reconstruction_loss_share = float(cell_reconstruction_within.sum() / cell_reconstruction_loss * 100)
     spatial_moran = pd.read_csv(
-        REPO / "data" / "outputs" / "validation" / "spatial_emissions_2024_step1_moran.csv"
+        REPO / "data" / "derived" / "validation" / "spatial_emissions_2024_step1_moran.csv"
     )
     spatial_diagnostics = json.loads(
-        (REPO / "data" / "outputs" / "validation" / "spatial_emissions_2024_diagnostics.json").read_text(encoding="utf-8")
+        (REPO / "data" / "derived" / "validation" / "spatial_emissions_2024_diagnostics.json").read_text(encoding="utf-8")
     )
-    gmw_comparison = pd.read_csv(REPO / "data" / "outputs" / "validation" / "gmw_2025_spatial_bcw_world.csv")
+    gmw_comparison = pd.read_csv(REPO / "data" / "derived" / "validation" / "gmw_2025_spatial_bcw_world.csv")
     deforestation_trend = pd.read_csv(
         REPO / "results" / "tables" / "manuscript" / "Supplementary_deforestation_trend.csv"
     )

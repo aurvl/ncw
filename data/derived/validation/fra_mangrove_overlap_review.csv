@@ -1,0 +1,117 @@
+iso3,name,fra_mangroves_2025_ha,report_classification_rows,closest_report_area_kha,closest_area_ratio_to_fra_2025,classification_candidates,direct_signal,report_text_retrieved,main_overlap_status,audit_outcome,fra_report_url
+ABW,Aruba,70.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03278en
+AGO,Angola,27920.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03636fr
+AIA,Anguilla,90.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03275en
+ARE,United Arab Emirates,13610.0,1,4.1,0.30124908155767816,"Mangroves=4.1 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03544en
+ASM,American Samoa,20.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03274en
+ATG,Antigua and Barbuda,840.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03276en
+AUS,Australia,1110000.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03280en
+BEN,Benin,13830.0,1,1.8,0.1301518438177874,"Mangrove=1.8 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03637fr
+BES,"Bonaire, Sint Eustatius and Saba",240.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03293en
+BGD,Bangladesh,457270.0,1,62.81,0.13735867211931682,"Mangrove Plantation=62.81 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03284en
+BHR,Bahrain,60.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03676ar
+BHS,Bahamas,141960.0,1,141.96,1.0,"Mangroves=141.96 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03283en
+BLZ,Belize,71610.0,0,,,,direct Forest-inclusion statement,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03287en
+BMU,Bermuda,20.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03288en
+BRA,Brazil,1394680.0,1,1484.35,1.0642943184099578,"Mangroves)=1484.35 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03306en
+BRN,Brunei Darussalam,18420.0,0,,,,,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03313en
+CHN,China,27540.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03327en
+CIV,Côte d'Ivoire,7950.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03645fr
+CMR,Cameroon,178860.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03640fr
+COD,Democratic Republic of the Congo,23730.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03646fr
+COG,Congo,1670.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03644fr
+COL,Colombia,275400.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03575es
+COM,Comoros,150.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03643fr
+CRI,Costa Rica,50440.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03576es
+CUB,Cuba,447620.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03577es
+CUW,Curaçao,70.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03334en
+CYM,Cayman Islands,6440.0,1,7.01,1.0885093167701863,"Mangrove=7.01 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03326en
+DJI,Djibouti,820.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03647fr
+DOM,Dominican Republic,26440.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03578es
+ECU,Ecuador,123240.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03579es
+EGY,Egypt,700.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03677ar
+ERI,Eritrea,6400.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03343en
+FJI,Fiji,47250.0,0,,,,direct Forest-inclusion statement,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03349en
+FSM,Micronesia (Federated States of),10110.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03451en
+GAB,Gabon,190630.0,1,189.11,0.9920264386507895,"Mangrove=189.11 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03651fr
+GHA,Ghana,4900.0,1,7.45,1.5204081632653061,"Mangrove=7.45 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03354en
+GIN,Guinea,182470.0,1,250.0,1.370088233682249,"Mangroves=250 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03653fr
+GLP,Guadeloupe,3450.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03652fr
+GMB,Gambia,36000.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03351en
+GNB,Guinea-Bissau,398530.0,1,287.1,0.7203974606679548,"Mangroves=287.1 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03654fr
+GNQ,Equatorial Guinea,25850.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03581es
+GRD,Grenada,150.0,1,0.18,1.2,"Mangrove=0.18 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03358en
+GTM,Guatemala,18900.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03582es
+GUF,French Guiana,60000.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03649fr
+GUY,Guyana,275880.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03363en
+HND,Honduras,51970.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03583es
+HTI,Haiti,17340.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03655fr
+IDN,Indonesia,3403000.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03423en
+IND,India,504000.0,1,425.0,0.8432539682539683,"Mangrove=425 kha (F=1, OWL=0, remaining=0)",direct Forest-inclusion statement,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03422en
+IRN,Iran (Islamic Republic of),19230.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03424en
+JAM,Jamaica,15860.0,1,9.75,0.6147540983606558,"Mangrove=9.75 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03429en
+KEN,Kenya,61270.0,1,61.27,1.0,"Mangroves=61.27 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03432en
+KHM,Cambodia,51380.0,1,77.24,1.5033086804203968,"Mangrove forest=77.24 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03324en
+KIR,Kiribati,1070.0,1,1.07,1.0,"Mangrove=1.07 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03433en
+KNA,Saint Kitts and Nevis,10.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03498en
+KWT,Kuwait,10.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03434en
+LBR,Liberia,10900.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03439en
+LCA,Saint Lucia,220.0,1,0.22,1.0,"Mangrove=0.22 kha (F=0, OWL=1, remaining=0)",,True,documented_all_other_wooded_land,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03500en
+LKA,Sri Lanka,19510.0,0,,,,,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03522en
+MAF,Saint Martin (French Part),20.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03666fr
+MDG,Madagascar,304120.0,1,327.0,1.0752334604761278,"Mangroves=327 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03656fr
+MDV,Maldives,40.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03445en
+MEX,Mexico,946860.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03584es
+MHL,Marshall Islands,150.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03448en
+MMR,Myanmar,402890.0,1,540.0,1.3403162153441386,"Mangrove=540 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03458en
+MNP,Northern Mariana Islands,10.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03479en
+MOZ,Mozambique,359810.0,1,297.89,0.8279091742864289,"Mangrove=297.89 kha (F=0.8, OWL=0.2, remaining=0)",,True,documented_fractional_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03457en
+MRT,Mauritania,1510.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03659fr
+MSR,Montserrat,10.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03455en
+MTQ,Martinique,2210.0,1,2.14,0.9683257918552037,"Mangrove=2.14 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03658fr
+MUS,Mauritius,200.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03449en
+MYS,Malaysia,284960.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03444en
+MYT,Mayotte,650.0,1,0.76,1.1692307692307693,"Mangroves=0.76 kha (F=0.48, OWL=0.455, remaining=0.065)",,True,documented_fractional_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03660fr
+NCL,New Caledonia,28170.0,1,13.57,0.4817181398651047,"Mangrove dense=13.57 kha (F=0.33, OWL=0.67, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03662fr
+NGA,Nigeria,976400.0,1,5813.33,5.953840639082343,"Mangrove Swamp=5813.33 kha (F=0.626, OWL=0, remaining=0.374)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03468en
+NIC,Nicaragua,99790.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03585es
+NZL,New Zealand,28000.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03467en
+OMN,Oman,800.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03681ar
+PAK,Pakistan,164530.0,0,,,,direct Forest-inclusion statement,True,unresolved_split,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03483en
+PAN,Panama,186650.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03586es
+PER,Peru,6430.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03588es
+PHL,Philippines,319410.0,0,,,,direct Forest-inclusion statement,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03488en
+PNG,Papua New Guinea,285970.0,1,285.97,1.0,"Mangrove=285.97 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03486en
+PRI,Puerto Rico,4160.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03492en
+PYF,French Polynesia,40.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03650fr
+QAT,Qatar,1290.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03682ar
+SAU,Saudi Arabia,15140.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03683ar
+SDN,Sudan,30000.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03523en
+SEN,Senegal,164930.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03669fr
+SGP,Singapore,840.0,1,0.85,1.0119047619047619,"Mangrove Forest=0.85 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03514en
+SHN,"Ascension, Saint Helena and Tristan da Cunha",2000.0,0,,,,,True,unresolved_split,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03279en
+SLB,Solomon Islands,25200.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03518en
+SLE,Sierra Leone,104800.0,1,171.6,1.6374045801526718,"Mangrove=171.6 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03513en
+SLV,El Salvador,41420.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03580es
+STP,Sao Tome and Principe,600.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03668fr
+SUR,Suriname,79500.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03524en
+SXM,Sint Maarten (Dutch part),40.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03515en
+SYC,Seychelles,2190.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03512en
+TCA,Turks and Caicos Islands,23600.0,0,,,,,True,unresolved_split,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03540en
+TGO,Togo,110.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03670fr
+THA,Thailand,277920.0,0,,,,,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03533en
+TLS,Timor-Leste,2130.0,1,2.13,1.0,"Mangroves forest=2.13 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03534en
+TON,Tonga,1770.0,1,1.77,1.0,"Mangroves and wetland (saline=1.77 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03536en
+TTO,Trinidad and Tobago,5370.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03537en
+TUV,Tuvalu,20.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03541en
+TZA,United Republic of Tanzania,158100.0,0,,,,direct Forest-inclusion statement,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03546en
+USA,United States of America,266000.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03547en
+VCT,Saint Vincent and the Grenadines,40.0,1,0.04,1.0,"Mangrove=0.04 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03501en
+VEN,Venezuela (Bolivarian Republic of),298690.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03591es
+VGB,British Virgin Islands,180.0,1,0.17,0.9444444444444445,"Mangrove=0.17 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03307en
+VNM,Viet Nam,117100.0,1,70.21,0.5995730145175063,"Mangrove forests=70.21 kha (F=1, OWL=0, remaining=0)",,True,no_exact_forest_split_verified,classification_evidence_not_comparable,https://openknowledge.fao.org/handle/20.500.14283/a03550en
+VUT,Vanuatu,3020.0,0,,,,direct Forest-inclusion statement,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03549en
+WLF,Wallis and Futuna Islands,30.0,1,0.12,4.0,"Mangrove=0.12 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest_stability_assumption,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03672fr
+WSM,Samoa,350.0,1,0.35,1.0,"Mangrove Forest=0.35 kha (F=1, OWL=0, remaining=0)",,True,documented_all_forest,applied_in_main,https://openknowledge.fao.org/handle/20.500.14283/a03502en
+YEM,Yemen,700.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03685ar
+ZAF,South Africa,2000.0,0,,,,,True,no_exact_forest_split_verified,no_quantified_crosswalk_retained,https://openknowledge.fao.org/handle/20.500.14283/a03520en

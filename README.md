@@ -33,7 +33,7 @@ On 27 October 2026, the primary BCW mangrove-area candidate was changed to a dir
 - **Forest account.** Annual carbon additions to above- and below-ground living forest biomass are estimated using Gibbs/GFW gross-removal pixels for 2001-2023. Four non-mangrove mean rates are calculated for the tropical, subtropical, temperate, and boreal FAO GEZ domains and applied to FRA 2025 forest area allocated by biome. This measure does not include forest soils, deadwood, or the net ecosystem carbon balance.
 - **Marine account.** Published Blue Carbon Wealth (BCW) components are combined with a spatial update of mangrove area from Global Mangrove Watch 2025. The update changes mangrove area; the other BCW components and source-specific rates are retained.
 - **National account.** Green Carbon Wealth (GCW) and Blue Carbon Wealth (BCW) are combined as Natural Carbon Wealth (NCW). The primary uncertainty draws propagate the GSCC draws. Spatial variation in Gibbs/GFW pixels is reported as a separate sensitivity, not as a confidence interval for the biome rates.
-- **Complementary analyses.** FAOSTAT forest flux, deforestation-related capacity loss, a 2% GCW allocation scenario, the Busch et al. reforestation action-cost comparison ([2024](https://doi.org/10.1038/s41558-024-02068-1)), and spatial model sequences are retained as separately documented analyses.
+- **Complementary analyses.** FAOSTAT forest flux, deforestation-related capacity loss, a 2% GCW allocation scenario, Busch-based forest-restoration costs, and spatial model sequences are retained as separately documented analyses.
 
 See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md), and [`docs/DATA_AUDIT.md`](docs/DATA_AUDIT.md) for definitions, sources, and checks.
 
@@ -54,8 +54,7 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 │   │   └── geospatial/            country and EEZ boundaries
 │   ├── reference/                 transcribed values and crosswalks
 │   ├── metadata/                  source registry and raw-file checksums
-│   ├── derived/                   harmonised tables reused as calculation inputs
-│   ├── outputs/                   generated accounts, Gibbs/GFW and Busch products, draws, rasters, and diagnostics
+│   ├── derived/                   prepared inputs, account results, restoration products, draws, rasters, and diagnostics
 │   └── logs/                      source-processing logs
 ├── code/
 │   ├── src/gcw/                   reusable calculation and validation modules
@@ -79,16 +78,16 @@ See [`docs/METHODS.md`](docs/METHODS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 
 | Task | Main entry point | Main output or guide |
 | --- | --- | --- |
-| Rebuild the accounts, analyses and machine-readable tables | [`code/scripts/main.py`](code/scripts/main.py) | Working accounts and analysis artifacts under `data/outputs/`; manuscript tables under `results/tables/` |
-| Recalculate Gibbs/GFW biome rates | [`code/scripts/build_gfw_rates.py`](code/scripts/build_gfw_rates.py) | `data/outputs/gibbs_gfw/gfw_gibbs_biome_rates_non_mangrove.csv` |
-| Inspect the forest calculation | `code/src/gcw/forest_areas.py`, `biome_shares.py`, `gfw_rates.py`, `forest_uptake_gfw.py` | `data/derived/` inputs and `data/outputs/forest_account/` results |
-| Rebuild account tables and checks | `code/src/gcw/gcw.py`, `ncw.py`, `tables.py`, `checks.py` | `data/outputs/accounts/`, `data/outputs/draws/`, and `data/outputs/validation/` |
-| Reproduce the spatial sequence | [`code/scripts/run_spatial_full_sequence.py`](code/scripts/run_spatial_full_sequence.py) | `data/outputs/validation/spatial_emissions_2024_model_selection_evidence.csv` |
-| Run the 2024 emissions extension | [`code/scripts/run_spatial_emissions_extension.py`](code/scripts/run_spatial_emissions_extension.py) | `data/outputs/validation/` |
-| Compare climate-finance approaches | [`code/scripts/compare_finance_and_action_costs.py`](code/scripts/compare_finance_and_action_costs.py) | `data/outputs/validation/` |
-| Build Figure 4 finance data | [`code/scripts/build_finance_figure4.py`](code/scripts/build_finance_figure4.py) | `results/tables/manuscript/Supplementary_Figure4_*.csv` and `data/outputs/validation/finance_figure4_summary.json` |
+| Rebuild the accounts, analyses and machine-readable tables | [`code/scripts/main.py`](code/scripts/main.py) | Working accounts and analysis artifacts under `data/derived/`; manuscript tables under `results/tables/` |
+| Recalculate Gibbs/GFW biome rates | [`code/scripts/build_gfw_rates.py`](code/scripts/build_gfw_rates.py) | `data/derived/gibbs_gfw/gfw_gibbs_biome_rates_non_mangrove.csv` |
+| Inspect the forest calculation | `code/src/gcw/forest_areas.py`, `biome_shares.py`, `gfw_rates.py`, `forest_uptake_gfw.py` | `data/derived/` inputs and `data/derived/forest_account/` results |
+| Rebuild account tables and checks | `code/src/gcw/gcw.py`, `ncw.py`, `tables.py`, `checks.py` | `data/derived/accounts/`, `data/derived/draws/`, and `data/derived/validation/` |
+| Reproduce the spatial sequence | [`code/scripts/run_spatial_full_sequence.py`](code/scripts/run_spatial_full_sequence.py) | `data/derived/validation/spatial_emissions_2024_model_selection_evidence.csv` |
+| Run the 2024 emissions extension | [`code/scripts/run_spatial_emissions_extension.py`](code/scripts/run_spatial_emissions_extension.py) | `data/derived/validation/` |
+| Compare climate-finance approaches | [`code/scripts/compare_finance_and_action_costs.py`](code/scripts/compare_finance_and_action_costs.py) | `data/derived/validation/` |
+| Build historical Figure 4 finance data (superseded published-curve comparison) | [`code/scripts/build_finance_figure4.py`](code/scripts/build_finance_figure4.py) | Historical outputs only; not used by the current Busch calculation pipeline |
 
-The reusable account modules in `code/src/gcw/` calculate GCW and NCW. `main.py` runs data preparation, account calculations, analyses, validations, and machine-readable table builders. Generated analytical intermediates go to `data/outputs/`; manuscript-facing tables and figures go to `results/`. The notebooks are independent deep dives: they read the prepared results and may also read source/reference files needed for their analyses or maps. Run them separately after `main.py`.
+The reusable account modules in `code/src/gcw/` calculate GCW and NCW. `main.py` runs data preparation, account calculations, analyses, validations, and machine-readable table builders. Generated analytical intermediates go to `data/derived/`; manuscript-facing tables and figures go to `results/`. The notebooks are independent deep dives: they read the prepared results and may also read source/reference files needed for their analyses or maps. Run them separately after `main.py`.
 
 ## Reproduce the project
 
@@ -121,14 +120,14 @@ For a full rebuild of the current paper outputs, run:
 python code/scripts/main.py
 ```
 
-By default, the command reuses the prepared intermediate outputs versioned under `data/outputs/` and `data/derived/`; it does not download or recompute large source datasets. It updates the accounts, validation outputs, deforestation and socioeconomic analyses, spatial results, and manuscript-facing CSV tables. It does not execute notebooks, build the manuscript workbook, or export paper figures. Use `--accounts-only` for the central accounts and checks. To download and rebuild the full set of large source-derived intermediates before updating the accounts and tables, run `python code/scripts/main.py --rebuild-heavy-intermediates`. This option rebuilds the GMW 2025 polygon-to-EEZ overlay, Gibbs/GFW rates and forest raster allocation, and the Busch cell reconstruction. These source stages are available as separate commands: `rebuild_gmw_2025_pipeline.py`, `rebuild_gibbs_gfw_pipeline.py`, `rebuild_forest_raster_allocation.py`, and `rebuild_busch_pipeline.py`. `--recompute-gfw-rates` recalculates Gibbs/GFW rates from tiles that are already present locally; `--rasters` rebuilds only the GEZ x country x JRC forest-mask allocation.
+By default, the command reuses the prepared data versioned under `data/derived/`; it does not download or recompute large source datasets. It updates the accounts, validation outputs, deforestation and socioeconomic analyses, spatial results, and manuscript-facing CSV tables. It does not execute notebooks, build the manuscript workbook, or export paper figures. Use `--accounts-only` for the central accounts and checks. To download and rebuild the derived data from the large source datasets before updating the accounts and tables, run `python code/scripts/main.py --rebuild-derived`. This option is off by default. It rebuilds the GMW 2025 polygon-to-EEZ overlay, Gibbs/GFW rates and forest raster allocation, and the Busch cell reconstruction. These source stages are available as separate commands: `rebuild_gmw_2025_pipeline.py`, `rebuild_gibbs_gfw_pipeline.py`, `rebuild_forest_raster_allocation.py`, and `rebuild_busch_pipeline.py`. `--recompute-gfw-rates` recalculates Gibbs/GFW rates from tiles that are already present locally; `--rasters` rebuilds only the GEZ x country x JRC forest-mask allocation.
 
 ### Large source files
 
 > [!IMPORTANT]
-> Recomputing the Gibbs/GFW biome rates requires both raster tile sets, about 46 GB compressed in total. The source rasters are not stored in Git. The compact generated rate table is versioned under `data/outputs/gibbs_gfw/`, so an account rebuild can reuse it without processing the rasters again.
+> Recomputing the Gibbs/GFW biome rates requires both raster tile sets, about 46 GB compressed in total. The source rasters are not stored in Git. The compact generated rate table is versioned under `data/derived/gibbs_gfw/`, so an account rebuild can reuse it without processing the rasters again.
 
-The reusable Monte Carlo draw arrays in `data/outputs/` are tracked with Git LFS. Install Git LFS before cloning, or run `git lfs install` followed by `git lfs pull` in the repository after cloning.
+The reusable Monte Carlo draw arrays in `data/derived/` are tracked with Git LFS. Install Git LFS before cloning, or run `git lfs install` followed by `git lfs pull` in the repository after cloning.
 
 The 272 Gibbs/GFW gross-removal GeoTIFF tiles and 272 matching forest-type tiles are large downloads and are not stored in Git. The rate-building workflow downloads and verifies them with `code/scripts/download_gfw_dataverse.py` and `code/scripts/download_gfw_forest_types.py`. The compressed gross-removal set is about 37 GB; the forest-type set is about 9 GB. Place them under:
 
@@ -144,25 +143,25 @@ python code/scripts/rebuild_gibbs_gfw_pipeline.py --download-workers 8 --process
 python code/scripts/main.py --reuse-gfw-rates
 ```
 
-The dedicated Gibbs/GFW pipeline downloads the two 272-tile source collections, verifies them, computes biome rates, and writes compact rate tables plus a source/output manifest under `data/outputs/gibbs_gfw/`. The source GeoTIFFs remain outside Git. Use `python code/scripts/rebuild_gibbs_gfw_pipeline.py` to run this stage independently. The GMW archive is also excluded from Git; `python code/scripts/rebuild_gmw_2025_pipeline.py` downloads and verifies it before overlaying it with the EEZ units. Increase the Gibbs/GFW worker count only when memory permits.
+The dedicated Gibbs/GFW pipeline downloads the two 272-tile source collections, verifies them, computes biome rates, and writes compact rate tables plus a source/output manifest under `data/derived/gibbs_gfw/`. The source GeoTIFFs remain outside Git. Use `python code/scripts/rebuild_gibbs_gfw_pipeline.py` to run this stage independently. The GMW archive is also excluded from Git; `python code/scripts/rebuild_gmw_2025_pipeline.py` downloads and verifies it before overlaying it with the EEZ units. Increase the Gibbs/GFW worker count only when memory permits.
 
-The Busch cell-level reconstruction uses the public input data and published price grid. Country parameters and model constants transcribed from the Stata program are in `code/scripts/busch_stata_parameters.py` and the reconstruction script. `python code/scripts/rebuild_busch_pipeline.py` downloads the 12.4 GB `08_input_dtas.zip` archive to `.tmp/busch_08_reconstruction/` outside Git, verifies its size and MD5, and rebuilds the cell-level outputs under `data/outputs/busch_reconstruction/`. The current 2% GCW allocation must exist before launching this standalone stage; `main.py --rebuild-heavy-intermediates` creates it before rebuilding Busch.
+The Busch restoration scenario is calculated from the public country-level cell inputs and the authors' modelling framework; the resulting costs and curves are our calculations. The pipeline processes every country `.dta` file in the archive before joining any positive FRA-loss targets. It keeps all country-cost outputs under `data/derived/busch_reconstruction/`; the separate coverage file records the later ISO3 join for positive-loss study entities. Published national curves are not loaded or compared. The workbook contributes only the shared price-threshold grid. Country parameters and constants transcribed from the Stata program are in `code/scripts/busch_stata_parameters.py` and `code/scripts/rebuild_busch_country_finance.py`. `python code/scripts/rebuild_busch_pipeline.py` downloads the 12.4 GB `08_input_dtas.zip` archive to `.tmp/busch_08_reconstruction/` outside Git, verifies its size and MD5, calculates all country inputs and writes the derived outputs. `main.py --rebuild-derived` runs this stage as part of the full rebuild.
 
 ## Results and manuscript material
 
 | Path | Contents |
 | --- | --- |
-| `data/outputs/accounts/country_level_gcw.csv` | Working forest account by entity |
-| `data/outputs/accounts/country_level_ncw_accounts.csv` | Core calculated forest-plus-marine account by entity; pipeline input for downstream tables |
+| `data/derived/accounts/country_level_gcw.csv` | Working forest account by entity |
+| `data/derived/accounts/country_level_ncw_accounts.csv` | Core calculated forest-plus-marine account by entity; pipeline input for downstream tables |
 | `results/tables/manuscript/` | Current Tables 1-4 and supplementary tables, including the full 2024 country accounts and mangrove audit |
 | `code/notebooks/08_paper_figures.ipynb` | Paper figures and supplementary visual diagnostics generated from the current canonical account and analysis outputs |
 | `results/figures/Candidate_Figure*` and `results/figures/Alternative_original_Figure*` | Optional PNG/PDF exports when `SAVE_FIGURES` is enabled after visual review |
 | `results/tables/manuscript/Supplementary_country_level_accounts_2024.csv` | Canonical study-unit Results table; `UNIT_CODE` is the study-unit key, `ISO3` is validated where available, and `region` names the analytical geographic grouping |
-| `data/outputs/validation/country_level_results_master.csv` | Full calculation master used by the artifact builder; legacy comparison fields are filtered from paper-facing outputs |
+| `data/derived/validation/country_level_results_master.csv` | Full calculation master used by the artifact builder; legacy comparison fields are filtered from paper-facing outputs |
 
-Analytical checks and model diagnostics are written under `data/outputs/validation/`, not alongside the manuscript tables.
+Analytical checks and model diagnostics are written under `data/derived/validation/`, not alongside the manuscript tables.
 
-[`code/notebooks/09_manuscript_tables.ipynb`](code/notebooks/09_manuscript_tables.ipynb) independently previews the generated manuscript tables and writes `results/tables/manuscript/Manuscript_tables.xlsx`. The narrower account table produced by `main.py` remains in `data/outputs/accounts/country_level_ncw_accounts.csv`.
+[`code/notebooks/09_manuscript_tables.ipynb`](code/notebooks/09_manuscript_tables.ipynb) independently previews the generated manuscript tables and writes `results/tables/manuscript/Manuscript_tables.xlsx`. The narrower account table produced by `main.py` remains in `data/derived/accounts/country_level_ncw_accounts.csv`.
 
 Superseded manuscript figure and table exports are retained under `results/archive/legacy_manuscript_2026-10-19/` for audit only. They are not used by the current notebooks or canonical tables.
 

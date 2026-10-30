@@ -1,0 +1,16 @@
+{
+  "pipeline": "Gibbs/GFW non-mangrove biome-rate reconstruction",
+  "source_period": "2001-2023",
+  "removals_source": "Harvard Dataverse DOI 10.7910/DVN/V2ISRH",
+  "forest_type_source": "WRI/GFW removal forest-type tiles, 20240308 release",
+  "source_tile_count": {
+    "gross_removals": 272,
+    "forest_type": 272
+  },
+  "aggregated_tile_count": 272,
+  "output_sha256": {
+    "gfw_gibbs_biome_rates_non_mangrove.csv": "c0708fec67cc0578875d332316fc4d5a6b43ef8767d7dcb437a63860d973092f",
+    "gfw_gibbs_tile_rates_non_mangrove.csv": "047cf04fff5ee2b7b8eb35bc7d77031a88a6ec4c383ea508230d78b47cc99f2d"
+  },
+  "completed_utc": "2026-10-30T02:20:48+00:00"
+}

@@ -16,7 +16,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-GIBBS_OUTPUT = ROOT / "data" / "outputs" / "gibbs_gfw"
+GIBBS_OUTPUT = ROOT / "data" / "derived" / "gibbs_gfw"
 
 
 def main() -> None:

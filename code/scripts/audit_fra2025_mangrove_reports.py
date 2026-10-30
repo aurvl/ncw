@@ -23,7 +23,7 @@ import requests
 
 ROOT = Path(__file__).resolve().parents[2]
 FRA_ZIP = ROOT / "data/raw/environmental/forest/fra/fra2025_bulk_WO.zip"
-OUT = ROOT / "data/outputs/validation/fra_2025_mangrove_report_audit.csv"
+OUT = ROOT / "data/derived/validation/fra_2025_mangrove_report_audit.csv"
 REPORTS_URL = "https://www.fao.org/forest-resources-assessment/fra-2025-country-reports/"
 API = "https://openknowledge.fao.org/server/api"
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json,text/plain,*/*"}

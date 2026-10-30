@@ -1,0 +1,24 @@
+{
+  "positive_loss_units": 105,
+  "source_workbook_countries": 138,
+  "covered_positive_loss_units": 71,
+  "processed_units": 71,
+  "validated_source_curves": 71,
+  "finance_target_within_supply": 59,
+  "discount_factor_source": 15.707224721141243,
+  "discount_factor_conventional_sensitivity": 15.37245102688283,
+  "usd2020_to_usd2015_factor": 0.9157918326500806,
+  "input_sha256": {
+    "C:\\Users\\aurel\\Desktop\\M2\\Stage ecoseas-csm\\CSM\\BNC2 paper\\repo\\data\\raw\\economic\\busch_2024\\11_MAC_curves_consolidated.xlsx": "b46061dcafaf40b16b87cf1626a1d07f213eaf4c4cea2aafa214390e21346a87",
+    "C:\\Users\\aurel\\Desktop\\M2\\Stage ecoseas-csm\\CSM\\BNC2 paper\\repo\\data\\raw\\economic\\busch_2024\\stata_code\\10_stata_code\\1. Model loop all data.do": "2b06b45ea08619fd27241d68a750d8add8520b8b8cd659194948ff4da6b340c8",
+    "C:\\Users\\aurel\\Desktop\\M2\\Stage ecoseas-csm\\CSM\\BNC2 paper\\repo\\results\\validation\\our_2pct_gcw_allocation_and_pledge.csv": "101b5c37aeba7e472b9092fdf6f7111f617a3cb279783c413b6413be608e251d"
+  },
+  "source_archive_zenodo": "https://zenodo.org/records/19239386/files/09_output_dtas.zip",
+  "method_status": "derived reconstruction; not the values published by Busch et al.",
+  "grid_100_coverage_stages": {
+    "core_only_published_numeric": 46,
+    "both_sheets_published_numeric": 53,
+    "both_sheets_verified_carbon_conversion": 59,
+    "both_sheets_conversion_and_soil_once": 59
+  }
+}

@@ -80,7 +80,7 @@ $$
 
 $\sigma_{b,\mathrm{spatial}}$ est l’écart-type spatial pondéré par l’aire des pixels à l’intérieur du biome. Il décrit à quel point les taux modélisés $r_p$ varient d’un pixel à l’autre. Il ne mesure ni l’erreur-type de la moyenne $\bar r_b$, ni la variation annuelle des retraits, ni l’incertitude complète du modèle Gibbs/GFW. Les scénarios $\bar r_b\pm\sigma_{b,\mathrm{spatial}}$ utilisés plus loin sont donc des sensibilités à la dispersion spatiale, pas des intervalles de confiance.
 
-Ainsi, les données sources et leur masque sont réunis pixel par pixel, convertis en taux annuels, classés par biome et agrégés par aire. Le traitement complet part des 272 tuiles de retraits Gibbs/GFW et de leurs 272 tuiles de types forestiers WRI correspondantes (environ 37 Go pour les retraits). Il calcule pour chaque tuile les sommes pondérées par biome, puis combine les résumés de tuiles en un tableau CSV de quatre lignes, une par biome, avec le taux moyen, $\sigma_{b,\mathrm{spatial}}$, la surface et les champs de contrôle. Le résultat `data/outputs/gibbs_gfw/gfw_gibbs_biome_rates_non_mangrove.csv` est ensuite utilisé dans le calcul national; le tableau d'audit par tuile est enregistré à côté. En mode cache, ce tableau validé est réutilisé sans retélécharger ni réagréger les tuiles brutes.
+Ainsi, les données sources et leur masque sont réunis pixel par pixel, convertis en taux annuels, classés par biome et agrégés par aire. Le traitement complet part des 272 tuiles de retraits Gibbs/GFW et de leurs 272 tuiles de types forestiers WRI correspondantes (environ 37 Go pour les retraits). Il calcule pour chaque tuile les sommes pondérées par biome, puis combine les résumés de tuiles en un tableau CSV de quatre lignes, une par biome, avec le taux moyen, $\sigma_{b,\mathrm{spatial}}$, la surface et les champs de contrôle. Le résultat `data/derived/gibbs_gfw/gfw_gibbs_biome_rates_non_mangrove.csv` est ensuite utilisé dans le calcul national; le tableau d'audit par tuile est enregistré à côté. En mode cache, ce tableau validé est réutilisé sans retélécharger ni réagréger les tuiles brutes.
 
 | Biome $b$ | Taux annuel moyen $\bar r_b$ (tC ha$^{-1}$ an$^{-1}$) | $\sigma_{b,\mathrm{spatial}}$ (tC ha$^{-1}$ an$^{-1}$) |
 |---|---:|---:|
@@ -391,6 +391,8 @@ Le facteur $0.02$ est une hypothèse de scénario, pas une estimation. $\mathrm{
 
 Cette section décrit comment les données de Busch et al. (2024) servent à estimer, pour chaque entité (pays ou territoire), le CO$_2$ que la restauration forestière pourrait capter et son coût. La courbe d’offre indique la quantité cumulée de CO$_2$ qui pourrait être restaurée à chaque niveau de coût; elle permet de situer ce potentiel par rapport à la capacité forestière annuelle perdue.
 
+Le calcul traite d’abord chaque fichier pays `.dta` de l’archive Busch, sans filtrer selon les pertes FRA ni selon la présence du pays dans la table des entités étudiées. Il produit les coûts et les courbes d’offre pour tous les fichiers de l’archive. Une fois ces calculs terminés, les résultats sont joints par code ISO3 aux entités étudiées dont la perte FRA est positive, afin de comparer leur cible à l’offre modélisée. Cette seconde étape ne restreint ni ne supprime les sorties calculées pour tous les pays de l’archive. Les courbes nationales publiées ne servent ni à sélectionner, ni à calibrer, ni à valider nos calculs.
+
 ![Courbe d’offre de restauration forestière pour une entité fictive λ](courbe_offre_lambda.png)
 
 *Exemple fictif : à un prix plafond de 35,72 USD 2015/tCO$_2$, les trois premières cellules sont retenues et offrent ensemble 4 100 tCO$_2$ pondérées sur 30 ans. Ces valeurs illustrent la lecture de la courbe; elles ne sont pas des résultats.*
@@ -570,7 +572,7 @@ q_{ic}^{*}=a_cC_{c,m_c^*}^{*}G_cB_{c,m_c^*}(1-BAU_c)\frac{44}{12}
 \quad[\mathrm{tCO_2\ actualisées/cellule}].
 $$
 
-Comme $C^*$ est déjà pondéré sur 30 ans, $q_{ic}^{*}$ représente la quantité totale de CO$_2$ que la cellule peut offrir sur cette période, après application des masques et de l’additionnalité. C’est un cumul pondéré sur 30 ans, pas une quantité annuelle. La reconstruction utilise le rapport exact $44/12$; le facteur arrondi $3.67$ sert uniquement au contrôle distinct des prix de la courbe publiée.
+Comme $C^*$ est déjà pondéré sur 30 ans, $q_{ic}^{*}$ représente la quantité totale de CO$_2$ que la cellule peut offrir sur cette période, après application des masques et de l’additionnalité. C’est un cumul pondéré sur 30 ans, pas une quantité annuelle. La reconstruction utilise le rapport exact $44/12$.
 
 Le prix de courbe divise le coût total de la méthode choisie par son carbone total avant masques et additionnalité :
 
@@ -587,7 +589,7 @@ V_i(p)=\sum_{c\in\mathcal C_i^{+}}q_{ic}^{*}
 \mathbf 1(p_{ic}^{\mathrm{courbe}}\le p).
 $$
 
-Les seuils de la courbe publiée vont de $-20$ à $100$ USD 2020/tCO$_2$, par pas de 5 USD 2020. Pour classer la reconstruction en dollars 2015, chacun de ces seuils est multiplié par $f_{20\rightarrow15}$. Le contrôle de reproduction du classeur publié conserve, séparément, les seuils d’origine en dollars 2020.
+Les seuils communs utilisés pour afficher nos courbes sont lus dans la première colonne du classeur `11_MAC_curves_consolidated.xlsx` : de $-20$ à $100$ USD 2020/tCO$_2$, par pas de 5. Seule cette grille de prix est lue; les courbes nationales du classeur ne sont ni chargées ni comparées. Chaque seuil est converti en USD 2015 en le multipliant par $f_{20\rightarrow15}$.
 
 #### 9.2.5 Coût nécessaire pour atteindre la cible
 
@@ -600,7 +602,7 @@ Q_i^{\mathrm{cible}}=L_iD_{30}
 \quad[\mathrm{tCO_2\ actualisées}].
 $$
 
-Si $\sum_{c\in\mathcal C_i^{+}}q_{ic}^{*}<Q_i^{\mathrm{cible}}$, les cellules disponibles ne suffisent pas à atteindre la cible et aucun coût d’atteinte n’est calculé. Cette comparaison porte sur les entités avec perte positive et courbe nationale publiée; seules les cellules ayant une quantité positive et un coût calculable participent au classement.
+Si $\sum_{c\in\mathcal C_i^{+}}q_{ic}^{*}<Q_i^{\mathrm{cible}}$, les cellules disponibles ne suffisent pas à atteindre la cible et aucun coût d’atteinte n’est calculé. Cette évaluation de la cible concerne uniquement les entités étudiées dont la perte FRA est positive et qui ont un fichier pays `.dta` correspondant. Tous les calculs par fichier `.dta` restent disponibles, même si aucune cible de perte positive ne leur est associée; seules les cellules dont la quantité est positive et le coût calculable participent au classement des coûts.
 
 Lorsque l’offre suffit, la cible est atteinte en classant les cellules par coût net rapporté à la quantité additionnelle qu’elles fournissent après les filtres :
 

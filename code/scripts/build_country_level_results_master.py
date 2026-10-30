@@ -1,6 +1,6 @@
 """Build a joined country-level dataset for the Results drafting workflow.
 
-The table preserves every row in ``data/outputs/accounts/country_level_ncw_accounts.csv``. It joins
+The table preserves every row in ``data/derived/accounts/country_level_ncw_accounts.csv``. It joins
 the current forest and marine accounts, source-area data, socioeconomic values
 available through 2024, deforestation outcomes, climate-finance scenarios, and 2024 emissions
 accounting comparison. It keeps component fluxes separate because the forest,
@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "code" / "src"))
 from gcw.config import BCW_ECOSYSTEM_RATE_ROWS
 
-OUTPUT = ROOT / "data" / "outputs"
+OUTPUT = ROOT / "data" / "derived"
 RESULTS = ROOT / "results"
 VALIDATION = OUTPUT / "validation"
 SUMMARY = ROOT / "data" / "derived"
@@ -295,17 +295,18 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
 
     busch = read_unique_csv(VALIDATION / "busch_action_curve_country_scenarios.csv")
     busch_columns = [
-        "iso3", "target_discounted_30yr_tco2", "busch_curve_available",
-        "source_quantity_at_minus20_tco2_pv", "source_quantity_at_zero_tco2_pv",
-        "source_quantity_at_100_tco2_pv", "marginal_price_lower_usd2020_tco2",
-        "marginal_price_upper_usd2020_tco2", "status",
-        "annualized_uniform_price_payment_lower_usd2015_yr_partial",
-        "annualized_uniform_price_payment_upper_usd2015_yr_partial",
+        "iso3", "target_discounted_30yr_tco2", "cell_input_available",
+        "available_discounted_tco2", "target_coverage_pct",
+        "marginal_effective_cost_usd2015_per_discounted_tco2",
+        "net_economic_cost_pv_usd2015", "positive_project_cost_pv_usd2015",
+        "uniform_carbon_payment_pv_usd2015", "net_economic_cost_annual_usd2015",
+        "positive_project_cost_annual_usd2015", "uniform_carbon_payment_annual_usd2015",
+        "status",
     ]
     master = merge_one_to_one(
         master,
         busch[busch_columns].rename(columns={"status": "busch_scenario_status"}),
-        "Busch action-cost comparison",
+        "restoration scenario by country",
     )
 
     in_fra = master["in_fra"].map(lambda value: bool(value) if pd.notna(value) else False)
@@ -406,7 +407,7 @@ def build_master_table() -> tuple[pd.DataFrame, dict[str, object]]:
 
     audit = {
         "created_on": DATE,
-        "source_key_table": "data/outputs/accounts/country_level_ncw_accounts.csv",
+        "source_key_table": "data/derived/accounts/country_level_ncw_accounts.csv",
         "rows": int(len(master)),
         "columns": int(len(master.columns)),
         "unique_unit_codes": int(master["iso3"].nunique()),
@@ -436,13 +437,13 @@ def write_data_dictionary(audit: dict[str, object]) -> None:
     body = [
         "# Table pays et territoires pour la rédaction des Results",
         "",
-        "Fichier : `data/outputs/validation/country_level_results_master.csv`.",
+        "Fichier : `data/derived/validation/country_level_results_master.csv`.",
         f"Table : {audit['rows']} lignes, {audit['columns']} colonnes, une ligne par unité de `country_level_ncw_accounts.csv`.",
         "",
         "## Contenu et sources",
         "",
         "- Identifiants et groupes : `data/derived/territories.csv`; les lignes `BCW-JR` et `BCW-OC` sont des agrégats BCW conservés pour traçabilité et marqués `exclude_from_country_sum=true`.",
-        "- GCW et flux forestier : `data/outputs/accounts/country_level_gcw.csv`, surfaces FRA/GEZ dans `data/outputs/forest_account/forest_area_by_biome.csv`, taux non-mangrove dans `gfw_gibbs_biome_rates_non_mangrove.csv`.",
+        "- GCW et flux forestier : `data/derived/accounts/country_level_gcw.csv`, surfaces FRA/GEZ dans `data/derived/forest_account/forest_area_by_biome.csv`, taux non-mangrove dans `gfw_gibbs_biome_rates_non_mangrove.csv`.",
         "- Écosystèmes et EEZ : `data/raw/environmental/marine/bcw/output/country_level_bcw.csv`, agrégé avec `bcw_territory_mapping.csv`. Les superficies côtières de Hilmi et al. (2026) sont en km²; le croisement direct GMW 2025 fournit une aire brute et corrigée en ha. La surface retenue suit la priorité GMW 2025 > FRA 2025 > aire rapportée par Hilmi et al. (2026).",
         "- Mangroves : la surface retenue suit GMW 2025 > FRA 2025 > aire rapportée par Hilmi et al. (2026). Le compte BCW est recalculé directement à partir de l'aire mangrove sélectionnée, des aires d'herbiers et de marais salés rapportées par Hilmi, de leurs taux, du flux BCP, de 44/12 et des tirages GSCC. Le flux mangrove correspond à l'enfouissement dans les sédiments, pas à la biomasse des arbres.",
         "- FRA mangroves : `fra_mangrove_forest_overlap_2025.csv`; le statut et le rapport source sont gardés séparément de l’aire GMW.",

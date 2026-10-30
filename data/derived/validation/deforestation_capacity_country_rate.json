@@ -1,0 +1,37 @@
+{
+  "deforestation_source": "fra2025_bulk_WO.zip:Intervals_variables/1d_deforestation_2026-09-16.csv",
+  "forest_flux_source": "data/derived/accounts/country_level_gcw.csv",
+  "forest_area_source": "data/derived/forest_account/forest_area_by_biome.csv",
+  "forest_area_variant": "documented_overlap_removed",
+  "period_selection_priority": [
+    "2020-2025",
+    "2015-2020",
+    "2010-2015"
+  ],
+  "area_conversion": "select the latest non-missing FRA interval; thousand ha/year x 1000 = ha/year; no averaging across intervals",
+  "fra_units_by_selected_interval": {
+    "2010-2015": 5,
+    "2015-2020": 10,
+    "2020-2025": 124
+  },
+  "fra_units_without_reported_interval": 97,
+  "cohort_duration_years": 1.0,
+  "country_rate_formula": "mean annual GCW forest additions U_i (tCO2/year) / forest area A_i_total (ha)",
+  "capacity_loss_formula": "latest FRA annual deforestation rate x 1-year cohort duration x U_i/A_i_total",
+  "monetary_draws": "fixed physical capacity loss x the same 20,000 GSCC draws used for the monetary account",
+  "monetary_interval": "P05-P95 of the resulting GSCC-valued draws; conditional on fixed FRA area loss and GCW country rate",
+  "spatial_sensitivity": "country forest-area-weighted biome rates mean +/- biome spatial SD; deterministic scenario, not a confidence interval",
+  "units": 236,
+  "reporters": 139,
+  "positive_fra_loss_units": 100,
+  "reported_zero_loss_units": 39,
+  "reported_units_with_country_rate": 132,
+  "reported_units_without_country_rate": 7,
+  "annual_lost_addition_capacity_tco2": 33377399.798397206,
+  "annual_lost_gcw_value_usd2015": 18677088105.503075,
+  "reported_deforestation_area_ha_yr": 9170410.0,
+  "positive_capacity_units": 100,
+  "gscc_draws": 20000,
+  "gscc_mean_usd2015_tco2": 559.5728911872864,
+  "capacity_total_complete_for_all_fra_reporters": true
+}

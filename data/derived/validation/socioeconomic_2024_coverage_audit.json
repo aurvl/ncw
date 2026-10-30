@@ -1,0 +1,368 @@
+{
+  "analysis_year": 2024,
+  "study_units": 236,
+  "gcb_2025_national_entities": 214,
+  "gcb_entities_mapped_to_study_units": 210,
+  "emissions_2024_nonmissing": 210,
+  "population_2024_nonmissing": 213,
+  "gdp_2024_nonmissing": 204,
+  "common_emissions_population_gdp_2024": 195,
+  "population_source_year_counts": {
+    "2024": 213
+  },
+  "gdp_source_year_counts": {
+    "2022": 5,
+    "2023": 3,
+    "2024": 196
+  },
+  "population_wdi_lastupdated": "2026-10-08",
+  "gdp_wdi_lastupdated": "2026-10-08",
+  "gcb_conversion_factor_mtco2_per_mtc": 3.664,
+  "gcb_country_rows_unmapped_to_study": [
+    "Hong Kong",
+    "Kosovo",
+    "Macao",
+    "Taiwan"
+  ],
+  "study_units_without_gcb_emissions": [
+    {
+      "iso3": "GUF",
+      "name": "French Guiana"
+    },
+    {
+      "iso3": "PRI",
+      "name": "Puerto Rico"
+    },
+    {
+      "iso3": "ESH",
+      "name": "Western Sahara"
+    },
+    {
+      "iso3": "REU",
+      "name": "Réunion"
+    },
+    {
+      "iso3": "GLP",
+      "name": "Guadeloupe"
+    },
+    {
+      "iso3": "MTQ",
+      "name": "Martinique"
+    },
+    {
+      "iso3": "VIR",
+      "name": "United States Virgin Islands"
+    },
+    {
+      "iso3": "GUM",
+      "name": "Guam"
+    },
+    {
+      "iso3": "MNP",
+      "name": "Northern Mariana Islands"
+    },
+    {
+      "iso3": "ASM",
+      "name": "American Samoa"
+    },
+    {
+      "iso3": "CYM",
+      "name": "Cayman Islands"
+    },
+    {
+      "iso3": "MYT",
+      "name": "Mayotte"
+    },
+    {
+      "iso3": "IMN",
+      "name": "Isle of Man"
+    },
+    {
+      "iso3": "PCN",
+      "name": "Pitcairn"
+    },
+    {
+      "iso3": "SMR",
+      "name": "San Marino"
+    },
+    {
+      "iso3": "MAF",
+      "name": "Saint Martin (French Part)"
+    },
+    {
+      "iso3": "JEY",
+      "name": "Jersey"
+    },
+    {
+      "iso3": "GGY",
+      "name": "Guernsey"
+    },
+    {
+      "iso3": "NFK",
+      "name": "Norfolk Island"
+    },
+    {
+      "iso3": "BLM",
+      "name": "Saint Barthélemy"
+    },
+    {
+      "iso3": "VAT",
+      "name": "Holy See"
+    },
+    {
+      "iso3": "TKL",
+      "name": "Tokelau"
+    },
+    {
+      "iso3": "FLK",
+      "name": "Falkland Islands (Malvinas)"
+    },
+    {
+      "iso3": "GIB",
+      "name": "Gibraltar"
+    },
+    {
+      "iso3": "SJM",
+      "name": "Svalbard and Jan Mayen Islands"
+    },
+    {
+      "iso3": "MCO",
+      "name": "Monaco"
+    }
+  ],
+  "study_units_without_population_2024": [
+    {
+      "iso3": "GUF",
+      "name": "French Guiana"
+    },
+    {
+      "iso3": "ESH",
+      "name": "Western Sahara"
+    },
+    {
+      "iso3": "REU",
+      "name": "Réunion"
+    },
+    {
+      "iso3": "GLP",
+      "name": "Guadeloupe"
+    },
+    {
+      "iso3": "MTQ",
+      "name": "Martinique"
+    },
+    {
+      "iso3": "NIU",
+      "name": "Niue"
+    },
+    {
+      "iso3": "COK",
+      "name": "Cook Islands"
+    },
+    {
+      "iso3": "WLF",
+      "name": "Wallis and Futuna Islands"
+    },
+    {
+      "iso3": "MYT",
+      "name": "Mayotte"
+    },
+    {
+      "iso3": "AIA",
+      "name": "Anguilla"
+    },
+    {
+      "iso3": "BES",
+      "name": "Bonaire, Sint Eustatius and Saba"
+    },
+    {
+      "iso3": "PCN",
+      "name": "Pitcairn"
+    },
+    {
+      "iso3": "MSR",
+      "name": "Montserrat"
+    },
+    {
+      "iso3": "SHN",
+      "name": "Ascension, Saint Helena and Tristan da Cunha"
+    },
+    {
+      "iso3": "JEY",
+      "name": "Jersey"
+    },
+    {
+      "iso3": "SPM",
+      "name": "Saint Pierre and Miquelon"
+    },
+    {
+      "iso3": "GGY",
+      "name": "Guernsey"
+    },
+    {
+      "iso3": "NFK",
+      "name": "Norfolk Island"
+    },
+    {
+      "iso3": "BLM",
+      "name": "Saint Barthélemy"
+    },
+    {
+      "iso3": "VAT",
+      "name": "Holy See"
+    },
+    {
+      "iso3": "TKL",
+      "name": "Tokelau"
+    },
+    {
+      "iso3": "FLK",
+      "name": "Falkland Islands (Malvinas)"
+    },
+    {
+      "iso3": "SJM",
+      "name": "Svalbard and Jan Mayen Islands"
+    }
+  ],
+  "study_units_without_gdp_2024": [
+    {
+      "iso3": "PRK",
+      "name": "Democratic People's Republic of Korea"
+    },
+    {
+      "iso3": "GUF",
+      "name": "French Guiana"
+    },
+    {
+      "iso3": "SSD",
+      "name": "South Sudan"
+    },
+    {
+      "iso3": "ERI",
+      "name": "Eritrea"
+    },
+    {
+      "iso3": "NCL",
+      "name": "New Caledonia"
+    },
+    {
+      "iso3": "YEM",
+      "name": "Yemen"
+    },
+    {
+      "iso3": "ESH",
+      "name": "Western Sahara"
+    },
+    {
+      "iso3": "REU",
+      "name": "Réunion"
+    },
+    {
+      "iso3": "GLP",
+      "name": "Guadeloupe"
+    },
+    {
+      "iso3": "MTQ",
+      "name": "Martinique"
+    },
+    {
+      "iso3": "NIU",
+      "name": "Niue"
+    },
+    {
+      "iso3": "COK",
+      "name": "Cook Islands"
+    },
+    {
+      "iso3": "WLF",
+      "name": "Wallis and Futuna Islands"
+    },
+    {
+      "iso3": "VGB",
+      "name": "British Virgin Islands"
+    },
+    {
+      "iso3": "MYT",
+      "name": "Mayotte"
+    },
+    {
+      "iso3": "LIE",
+      "name": "Liechtenstein"
+    },
+    {
+      "iso3": "AIA",
+      "name": "Anguilla"
+    },
+    {
+      "iso3": "BES",
+      "name": "Bonaire, Sint Eustatius and Saba"
+    },
+    {
+      "iso3": "PCN",
+      "name": "Pitcairn"
+    },
+    {
+      "iso3": "MSR",
+      "name": "Montserrat"
+    },
+    {
+      "iso3": "SHN",
+      "name": "Ascension, Saint Helena and Tristan da Cunha"
+    },
+    {
+      "iso3": "MAF",
+      "name": "Saint Martin (French Part)"
+    },
+    {
+      "iso3": "JEY",
+      "name": "Jersey"
+    },
+    {
+      "iso3": "SPM",
+      "name": "Saint Pierre and Miquelon"
+    },
+    {
+      "iso3": "GGY",
+      "name": "Guernsey"
+    },
+    {
+      "iso3": "NFK",
+      "name": "Norfolk Island"
+    },
+    {
+      "iso3": "BLM",
+      "name": "Saint Barthélemy"
+    },
+    {
+      "iso3": "VAT",
+      "name": "Holy See"
+    },
+    {
+      "iso3": "TKL",
+      "name": "Tokelau"
+    },
+    {
+      "iso3": "FLK",
+      "name": "Falkland Islands (Malvinas)"
+    },
+    {
+      "iso3": "GIB",
+      "name": "Gibraltar"
+    },
+    {
+      "iso3": "SJM",
+      "name": "Svalbard and Jan Mayen Islands"
+    }
+  ],
+  "gcb2025_2023_vs_bcw2023_overlap_n": 210,
+  "gcb2025_2023_vs_bcw2023_median_abs_pct_difference": 4.871113758784389,
+  "gcb2025_2023_vs_bcw2023_pearson_r": 0.9998746623305426,
+  "notes": [
+    "GCB fossil and industrial-process CO2 is national territorial emissions; land-use change is not included in this series.",
+    "GCB source rows use MtC/year. Conversion uses the 3.664 factor printed in the GCB 2025 workbook.",
+    "World Bank WDI population is a midyear estimate; GDP is constant 2015 US dollars.",
+    "For population and GDP independently, select 2024 when available, else 2023, else 2022; source years are retained per unit.",
+    "No country/territory emissions are imputed from a sovereign parent or filled with zero.",
+    "Debt is not downloaded or used for this spatial analysis."
+  ]
+}

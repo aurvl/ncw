@@ -21,14 +21,14 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "code" / "src"))
 from gcw.config import BIOMES, CARBON_TO_CO2, FRA_ZIP  # noqa: E402
 
-RATE_FILE = ROOT / "data" / "outputs" / "gibbs_gfw" / "gfw_gibbs_biome_rates_non_mangrove.csv"
-AREA_FILE = ROOT / "data" / "outputs" / "forest_account" / "forest_area_by_biome.csv"
+RATE_FILE = ROOT / "data" / "derived" / "gibbs_gfw" / "gfw_gibbs_biome_rates_non_mangrove.csv"
+AREA_FILE = ROOT / "data" / "derived" / "forest_account" / "forest_area_by_biome.csv"
 TERRITORY_FILE = ROOT / "data" / "derived" / "territories.csv"
-GCW_FILE = ROOT / "data" / "outputs" / "accounts" / "country_level_gcw.csv"
-DRAW_FILE = ROOT / "data" / "outputs" / "draws" / "gcw_draws.npz"
+GCW_FILE = ROOT / "data" / "derived" / "accounts" / "country_level_gcw.csv"
+DRAW_FILE = ROOT / "data" / "derived" / "draws" / "gcw_draws.npz"
 OUTPUT = ROOT / "results" / "tables" / "manuscript" / "Supplementary_country_level_erosion.csv"
-AUDIT = ROOT / "data" / "outputs" / "validation" / "deforestation_capacity_country_rate.csv"
-SUMMARY = ROOT / "data" / "outputs" / "validation" / "deforestation_capacity_country_rate.json"
+AUDIT = ROOT / "data" / "derived" / "validation" / "deforestation_capacity_country_rate.csv"
+SUMMARY = ROOT / "data" / "derived" / "validation" / "deforestation_capacity_country_rate.json"
 REPORT_MEMBER = "Intervals_variables/1d_deforestation_2026-09-16.csv"
 PERIODS = ["2010-2015", "2015-2020", "2020-2025"]
 PERIOD_PRIORITY = ["2020-2025", "2015-2020", "2010-2015"]

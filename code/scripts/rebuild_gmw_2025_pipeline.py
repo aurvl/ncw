@@ -1,8 +1,9 @@
 """Download, verify, and spatially assign the GMW 2025 mangrove layer.
 
-The compressed source GeoPackage is stored in data/raw/ and is never committed.
-The prepared area table remains in data/derived/; overlay and provenance
-products are written under data/outputs/validation/.
+The compressed source GeoPackage is downloaded to data/raw/ only for this
+rebuild and is never committed. After the area table and provenance manifest
+are written successfully, both the archive and extracted GeoPackage are removed.
+Prepared area and audit tables remain under data/derived/.
 """
 
 from __future__ import annotations
@@ -29,8 +30,8 @@ RAW_DIR = ROOT / "data/raw/environmental/marine/gmw"
 ARCHIVE = RAW_DIR / FILE_NAME
 GEOPACKAGE = RAW_DIR / FILE_NAME.removesuffix(".gz")
 AREA_TABLE = ROOT / "data/derived/gmw_2025_mangrove_area_by_unit.csv"
-OVERLAY_SUMMARY = ROOT / "data/outputs/validation/gmw_2025_direct_overlay_summary.json"
-PIPELINE_MANIFEST = ROOT / "data/outputs/validation/gmw_2025_pipeline_manifest.json"
+OVERLAY_SUMMARY = ROOT / "data/derived/validation/gmw_2025_direct_overlay_summary.json"
+PIPELINE_MANIFEST = ROOT / "data/derived/validation/gmw_2025_pipeline_manifest.json"
 CHUNK_SIZE = 8 * 1024 * 1024
 
 
@@ -143,6 +144,9 @@ def main() -> None:
         "completed_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
     PIPELINE_MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    ARCHIVE.unlink(missing_ok=True)
+    GEOPACKAGE.unlink(missing_ok=True)
+    print("Removed temporary GMW source archive and extracted GeoPackage.", flush=True)
     print(json.dumps(manifest, indent=2), flush=True)
 
 

@@ -1,0 +1,10 @@
+check,value,reference,ok
+All tropical forests: rate x Pan area reproduces Pan flux (Pg C/yr),2.52,2.52,True
+Temperate forest: rate x Pan area reproduces Pan flux (Pg C/yr),0.68,0.68,True
+Boreal forest: rate x Pan area reproduces Pan flux (Pg C/yr),0.32,0.32,True
+"Boreal forest: derived rate matches Pan Extended Data Table 3 (tC/ha/yr, rounded to 0.01)",0.27880636027009364,0.28,True
+"Temperate forest: derived rate matches Pan Extended Data Table 3 (tC/ha/yr, rounded to 0.01)",0.865966252785737,0.87,True
+"Tropical intact forest: derived rate matches Pan Extended Data Table 3 (tC/ha/yr, rounded to 0.01)",0.6290881795760803,0.63,True
+"Tropical regrowth forest: derived rate matches Pan Extended Data Table 3 (tC/ha/yr, rounded to 0.01)",3.2084515308617823,3.21,True
+"All tropical forests: derived rate matches Pan Extended Data Table 3 (tC/ha/yr, rounded to 0.01)",1.319406267179769,1.32,True
+All tropical forests flux equals intact + regrowth (Pg C/yr),2.52,2.52,True

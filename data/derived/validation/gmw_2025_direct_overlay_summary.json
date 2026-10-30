@@ -1,0 +1,29 @@
+{
+  "generated_utc": "2026-10-30T00:17:22.354246+00:00",
+  "method": "Project and validate GMW and EEZ geometries in Mollweide, then directly intersect by EEZ UNION and GMW source code; intersections are dissolved within bounded batches before measuring raw geometric area.",
+  "area_basis": "Raw mapped polygon area before GMW's global accuracy correction; the downstream account-area builder multiplies area by 0.9775.",
+  "area_correction_applied_in_overlay": false,
+  "gmw_source": "data/raw/environmental/marine/gmw/gmw_v4112_2025_mng_ext_cntry_info_vec.gpkg",
+  "eez_source": "data/raw/geospatial/boundaries/EEZ_land_union_v4_202410.shp",
+  "input_crs": "EPSG:4326",
+  "area_crs": "ESRI:54009 (Mollweide)",
+  "gmw_features_total": 1551714,
+  "gmw_features_processed": 1551714,
+  "eez_union_units": 328,
+  "gmw_source_codes_observed": 129,
+  "intersection_pairs": 204,
+  "units_with_intersections": 136,
+  "gmw_invalid_geometries_repaired": 0,
+  "gmw_invalid_geometries_repaired_after_projection": 0,
+  "eez_invalid_geometries_repaired_after_projection": 3,
+  "gmw_features_without_positive_area_intersection": 818,
+  "total_direct_overlay_area_ha_summed_across_union_units": 15156812.669992115,
+  "sum_of_pair_dissolved_areas_ha": 15156812.670856785,
+  "cross_source_overlap_excess_ha": 0.0008646713055320276,
+  "files_sha256": {
+    "data/raw/environmental/marine/gmw/gmw_v4112_2025_mng_ext_cntry_info_vec.gpkg": "872485534391ae15e70a6a2932e611a8dda6a3ed91253c5c72c2578f29b56282",
+    "data/raw/geospatial/boundaries/EEZ_land_union_v4_202410.shp": "75aefbf949733235a2eda9d3b4d223c0898945005b8ed10f83d44ba3a58f6cdf",
+    "data/derived/validation/gmw_2025_direct_overlay_by_eez_unit_and_source.csv": "f07e5d58ea609b4635acb913c2b240dac9db1578e3f34d682c3dd3f8c0790b63",
+    "data/derived/validation/gmw_2025_direct_overlay_area_by_eez_unit.csv": "931935b2cdbe1855dd30f74b1ce8681b90362daa046bf92df92536127ea4d10e"
+  }
+}

@@ -1,0 +1,10 @@
+relationship_order,relationship,role,specification,outcome,sample_n,minimum_bic_candidate_by_weight,final_model_decision,final_weight_decision,researcher_rationale,status
+1,Capacity-loss outcome,Primary,baseline_2024_same_sample,lost_capacity_mtco2_yr,122,queen_contiguity: OLS (BIC=31.932); symmetric_knn5: OLS (BIC=31.932),,,,Pending researcher choice
+2,Relative-erosion outcome,Primary,baseline_2024_same_sample,erosion_pct_of_gcw,122,queen_contiguity: OLS (BIC=118.738); symmetric_knn5: OLS (BIC=118.738),,,,Pending researcher choice
+3,GCW/GDP 2024 outcome,Primary,baseline_2024_same_sample,gcw_gdp_pct_2024,193,queen_contiguity: SDEM (BIC=582.140); symmetric_knn5: SEM (BIC=588.247),,,,Pending researcher choice
+4,Capacity-loss outcome with emissions as X,Extended,add_emissions_2024_as_x,lost_capacity_mtco2_yr,122,queen_contiguity: OLS (BIC=36.480); symmetric_knn5: OLS (BIC=36.480),,,,Pending researcher choice
+5,Relative-erosion outcome with emissions as X,Extended,add_emissions_2024_as_x,erosion_pct_of_gcw,122,queen_contiguity: OLS (BIC=123.308); symmetric_knn5: OLS (BIC=123.308),,,,Pending researcher choice
+6,GCW/GDP outcome with emissions as X,Extended,add_emissions_2024_as_x,gcw_gdp_pct_2024,193,symmetric_knn5: SEM (BIC=474.894); queen_contiguity: SEM (BIC=479.693),,,,Pending researcher choice
+7,Emissions outcome with capacity loss as X,Extended,emissions_2024_as_y_plus_lost_capacity_x,emissions_mtco2_yr_2024,122,queen_contiguity: SEM (BIC=419.692); symmetric_knn5: SEM (BIC=434.864),,,,Pending researcher choice
+8,Emissions outcome with relative erosion as X,Extended,emissions_2024_as_y_plus_erosion_x,emissions_mtco2_yr_2024,122,queen_contiguity: SEM (BIC=416.946); symmetric_knn5: SEM (BIC=434.579),,,,Pending researcher choice
+9,Emissions outcome with GCW/GDP as X,Extended,emissions_2024_as_y_plus_gcw_gdp_x,emissions_mtco2_yr_2024,193,queen_contiguity: SDM (BIC=537.912); symmetric_knn5: SEM (BIC=543.367),,,,Pending researcher choice

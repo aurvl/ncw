@@ -1,0 +1,45 @@
+{
+  "gibbs_gmw_gcw_usd2015_yr": 8261443009142.151,
+  "our_allocation_rate": 0.02,
+  "our_2pct_gcw_allocation_usd2015_yr": 165228860182.84302,
+  "global_100bn_30yr_pledge_usd_cumulative": 3000000000000.0,
+  "annual_allocation_pledge_unit_mismatch": "annual GCW minus 30-year cumulative allocation has incompatible units; no such gap is calculated",
+  "busch_article": "Busch et al. (2024), 30-year marginal abatement curves, 5% annual discounting, 2020 USD/tCO2",
+  "busch_cost_curve": "least-cost of natural regeneration vs plantation with harvest, suitability screen, buffer, additionality",
+  "discount_factor_years_1_to_30": 15.372451026882828,
+  "positive_loss_reporters": 100,
+  "positive_loss_total_tco2_yr": 33377399.801651366,
+  "country_curves_available": 58,
+  "matched_loss_tco2_yr": 16387981.62986246,
+  "matched_loss_share_pct": 49.09903625581899,
+  "matched_countries_supply_within_price_domain": 46,
+  "matched_loss_supply_within_price_domain_tco2_yr": 12898745.91279346,
+  "all_reported_loss_supply_within_price_domain_share_pct": 38.64514908125134,
+  "positive_price_curve_countries": 13,
+  "positive_price_curve_loss_tco2_yr": 1663292.7747294602,
+  "positive_price_payment_proxy_usd2020_yr_partial_lo": 9988261.8573872,
+  "positive_price_payment_proxy_usd2020_yr_partial_hi": 18304725.731034502,
+  "positive_price_payment_proxy_usd2015_yr_partial_lo": 9147168.631365523,
+  "positive_price_payment_proxy_usd2015_yr_partial_hi": 16763318.32338117,
+  "positive_price_median_bracket_usd2020_tco2": [
+    5.0,
+    10.0
+  ],
+  "austin_2025_published_action_cost_range_usd_yr_2030": [
+    20000000000.0,
+    72000000000.0
+  ],
+  "austin_to_our_allocation_ratio_pct": [
+    12.104422906426825,
+    43.575922463136564
+  ],
+  "cpi_conversion_2020_to_2015": 0.9157918326500806,
+  "limits": [
+    "Busch curves cover suitable/additional restoration locations in low- and middle-income countries, not all forest-loss reporters.",
+    "The action curve's carbon pool and temporal profile differ from this paper's gross annual living-biomass additions; equal tonnage is a scenario convention, not physical equivalence.",
+    "Country curves extend only from -20 to 100 USD2020/tCO2 in five-dollar increments; targets above this support range are not extrapolated.",
+    "A positive-price uniform payment proxy is a gross carbon-price transfer for only 12 countries, not integrated project expenditure or a global financing need.",
+    "The 2% share is an assumed allocation rule, not estimated from action costs.",
+    "Austin et al.'s 20-72 billion USD/year for 2030 concerns forest-based NDC mitigation in its modelled countries/regions, not replacement of this paper's lost capacity."
+  ]
+}

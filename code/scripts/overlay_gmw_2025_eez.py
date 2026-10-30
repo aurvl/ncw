@@ -21,7 +21,7 @@ from pyproj import Transformer
 ROOT = Path(__file__).resolve().parents[2]
 GMW = ROOT / "data/raw/environmental/marine/gmw/gmw_v4112_2025_mng_ext_cntry_info_vec.gpkg"
 EEZ = ROOT / "data/raw/geospatial/boundaries/EEZ_land_union_v4_202410.shp"
-OUT = ROOT / "data/outputs/validation/gmw_2025_eez_overlay_by_source_unit.csv"
+OUT = ROOT / "data/derived/validation/gmw_2025_eez_overlay_by_source_unit.csv"
 GEOMETRY_CODE_ALIASES = {"ATF_EI": "ATF", "BES_B": "BES", "MUS_CA": "MUS"}
 
 

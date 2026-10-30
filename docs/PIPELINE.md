@@ -80,7 +80,7 @@ $$
 
 $\sigma_{b,\mathrm{spatial}}$ is the area-weighted spatial standard deviation of pixel rates within biome $b$. It describes how much modelled rates $r_p$ vary from one pixel to another. It is not the standard error of the mean $\bar r_b$, annual variation in removals, or the full uncertainty of the Gibbs/GFW model. The scenarios $\bar r_b\pm\sigma_{b,\mathrm{spatial}}$ used below are therefore sensitivities to spatial dispersion, not confidence intervals.
 
-The source datasets and mask are combined pixel by pixel, converted to annual rates, classified by biome and aggregated by area. The complete processing path starts from 272 Gibbs/GFW removal tiles and their 272 matching WRI forest-type tiles (about 37 GB for the removal data). Area-weighted sums are calculated for each biome and tile, then tile summaries are combined into a four-row CSV, one row per biome, with the mean rate, $\sigma_{b,\mathrm{spatial}}$, area and quality-control fields. The resulting `data/outputs/gibbs_gfw/gfw_gibbs_biome_rates_non_mangrove.csv` is then used in the national calculation; the tile-by-biome audit table is stored beside it. For a cache-based run, this validated rate table is reused without downloading or aggregating the raw tiles again.
+The source datasets and mask are combined pixel by pixel, converted to annual rates, classified by biome and aggregated by area. The complete processing path starts from 272 Gibbs/GFW removal tiles and their 272 matching WRI forest-type tiles (about 37 GB for the removal data). Area-weighted sums are calculated for each biome and tile, then tile summaries are combined into a four-row CSV, one row per biome, with the mean rate, $\sigma_{b,\mathrm{spatial}}$, area and quality-control fields. The resulting `data/derived/gibbs_gfw/gfw_gibbs_biome_rates_non_mangrove.csv` is then used in the national calculation; the tile-by-biome audit table is stored beside it. For a cache-based run, this validated rate table is reused without downloading or aggregating the raw tiles again.
 
 | Biome $b$ | Mean annual rate $\bar r_b$ (tC ha$^{-1}$ yr$^{-1}$) | $\sigma_{b,\mathrm{spatial}}$ (tC ha$^{-1}$ yr$^{-1}$) |
 |---|---:|---:|
@@ -390,6 +390,8 @@ The factor $0.02$ is a scenario assumption, not an estimate. $\mathrm{Fin}_{i,d}
 
 This section explains how the data of Busch et al. (2024) are used to estimate, for each entity (country or territory), the CO$_2$ that forest restoration could capture and its cost. The supply curve shows the cumulative quantity of CO$_2$ that could be restored at each cost level; it helps compare this potential with annual forest-addition capacity lost.
 
+The calculation first processes every country-level `.dta` file in the Busch input archive, independently of FRA losses and of whether that country is included in the study's entity table. It writes country costs and supply curves for the full archive. Only after those calculations are complete are the results joined by ISO3 to study entities with a positive FRA loss, so the loss target can be compared with the modelled supply. This second step does not restrict or remove the all-country cost outputs. The published country curves are not used to select, calibrate or validate our calculations.
+
 ![Forest-restoration supply curve for a fictional entity λ](courbe_offre_lambda.png)
 
 *Fictional example: at a price ceiling of 35.72 USD 2015/tCO$_2$, the first three cells are selected and offer a combined 4,100 tCO$_2$ weighted over 30 years. These values illustrate how to read the curve; they are not results.*
@@ -568,7 +570,7 @@ q_{ic}^{*}=a_cC_{c,m_c^*}^{*}G_cB_{c,m_c^*}(1-BAU_c)\frac{44}{12}
 \quad[\mathrm{discounted\ tCO_2/cell}].
 $$
 
-Since $C^*$ is already weighted over 30 years, $q_{ic}^{*}$ represents the total amount of CO$_2$ a cell can offer over that period after applying the masks and additionality. It is a 30-year weighted cumulative amount, not an annual quantity. The reconstruction uses the exact ratio $44/12$; the rounded factor 3.67 is used only in the separate check against the published curve.
+Since $C^*$ is already weighted over 30 years, $q_{ic}^{*}$ represents the total amount of CO$_2$ a cell can offer over that period after applying the masks and additionality. It is a 30-year weighted cumulative amount, not an annual quantity. The reconstruction uses the exact ratio $44/12$.
 
 The curve price divides the total cost of the selected method by its total carbon before applying the masks and additionality:
 
@@ -585,7 +587,7 @@ V_i(p)=\sum_{c\in\mathcal C_i^{+}}q_{ic}^{*}
 \mathbf 1(p_{ic}^{\mathrm{curve}}\le p).
 $$
 
-The published curve's thresholds range from $-20$ to $100$ USD 2020/tCO$_2$, in steps of 5 USD 2020. To classify the reconstruction in 2015 dollars, each threshold is multiplied by $f_{20\rightarrow15}$. The check that reproduces the published workbook keeps the original thresholds in 2020 dollars separately.
+The shared price thresholds used to display our curves are read from the first column of `11_MAC_curves_consolidated.xlsx`: $-20$ to $100$ USD 2020/tCO$_2$, in steps of 5. Only this price grid is read; country curves from the workbook are not loaded or compared. Each threshold is converted to USD 2015 by multiplying it by $f_{20\rightarrow15}$.
 
 #### 9.2.5 Cost required to reach the target
 
@@ -598,7 +600,7 @@ Q_i^{\mathrm{target}}=\widehat L_iD_{30}
 \quad[\mathrm{discounted\ tCO_2}].
 $$
 
-If $\sum_{c\in\mathcal C_i^{+}}q_{ic}^{*}<Q_i^{\mathrm{target}}$, the available cells are insufficient to reach the target and no target cost is calculated. This comparison applies to entities with positive forest loss and a published national curve; only cells with positive quantity and a calculable cost enter the ranking.
+If $\sum_{c\in\mathcal C_i^{+}}q_{ic}^{*}<Q_i^{\mathrm{target}}$, the available cells are insufficient to reach the target and no target cost is calculated. This target assessment is made only for study entities with positive FRA loss and a matching country-level DTA input. All DTA country calculations remain available whether or not an entity has a positive-loss target; only cells with positive quantity and a calculable cost enter the target-cost ranking.
 
 When supply is sufficient, the target is reached by ranking cells according to net cost per additional quantity supplied after filtering:
 

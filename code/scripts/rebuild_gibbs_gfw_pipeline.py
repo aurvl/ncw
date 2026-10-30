@@ -4,7 +4,7 @@ Run from any working directory with:
     python code/scripts/rebuild_gibbs_gfw_pipeline.py
 
 Raw GeoTIFFs and download manifests remain under data/raw/. Compact rate,
-tile-audit, and provenance outputs are written under data/outputs/gibbs_gfw/.
+tile-audit, and provenance outputs are written under data/derived/gibbs_gfw/.
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE_ROOT = ROOT / "data/raw/environmental/forest/gfw_gibbs_2025"
 REMOVALS_DIR = SOURCE_ROOT / "gross_removals"
 FOREST_TYPE_DIR = SOURCE_ROOT / "forest_type"
-OUTPUT_DIR = ROOT / "data/outputs/gibbs_gfw"
+OUTPUT_DIR = ROOT / "data/derived/gibbs_gfw"
 RATE_FILE = OUTPUT_DIR / "gfw_gibbs_biome_rates_non_mangrove.csv"
 TILE_FILE = OUTPUT_DIR / "gfw_gibbs_tile_rates_non_mangrove.csv"
 

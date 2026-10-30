@@ -16,7 +16,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VALIDATION = ROOT / "data" / "outputs" / "validation"
+VALIDATION = ROOT / "data" / "derived" / "validation"
 TABLES = ROOT / "results" / "tables" / "manuscript"
 
 RELATIONS = [
@@ -223,7 +223,7 @@ def build_primary_candidate_coefficients() -> pd.DataFrame:
 
 def build_selection_review(root: Path = ROOT) -> dict[str, Path]:
     global VALIDATION, TABLES
-    VALIDATION = root / "data" / "outputs" / "validation"
+    VALIDATION = root / "data" / "derived" / "validation"
     TABLES = root / "results" / "tables" / "manuscript"
     TABLES.mkdir(parents=True, exist_ok=True)
     dossier = build_fit_and_test_dossier()

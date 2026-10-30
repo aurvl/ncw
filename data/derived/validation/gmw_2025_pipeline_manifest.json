@@ -1,0 +1,11 @@
+{
+  "pipeline": "GMW 2025 polygon-to-EEZ area assignment",
+  "zenodo_record": "21346457",
+  "source_file": "gmw_v4112_2025_mng_ext_cntry_info_vec.gpkg.gz",
+  "source_size_bytes": 189517714,
+  "source_md5": "ad1dda154bd21ad14b3cdf6baf3143ed",
+  "source_archive_sha256": "65f99b28c3fee0f793a7ffbaeca45d3246f439bdfbdf7b92c0a3fb0859fc2cdb",
+  "area_table_sha256": "324303bacd8512dd53454844db53504c365463cd533156a8fd80f55fffaa194b",
+  "overlay_summary_sha256": "2652194b02f6f283c7b86d7febc7853d89aba0c3512484313ddd57931ceed923",
+  "completed_utc": "2026-10-30T00:17:34+00:00"
+}

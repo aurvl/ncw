@@ -1,0 +1,267 @@
+UNIT_CODE,ISO3,name,sovereign,groups,group_source
+ABW,ABW,Aruba,Netherlands,SIDS,published_unit
+AE,,"Abu musa, Greater and Lesser Tunb",United Arab Emirates,Developing economies,sovereign_fallback
+AFG,AFG,Afghanistan,Afghanistan,LDCs,published_unit
+AGO,AGO,Angola,Angola,LDCs,published_unit
+AIA,AIA,Anguilla,United Kingdom,SIDS,published_unit
+ALB,ALB,Albania,Albania,Developed economies,published_unit
+AND,AND,Andorra,Andorra,Developed economies,published_unit
+ARE,ARE,United Arab Emirates,United Arab Emirates,Developing economies,published_unit
+ARG,ARG,Argentina,Argentina,Developing economies,published_unit
+ARM,ARM,Armenia,Armenia,Developing economies,published_unit
+ASM,ASM,American Samoa,United States,SIDS,published_unit
+ATA,ATA,Antarctica,,,unclassified
+ATF-1,,Amsterdam and Saint Paul Islands,France,Developing economies,published_unit
+ATF-2,,Bassas da India,France,Developing economies,published_unit
+ATF-3,,Crozet Islands,France,Developing economies,published_unit
+ATF-4,,Europa Island,France,Developing economies,published_unit
+ATF-5,,Juan de Nova Island,France,Developing economies,published_unit
+ATF-6,,Kerguélen,France,Developing economies,published_unit
+ATG,ATG,Antigua and Barbuda,Antigua and Barbuda,SIDS,published_unit
+AUS,AUS,Australia,Australia,Developed economies,published_unit
+AUT,AUT,Austria,Austria,Developed economies,published_unit
+AZE,AZE,Azerbaijan,Azerbaijan,Developing economies,published_unit
+BCW-JR,,Joint Regimes,,,unclassified
+BCW-OC,,Overlapping Claims,,,unclassified
+BDI,BDI,Burundi,Burundi,LDCs,published_unit
+BEL,BEL,Belgium,Belgium,Developed economies,published_unit
+BEN,BEN,Benin,Benin,LDCs,published_unit
+BES,BES,"Bonaire, Sint Eustatius and Saba",Netherlands,Developing economies,published_unit
+BFA,BFA,Burkina Faso,Burkina Faso,LDCs,published_unit
+BGD,BGD,Bangladesh,Bangladesh,LDCs,published_unit
+BGR,BGR,Bulgaria,Bulgaria,Developed economies,published_unit
+BHR,BHR,Bahrain,Bahrain,Developing economies,published_unit
+BHS,BHS,Bahamas,Bahamas,SIDS,published_unit
+BIH,BIH,Bosnia and Herzegovina,Bosnia and Herzegovina,Developed economies,published_unit
+BLM,BLM,Saint Barthélemy,France,Developing economies,published_unit
+BLR,BLR,Belarus,Belarus,Developed economies,published_unit
+BLZ,BLZ,Belize,Belize,SIDS,published_unit
+BMU,BMU,Bermuda,United Kingdom,SIDS,published_unit
+BOL,BOL,Bolivia (Plurinational State of),Bolivia,Developing economies,published_unit
+BRA,BRA,Brazil,Brazil,Developing economies,published_unit
+BRB,BRB,Barbados,Barbados,SIDS,published_unit
+BRN,BRN,Brunei Darussalam,Brunei,Developing economies,published_unit
+BTN,BTN,Bhutan,Bhutan,Developing economies,published_unit
+BVT,BVT,Bouvet,Norway,Developing economies,published_unit
+BWA,BWA,Botswana,Botswana,Developing economies,published_unit
+CAF,CAF,Central African Republic,Central African Republic,LDCs,published_unit
+CAN,CAN,Canada,Canada,Developed economies,published_unit
+CCK,CCK,Cocos Islands,Australia,Developed economies,published_unit
+CHE,CHE,Switzerland,Switzerland,Developed economies,published_unit
+CHL,CHL,Chile,Chile,Developing economies,published_unit
+CHN,CHN,"China (incl. Taiwan, Hong Kong SAR and Macao SAR)",China,Developing economies,published_unit
+CIV,CIV,Côte d'Ivoire,Ivory Coast,Developing economies,published_unit
+CMR,CMR,Cameroon,Cameroon,Developing economies,published_unit
+COD,COD,Democratic Republic of the Congo,Democratic Republic of the Congo,LDCs,published_unit
+COG,COG,Congo,Republic of the Congo,Developing economies,published_unit
+COK,COK,Cook Islands,New Zealand,SIDS,published_unit
+COL,COL,Colombia,Colombia,Developing economies,published_unit
+COM,COM,Comoros,Comores,SIDS,published_unit
+CP,,Clipperton Island,France,Developed economies,sovereign_fallback
+CPV,CPV,Cabo Verde,Cape Verde,SIDS,published_unit
+CRI,CRI,Costa Rica,Costa Rica,Developing economies,published_unit
+CUB,CUB,Cuba,Cuba,SIDS,published_unit
+CUW,CUW,Curaçao,Netherlands,SIDS,published_unit
+CXR,CXR,Christmas Island,Australia,Developed economies,published_unit
+CYM,CYM,Cayman Islands,United Kingdom,SIDS,published_unit
+CYP,CYP,Cyprus,Cyprus,Developed economies,published_unit
+CZE,CZE,Czechia,Czech Republic,Developed economies,published_unit
+DEU,DEU,Germany,Germany,Developed economies,published_unit
+DJ,,Doumeira Islands,Eritrea,LDCs,sovereign_fallback
+DJI,DJI,Djibouti,Djibouti,LDCs,published_unit
+DMA,DMA,Dominica,Dominica,SIDS,published_unit
+DNK,DNK,Denmark,Denmark,Developed economies,published_unit
+DOM,DOM,Dominican Republic,Dominican Republic,SIDS,published_unit
+DZA,DZA,Algeria,Algeria,Developing economies,published_unit
+ECU,ECU,Ecuador,Ecuador,Developing economies,published_unit
+EGY,EGY,Egypt,Egypt,Developing economies,published_unit
+ERI,ERI,Eritrea,Eritrea,LDCs,published_unit
+ESH,ESH,Western Sahara,Western Sahara,Developing economies,published_unit
+ESP,ESP,Spain,Spain,Developed economies,published_unit
+EST,EST,Estonia,Estonia,Developed economies,published_unit
+ETH,ETH,Ethiopia,Ethiopia,LDCs,published_unit
+FIN,FIN,Finland,Finland,Developed economies,published_unit
+FJI,FJI,Fiji,Fiji,SIDS,published_unit
+FLK,FLK,Falkland Islands (Malvinas),United Kingdom,Developing economies,published_unit
+FR-GLO,,Glorioso Islands,Madagascar,LDCs,sovereign_fallback
+FR-TRO,,Tromelin Island,France,Developed economies,sovereign_fallback
+FRA,FRA,France,France,Developed economies,published_unit
+FRO,FRO,Faroe Islands,Denmark,Developed economies,published_unit
+FSM,FSM,Micronesia (Federated States of),Micronesia,SIDS,published_unit
+GAB,GAB,Gabon,Gabon,Developing economies,published_unit
+GBR,GBR,United Kingdom of Great Britain and Northern Ireland,United Kingdom,Developed economies,published_unit
+GEO,GEO,Georgia,Georgia,Developing economies,published_unit
+GGY,GGY,Guernsey,United Kingdom,Developed economies,published_unit
+GHA,GHA,Ghana,Ghana,Developing economies,published_unit
+GIB,GIB,Gibraltar,United Kingdom,Developed economies,published_unit
+GIN,GIN,Guinea,Guinea,LDCs,published_unit
+GLP,GLP,Guadeloupe,France,SIDS,published_unit
+GMB,GMB,Gambia,Gambia,LDCs,published_unit
+GNB,GNB,Guinea-Bissau,Guinea-Bissau,SIDS,published_unit
+GNQ,GNQ,Equatorial Guinea,Equatorial Guinea,Developing economies,published_unit
+GRC,GRC,Greece,Greece,Developed economies,published_unit
+GRD,GRD,Grenada,Grenada,SIDS,published_unit
+GRL,GRL,Greenland,Denmark,Developed economies,published_unit
+GTM,GTM,Guatemala,Guatemala,Developing economies,published_unit
+GUF,GUF,French Guiana,France,Developing economies,published_unit
+GUM,GUM,Guam,United States,SIDS,published_unit
+GUY,GUY,Guyana,Guyana,SIDS,published_unit
+HMD,HMD,Heard and McDonald Islands,Australia,Developed economies,published_unit
+HND,HND,Honduras,Honduras,Developing economies,published_unit
+HRV,HRV,Croatia,Croatia,Developed economies,published_unit
+HTI,HTI,Haiti,Haiti,SIDS,published_unit
+HUN,HUN,Hungary,Hungary,Developed economies,published_unit
+IDN,IDN,Indonesia,Indonesia,Developing economies,published_unit
+IMN,IMN,Isle of Man,United Kingdom,Developed economies,published_unit
+IND,IND,India,India,Developing economies,published_unit
+IO,,Chagos Archipelago,Republic of Mauritius,SIDS,sovereign_fallback
+IRL,IRL,Ireland,Ireland,Developed economies,published_unit
+IRN,IRN,Iran (Islamic Republic of),Iran,Developing economies,published_unit
+IRQ,IRQ,Iraq,Iraq,Developing economies,published_unit
+ISL,ISL,Iceland,Iceland,Developed economies,published_unit
+ISR,ISR,Israel,Israel,Developed economies,published_unit
+ITA,ITA,Italy,Italy,Developed economies,published_unit
+JAM,JAM,Jamaica,Jamaica,SIDS,published_unit
+JEY,JEY,Jersey,United Kingdom,Developed economies,published_unit
+JOR,JOR,Jordan,Jordan,Developing economies,published_unit
+JP,,Senkaku Islands,Taiwan,Developing economies,sovereign_fallback
+JPN,JPN,Japan,Japan,Developed economies,published_unit
+KAZ,KAZ,Kazakhstan,Kazakhstan,Developing economies,published_unit
+KEN,KEN,Kenya,Kenya,Developing economies,published_unit
+KGZ,KGZ,Kyrgyzstan,Kyrgyzstan,Developing economies,published_unit
+KHM,KHM,Cambodia,Cambodia,LDCs,published_unit
+KIR,KIR,Kiribati,Kiribati,SIDS,published_unit
+KNA,KNA,Saint Kitts and Nevis,Saint Kitts and Nevis,SIDS,published_unit
+KOR,KOR,Republic of Korea,South Korea,Developed economies,published_unit
+KWT,KWT,Kuwait,Kuwait,Developing economies,published_unit
+LAO,LAO,Lao People's Democratic Republic,Laos,LDCs,published_unit
+LBN,LBN,Lebanon,Lebanon,Developing economies,published_unit
+LBR,LBR,Liberia,Liberia,LDCs,published_unit
+LBY,LBY,Libya,Libya,Developing economies,published_unit
+LCA,LCA,Saint Lucia,Saint Lucia,SIDS,published_unit
+LIE,LIE,Liechtenstein,Liechtenstein,Developed economies,published_unit
+LKA,LKA,Sri Lanka,Sri Lanka,Developing economies,published_unit
+LSO,LSO,Lesotho,Lesotho,LDCs,published_unit
+LTU,LTU,Lithuania,Lithuania,Developed economies,published_unit
+LUX,LUX,Luxembourg,Grand Duchy of Luxembourg,Developed economies,published_unit
+LVA,LVA,Latvia,Latvia,Developed economies,published_unit
+MAF,MAF,Saint Martin (French Part),France,Developing economies,published_unit
+MAR,MAR,Morocco,Morocco,Developing economies,published_unit
+MCO,MCO,Monaco,Monaco,Developed economies,published_unit
+MDA,MDA,Republic of Moldova,Moldova,Developed economies,published_unit
+MDG,MDG,Madagascar,Madagascar,LDCs,published_unit
+MDV,MDV,Maldives,Maldives,SIDS,published_unit
+MEX,MEX,Mexico,Mexico,Developing economies,published_unit
+MHL,MHL,Marshall Islands,Marshall Islands,SIDS,published_unit
+MKD,MKD,North Macedonia,Macedonia,Developed economies,published_unit
+MLI,MLI,Mali,Mali,LDCs,published_unit
+MLT,MLT,Malta,Malta,Developed economies,published_unit
+MMR,MMR,Myanmar,Myanmar,LDCs,published_unit
+MNE,MNE,Montenegro,Montenegro,Developed economies,published_unit
+MNG,MNG,Mongolia,Mongolia,Developing economies,published_unit
+MNP,MNP,Northern Mariana Islands,United States,SIDS,published_unit
+MOZ,MOZ,Mozambique,Mozambique,LDCs,published_unit
+MRT,MRT,Mauritania,Mauritania,LDCs,published_unit
+MSR,MSR,Montserrat,United Kingdom,SIDS,published_unit
+MTQ,MTQ,Martinique,France,SIDS,published_unit
+MUS,MUS,Mauritius,Republic of Mauritius,SIDS,published_unit
+MWI,MWI,Malawi,Malawi,LDCs,published_unit
+MYS,MYS,Malaysia,Malaysia,Developing economies,published_unit
+MYT,MYT,Mayotte,France,Developing economies,published_unit
+NAM,NAM,Namibia,Namibia,Developing economies,published_unit
+NCL,NCL,New Caledonia,France,SIDS,published_unit
+NER,NER,Niger,Niger,LDCs,published_unit
+NFK,NFK,Norfolk Island,Australia,Developed economies,published_unit
+NGA,NGA,Nigeria,Nigeria,Developing economies,published_unit
+NIC,NIC,Nicaragua,Nicaragua,Developing economies,published_unit
+NIU,NIU,Niue,New Zealand,SIDS,published_unit
+NLD,NLD,Netherlands (Kingdom of the),Netherlands,Developed economies,published_unit
+NOR,NOR,Norway,Norway,Developed economies,published_unit
+NPL,NPL,Nepal,Nepal,LDCs,published_unit
+NRU,NRU,Naoero,Nauru,SIDS,published_unit
+NZL,NZL,New Zealand,New Zealand,Developed economies,published_unit
+OMN,OMN,Oman,Oman,Developing economies,published_unit
+PAK,PAK,Pakistan,Pakistan,Developing economies,published_unit
+PAN,PAN,Panama,Panama,Developing economies,published_unit
+PCN,PCN,Pitcairn,United Kingdom,Developing economies,published_unit
+PER,PER,Peru,Peru,Developing economies,published_unit
+PHL,PHL,Philippines,Philippines,Developing economies,published_unit
+PLW,PLW,Palau,Palau,SIDS,published_unit
+PNG,PNG,Papua New Guinea,Papua New Guinea,SIDS,published_unit
+POL,POL,Poland,Poland,Developed economies,published_unit
+PRI,PRI,Puerto Rico,United States,SIDS,published_unit
+PRK,PRK,Democratic People's Republic of Korea,North Korea,Developing economies,published_unit
+PRT,PRT,Portugal,Portugal,Developed economies,published_unit
+PRY,PRY,Paraguay,Paraguay,Developing economies,published_unit
+PSE,PSE,Palestine,Palestine,Developing economies,published_unit
+PYF,PYF,French Polynesia,France,SIDS,published_unit
+QAT,QAT,Qatar,Qatar,Developing economies,published_unit
+REU,REU,Réunion,France,Developed economies,sovereign_fallback
+ROU,ROU,Romania,Romania,Developed economies,published_unit
+RU-SA,,Kuril Islands,Japan,Developed economies,sovereign_fallback
+RUS,RUS,Russian Federation,Russia,Developed economies,published_unit
+RWA,RWA,Rwanda,Rwanda,LDCs,published_unit
+SAU,SAU,Saudi Arabia,Saudi Arabia,Developing economies,published_unit
+SD,,Hala'ib Triangle,Sudan,LDCs,sovereign_fallback
+SDN,SDN,Sudan,Sudan,LDCs,published_unit
+SEN,SEN,Senegal,Senegal,LDCs,published_unit
+SGP,SGP,Singapore,Singapore,SIDS,published_unit
+SGS,SGS,South Georgia and the South Sandwich Islands,United Kingdom,Developing economies,published_unit
+SHN,SHN,"Ascension, Saint Helena and Tristan da Cunha",United Kingdom,Developing economies,published_unit
+SJM,SJM,Svalbard and Jan Mayen Islands,Norway,Developed economies,published_unit
+SLB,SLB,Solomon Islands,Solomon Islands,SIDS,published_unit
+SLE,SLE,Sierra Leone,Sierra Leone,LDCs,published_unit
+SLV,SLV,El Salvador,El Salvador,Developing economies,published_unit
+SMR,SMR,San Marino,San Marino,Developed economies,published_unit
+SOM,SOM,Somalia,Federal Republic of Somalia,LDCs,published_unit
+SPM,SPM,Saint Pierre and Miquelon,France,Developed economies,published_unit
+SRB,SRB,Serbia,Serbia,Developed economies,published_unit
+SSD,SSD,South Sudan,South Sudan,LDCs,published_unit
+STP,STP,Sao Tome and Principe,Sao Tome and Principe,SIDS,published_unit
+SUR,SUR,Suriname,Suriname,SIDS,published_unit
+SVK,SVK,Slovakia,Slovakia,Developed economies,published_unit
+SVN,SVN,Slovenia,Slovenia,Developed economies,published_unit
+SWE,SWE,Sweden,Sweden,Developed economies,published_unit
+SWZ,SWZ,Eswatini,Swaziland,Developing economies,published_unit
+SXM,SXM,Sint Maarten (Dutch part),Netherlands,SIDS,published_unit
+SYC,SYC,Seychelles,Seychelles,SIDS,published_unit
+SYR,SYR,Syrian Arab Republic,Syria,Developing economies,published_unit
+TCA,TCA,Turks and Caicos Islands,United Kingdom,SIDS,published_unit
+TCD,TCD,Chad,Chad,LDCs,published_unit
+TGO,TGO,Togo,Togo,LDCs,published_unit
+THA,THA,Thailand,Thailand,Developing economies,published_unit
+TJK,TJK,Tajikistan,Tajikistan,Developing economies,published_unit
+TKL,TKL,Tokelau,New Zealand,Developing economies,published_unit
+TKM,TKM,Turkmenistan,Turkmenistan,Developing economies,published_unit
+TLS,TLS,Timor-Leste,East Timor,SIDS,published_unit
+TON,TON,Tonga,Tonga,SIDS,published_unit
+TTO,TTO,Trinidad and Tobago,Trinidad and Tobago,SIDS,published_unit
+TUN,TUN,Tunisia,Tunisia,Developing economies,published_unit
+TUR,TUR,Türkiye,Turkey,Developing economies,published_unit
+TUV,TUV,Tuvalu,Tuvalu,SIDS,published_unit
+TZA,TZA,United Republic of Tanzania,Tanzania,LDCs,published_unit
+UGA,UGA,Uganda,Uganda,LDCs,published_unit
+UKR,UKR,Ukraine,Ukraine,Developed economies,published_unit
+UM-76,,Navassa Island,Haiti,SIDS,sovereign_fallback
+UMI-1,,Howland and Baker islands,United States,Developed economies,published_unit
+UMI-2,,Jarvis Island,United States,Developed economies,published_unit
+UMI-3,,Johnston Atoll,United States,Developed economies,published_unit
+UMI-4,,Palmyra Atoll,United States,Developed economies,published_unit
+UMI-5,,Wake Island,United States,Developed economies,published_unit
+URY,URY,Uruguay,Uruguay,Developing economies,published_unit
+USA,USA,United States of America,United States,Developed economies,published_unit
+UZB,UZB,Uzbekistan,Uzbekistan,Developing economies,published_unit
+VAT,VAT,Holy See,Vatican City,Developed economies,researcher_convention
+VCT,VCT,Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,SIDS,published_unit
+VEN,VEN,Venezuela (Bolivarian Republic of),Venezuela,Developing economies,published_unit
+VGB,VGB,British Virgin Islands,United Kingdom,SIDS,published_unit
+VIR,VIR,United States Virgin Islands,United States,SIDS,published_unit
+VNM,VNM,Viet Nam,Vietnam,Developing economies,published_unit
+VU,,Matthew and Hunter Islands,France,Developed economies,sovereign_fallback
+VUT,VUT,Vanuatu,Vanuatu,SIDS,published_unit
+WLF,WLF,Wallis and Futuna Islands,France,Developing economies,published_unit
+WSM,WSM,Samoa,Samoa,SIDS,published_unit
+YEM,YEM,Yemen,Yemen,LDCs,published_unit
+ZAF,ZAF,South Africa,South Africa,Developing economies,published_unit
+ZMB,ZMB,Zambia,Zambia,LDCs,published_unit
+ZWE,ZWE,Zimbabwe,Zimbabwe,Developing economies,published_unit

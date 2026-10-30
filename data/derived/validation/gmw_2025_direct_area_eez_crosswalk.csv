@@ -1,0 +1,235 @@
+eez_union,eez_iso3,eez_sovereign_iso3,eez_territory_name,accounting_unit_code,accounting_unit_mapping,gmw_direct_overlay_area_raw_ha,gmw_area_correction_factor,gmw_direct_overlay_area_corrected_ha
+Alaska,,USA,Alaska,USA,BCW territory-name crosswalk,0.0,0.9775,0.0
+Albania,ALB,ALB,Albania,ALB,BCW territory-name crosswalk,0.0,0.9775,0.0
+Algeria,DZA,DZA,Algeria,DZA,BCW territory-name crosswalk,0.0,0.9775,0.0
+American Samoa,ASM,USA,American Samoa,ASM,BCW territory-name crosswalk,34.440942892783234,0.9775,33.66602167769561
+Amsterdam and Saint Paul Islands,ATF,FRA,Amsterdam and Saint Paul Islands,ATF-1,BCW territory-name crosswalk,0.0,0.9775,0.0
+Andaman and Nicobar,,IND,Andaman and Nicobar,IND,BCW territory-name crosswalk,58225.90889462364,0.9775,56915.82594449461
+Angola,AGO,AGO,Angola,AGO,BCW territory-name crosswalk,29425.06307795534,0.9775,28762.999158701346
+Anguilla,AIA,GBR,Anguilla,AIA,BCW territory-name crosswalk,8.291808439839802,0.9775,8.105242749943406
+Antarctica,,,,,,0.0,0.9775,0.0
+Antigua and Barbuda,ATG,ATG,Antigua and Barbuda,ATG,BCW territory-name crosswalk,980.0054784417379,0.9775,957.9553551767988
+Argentina,ARG,ARG,Argentina,ARG,BCW territory-name crosswalk,0.0,0.9775,0.0
+Aruba,ABW,NLD,Aruba,ABW,BCW territory-name crosswalk,116.31819323907052,0.9775,113.70103389119144
+Ascension,SHN,GBR,Ascension,SHN,BCW territory-name crosswalk,0.0,0.9775,0.0
+Australia,AUS,AUS,Australia,AUS,BCW territory-name crosswalk,1099834.5455382892,0.9775,1075088.2682636778
+Azerbaijan,AZE,AZE,Azerbaijan,AZE,BCW territory-name crosswalk,0.0,0.9775,0.0
+Azores,,PRT,Azores,PRT,BCW territory-name crosswalk,0.0,0.9775,0.0
+Bahamas,BHS,BHS,Bahamas,BHS,BCW territory-name crosswalk,55124.61411846398,0.9775,53884.31030079854
+Bahrain,BHR,BHR,Bahrain,BHR,BCW territory-name crosswalk,34.08161872779285,0.9775,33.31478230641751
+Bajo Nuevo Bank,,COL,Bajo Nuevo Bank,COL,BCW territory-name crosswalk,0.0,0.9775,0.0
+Bangladesh,BGD,BGD,Bangladesh,BGD,BCW territory-name crosswalk,440032.69137541554,0.9775,430131.9558194687
+Barbados,BRB,BRB,Barbados,BRB,BCW territory-name crosswalk,19.721560139813374,0.9775,19.277825036667572
+Bassas da India,ATF,FRA,Bassas da India,ATF-2,BCW territory-name crosswalk,0.0,0.9775,0.0
+Belgium,BEL,BEL,Belgium,BEL,BCW territory-name crosswalk,0.0,0.9775,0.0
+Belize,BLZ,BLZ,Belize,BLZ,BCW territory-name crosswalk,55328.63914917511,0.9775,54083.74476831868
+Benin,BEN,BEN,Benin,BEN,BCW territory-name crosswalk,1988.0334512048667,0.9775,1943.3026985527572
+Bermuda,BMU,GBR,Bermuda,BMU,BCW territory-name crosswalk,22.132716789125944,0.9775,21.63473066137061
+Bonaire,BES,NLD,Bonaire,BES,BCW territory-name crosswalk,245.3821962950274,0.9775,239.8610968783893
+Bosnia and Herzegovina,BIH,BIH,Bosnia and Herzegovina,BIH,BCW territory-name crosswalk,0.0,0.9775,0.0
+Bouvet,BVT,NOR,Bouvet,BVT,BCW territory-name crosswalk,0.0,0.9775,0.0
+Brazil,BRA,BRA,Brazil,BRA,BCW territory-name crosswalk,1108876.0892848214,0.9775,1083926.377275913
+British Virgin Islands,VGB,GBR,British Virgin Islands,VGB,BCW territory-name crosswalk,130.59682639493818,0.9775,127.65839780105208
+Brunei,BRN,BRN,Brunei,BRN,BCW territory-name crosswalk,13515.611442935404,0.9775,13211.510185469358
+Bulgaria,BGR,BGR,Bulgaria,BGR,BCW territory-name crosswalk,0.0,0.9775,0.0
+Cambodia,KHM,KHM,Cambodia,KHM,BCW territory-name crosswalk,35772.52381086546,0.9775,34967.642025120986
+Cameroon,CMR,CMR,Cameroon,CMR,BCW territory-name crosswalk,209141.27634139446,0.9775,204435.59762371308
+Canada,CAN,CAN,Canada,CAN,BCW territory-name crosswalk,0.0,0.9775,0.0
+Canary Islands,,ESP,Canary Islands,ESP,BCW territory-name crosswalk,0.0,0.9775,0.0
+Cape Verde,CPV,CPV,Cape Verde,CPV,BCW territory-name crosswalk,0.0,0.9775,0.0
+Cayman Islands,CYM,GBR,Cayman Islands,CYM,BCW territory-name crosswalk,7050.298679199339,0.9775,6891.666958917354
+Chagos Archipelago,,MUS,Chagos Archipelago,IO,BCW territory-name crosswalk,2.419398812292009,0.9775,2.3649623390154386
+Chile,CHL,CHL,Chile,CHL,BCW territory-name crosswalk,0.0,0.9775,0.0
+China,CHN,CHN,China,CHN,BCW territory-name crosswalk,25977.41011861543,0.9775,25392.918390946583
+Christmas Island,CXR,AUS,Christmas Island,CXR,BCW territory-name crosswalk,0.0,0.9775,0.0
+Clipperton Island,,FRA,Clipperton Island,CP,BCW territory-name crosswalk,0.0,0.9775,0.0
+Cocos Islands,CCK,AUS,Cocos Islands,CCK,BCW territory-name crosswalk,8.18524304535149,0.9775,8.001075076831082
+Collectivity of Saint Martin,MAF,FRA,Collectivity of Saint Martin,MAF,BCW territory-name crosswalk,27.886545972344912,0.9775,27.259098687967153
+Colombia,COL,COL,Colombia,COL,BCW territory-name crosswalk,301484.8723201954,0.9775,294701.462692991
+Colombian Exclusive Economic Zone (Quitasueño Bank),,COL,Quitasueño Bank,COL,EEZ ISO_SOV1 fallback,0.0,0.9775,0.0
+Comores,COM,COM,Comores,COM,BCW territory-name crosswalk,123.74687620388028,0.9775,120.96257148929297
+Cook Islands,COK,NZL,Cook Islands,COK,BCW territory-name crosswalk,0.5935524312921217,0.9775,0.580197501588049
+Costa Rica,CRI,CRI,Costa Rica,CRI,BCW territory-name crosswalk,40442.65777037298,0.9775,39532.697970539586
+Croatia,HRV,HRV,Croatia,HRV,BCW territory-name crosswalk,0.0,0.9775,0.0
+Crozet Islands,ATF,FRA,Crozet Islands,ATF-3,BCW territory-name crosswalk,0.0,0.9775,0.0
+Cuba,CUB,CUB,Cuba,CUB,BCW territory-name crosswalk,393581.38916987245,0.9775,384725.80791355035
+Curaçao,CUW,NLD,Curaçao,CUW,BCW territory-name crosswalk,113.8260121626526,0.9775,111.26492688899292
+Cyprus,CYP,CYP,Cyprus,CYP,BCW territory-name crosswalk,0.0,0.9775,0.0
+Democratic Republic of the Congo,COD,COD,Democratic Republic of the Congo,COD,BCW territory-name crosswalk,19480.40160648491,0.9775,19042.092570339
+Denmark,DNK,DNK,Denmark,DNK,BCW territory-name crosswalk,0.0,0.9775,0.0
+Djibouti,DJI,DJI,Djibouti,DJI,BCW territory-name crosswalk,551.7231174791327,0.9775,539.3093473358523
+Dominica,DMA,DMA,Dominica,DMA,BCW territory-name crosswalk,19.676042346986666,0.9775,19.233331394179466
+Dominican Republic,DOM,DOM,Dominican Republic,DOM,BCW territory-name crosswalk,21590.443597020552,0.9775,21104.658616087592
+East Timor,TLS,TLS,East Timor,TLS,BCW territory-name crosswalk,1567.9061037974022,0.9775,1532.6282164619608
+Easter Island,,CHL,Easter Island,CHL,BCW territory-name crosswalk,0.0,0.9775,0.0
+Ecuador,ECU,ECU,Ecuador,ECU,BCW territory-name crosswalk,156286.78185914882,0.9775,152770.32926731798
+Egypt,EGY,EGY,Egypt,EGY,BCW territory-name crosswalk,226.89485418228895,0.9775,221.78971996318745
+El Salvador,SLV,SLV,El Salvador,SLV,BCW territory-name crosswalk,36800.62985439706,0.9775,35972.61568267313
+Equatorial Guinea,GNQ,GNQ,Equatorial Guinea,GNQ,BCW territory-name crosswalk,25222.7925503596,0.9775,24655.27971797651
+Eritrea,ERI,ERI,Eritrea,ERI,BCW territory-name crosswalk,7362.304920390709,0.9775,7196.653059681918
+Estonia,EST,EST,Estonia,EST,BCW territory-name crosswalk,0.0,0.9775,0.0
+Europa Island,ATF,FRA,Europa Island,ATF-4,BCW territory-name crosswalk,683.0053909169415,0.9775,667.6377696213103
+Faeroe,FRO,DNK,Faeroe,FRO,BCW territory-name crosswalk,0.0,0.9775,0.0
+Federal Republic of Somalia,SOM,SOM,Federal Republic of Somalia,SOM,BCW territory-name crosswalk,3769.642886598274,0.9775,3684.8259216498127
+Fiji,FJI,FJI,Fiji,FJI,BCW territory-name crosswalk,55058.02260368474,0.9775,53819.217095101834
+Finland,FIN,FIN,Finland,FIN,BCW territory-name crosswalk,0.0,0.9775,0.0
+France,FRA,FRA,France,FRA,BCW territory-name crosswalk,0.0,0.9775,0.0
+French Guiana,GUF,FRA,French Guiana,GUF,BCW territory-name crosswalk,53338.20709420058,0.9775,52138.09743458107
+French Polynesia,PYF,FRA,French Polynesia,PYF,BCW territory-name crosswalk,80.75215322256692,0.9775,78.93522977505917
+Gabon,GAB,GAB,Gabon,GAB,BCW territory-name crosswalk,194902.2778115906,0.9775,190516.97656082982
+Galapagos,,ECU,Galapagos,ECU,BCW territory-name crosswalk,3554.6361323595415,0.9775,3474.656819381452
+Gambia,GMB,GMB,Gambia,GMB,BCW territory-name crosswalk,71682.10419874506,0.9775,70069.25685427329
+Georgia,GEO,GEO,Georgia,GEO,BCW territory-name crosswalk,0.0,0.9775,0.0
+Germany,DEU,DEU,Germany,DEU,BCW territory-name crosswalk,0.0,0.9775,0.0
+Ghana,GHA,GHA,Ghana,GHA,BCW territory-name crosswalk,8018.569435575226,0.9775,7838.151623274784
+Gilbert Islands,KIR,KIR,Gilbert Islands,KIR,EEZ ISO_TER1,278.9224575402553,0.9775,272.6467022455996
+Greece,GRC,GRC,Greece,GRC,BCW territory-name crosswalk,0.0,0.9775,0.0
+Greenland,GRL,DNK,Greenland,GRL,BCW territory-name crosswalk,0.0,0.9775,0.0
+Grenada,GRD,GRD,Grenada,GRD,BCW territory-name crosswalk,217.0235199667208,0.9775,212.1404907674696
+Guadeloupe,GLP,FRA,Guadeloupe,GLP,BCW territory-name crosswalk,3540.9011229034236,0.9775,3461.2308476380967
+Guam,GUM,USA,Guam,GUM,BCW territory-name crosswalk,65.47047990202509,0.9775,63.99739410422953
+Guatemala,GTM,GTM,Guatemala,GTM,BCW territory-name crosswalk,22386.38201891384,0.9775,21882.68842348828
+Guernsey,GGY,GBR,Guernsey,GGY,BCW territory-name crosswalk,0.0,0.9775,0.0
+Guinea,GIN,GIN,Guinea,GIN,BCW territory-name crosswalk,224904.45207979647,0.9775,219844.10190800106
+Guinea-Bissau,GNB,GNB,Guinea-Bissau,GNB,BCW territory-name crosswalk,296977.782755255,0.9775,290295.7826432618
+Guyana,GUY,GUY,Guyana,GUY,BCW territory-name crosswalk,28178.179835895364,0.9775,27544.17078958772
+Haiti,HTI,HTI,Haiti,HTI,BCW territory-name crosswalk,17193.904307844452,0.9775,16807.041460917953
+Hawaii,,USA,Hawaii,USA,BCW territory-name crosswalk,859.2711659795668,0.9775,839.9375647450266
+Heard and McDonald Islands,HMD,AUS,Heard and McDonald Islands,HMD,BCW territory-name crosswalk,0.0,0.9775,0.0
+Honduras,HND,HND,Honduras,HND,BCW territory-name crosswalk,52933.661405023406,0.9775,51742.65402341038
+Howland and Baker islands,UMI,USA,Howland and Baker Islands,UMI-1,BCW territory-name crosswalk,0.0,0.9775,0.0
+Iceland,ISL,ISL,Iceland,ISL,BCW territory-name crosswalk,0.0,0.9775,0.0
+India,IND,IND,India,IND,BCW territory-name crosswalk,422122.54835723445,0.9775,412624.7910191967
+Indonesia,IDN,IDN,Indonesia,IDN,BCW territory-name crosswalk,3240548.9944668906,0.9775,3167636.6420913856
+Iran,IRN,IRN,Iran,IRN,BCW territory-name crosswalk,10994.757452210391,0.9775,10747.375409535658
+Iraq,IRQ,IRQ,Iraq,IRQ,BCW territory-name crosswalk,0.0,0.9775,0.0
+Ireland,IRL,IRL,Ireland,IRL,BCW territory-name crosswalk,0.0,0.9775,0.0
+Islas San Félix and San Ambrosio,CHL,CHL,Islas San Félix and San Ambrosio,CHL,BCW territory-name crosswalk,0.0,0.9775,0.0
+Isle of Man,IMN,GBR,Isle of Man,IMN,BCW territory-name crosswalk,0.0,0.9775,0.0
+Israel,ISR,ISR,Israel,ISR,BCW territory-name crosswalk,0.0,0.9775,0.0
+Italy,ITA,ITA,Italy,ITA,BCW territory-name crosswalk,0.0,0.9775,0.0
+Ivory Coast,CIV,CIV,Ivory Coast,CIV,BCW territory-name crosswalk,7820.0878854150715,0.9775,7644.135907993233
+Jamaica,JAM,JAM,Jamaica,JAM,BCW territory-name crosswalk,10788.082156895425,0.9775,10545.350308365278
+Jan Mayen,SJM,NOR,Jan Mayen,SJM,BCW territory-name crosswalk,0.0,0.9775,0.0
+Japan,JPN,JPN,Japan,JPN,BCW territory-name crosswalk,972.6327149308403,0.9775,950.7484788448965
+Jarvis Island,UMI,USA,Jarvis Island,UMI-2,BCW territory-name crosswalk,0.0,0.9775,0.0
+Jersey,JEY,GBR,Jersey,JEY,BCW territory-name crosswalk,0.0,0.9775,0.0
+Johnston Atoll,UMI,USA,Johnston Atoll,UMI-3,BCW territory-name crosswalk,0.0,0.9775,0.0
+Jordan,JOR,JOR,Jordan,JOR,BCW territory-name crosswalk,0.0,0.9775,0.0
+Juan de Nova Island,ATF,FRA,Juan de Nova Island,ATF-5,BCW territory-name crosswalk,0.0,0.9775,0.0
+Kazakhstan,KAZ,KAZ,Kazakhstan,KAZ,BCW territory-name crosswalk,0.0,0.9775,0.0
+Kenya,KEN,KEN,Kenya,KEN,BCW territory-name crosswalk,53531.27667402914,0.9775,52326.82294886349
+Kerguélen,ATF,FRA,Kerguélen,ATF-6,BCW territory-name crosswalk,0.0,0.9775,0.0
+Kuwait,KWT,KWT,Kuwait,KWT,BCW territory-name crosswalk,0.5491044188554323,0.9775,0.536749569431185
+Latvia,LVA,LVA,Latvia,LVA,BCW territory-name crosswalk,0.0,0.9775,0.0
+Lebanon,LBN,LBN,Lebanon,LBN,BCW territory-name crosswalk,0.0,0.9775,0.0
+Liberia,LBR,LBR,Liberia,LBR,BCW territory-name crosswalk,19482.96795378315,0.9775,19044.60117482303
+Libya,LBY,LBY,Libya,LBY,BCW territory-name crosswalk,0.0,0.9775,0.0
+Line Group,KIR,KIR,Line Group,KIR,EEZ ISO_TER1,0.0,0.9775,0.0
+Lithuania,LTU,LTU,Lithuania,LTU,BCW territory-name crosswalk,0.0,0.9775,0.0
+Macquarie Island,,AUS,Macquarie Island,AUS,BCW territory-name crosswalk,0.0,0.9775,0.0
+Madagascar,MDG,MDG,Madagascar,MDG,BCW territory-name crosswalk,269017.3593506814,0.9775,262964.4687652911
+Madeira,,PRT,Madeira,PRT,BCW territory-name crosswalk,0.0,0.9775,0.0
+Malaysia,MYS,MYS,Malaysia,MYS,BCW territory-name crosswalk,576294.2019883746,0.9775,563327.5824436361
+Maldives,MDV,MDV,Maldives,MDV,BCW territory-name crosswalk,198.06501154324164,0.9775,193.6085487835187
+Malta,MLT,MLT,Malta,MLT,BCW territory-name crosswalk,0.0,0.9775,0.0
+Marshall Islands,MHL,MHL,Marshall Islands,MHL,BCW territory-name crosswalk,21.937127109792343,0.9775,21.443541749822014
+Martinique,MTQ,FRA,Martinique,MTQ,BCW territory-name crosswalk,2375.750935817741,0.9775,2322.296539761842
+Mauritania,MRT,MRT,Mauritania,MRT,BCW territory-name crosswalk,180.309108118552,0.9775,176.25215318588457
+Mexico,MEX,MEX,Mexico,MEX,BCW territory-name crosswalk,812466.435626345,0.9775,794185.9408247522
+Micronesia,FSM,FSM,Micronesia,FSM,BCW territory-name crosswalk,9920.407429725194,0.9775,9697.198262556378
+Monaco,MCO,MCO,Monaco,MCO,BCW territory-name crosswalk,0.0,0.9775,0.0
+Montenegro,MNE,MNE,Montenegro,MNE,BCW territory-name crosswalk,0.0,0.9775,0.0
+Montserrat,MSR,GBR,Montserrat,MSR,BCW territory-name crosswalk,0.0,0.9775,0.0
+Morocco,MAR,MAR,Morocco,MAR,BCW territory-name crosswalk,0.0,0.9775,0.0
+Mozambique,MOZ,MOZ,Mozambique,MOZ,BCW territory-name crosswalk,312922.8109752017,0.9775,305882.0477282597
+Myanmar,MMR,MMR,Myanmar,MMR,BCW territory-name crosswalk,574521.2578721916,0.9775,561594.5295700673
+Namibia,NAM,NAM,Namibia,NAM,BCW territory-name crosswalk,0.0,0.9775,0.0
+Nauru,NRU,NRU,Nauru,NRU,BCW territory-name crosswalk,0.5398760785736659,0.9775,0.5277288668057585
+Netherlands,NLD,NLD,Netherlands,NLD,BCW territory-name crosswalk,0.0,0.9775,0.0
+New Caledonia,NCL,FRA,New Caledonia,NCL,BCW territory-name crosswalk,30459.82598553807,0.9775,29774.479900863465
+New Zealand,NZL,NZL,New Zealand,NZL,BCW territory-name crosswalk,28163.199561798603,0.9775,27529.527571658135
+Nicaragua,NIC,NIC,Nicaragua,NIC,BCW territory-name crosswalk,68348.40696407594,0.9775,66810.56780738423
+Nigeria,NGA,NGA,Nigeria,NGA,BCW territory-name crosswalk,816173.1054460879,0.9775,797809.2105735509
+Niue,NIU,NZL,Niue,NIU,BCW territory-name crosswalk,0.0,0.9775,0.0
+Norfolk Island,NFK,AUS,Norfolk Island,NFK,BCW territory-name crosswalk,0.0,0.9775,0.0
+North Korea,PRK,PRK,North Korea,PRK,BCW territory-name crosswalk,0.0,0.9775,0.0
+Northern Mariana Islands,MNP,USA,Northern Mariana Islands,MNP,BCW territory-name crosswalk,3.2994449461252953,0.9775,3.2252074348374764
+Norway,NOR,NOR,Norway,NOR,BCW territory-name crosswalk,0.0,0.9775,0.0
+Oecusse,,TLS,Oecusse,TLS,BCW territory-name crosswalk,92.23267344370248,0.9775,90.15743829121918
+Oman,OMN,OMN,Oman,OMN,BCW territory-name crosswalk,493.19076794373905,0.9775,482.09397566500496
+Pakistan,PAK,PAK,Pakistan,PAK,BCW territory-name crosswalk,85116.10434995186,0.9775,83200.99200207794
+Palau,PLW,PLW,Palau,PLW,BCW territory-name crosswalk,5367.937752053457,0.9775,5247.1591526322545
+Palestine,PSE,PSE,Palestine,PSE,BCW territory-name crosswalk,0.0,0.9775,0.0
+Palmyra Atoll,UMI,USA,Palmyra Atoll,UMI-4,BCW territory-name crosswalk,0.0,0.9775,0.0
+Panama,PAN,PAN,Panama,PAN,BCW territory-name crosswalk,178555.85957144314,0.9775,174538.35273108567
+Papua New Guinea,PNG,PNG,Papua New Guinea,PNG,BCW territory-name crosswalk,502228.71007519646,0.9775,490928.56409850455
+Peru,PER,PER,Peru,PER,BCW territory-name crosswalk,5233.815507996968,0.9775,5116.0546590670365
+Philippines,PHL,PHL,Philippines,PHL,BCW territory-name crosswalk,312730.1576365557,0.9775,305693.7290897332
+Phoenix Group,KIR,KIR,Phoenix Group,KIR,EEZ ISO_TER1,0.0,0.9775,0.0
+Pitcairn,PCN,GBR,Pitcairn,PCN,BCW territory-name crosswalk,0.0,0.9775,0.0
+Poland,POL,POL,Poland,POL,BCW territory-name crosswalk,0.0,0.9775,0.0
+Portugal,PRT,PRT,Portugal,PRT,BCW territory-name crosswalk,0.0,0.9775,0.0
+Prince Edward Islands,,ZAF,Prince Edward Islands,ZAF,BCW territory-name crosswalk,0.0,0.9775,0.0
+Puerto Rico,PRI,USA,Puerto Rico,PRI,BCW territory-name crosswalk,9101.542378819744,0.9775,8896.7576752963
+Qatar,QAT,QAT,Qatar,QAT,BCW territory-name crosswalk,1041.5591352063934,0.9775,1018.1240546642496
+Republic of Mauritius,MUS,MUS,Republic of Mauritius,MUS,BCW territory-name crosswalk,447.2527281728503,0.9775,437.1895417889612
+Republic of the Congo,COG,COG,Republic of the Congo,COG,BCW territory-name crosswalk,3086.7980501739667,0.9775,3017.3450940450525
+Romania,ROU,ROU,Romania,ROU,BCW territory-name crosswalk,0.0,0.9775,0.0
+Russia,RUS,RUS,Russia,RUS,BCW territory-name crosswalk,0.0,0.9775,0.0
+Réunion,REU,FRA,Réunion,REU,BCW territory-name crosswalk,0.0,0.9775,0.0
+Saba,BES,NLD,Saba,BES,BCW territory-name crosswalk,0.0,0.9775,0.0
+Saint Helena,SHN,GBR,Saint Helena,SHN,BCW territory-name crosswalk,0.0,0.9775,0.0
+Saint Kitts and Nevis,KNA,KNA,Saint Kitts and Nevis,KNA,BCW territory-name crosswalk,33.508452188323865,0.9775,32.75451201408658
+Saint Lucia,LCA,LCA,Saint Lucia,LCA,BCW territory-name crosswalk,245.66557214429668,0.9775,240.13809677105002
+Saint Vincent and the Grenadines,VCT,VCT,Saint Vincent and the Grenadines,VCT,BCW territory-name crosswalk,35.96546509276777,0.9775,35.1562421281805
+Saint-Barthélemy,BLM,FRA,Saint-Barthélemy,BLM,BCW territory-name crosswalk,3.596250124175526,0.9775,3.5153344963815765
+Saint-Pierre and Miquelon,SPM,FRA,Saint-Pierre and Miquelon,SPM,BCW territory-name crosswalk,0.0,0.9775,0.0
+Samoa,WSM,WSM,Samoa,WSM,BCW territory-name crosswalk,315.9404580656088,0.9775,308.83179775913266
+Sao Tome and Principe,STP,STP,Sao Tome and Principe,STP,BCW territory-name crosswalk,64.9676955076149,0.9775,63.505922358693574
+Saudi Arabia,SAU,SAU,Saudi Arabia,SAU,BCW territory-name crosswalk,6687.2806245194015,0.9775,6536.816810467715
+Senegal,SEN,SEN,Senegal,SEN,BCW territory-name crosswalk,163077.64774808436,0.9775,159408.40067375248
+Serrana Bank,,COL,Serrana Bank,COL,BCW territory-name crosswalk,19.707232593093817,0.9775,19.26381985974921
+Serranilla Bank,,COL,Serranilla Bank,COL,BCW territory-name crosswalk,0.0,0.9775,0.0
+Seychelles,SYC,SYC,Seychelles,SYC,BCW territory-name crosswalk,1702.1571803997049,0.9775,1663.8586438407117
+Sierra Leone,SLE,SLE,Sierra Leone,SLE,BCW territory-name crosswalk,143067.18365900914,0.9775,139848.17202668145
+Singapore,SGP,SGP,Singapore,SGP,BCW territory-name crosswalk,592.6348627945707,0.9775,579.300578381693
+Sint-Eustatius,BES,NLD,Sint-Eustatius,BES,BCW territory-name crosswalk,0.0,0.9775,0.0
+Sint-Maarten,SXM,NLD,Sint-Maarten,SXM,BCW territory-name crosswalk,15.82888522675534,0.9775,15.472735309153345
+Slovenia,SVN,SVN,Slovenia,SVN,BCW territory-name crosswalk,0.0,0.9775,0.0
+Solomon Islands,SLB,SLB,Solomon Islands,SLB,BCW territory-name crosswalk,61904.71824436813,0.9775,60511.86208386985
+South Africa,ZAF,ZAF,South Africa,ZAF,BCW territory-name crosswalk,2079.0698166915727,0.9775,2032.2907458160123
+South Korea,KOR,KOR,South Korea,KOR,BCW territory-name crosswalk,0.0,0.9775,0.0
+Spain,ESP,ESP,Spain,ESP,BCW territory-name crosswalk,0.0,0.9775,0.0
+Sri Lanka,LKA,LKA,Sri Lanka,LKA,BCW territory-name crosswalk,13882.795937436651,0.9775,13570.433028844327
+Sudan,SDN,SDN,Sudan,SDN,BCW territory-name crosswalk,547.5393574182422,0.9775,535.2197218763317
+Suriname,SUR,SUR,Suriname,SUR,BCW territory-name crosswalk,75705.62245907781,0.9775,74002.24595374857
+Svalbard,SJM,NOR,Svalbard,SJM,BCW territory-name crosswalk,0.0,0.9775,0.0
+Sweden,SWE,SWE,Sweden,SWE,BCW territory-name crosswalk,0.0,0.9775,0.0
+Syria,SYR,SYR,Syria,SYR,BCW territory-name crosswalk,0.0,0.9775,0.0
+Taiwan,TWN,TWN,Taiwan,CHN,BCW territory-name crosswalk,620.7400170821893,0.9775,606.7733666978401
+Tanzania,TZA,TZA,Tanzania,TZA,BCW territory-name crosswalk,114010.16506935663,0.9775,111444.93635529611
+Thailand,THA,THA,Thailand,THA,BCW territory-name crosswalk,268541.3920456861,0.9775,262499.21072465816
+Togo,TGO,TGO,Togo,TGO,BCW territory-name crosswalk,12.752138729672252,0.9775,12.465215608254626
+Tokelau,TKL,NZL,Tokelau,TKL,BCW territory-name crosswalk,0.0,0.9775,0.0
+Tonga,TON,TON,Tonga,TON,BCW territory-name crosswalk,1689.7902712535356,0.9775,1651.769990150331
+Trinidad and Tobago,TTO,TTO,Trinidad and Tobago,TTO,BCW territory-name crosswalk,7905.030699520694,0.9775,7727.167508781478
+Trinidade,,BRA,Trindade,BRA,EEZ ISO_SOV1 fallback,0.0,0.9775,0.0
+Tristan Da Cunha,SHN,GBR,Tristan da Cunha,SHN,BCW territory-name crosswalk,0.0,0.9775,0.0
+Tunisia,TUN,TUN,Tunisia,TUN,BCW territory-name crosswalk,0.0,0.9775,0.0
+Turkey,TUR,TUR,Turkey,TUR,BCW territory-name crosswalk,0.0,0.9775,0.0
+Turkmenistan,TKM,TKM,Turkmenistan,TKM,BCW territory-name crosswalk,0.0,0.9775,0.0
+Turks and Caicos Islands,TCA,GBR,Turks and Caicos Islands,TCA,BCW territory-name crosswalk,9257.785515170432,0.9775,9049.485341079097
+Tuvalu,TUV,TUV,Tuvalu,TUV,BCW territory-name crosswalk,38.96713566436508,0.9775,38.09037511191687
+Ukraine,UKR,UKR,Ukraine,UKR,BCW territory-name crosswalk,0.0,0.9775,0.0
+United Arab Emirates,ARE,ARE,United Arab Emirates,ARE,BCW territory-name crosswalk,9923.922230427503,0.9775,9700.633980242885
+United Kingdom,GBR,GBR,United Kingdom,GBR,BCW territory-name crosswalk,0.0,0.9775,0.0
+United States,USA,USA,United States,USA,BCW territory-name crosswalk,258583.41376294935,0.9775,252765.286953283
+United States Virgin Islands,VIR,USA,United States Virgin Islands,VIR,BCW territory-name crosswalk,310.4762329639851,0.9775,303.49051772229546
+Uruguay,URY,URY,Uruguay,URY,BCW territory-name crosswalk,0.0,0.9775,0.0
+Vanuatu,VUT,VUT,Vanuatu,VUT,BCW territory-name crosswalk,2249.6747383306115,0.9775,2199.0570567181726
+Venezuela,VEN,VEN,Venezuela,VEN,BCW territory-name crosswalk,290065.41092899436,0.9775,283538.939183092
+Vietnam,VNM,VNM,Vietnam,VNM,BCW territory-name crosswalk,165061.3832280789,0.9775,161347.5021054471
+Wake Island,UMI,USA,Wake Island / Enenkio,USA,EEZ ISO_SOV1 fallback,0.0,0.9775,0.0
+Wallis and Futuna,WLF,FRA,Wallis and Futuna,WLF,BCW territory-name crosswalk,55.781765678806565,0.9775,54.52667595103342
+Yemen,YEM,YEM,Yemen,YEM,BCW territory-name crosswalk,1704.611512131911,0.9775,1666.257753108943
