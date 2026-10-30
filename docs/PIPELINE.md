@@ -215,8 +215,6 @@ The reference area reported by Hilmi et al. (2026) is denoted $A_{i,\mathrm{mang
 
 For any entity with a selected mangrove area, that area replaces the area reported by Hilmi when one is available. Seagrass and saltmarsh areas, their rates, the reported BCP flux and the shared draw $GSCC_d$ complete the BCW calculation. A missing marine component does not contribute numerically to the sum, which is arithmetically equivalent to zero; its NaN value remains in the source row. When multiple BCW rows are aggregated for one entity, reported values are added and coverage columns show how many source rows supplied each component. If no source row reports a component, its aggregated value remains NaN. An indicator distinguishes calculations for which all components are available.
 
-The counts and amounts below describe tables saved on 28 October 2026, before the calculation of a BCW account was added for entities with a mangrove area but no published Hilmi account. They therefore do not represent results from the rule now described and will need to be updated in the final regeneration.
-
 Hilmi et al. (2026) report a mangrove area for 119 of the 266 entities; no area is reported for the other 147. After applying the selection rule above, an area is available for 236 entities and remains NaN for 30. The sources of the 236 selected areas are:
 
 | Selected source | Entities | Selected area |
