@@ -1,7 +1,7 @@
 {
   "deforestation_source": "fra2025_bulk_WO.zip:Intervals_variables/1d_deforestation_2026-09-16.csv",
-  "forest_flux_source": "data/derived/accounts/country_level_gcw.csv",
-  "forest_area_source": "data/derived/forest_account/forest_area_by_biome.csv",
+  "forest_flux_source": "data\\derived\\accounts\\country_level_gcw.csv",
+  "forest_area_source": "data\\derived\\forest_account\\forest_area_by_biome.csv",
   "forest_area_variant": "documented_overlap_removed",
   "period_selection_priority": [
     "2020-2025",
@@ -28,7 +28,7 @@
   "reported_units_with_country_rate": 132,
   "reported_units_without_country_rate": 7,
   "annual_lost_addition_capacity_tco2": 33377399.798397206,
-  "annual_lost_gcw_value_usd2015": 18677088105.503075,
+  "annual_lost_gcw_value_usd2015": 18677088105.50308,
   "reported_deforestation_area_ha_yr": 9170410.0,
   "positive_capacity_units": 100,
   "gscc_draws": 20000,

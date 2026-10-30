@@ -1,6 +1,4 @@
-status,units,reported_loss_capacity_tco2_yr,target_discounted_30yr_tco2,share_of_all_reported_loss_pct,category
-no_country_curve_in_published_table,42,16989418.17178891,261168998.82105818,50.90096374418102,No country curve in published table
-target_exceeds_published_supply_at_100,12,3489235.717069,53638105.181893595,10.45388717456765,Target exceeds published supply at $100/tCO2
-target_within_positive_price_curve,13,1663292.77472946,25568886.722896677,4.983290443874443,Target within positive-price range
-target_within_supply_at_nonpositive_price,17,7471193.92667,114850562.75007899,22.383990278057425,Above -$20 and at or below $0/tCO2
-target_within_supply_at_or_below_minus20,16,3764259.211394,57865890.37964684,11.277868359319474,At or below -$20/tCO2
+status,units,reported_loss_capacity_tco2_yr,target_discounted_30yr_tco2,share_of_positive_loss_pct,category
+no_country_input_dta,31,2870225.3351089098,45083274.33886858,8.599307771622472,No country DTA input
+target_outside_cell_supply,11,2578428.989099,40499963.55928304,7.725074464822244,Target exceeds calculated cell supply
+target_within_cell_supply,58,27928745.47744346,438683081.3937616,83.6756177635553,Target within calculated cell supply

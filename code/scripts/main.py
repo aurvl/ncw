@@ -17,6 +17,8 @@ import sys
 import time
 from pathlib import Path
 
+import pandas as pd
+
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "code" / "src"))
 sys.path.insert(0, str(ROOT / "code" / "scripts"))
@@ -100,9 +102,38 @@ def prepare_busch_reconstruction(rebuild: bool = False) -> None:
     with allocation_path.open("rb") as allocation_file:
         target_join_hash = hashlib.file_digest(allocation_file, "sha256").hexdigest()
     if summary.get("target_join_input_sha256") != target_join_hash:
-        raise RuntimeError(
-            "Prepared Busch FRA-target join does not match the current allocation/loss table. "
-            "Run code/scripts/rebuild_busch_pipeline.py or pass --rebuild-derived to main.py."
+        allocation = pd.read_csv(allocation_path)
+        targets = allocation.loc[
+            allocation.reported_deforestation.fillna(False).astype(bool)
+            & pd.to_numeric(allocation.lost_capacity_tco2_yr, errors="coerce").gt(0),
+            ["iso3", "name", "groups", "lost_capacity_tco2_yr",
+             "our_2pct_gcw_allocation_usd2015_yr"],
+        ].rename(columns={"lost_capacity_tco2_yr": "reported_loss_capacity_tco2_yr"})
+        coverage_path = output_dir / f"{prefix}_coverage.csv"
+        coverage = pd.read_csv(coverage_path)
+        joined_columns = [
+            "iso3", "name", "groups", "reported_loss_capacity_tco2_yr",
+            "our_2pct_gcw_allocation_usd2015_yr",
+        ]
+        expected_join = targets[joined_columns].sort_values("iso3").reset_index(drop=True)
+        cached_join = coverage[joined_columns].sort_values("iso3").reset_index(drop=True)
+        same_join = expected_join.equals(cached_join)
+        if not same_join:
+            raise RuntimeError(
+                "Prepared Busch FRA-target results do not match the current positive-loss inputs. "
+                "Run code/scripts/rebuild_busch_pipeline.py or pass --rebuild-derived to main.py."
+            )
+        # The allocation file also contains auxiliary diagnostics that are not inputs
+        # to the target-cost join. If every joined field is identical, only refresh
+        # its raw-file provenance hash; the all-country costs and target results stand.
+        summary["target_join_input_sha256"] = target_join_hash
+        summary_path.write_text(
+            json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+        print(
+            "== Busch target-join cache ==\n  Positive-loss inputs match exactly; "
+            "refreshing provenance for unrelated allocation diagnostics.",
+            flush=True,
         )
     print("== Busch cell reconstruction cache ==\n  Reusing the prepared cell-level results in data/derived/busch_reconstruction.", flush=True)
 

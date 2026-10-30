@@ -51,7 +51,7 @@ while (!file.exists(file.path(root, "pyproject.toml"))) {
   root <- parent
 }
 
-validation_dir <- file.path(root, "data", "outputs", "validation")
+validation_dir <- file.path(root, "data", "derived", "validation")
 master_path <- file.path(validation_dir, "country_level_results_master.csv")
 output_files <- c(
   moran = "spatial_emissions_2024_step1_moran.csv",
