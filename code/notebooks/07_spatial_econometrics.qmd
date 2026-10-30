@@ -23,9 +23,9 @@ The word **relationship** is deliberate. These are cross-sectional associations.
 
 ## Research questions
 
-1. **How are forest-capacity loss, relative GCW erosion, and GCW as a share of GDP associated with the baseline national controls?**
-2. **How do those three relationships change when 2024 emissions are added as a predictor?**
-3. **How are 2024 CO₂ emissions associated with forest-capacity loss, relative GCW erosion, and GCW/GDP, conditional on the baseline controls?**
+1.  **How are forest-capacity loss, relative GCW erosion, and GCW as a share of GDP associated with the baseline national controls?**
+2.  **How do those three relationships change when 2024 emissions are added as a predictor?**
+3.  **How are 2024 CO₂ emissions associated with forest-capacity loss, relative GCW erosion, and GCW/GDP, conditional on the baseline controls?**
 
 For example, the third question includes the relationship between GCW/GDP and emissions. It is not phrased as “the impact” because the design is observational and does not establish causal identification.
 
@@ -37,7 +37,7 @@ If you only want to read the analysis, open the [published HTML version](https:/
 
 The QMD reads the model and diagnostic tables prepared by `main.py`, then builds its comparison tables, descriptive plots, and weight maps in the rendered document. It does not refit models or write analysis tables back to the repository. Do not run code chunks one by one; render the complete document from the repository root:
 
-```powershell
+``` powershell
 quarto render code/notebooks/07_spatial_econometrics.qmd --to html --output-dir tmp/quarto-render
 ```
 
@@ -627,7 +627,7 @@ The sample-size chart reports complete-case counts. The distribution panels use 
 
 **Question:** How are annual forest-capacity loss, relative GCW erosion, and GCW/GDP associated with GDP per capita, forest area, and warm-biome share?
 
-The three baseline relationships use different outcomes and complete-case samples. Across the regression tables, cells show coefficient estimates with maximum-likelihood standard errors in parentheses; stars denote p < 0.10, p < 0.05, and p < 0.01. Outcomes and non-negative focal indicators are on the log1p scale, while the warm-biome share is untransformed.
+The three baseline relationships use different outcomes and complete-case samples. Across the regression tables, cells show coefficient estimates with maximum-likelihood standard errors in parentheses; stars denote p \< 0.10, p \< 0.05, and p \< 0.01. Outcomes and non-negative focal indicators are on the log1p scale, while the warm-biome share is untransformed.
 
 ```{r}
 attach_relationship <- function(d) {
@@ -986,11 +986,11 @@ Final estimator, weights-matrix, and manuscript-interpretation decisions remain 
 
 # 8. Reproduction and limits
 
-- Current national inputs: `data/outputs/validation/country_level_results_master.csv`.
-- Prepared model results: `data/outputs/validation/spatial_emissions_2024_*`.
-- Upstream estimation entry point: `code/scripts/run_spatial_emissions_extension.py`.
-- Relationship and sample mapping: `spatial_model_decision_template.csv` and `spatial_emissions_2024_sample_audit.csv`.
-- The notebook reads prepared model outputs; `main.py` is responsible for rebuilding them.
-- Non-reporting deforestation is missing, not zero. Model samples are complete cases, not imputed.
-- Coefficients are model output, not automatic interpretation. These observational relationships do not establish causality.
-- Final estimator, weights-matrix, and manuscript interpretation decisions remain with the researcher.
+-   Current national inputs: `data/outputs/validation/country_level_results_master.csv`.
+-   Prepared model results: `data/outputs/validation/spatial_emissions_2024_*`.
+-   Upstream estimation entry point: `code/scripts/run_spatial_emissions_extension.py`.
+-   Relationship and sample mapping: `spatial_model_decision_template.csv` and `spatial_emissions_2024_sample_audit.csv`.
+-   The notebook reads prepared model outputs; `main.py` is responsible for rebuilding them.
+-   Non-reporting deforestation is missing, not zero. Model samples are complete cases, not imputed.
+-   Coefficients are model output, not automatic interpretation. These observational relationships do not establish causality.
+-   Final estimator, weights-matrix, and manuscript interpretation decisions remain with the researcher.
