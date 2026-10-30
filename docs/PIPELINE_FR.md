@@ -217,8 +217,6 @@ L'aire de référence rapportée par Hilmi et al. (2026) est notée $A_{i,\mathr
 
 Pour toute entité disposant d’une aire de mangrove retenue, cette aire remplace celle de Hilmi lorsqu’elle existe; les aires d’herbiers et de marais salés, leurs taux, le flux BCP rapporté et le tirage commun $GSCC_d$ complètent le calcul du BCW. Une composante marine manquante ne contribue pas numériquement à la somme (équivalent arithmétique à zéro); sa valeur NaN est conservée dans la ligne source. Lorsqu’on agrège plusieurs lignes BCW pour une même entité, les valeurs renseignées sont additionnées et les colonnes de couverture indiquent combien de lignes sources ont fourni chaque composante; si aucune ligne ne la renseigne, la valeur agrégée reste NaN. Un indicateur distingue les calculs dont toutes les composantes sont disponibles.
 
-Les effectifs et montants ci-dessous décrivent les tables enregistrées le 28 octobre 2026, avant l’ajout du calcul d’un compte BCW lorsqu’une aire de mangrove est disponible mais qu’aucun compte Hilmi n’est publié. Ils ne sont donc pas les résultats de la règle désormais décrite; ils devront être actualisés lors de la régénération finale.
-
 Hilmi et al. (2026) fournissent une aire de mangrove pour 119 des 266 entités; pour les 147 autres, aucune aire n’est indiquée. Après la sélection décrite ci-dessus, une aire est disponible pour 236 entités et reste NaN pour 30. La provenance des 236 aires retenues est :
 
 | Source retenue | Entités | Aire retenue |
