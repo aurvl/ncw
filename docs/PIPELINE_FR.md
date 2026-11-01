@@ -95,7 +95,7 @@ Le terme $\sigma_{b,\mathrm{spatial}}$ décrit la dispersion spatiale des pixels
 
 Pour chaque entité $i$, $F_i^{\mathrm{declared}}$ est la surface FRA déclarée comme Forest, en hectares. Pour alléger les équations, on note ensuite $F_i=F_i^{\mathrm{declared}}$. $M_i^{FRA}$ est la surface FRA déclarée en mangroves. Selon le classement national, la catégorie des mangroves peut relever de Forest ou de Other wooded land (OWL); leur superficie totale n'est donc pas nécessairement incluse dans $F_i$.
 
-Les rapports ne donnent pas tous une ventilation chiffrée de la superficie des mangroves entre les catégories Forest, OWL et les autres classes. Cela signifie parfois que la classe détaillée n'est pas connue, pas que la superficie totale de mangroves manque. L'audit porte sur 116 entités ayant une valeur FRA positive; une ventilation Forest est appliquée dans 26 cas. Le Brésil rapporte une superficie dans la catégorie Forest, le Mozambique répartit sa surface entre Forest (80 %) et OWL (20 %), et Sainte-Lucie la classe en OWL. Au total, 4 180 910 ha sont documentés dans la catégorie Forest; la ventilation entre Forest et OWL n'est pas vérifiée pour 11 613 440 ha.
+Les rapports ne donnent pas tous une ventilation chiffrée de la superficie des mangroves entre les catégories Forest, OWL et les autres classes. Cela signifie parfois que la classe détaillée n'est pas connue, pas que la superficie totale de mangroves manque. L'audit porte sur 116 entités ayant une valeur FRA positive; 26 ont un classement documenté, dont 25 avec une superficie de mangroves affectée à Forest et une, Sainte-Lucie, avec une superficie entièrement classée en OWL. Le Brésil rapporte une superficie dans la catégorie Forest, tandis que le Mozambique répartit sa surface entre Forest (80 %) et OWL (20 %). Au total, 4 180 910 ha sont documentés dans la catégorie Forest; la ventilation entre Forest et OWL n'est pas vérifiée pour 11 613 440 ha.
 
 On note $O_i^F$, $O_i^{OWL}$ et $O_i^R$ les surfaces documentées respectivement comme Forest, OWL et Remaining land, et $O_i^?$ la part sans ventilation établie. La décomposition de travail est :
 
@@ -227,19 +227,19 @@ Hilmi et al. (2026) fournissent une aire de mangrove pour 119 des 266 entités; 
 | Aucune source disponible | 30 | NaN |
 
 Parmi les 119 entités qui avaient déjà une aire rapportée par Hilmi et al. (2026), 118 reçoivent une aire différente; une conserve l’aire rapportée par Hilmi et al. (2026) comme dernier recours. Pour 117 entités, une aire est maintenant disponible alors qu’Hilmi et al. (2026) n'en rapportaient aucune. À périmètre comparable, la somme des aires passe de 11 187 925 ha à 11 104 147 ha, soit −83 778 ha (−0,75 %). Les 3 713 799 ha des 117 nouvelles entités élargissent la couverture; leur ajout explique pourquoi le total des aires disponibles n’est pas une comparaison à périmètre constant.
-Hilmi et al. (2026) fournissent un compte BCW pour 180 entités. Parmi celles-ci, 178 ont maintenant une aire retenue et leur flux BCW est recalculé : 118 avec une aire qui remplace une valeur rapportée par Hilmi et al. (2026), 59 avec une aire nouvellement disponible et 1 avec l’aire rapportée par Hilmi et al. (2026) conservée. Les 2 comptes BCW pour lesquels l’aire reste NaN gardent leur valeur publiée sans recalcul. Les 58 entités restantes ont une aire retenue mais ne figurent pas parmi les comptes BCW publiés par Hilmi et al. (2026); elles ne sont donc pas intégrées à cette mise à jour du BCW.
-Le total mondial du BCW porte sur les mêmes 180 comptes avant et après la mise à jour. Les statistiques des 20 000 tirages communs sont :
+Hilmi et al. (2026) fournissent un compte BCW pour 180 entités. Parmi celles-ci, 178 ont maintenant une aire retenue et leur flux BCW est recalculé : 118 avec une aire qui remplace une valeur rapportée par Hilmi et al. (2026), 59 avec une aire nouvellement disponible et 1 avec l’aire rapportée par Hilmi et al. (2026) conservée. Les 2 comptes BCW pour lesquels l’aire reste NaN gardent leur valeur publiée sans recalcul. En outre, 58 entités ont une aire retenue mais aucun compte BCW publié par Hilmi et al. (2026); le calcul mis à jour leur ajoute un compte BCW, ce qui porte à 238 le nombre d'entités ayant une valeur BCW.
+Le total BCW publié couvre 180 entités, tandis que le total mis à jour en couvre 238. Les statistiques des 20 000 tirages communs sont :
 
-| Statistique BCW mondial | aire rapportée par Hilmi et al. (2026) | Après mise à jour | Variation |
+| Statistique BCW mondial | Compte publié (180 entités) | Compte mis à jour (238 entités) | Variation |
 |---|---:|---:|---:|
-| Moyenne (milliards USD 2015/an) | 2 315,580 | 2 329,303 | +13,722 (+0,593 %) |
-| P05 (milliards USD 2015/an) | 904,682 | 909,096 | +4,414 |
-| Médiane (milliards USD 2015/an) | 2 101,732 | 2 113,411 | +11,679 |
-| P95 (milliards USD 2015/an) | 4 266,823 | 4 297,953 | +31,131 |
+| Moyenne (milliards USD 2015/an) | 2 315,580 | 2 329,310 | +13,730 (+0,593 %) |
+| P05 (milliards USD 2015/an) | 904,682 | 909,103 | +4,420 |
+| Médiane (milliards USD 2015/an) | 2 101,732 | 2 113,419 | +11,687 |
+| P95 (milliards USD 2015/an) | 4 266,823 | 4 297,955 | +31,132 |
 
 Les variations sont calculées à partir des valeurs non arrondies; les petits écarts éventuels avec la soustraction des nombres affichés proviennent de l'arrondi.
 
-La moyenne du BCW augmente donc de 13,722 milliards USD 2015/an, mais cette hausse n’est pas uniforme : l’Indonésie présente la plus forte hausse moyenne (+11,981 milliards USD 2015/an), tandis que le Mexique présente la plus forte baisse moyenne (−0,749 milliard USD 2015/an). Le résultat mondial augmente malgré une légère baisse de l’aire totale parmi les 119 entités directement comparables, car 117 entités auparavant sans aire reçoivent désormais une valeur et les flux sont redistribués entre entités.
+La moyenne du BCW augmente donc de 13,730 milliards USD 2015/an sur le périmètre élargi. L’Indonésie présente la plus forte hausse moyenne (+11,981 milliards USD 2015/an), tandis que le Mexique présente la plus forte baisse moyenne (−0,749 milliard USD 2015/an). Cette variation mondiale combine la révision des comptes existants et 58 comptes BCW nouvellement calculés; il ne s'agit pas d'une comparaison à périmètre constant entre les mêmes 180 entités.
 
 ## 5. Des Green et Blue CW au NCW
 

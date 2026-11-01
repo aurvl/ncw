@@ -95,7 +95,7 @@ $\sigma_{b,\mathrm{spatial}}$ describes spatial dispersion among pixels; it is n
 
 For each entity $i$, $F_i^{\mathrm{declared}}$ is the FRA area reported as Forest, in hectares. For shorter equations, write $F_i=F_i^{\mathrm{declared}}$. $M_i^{FRA}$ is the FRA area reported as mangroves. Depending on national classification, mangroves can be classified as Forest or Other wooded land (OWL); their total area is therefore not necessarily included in $F_i$.
 
-Not all reports provide a numerical breakdown of mangrove area between Forest, OWL and other classes. In some cases, the detailed class is unknown even though total mangrove area is available. The audit covers 116 entities with a positive FRA value; a Forest allocation is applied in 26 cases. Brazil reports an area under Forest, Mozambique allocates its mangrove area between Forest (80%) and OWL (20%), and Saint Lucia classifies it as OWL. In total, 4,180,910 ha are documented in the Forest category; the Forest/OWL breakdown has not been verified for 11,613,440 ha.
+Not all reports provide a numerical breakdown of mangrove area between Forest, OWL and other classes. In some cases, the detailed class is unknown even though total mangrove area is available. The audit covers 116 entities with a positive FRA value; 26 have a documented classification, of which 25 have mangrove area allocated to Forest and one, Saint Lucia, has its mangrove area allocated entirely to OWL. Brazil reports an area under Forest, while Mozambique allocates its mangrove area between Forest (80%) and OWL (20%). In total, 4,180,910 ha are documented in the Forest category; the Forest/OWL breakdown has not been verified for 11,613,440 ha.
 
 Let $O_i^F$, $O_i^{OWL}$ and $O_i^R$ be areas documented as Forest, OWL and Remaining land, respectively, and let $O_i^?$ be the share without an established breakdown. The working decomposition is:
 
@@ -225,20 +225,20 @@ Hilmi et al. (2026) report a mangrove area for 119 of the 266 entities; no area 
 | No source available | 30 | NaN |
 
 Among the 119 entities for which Hilmi et al. (2026) already reported an area, 118 now receive a different area; one retains the area reported by Hilmi et al. (2026) as the last fallback. For 117 entities, an area is now available although Hilmi et al. (2026) reported none. On a comparable basis, the sum of areas decreases from 11,187,925 ha to 11,104,147 ha, a change of -83,778 ha (-0.75%). The 3,713,799 ha for the 117 newly covered entities expand coverage; their inclusion explains why the total available area is not a like-for-like comparison.
-Hilmi et al. (2026) publish a BCW account for 180 entities. Of these, 178 now have a selected area and their BCW flux is recalculated: 118 with an area that replaces one reported by Hilmi et al. (2026), 59 with a newly available area and one retaining the area reported by Hilmi et al. (2026). The two BCW accounts for which the area remains NaN retain their published values without recalculation. The remaining 58 entities have a selected area but are not among the BCW accounts published by Hilmi et al. (2026); they are therefore not included in this BCW update.
+Hilmi et al. (2026) publish a BCW account for 180 entities. Of these, 178 now have a selected area and their BCW flux is recalculated: 118 with an area that replaces one reported by Hilmi et al. (2026), 59 with a newly available area and one retaining the area reported by Hilmi et al. (2026). The two BCW accounts for which the area remains NaN retain their published values without recalculation. Another 58 entities have a selected area but no BCW account published by Hilmi et al. (2026); the updated calculation adds BCW accounts for them, giving 238 entities with BCW values.
 
-The global BCW total covers the same 180 accounts before and after the update. Statistics across the 20,000 shared draws are:
+The published baseline covers 180 entities, whereas the updated total covers 238. Statistics across the 20,000 shared draws are:
 
-| Global BCW statistic | Area reported by Hilmi et al. (2026) | After update | Change |
+| Global BCW statistic | Published baseline (180 entities) | Updated account (238 entities) | Change |
 |---|---:|---:|---:|
-| Mean (billion USD 2015/yr) | 2,315.580 | 2,329.303 | +13.722 (+0.593%) |
-| P05 (billion USD 2015/yr) | 904.682 | 909.096 | +4.414 |
-| Median (billion USD 2015/yr) | 2,101.732 | 2,113.411 | +11.679 |
-| P95 (billion USD 2015/yr) | 4,266.823 | 4,297.953 | +31.131 |
+| Mean (billion USD 2015/yr) | 2,315.580 | 2,329.310 | +13.730 (+0.593%) |
+| P05 (billion USD 2015/yr) | 904.682 | 909.103 | +4.420 |
+| Median (billion USD 2015/yr) | 2,101.732 | 2,113.419 | +11.687 |
+| P95 (billion USD 2015/yr) | 4,266.823 | 4,297.955 | +31.132 |
 
 Changes are calculated from unrounded values; any small differences from subtracting the displayed values are due to rounding.
 
-Mean BCW therefore increases by 13.722 billion USD 2015/yr, but the increase is not uniform: Indonesia has the largest mean increase (+11.981 billion USD 2015/yr), while Mexico has the largest mean decrease (-0.749 billion USD 2015/yr). The global result rises despite a slight decrease in total area among the 119 directly comparable entities because 117 entities that previously had no area now receive one and fluxes are redistributed among entities.
+Mean BCW therefore increases by 13.730 billion USD 2015/yr across the expanded coverage. Indonesia has the largest mean increase (+11.981 billion USD 2015/yr), while Mexico has the largest mean decrease (-0.749 billion USD 2015/yr). This global change combines revisions to existing accounts with 58 newly calculated BCW accounts; it is not a like-for-like comparison of the same 180 entities.
 
 ## 5. From GCW and BCW to NCW
 
