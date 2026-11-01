@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.11 or newer">
   <a href="LICENSE"><img src="https://img.shields.io/badge/Code-MIT-111827?style=for-the-badge" alt="MIT licensed code"></a>
   <a href="LICENSE-CCBY40.md"><img src="https://img.shields.io/badge/Data_and_docs-CC_BY_4.0-7C3AED?style=for-the-badge" alt="CC BY 4.0 data and documentation"></a>
+  <a href="https://doi.org/10.5281/zenodo.23812056"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.23812056-1682D4?style=for-the-badge" alt="DOI 10.5281/zenodo.23812056"></a>
 </p>
 
 **Data and code for the national natural carbon wealth study.**
@@ -79,3 +80,5 @@ These sources are not stored in Git and are not needed for the standard run, whi
 ## Licence and citation
 
 Code is under MIT ([`LICENSE`](LICENSE)); project data and documentation are under CC BY 4.0 ([`LICENSE-CCBY40.md`](LICENSE-CCBY40.md)). Source datasets keep their own terms (see [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md)). Cite the associated manuscript and the original data sources; citation metadata is in [`CITATION.cff`](CITATION.cff).
+
+Releases of this repository are archived on Zenodo: [10.5281/zenodo.23812056](https://doi.org/10.5281/zenodo.23812056) always points to the latest version; each release also has its own DOI, listed on the Zenodo record (v1.0.0: [10.5281/zenodo.23812057](https://doi.org/10.5281/zenodo.23812057)).

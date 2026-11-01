@@ -2,7 +2,10 @@ cff-version: 1.2.0
 message: "If you use the code or derived data, please cite this repository and the associated manuscript."
 title: "Natural Carbon Wealth of Nations: code and data"
 type: software
-version: 0.1.0
+version: 1.0.0
+date-released: 2026-10-30
+# Concept DOI: always resolves to the latest archived release on Zenodo.
+doi: 10.5281/zenodo.23812056
 repository-code: "https://github.com/aurvl/ncw"
 license: MIT
 authors:
