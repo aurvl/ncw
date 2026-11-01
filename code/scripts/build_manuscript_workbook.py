@@ -27,6 +27,7 @@ SHEET_DESCRIPTIONS = [
     ("04 Table 4 - 2% allocation", "Illustrative allocation equal to 2% of annual GCW by economic group."),
     ("05 Region profile", "Aggregated accounts and related indicators by region."),
     ("06 Economic group profile", "Aggregated accounts and related indicators by economic group."),
+    ("07 Economic group medians", "Medians of entity-level mean account-to-GDP ratios and forest share in NCW. GDP uses the latest available value through 2024; valid entity counts vary by measure."),
     ("08 Gibbs climate-domain rates", "Gibbs et al. published climate-domain and global removals totals."),
     ("09 Gibbs GEZ rates", "Four GEZ rates with and without source-model mangrove pixels."),
     ("10 Gibbs rate sensitivity", "Biome rate plus/minus one spatial standard deviation and entity-level results."),
@@ -178,6 +179,26 @@ def build_workbook_tables(root: Path) -> dict[str, pd.DataFrame]:
         })
     table4 = pd.DataFrame(allocation_rows)
 
+    # Table 7: medians of entity-level mean ratios, calculated from current account outputs.
+    group_order = ["Developed economies", "Developing economies", "LDCs", "SIDS"]
+    ratio_columns = {
+        "median_gcw_gdp_pct": "gcw_share_of_gdp_mean",
+        "median_bcw_gdp_pct": "bcw_share_of_gdp_mean",
+        "median_ncw_gdp_pct": "ncw_share_of_gdp_mean",
+        "median_forest_share_ncw_pct": "gcw_share_of_ncw_mean",
+    }
+    median_rows = []
+    for group_name in group_order:
+        subset = ncw.loc[ncw["economic_group"].eq(group_name)]
+        if subset.empty:
+            raise ValueError(f"No country-level account rows for economic group {group_name!r}.")
+        row = {"economic_group": group_name}
+        for output_column, source_column in ratio_columns.items():
+            values = pd.to_numeric(subset[source_column], errors="coerce").dropna()
+            row[output_column] = round(float(values.median() * 100), 3) if not values.empty else np.nan
+        median_rows.append(row)
+    table7 = pd.DataFrame(median_rows)
+
     profile_path = table_root / "07_geographic_economic_profiles.xlsx"
     profiles = pd.read_excel(profile_path, sheet_name=None)
     region_profile = profiles["Region"]
@@ -254,6 +275,7 @@ def build_workbook_tables(root: Path) -> dict[str, pd.DataFrame]:
         "04 Table 4 - 2% allocation": table4,
         "05 Region profile": region_profile,
         "06 Economic group profile": group_profile,
+        "07 Economic group medians": table7,
         "08 Gibbs climate-domain rates": climate_domain,
         "09 Gibbs GEZ rates": gez_rates,
         "10 Gibbs rate sensitivity": rate_sensitivity,
