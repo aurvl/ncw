@@ -31,43 +31,14 @@ results/tables/
 ├── manuscript/
 │   ├── Manuscript_tables.xlsx
 │   ├── Other.xlsx
-│   ├── Supplementary_account_concentration_2024.csv
-│   ├── Supplementary_accounting_balance_transitions.csv
-│   ├── Supplementary_accounting_balances_2024_by_unit.csv
-│   ├── Supplementary_Busch_action_cost_by_unit.csv
-│   ├── Supplementary_Busch_action_cost_coverage.csv
-│   ├── Supplementary_country_level_accounts_2024.csv
-│   ├── Supplementary_country_level_erosion.csv
-│   ├── Supplementary_deforestation_scenarios.csv
-│   ├── Supplementary_deforestation_trend.csv
-│   ├── Supplementary_Figure2_map_categories.csv
-│   ├── Supplementary_Figure4_Busch_marginal_prices_by_unit.csv
-│   ├── Supplementary_Figure4_finance_allocations_by_group.csv
-│   ├── Supplementary_Figure4_finance_allocations_by_unit.csv
-│   ├── Supplementary_forest_biome_accounting.csv
-│   ├── Supplementary_GCW_erosion_association.csv
-│   ├── Supplementary_GCW_GDP_group_tests_2024.csv
-│   ├── Supplementary_global_account_aggregation_scope.csv
-│   ├── Supplementary_mangrove_reconciliation.csv
-│   ├── Supplementary_national_top10_2024.csv
-│   ├── Supplementary_Pan_rate_comparison.csv
-│   ├── Supplementary_region_profiles_2024.csv
-│   ├── Supplementary_spatial_candidate_standardized_coefficients.csv
-│   ├── Supplementary_spatial_coefficients_all_candidates.csv
-│   ├── Supplementary_spatial_model_selection_evidence.csv
-│   ├── Supplementary_spatial_selection_dossier.csv
-│   ├── Table1_global_carbon_wealth.csv
-│   ├── Table2_geographic_economic_profiles.csv
-│   ├── Table3_forest_capacity_erosion.csv
-│   ├── Table4_our_2pct_gcw_allocation.csv
-│   └── TableS1_forest_biome_additions.csv
+│   └── ... .csv
 └── submitted/
     └── Supplementary_Table.csv
 ~~~
 
 GCW and NCW use the same set of entities. A missing value remains blank in a CSV field or workbook cell and is read as NaN; it is not changed to zero in the result table.
 
-## Column-family conventions
+## Variables-family conventions
 
 In the names below, {biome} takes one of these values: tropical, subtropical, temperate, or boreal. {bce} takes one of these values: saltmarsh, seagrass, or mangrove. {stat} takes one of these values: mean, sd, p05, p50, or p95, when that statistic is calculated.
 
