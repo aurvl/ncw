@@ -106,10 +106,23 @@ export default function Globe({ data, layer, soil, theme, interactive, selected,
       if (code) map.setFeatureState({ source: 'land', id: code }, { hover: true })
       hovered = code
     }
+    // In globe projection MapLibre can report features under a pointer that is off the
+    // visible disk. A pointer is on the globe when unprojecting it and projecting back
+    // returns the same screen point; off the disk, the round trip lands on the horizon.
+    const onGlobe = (point: { x: number; y: number }) => {
+      const back = map.project(map.unproject([point.x, point.y]))
+      return Math.hypot(back.x - point.x, back.y - point.y) < 2
+    }
     // EEZ polygons are BCW source records; a click or hover resolves to their accounting unit.
     const unitOf = (e: MapLayerMouseEvent) => {
       const p = e.features?.[0]?.properties
-      return p ? { code: (p.unit ?? p.code) as string, source: p.unit ? (p.code as string) : undefined } : null
+      if (!p || !onGlobe(e.point)) return null
+      return { code: (p.unit ?? p.code) as string, source: p.unit ? (p.code as string) : undefined }
+    }
+    const clearHover = () => {
+      map.getCanvas().style.cursor = ''
+      setHovered(null)
+      callbacks.current.onHover(null)
     }
     for (const id of ['land-fill', 'eez-fill']) {
       map.on('click', id, (e: MapLayerMouseEvent) => {
@@ -118,16 +131,17 @@ export default function Globe({ data, layer, soil, theme, interactive, selected,
       })
       map.on('mousemove', id, (e: MapLayerMouseEvent) => {
         const hit = unitOf(e)
-        map.getCanvas().style.cursor = hit ? 'pointer' : ''
-        setHovered(hit?.code ?? null)
-        if (hit) callbacks.current.onHover({ ...hit, x: e.point.x, y: e.point.y })
+        if (!hit) return clearHover()
+        map.getCanvas().style.cursor = 'pointer'
+        setHovered(hit.code)
+        callbacks.current.onHover({ ...hit, x: e.point.x, y: e.point.y })
       })
-      map.on('mouseleave', id, () => {
-        map.getCanvas().style.cursor = ''
-        setHovered(null)
-        callbacks.current.onHover(null)
-      })
+      map.on('mouseleave', id, clearHover)
     }
+    // Leaving the globe for empty space clears the tooltip even if no layer reports a leave.
+    map.on('mousemove', (e) => {
+      if (!onGlobe(e.point)) clearHover()
+    })
     mapRef.current = map
     return () => {
       map.remove()
