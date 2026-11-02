@@ -36,6 +36,8 @@ The study values the carbon that forests and coastal and ocean ecosystems remove
 
 The equations and every processing step are in [`docs/PIPELINE.md`](docs/PIPELINE.md) (French: [`docs/PIPELINE_FR.md`](docs/PIPELINE_FR.md)). Sources, versions, and licences are in [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md).
 
+The role of AI tools in code, analysis checks, figures, manuscript preparation, and the web explorer is documented in [`docs/AI_ASSISTANCE.md`](docs/AI_ASSISTANCE.md). Human authors retain responsibility for scientific choices and the final paper.
+
 ## Repository layout
 
 | Folder | Contents |
